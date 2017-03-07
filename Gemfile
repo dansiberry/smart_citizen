@@ -19,6 +19,7 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
+gem 'omniauth-twitter'
 
 group :development, :test do
   gem 'binding_of_caller'
