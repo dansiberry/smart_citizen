@@ -1,2 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<h1>Smart Citizen is here to connect citizens and their local political figures on issues that matter</h1>
+<%= link_to "Search issues that matter to you", posts_path %>
+<%= link_to "Create a new issue", new_post_path %>
+
+<h2>Here are the most upvoted posts of the week</h2>
+<% @postrand.each do |post| %>
+  <div class="card">
+    <%= post.title %>
+    <%= post.category %>
+    <%= post.content %>
+  </div>
+<% end %>

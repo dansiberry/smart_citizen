@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-
-
-
   resources :politicans, only: [:edit, :show, :update]
 
   resources :posts do
