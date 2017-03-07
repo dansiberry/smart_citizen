@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+user = User.new(email: "test@email.com", password: "password")
+user.save
+comment = Comment.new(content: "This is the comment content!")
+comment.save
+post = Post.new(title: "This is the post title")
+post.save
+
+user.posts << post
+user.comments << comment
+post.comments << comment
+
