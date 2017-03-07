@@ -6,8 +6,8 @@
 <h2>Here are the most upvoted posts of the week</h2>
 <% @postrand.each do |post| %>
   <div class="card">
-    post.title
-    post.category
-    post.content
+    <%= post.title %>
+    <%= post.category %>
+    <%= post.content %>
   </div>
 <% end %>
