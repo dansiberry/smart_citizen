@@ -27,3 +27,6 @@ module SmartCitizen
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+
+CLOUDINARY_URL=cloudinary://673641629879187:PlcPnFIY9XxCeHvSX-6giuUbiv0@dvmgzsqg3
