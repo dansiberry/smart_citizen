@@ -1,2 +1,2 @@
-module PoliticansHelper
+module PoliticiansHelper
 end
