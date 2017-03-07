@@ -1,0 +1,4 @@
+<%= form_tag(posts_path, :method => "get", class: 'search', id: "search") do %>
+    <%= select_tag :neighbourhood, options_for_select(ApplicationRecord::NEIGHBOURHOODS, selected: params[:neighbourhood]), include_blank: true %>
+    <%= submit_tag "Search for issues" %>
+<% end %>
