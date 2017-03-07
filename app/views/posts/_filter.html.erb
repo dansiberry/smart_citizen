@@ -1,0 +1,4 @@
+<%= form_tag(posts_path, :method => "get", class: 'filter', id: "filter") do %>
+    <%= select_tag :category, options_for_select(@list_categories, selected: params[:category]), include_blank: true %>
+    <%= submit_tag "Filter" %>
+<% end %>
