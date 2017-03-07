@@ -16,9 +16,12 @@
    <p> none </p>
 <% end %>
 
-
-<%= link_to "Are you a politician? Reply to this", new_post_comment_path(@post) %>
-
 <% if current_user %>
-  <%= link_to "Not a politician? join the conversation", edit_politician_path %>
+  <% if current_user.as_politician %>
+    <%= link_to "reply", new_post_comment_path(@post) %>
+  <% else %>
+    <%= link_to "reply", edit_politician_path %>
+  <% end %>
+<% else %>
+  <%= link_to "join the conversation", new_user_registration_path %>
 <% end %>

@@ -6,6 +6,6 @@ class Post < ApplicationRecord
   scope :by_category, -> (category) { where(category: "#{category}") }
 
   def self.all_categories
-    self.all.map { |post| post.category }.uniq.sort
+    self.all.map { |post| post.category }.select { |a| a.present? }.uniq.sort
   end
 end
