@@ -1,2 +1,16 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<%= link_to "Raise an issue", new_post_path, class: "btn btn-primary" %>
+
+
+<%= render 'filter' %>
+
+<% @posts.each do |post| %>
+
+<%= link_to post_path(post) do %>
+<div class="card">
+  <h3><%= post.title %></h3>
+  <span><%= post.city %> | <%= post.neighbourhood %></span>
+  <h5><%= post.category %></h5>
+</div>
+<% end %>
+
+<% end %>

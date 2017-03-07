@@ -9,11 +9,16 @@
 <p> Post replies:</p>
 <% if !@post.comments.nil? %>
  <% @post.comments.each do |a| %>
-   <p> <%= a.content %> </p>
+   <p>author - <%= a.user.email %> </p>
+   <p>reply - <%= a.content %> </p>
  <%end %>
 <% else %>
    <p> none </p>
 <% end %>
 
 
-<%= link_to "Reply to this", new_post_comment_path(@post) %>
+<%= link_to "Are you a politician? Reply to this", new_post_comment_path(@post) %>
+
+<% if current_user %>
+  <%= link_to "Not a politician? join the conversation", edit_politican_path %>
+<% end %>
