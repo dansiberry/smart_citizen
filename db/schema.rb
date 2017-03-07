@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306173600) do
+ActiveRecord::Schema.define(version: 20170307160452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20170306173600) do
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 
-  create_table "user_as_politicans", force: :cascade do |t|
+  create_table "user_as_politicians", force: :cascade do |t|
     t.boolean  "elected"
     t.string   "political_party"
     t.string   "office"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20170306173600) do
     t.integer  "user_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.index ["user_id"], name: "index_user_as_politicans_on_user_id", using: :btree
+    t.index ["user_id"], name: "index_user_as_politicians_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -82,5 +82,5 @@ ActiveRecord::Schema.define(version: 20170306173600) do
   add_foreign_key "post_comments", "comments"
   add_foreign_key "post_comments", "posts"
   add_foreign_key "posts", "users"
-  add_foreign_key "user_as_politicans", "users"
+  add_foreign_key "user_as_politicians", "users"
 end
