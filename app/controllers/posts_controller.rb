@@ -35,10 +35,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-<<<<<<< HEAD
       params.require(:post).permit(:title, :content, :category, :city, :neighbourhood, :photo, :photo_cache)
-=======
-    params.require(:post).permit(:title, :content, :category, :city, :neighbourhood,:photo, :photo_cache,:photo2, :photo2_cache,:photo3, :photo3_cache)
->>>>>>> master
   end
 end
