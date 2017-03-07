@@ -4,8 +4,10 @@
 <%= link_to "Create a new issue", new_post_path %>
 
 <h2>Here are the most upvoted posts of the week</h2>
-<div class="card">
-  post.title
-  post.category
-  post.content
-</div>
+<% @postrand.each do |post| %>
+  <div class="card">
+    post.title
+    post.category
+    post.content
+  </div>
+<% end %>
