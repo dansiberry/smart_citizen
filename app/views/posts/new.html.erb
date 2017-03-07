@@ -1,2 +1,9 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>Create your post</h1>
+<%= simple_form_for @post do |f| %>
+  <%= f.input :title %>
+  <%= f.input :content %>
+  <%= f.input :category %>
+  <%= f.input :city %>
+  <%= f.input :neighbourhood %>
+  <%= f.button :submit %>
+<% end %>

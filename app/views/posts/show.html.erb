@@ -1,2 +1,19 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h1>Post title:<%= @post.title %></h1>
+<p>post category: <%= @post.category %></p>
+<p>post content: <%= @post.content %></p>
+<p>post city: <%= @post.city %></p>
+<p>post neighbourhood: <%= @post.neighbourhood %></p>
+
+
+<p>post author: <%= @post.user.email %></p>
+<p> Post replies:</p>
+<% if !@post.comments.nil? %>
+ <% @post.comments.each do |a| %>
+   <p> <%= a.content %> </p>
+ <%end %>
+<% else %>
+   <p> none </p>
+<% end %>
+
+
+<%= link_to "Reply to this", new_post_comment_path(@post) %>
