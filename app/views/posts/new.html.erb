@@ -4,6 +4,6 @@
   <%= f.input :content %>
   <%= f.input :category %>
   <%= f.input :city %>
-  <%= f.input :neighbourhood %>
+  <%= f.input :neighbourhood, collection: @neighbourhoods %>
   <%= f.button :submit %>
 <% end %>
