@@ -19,13 +19,16 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
-    @posts = @posts.by_neighbourhood(params[:neighbourhood]) if params[:neighbourhood].present?
     @list_categories = Post.all_categories
+
+    @posts = Post
+
+    if params[:neighbourhood].present?
+      @posts = @posts.by_neighbourhood(params[:neighbourhood])
+    end
+
     if params[:category].present?
-      @posts = Post.by_category(params[:category])
-    else
-      @posts
+      @posts = @posts.by_category(params[:category])
     end
   end
 
