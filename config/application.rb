@@ -29,4 +29,3 @@ module SmartCitizen
 end
 
 
-CLOUDINARY_URL=cloudinary://673641629879187:PlcPnFIY9XxCeHvSX-6giuUbiv0@dvmgzsqg3
