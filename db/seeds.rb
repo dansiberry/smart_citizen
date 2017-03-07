@@ -6,14 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user = User.new(email: "test@email.com", password: "password")
+user = User.new(email: "tony.stark@gmail.com", password: "iamironman")
+politician_user = User.new(email: "sergio.rivas@phc.gov", password: "yeah")
 user.save
-comment = Comment.new(content: "This is the comment content!")
+politician_user.save
+
+comment = Comment.new(content: "I will vote against the repeal and replace bill.")
 comment.save
-post = Post.new(title: "This is the post title")
+post = Post.new(title: "Save Obamacare", content: "Obamacare saved my life. What are you doing to make sure it is not repealed?")
 post.save
 
 user.posts << post
-user.comments << comment
+politician_user.comments << comment
 post.comments << comment
 

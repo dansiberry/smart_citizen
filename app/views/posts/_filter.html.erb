@@ -1,0 +1,4 @@
+<%= form_tag(posts_path, :method => "get", class: 'filter', id: "filter") do %>
+    <%= text_field_tag :category, params[:category] %>
+    <%= submit_tag "Filter", :name => nil %>
+<% end %>
