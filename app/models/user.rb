@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   has_many :comments
   has_many :posts
+  has_many :user_posts
+  has_many :tagged_in, :class_name => :Post, through: :user_posts, :foreign_key => "post_id", source: :post
   has_one :as_politician, :class_name => :UserAsPolitician, :foreign_key => "user_id"
 
   def self.find_for_twitter_oauth(auth)
