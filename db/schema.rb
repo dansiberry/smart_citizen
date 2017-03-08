@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170308105531) do
+ActiveRecord::Schema.define(version: 20170308105820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.string   "content"
+    t.text     "content"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20170308105531) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
-    t.string   "content"
+    t.text     "content"
     t.string   "category"
     t.string   "city"
     t.string   "neighbourhood"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20170308105531) do
     t.boolean  "elected"
     t.string   "political_party"
     t.string   "office"
-    t.string   "bio"
+    t.text     "bio"
     t.string   "responsabilities"
     t.integer  "user_id"
     t.datetime "created_at",       null: false

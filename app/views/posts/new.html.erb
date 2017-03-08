@@ -4,7 +4,7 @@
   <%= f.input :content %>
   <%= f.input :category %>
   <%= f.input :city %>
-  <%= f.input :neighbourhood, collection: @neighbourhoods %>
+  <%= f.input :neighbourhood, collection: ApplicationRecord::NEIGHBOURHOODS %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
 
