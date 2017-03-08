@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170308105531) do
+ActiveRecord::Schema.define(version: 20170308143215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20170308105531) do
   end
 
   create_table "user_as_politicians", force: :cascade do |t|
-    t.boolean  "elected"
+    t.boolean  "elected",          null: false
     t.string   "political_party"
     t.string   "office"
     t.string   "bio"
