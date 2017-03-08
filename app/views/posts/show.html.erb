@@ -4,24 +4,32 @@
 <p>post city: <%= @post.city %></p>
 <p>post neighbourhood: <%= @post.neighbourhood %></p>
 
+<% if policy(@post).edit? %>
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %>
+
+<% if policy(@post).destroy? %>
+<%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>
+
 
 <p>post author: <%= @post.user.email %></p>
 <p> Post replies:</p>
 <% if !@post.comments.nil? %>
- <% @post.comments.each do |a| %>
-   <p>author - <%= a.user.email %> </p>
-   <p>reply - <%= a.content %> </p>
- <%end %>
+<% @post.comments.each do |a| %>
+<p>author - <%= a.user.email %> </p>
+<p>reply - <%= a.content %> </p>
+<%end %>
 <% else %>
-   <p> none </p>
+<p> none </p>
 <% end %>
 
 <% if current_user %>
-  <% if current_user.as_politician %>
-    <%= link_to "reply", new_post_comment_path(@post) %>
-  <% else %>
-    <%= link_to "reply", edit_politician_path %>
-  <% end %>
+<% if current_user.as_politician %>
+<%= link_to "reply", new_post_comment_path(@post) %>
 <% else %>
-  <%= link_to "join the conversation", new_user_registration_path %>
+<%= link_to "reply", edit_politician_path %>
+<% end %>
+<% else %>
+<%= link_to "join the conversation", new_user_registration_path %>
 <% end %>

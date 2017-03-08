@@ -1,16 +1,22 @@
 class PoliticiansController < ApplicationController
   def show
     @user = User.find(params[:id])
+    authorize @user
   end
 
   def edit
     @user = current_user
-    @political_info = @user.as_politician || UserAsPolitician.new
+    @political_info = @user.as_politician || UserAsPolitician.new(user_id: current_user.id)
+
+    authorize @user
+    authorize @political_info
   end
 
   def update
     @user = current_user
+    authorize @user
     @political_info = UserAsPolitician.new(user_as_politician_params)
+    authorize @political_info
     @political_info.user = current_user
     @political_info.save
     @user.save
