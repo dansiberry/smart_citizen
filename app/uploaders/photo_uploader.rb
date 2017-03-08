@@ -23,7 +23,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
     # "http://res.cloudinary.com/dx71nytge/image/upload/v1488559906/adleha8dtxeyyt4z8bay.jpg"
   #   # For Rails 3.1+ asset pipeline compatibility:
     # ActionController::Base.helpers.asset_path([version_name, "adleha8dtxeyyt4z8bay"].compact.join('_'))
-    "/images/" + [version_name, "adleha8dtxeyyt4z8bay"].compact.join('_')
+    "/images/" + [version_name, "sample.jpg"].compact.join('_')
   end
 
   # Process files as they are uploaded:

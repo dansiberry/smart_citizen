@@ -1,6 +1,11 @@
 class PoliticiansController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    @user = UserAsPolitician.find(params[:id]).user
+  end
+
+  def destroy
+    UserAsPolitician.find(current_user.as_politician.id).destroy
+    redirect_to root_path
   end
 
   def edit
@@ -14,7 +19,7 @@ class PoliticiansController < ApplicationController
     @political_info.user = current_user
     @political_info.save
     @user.save
-    redirect_to politician_path(@political_info.id)
+    redirect_to politician_path(@political_info)
   end
 
   private
