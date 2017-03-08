@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170308110005) do
 
   # These are extensions that must be enabled in order to support this database
@@ -46,7 +47,7 @@ ActiveRecord::Schema.define(version: 20170308110005) do
   end
 
   create_table "user_as_politicians", force: :cascade do |t|
-    t.boolean  "elected"
+    t.boolean  "elected",          null: false
     t.string   "political_party"
     t.string   "office"
     t.text     "bio"

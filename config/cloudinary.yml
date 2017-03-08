@@ -1,0 +1,18 @@
+development:
+  cloud_name: dx71nytge
+  api_key: '778415239891436'
+  api_secret: XKhy0AmJZ2vhF3VpPihRd6XyBkQ
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dx71nytge
+  api_key: '778415239891436'
+  api_secret: XKhy0AmJZ2vhF3VpPihRd6XyBkQ
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dx71nytge
+  api_key: '778415239891436'
+  api_secret: XKhy0AmJZ2vhF3VpPihRd6XyBkQ
+  enhance_image_tag: true
+  static_image_support: false
