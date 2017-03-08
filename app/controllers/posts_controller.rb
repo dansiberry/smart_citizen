@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :show, :index ]
+
   def new
     @post = Post.new
-    @neighbourhoods = ["Eixample", "Sant Marti", "Gracia", "Ciutat Vella", "Sants-Montjuïc", "Sarrià-Sant Gervasi", "Les Corts", "Horta-Guinardó", "Nou Barris", "Sant Andreu"]
   end
 
   def create
@@ -30,7 +31,6 @@ class PostsController < ApplicationController
     else
       @posts = Post.all
     end
-  # test this when Dan has added neighbourhood column to users table
 
     if params[:category].present?
       @posts = @posts.by_category(params[:category])
