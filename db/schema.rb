@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20170307160452) do
     t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "photo"
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 20170307160452) do
     t.integer  "user_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "photo"
     t.index ["user_id"], name: "index_user_as_politicians_on_user_id", using: :btree
   end
 
