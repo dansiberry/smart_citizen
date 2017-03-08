@@ -3,6 +3,9 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :post_comments
   has_many :comments, through: :post_comments
+  has_many :users, through: :user_posts
+  has_many :user_posts
+
 
   scope :by_category, -> (category) { where(category: category) }
   scope :by_neighbourhood, -> (neighbourhood) { where(neighbourhood: neighbourhood)}
