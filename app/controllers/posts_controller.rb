@@ -25,7 +25,12 @@ class PostsController < ApplicationController
 
     if params[:neighbourhood].present?
       @posts = @posts.by_neighbourhood(params[:neighbourhood])
+    elsif user_signed_in? && params[:neighbourhood].blank?
+      @posts = @posts.by_neighbourhood(current_user.neighbourhood)
+    else
+      @posts = Post.all
     end
+  # test this when Dan has added neighbourhood column to users table
 
     if params[:category].present?
       @posts = @posts.by_category(params[:category])
