@@ -1,9 +1,9 @@
-<h1><%= @user.fist_name %> <%= @user.last_name %> </h1>
-    <% if @user.as_politician.elected? %>
+<h1><%= @user.first_name %> <%= @user.last_name %> </h1>
+    <% if @user.as_politician.elected %>
     <p><b>Elected </b></p>
     <% end %>
-    <p>@user.as_politican.political_party</p>
-    <p>@user.as_politican.office</p>
-    <p>@user.as_politican.bio</p>
-    <p>@user.as_politican.responsabilities</p>
+    <p><%= @user.as_politician.political_party %></p>
+    <p><%=@user.as_politician.office %></p>
+    <p><%=@user.as_politician.bio %></p>
+    <p><%= @user.as_politician.responsabilities %></p>
 
