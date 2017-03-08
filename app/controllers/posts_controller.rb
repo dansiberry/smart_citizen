@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :show, :index ]
+
   def new
     @post = Post.new
-    @neighbourhoods = ["Eixample", "Sant Marti", "Gracia", "Ciutat Vella", "Sants-Montjuïc", "Sarrià-Sant Gervasi", "Les Corts", "Horta-Guinardó", "Nou Barris", "Sant Andreu"]
   end
 
   def create
@@ -25,6 +26,10 @@ class PostsController < ApplicationController
 
     if params[:neighbourhood].present?
       @posts = @posts.by_neighbourhood(params[:neighbourhood])
+    elsif user_signed_in? && params[:neighbourhood].blank?
+      @posts = @posts.by_neighbourhood(current_user.neighbourhood)
+    else
+      @posts = Post.all
     end
 
     if params[:category].present?

@@ -10,13 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170308143215) do
+=======
+ActiveRecord::Schema.define(version: 20170308110005) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.string   "content"
+    t.text     "content"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -34,7 +38,7 @@ ActiveRecord::Schema.define(version: 20170308143215) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
-    t.string   "content"
+    t.text     "content"
     t.string   "category"
     t.string   "city"
     t.string   "neighbourhood"
@@ -49,7 +53,7 @@ ActiveRecord::Schema.define(version: 20170308143215) do
     t.boolean  "elected",          null: false
     t.string   "political_party"
     t.string   "office"
-    t.string   "bio"
+    t.text     "bio"
     t.string   "responsabilities"
     t.integer  "user_id"
     t.datetime "created_at",       null: false
@@ -84,6 +88,12 @@ ActiveRecord::Schema.define(version: 20170308143215) do
     t.string   "last_name"
     t.string   "address"
     t.string   "city"
+    t.string   "postal_code"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "twitter_picture_url"
+    t.string   "token"
+    t.datetime "token_expiry"
     t.string   "neighbourhood"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
