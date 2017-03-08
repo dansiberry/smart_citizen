@@ -5,7 +5,8 @@
 
   <div class="form-inputs">
     <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :address, required: true, autofocus: true %>
+    <%= f.input :city, required: true, autofocus: true, input_html: {value: 'Barcelona'} %>
+    <%= f.input :neighbourhood, required: true, autofocus: true, collection: ApplicationRecord::NEIGHBOURHOODS %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
     <%= f.input :password_confirmation, required: true %>
   </div>
