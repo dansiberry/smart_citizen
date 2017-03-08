@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :politicians, only: [:edit, :show, :update]
+  resources :politicians, only: [:edit, :show, :update, :destroy]
 
   resources :posts do
     resources :comments, only:[:new, :create, :edit, :update, :destroy]
