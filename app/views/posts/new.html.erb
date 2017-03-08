@@ -4,8 +4,9 @@
   <%= f.input :content %>
   <%= f.input :category %>
   <%= f.input :city %>
-  <%= f.input :neighbourhood %>
+  <%= f.input :neighbourhood, collection: @neighbourhoods %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
+
   <%= f.button :submit %>
 <% end %>
