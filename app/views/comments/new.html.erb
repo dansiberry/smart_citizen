@@ -1,5 +1,5 @@
 <h1>New Comment</h1>
-<p> Your reply to <%= @post.title %> </p>
+<p> Your reply to: <%= @post.title %> </p>
 
 <%= simple_form_for [@post,@comment] do |f| %>
   <%= f.input :content %>

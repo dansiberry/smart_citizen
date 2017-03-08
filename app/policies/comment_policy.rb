@@ -6,7 +6,7 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def create?
-    user.as_politician?
+    user.as_politician
   end
 
   def update?
