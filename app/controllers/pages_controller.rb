@@ -9,5 +9,4 @@ class PagesController < ApplicationController
     end
     @postrand
   end
-
 end

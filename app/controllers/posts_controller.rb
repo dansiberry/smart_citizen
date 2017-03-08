@@ -20,10 +20,15 @@ class PostsController < ApplicationController
 
   def index
     @list_categories = Post.all_categories
+
+    @posts = Post
+
+    if params[:neighbourhood].present?
+      @posts = @posts.by_neighbourhood(params[:neighbourhood])
+    end
+
     if params[:category].present?
-      @posts = Post.by_category(params[:category])
-    else
-      @posts = Post.all
+      @posts = @posts.by_category(params[:category])
     end
   end
 
@@ -36,6 +41,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :category, :city, :neighbourhood,:photo, :photo_cache,:photo2, :photo2_cache,:photo3, :photo3_cache)
+      params.require(:post).permit(:title, :content, :category, :city, :neighbourhood, :photo, :photo_cache)
   end
 end
