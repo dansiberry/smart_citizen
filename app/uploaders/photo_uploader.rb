@@ -19,12 +19,12 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
-  # def default_url
+  def default_url
+    # "http://res.cloudinary.com/dx71nytge/image/upload/v1488559906/adleha8dtxeyyt4z8bay.jpg"
   #   # For Rails 3.1+ asset pipeline compatibility:
-  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  #
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  # end
+    # ActionController::Base.helpers.asset_path([version_name, "adleha8dtxeyyt4z8bay"].compact.join('_'))
+    "/images/" + [version_name, "adleha8dtxeyyt4z8bay"].compact.join('_')
+  end
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]

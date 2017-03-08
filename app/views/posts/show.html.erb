@@ -4,6 +4,9 @@
 <p>post city: <%= @post.city %></p>
 <p>post neighbourhood: <%= @post.neighbourhood %></p>
 
+<%= cl_image_tag(@post.photo.url) %>
+
+
 
 <p>post author: <%= @post.user.email %></p>
 <p> Post replies:</p>
