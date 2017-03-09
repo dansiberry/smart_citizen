@@ -20,8 +20,10 @@
   <% if current_user.as_politician %>
     <%= link_to "reply", new_post_comment_path(@post) %>
   <% else %>
-    <%= link_to "reply", edit_politician_path %>
+    <p>Are you running for office?</p>
+    <%= link_to "Create a politician profile and join the conversation", edit_politician_path %>
   <% end %>
 <% else %>
-  <%= link_to "join the conversation", new_user_registration_path %>
+  <p>Are you an elected official?</p>
+  <%= mail_to "claimprofile@smartcitizen.org", "Claim your profile and join the conversation", html_options = { subject: "Claim my public profile", body: "Hi Smart Citizen, \n I would like to claim the public profile for the elected office in the above email address. \n Thank you in advance,\n"} %>
 <% end %>
