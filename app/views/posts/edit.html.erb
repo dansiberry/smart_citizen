@@ -1,2 +1,12 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<h1>Edit your post</h1>
+<%= simple_form_for @post do |f| %>
+  <%= f.input :title %>
+  <%= f.input :content %>
+  <%= f.input :category %>
+  <%= f.input :city %>
+  <%= f.input :neighbourhood, collection: ApplicationRecord::NEIGHBOURHOODS %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+
+  <%= f.button :submit %>
+<% end %>
