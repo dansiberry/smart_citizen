@@ -3,6 +3,7 @@
 <p>post content: <%= @post.content %></p>
 <p>post city: <%= @post.city %></p>
 <p>post neighbourhood: <%= @post.neighbourhood %></p>
+  <%= cl_image_tag @post.photo %>
 
 <% if policy(@post).edit? %>
 <%= link_to 'Edit', edit_post_path(@post) %> |
@@ -11,7 +12,6 @@
 <% if policy(@post).destroy? %>
 <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %>
-
 
 <p>post author: <%= @post.user.email %></p>
 <p> Post replies:</p>
