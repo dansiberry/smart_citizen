@@ -1,4 +1,5 @@
 class PoliticiansController < ApplicationController
+  before_filter :authorize_users_politicians
   def show
     @user_as_politician = UserAsPolitician.find(params[:id])
     @user = @user_as_politician.user
@@ -37,6 +38,11 @@ class PoliticiansController < ApplicationController
 
   def user_as_politician_params
     params.require(:user_as_politician).permit(:elected, :political_party, :bio, :responsabilities, :photo, :photo_cache)
+  end
+
+  def authorize_users_politicians
+    authorize @user_as_politician
+    authorize @user
   end
 
 end
