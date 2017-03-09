@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments, only:[:new, :create, :edit, :update, :destroy]
+    member do
+    put "like", to: "posts#upvote"
+    put "dislike", to: "posts#downvote"
+  end
   end
 
   devise_for :users,

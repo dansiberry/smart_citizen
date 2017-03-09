@@ -16,17 +16,7 @@ class Post < ApplicationRecord
   scope :by_category, -> (category) { where(category: category) }
   scope :by_neighbourhood, -> (neighbourhood) { where(neighbourhood: neighbourhood)}
 
-  def upvote
-    @post = Post.find(params[:id])
-    @post.upvote_by current_user
-    redirect_to :back
-  end
 
-  def downvote
-    @post = Post.find(params[:id])
-    @post.downvote_by current_user
-    redirect_to :back
-  end
 
   def self.all_categories
     self.all.map { |post| post.category }.select { |a| a.present? }.uniq.sort

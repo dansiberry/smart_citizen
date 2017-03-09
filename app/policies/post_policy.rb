@@ -20,4 +20,12 @@ class PostPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def upvote?
+    true
+  end
+
+  def downvote?
+    true
+  end
 end
