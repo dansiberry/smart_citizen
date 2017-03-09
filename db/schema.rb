@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170308143215) do
+ActiveRecord::Schema.define(version: 20170309131353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,15 +46,17 @@ ActiveRecord::Schema.define(version: 20170308143215) do
   end
 
   create_table "user_as_politicians", force: :cascade do |t|
-    t.boolean  "elected",          null: false
+    t.boolean  "elected",                          null: false
     t.string   "political_party"
     t.string   "office"
     t.text     "bio"
     t.string   "responsabilities"
     t.integer  "user_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "photo"
+    t.string   "twitter_handle"
+    t.boolean  "verified",         default: false, null: false
     t.index ["user_id"], name: "index_user_as_politicians_on_user_id", using: :btree
   end
 
