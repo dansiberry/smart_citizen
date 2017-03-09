@@ -1,15 +1,20 @@
 <h1><%= @user.first_name %> <%= @user.last_name %> </h1>
-    <% if @user.as_politician.elected %>
+    <% if @user_as_politician.elected %>
     <p><b>Elected </b></p>
     <% end %>
-    <p><%= @user.as_politician.political_party %></p>
-    <p><%=@user.as_politician.office %></p>
-    <p><%=@user.as_politician.bio %></p>
-    <p><%= @user.as_politician.responsabilities %></p>
+    <p><%= @user_as_politician.political_party %></p>
+    <p><%=@user_as_politician.office %></p>
+    <p><%=@user_as_politician.bio %></p>
+    <p><%= @user_as_politician.responsabilities %></p>
 
-<% if current_user == @user %>
-<%= link_to "Edit", edit_politician_path(@user) %>
-<% end %>
-<% if current_user == @user %>
-<%= link_to "Delete", politician_path(@user), method: :delete %>
-<% end %>
+
+
+    <% if @user_as_politician.photo.file.public_id %>
+      <%= cl_image_tag @user_as_politician.photo %>
+    <% else %>
+      <%= image_tag @user_as_politician.default_picture_url  %>
+    <% end %>
+
+<%= link_to "Edit", edit_politician_path(params[:id]) %>
+
+<%= link_to "Delete", politician_path(params[:id]), method: :delete %>

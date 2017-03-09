@@ -3,21 +3,25 @@
 <p>post content: <%= @post.content %></p>
 <p>post city: <%= @post.city %></p>
 <p>post neighbourhood: <%= @post.neighbourhood %></p>
+  <%= cl_image_tag @post.photo %>
 
-<%= cl_image_tag(@post.photo.url) %>
-<%= image_tag @post.photo.url %>
+<% if policy(@post).edit? %>
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %>
 
-
+<% if policy(@post).destroy? %>
+<%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>
 
 <p>post author: <%= @post.user.email %></p>
 <p> Post replies:</p>
 <% if !@post.comments.nil? %>
- <% @post.comments.each do |a| %>
-   <p>author - <%= a.user.email %> </p>
-   <p>reply - <%= a.content %> </p>
- <%end %>
+<% @post.comments.each do |a| %>
+<p>author - <%= a.user.email %> </p>
+<p>reply - <%= a.content %> </p>
+<%end %>
 <% else %>
-   <p> none </p>
+<p> none </p>
 <% end %>
 
 ???????
@@ -31,8 +35,27 @@
   <% if current_user.as_politician %>
     <%= link_to "reply", new_post_comment_path(@post) %>
   <% else %>
-    <%= link_to "reply", edit_politician_path %>
+
+    <p>Are you running for office?</p>
+    <%= link_to "Create a politician profile and join the conversation", edit_politician_path %>
   <% end %>
 <% else %>
-  <%= link_to "join the conversation", new_user_registration_path %>
+  <p>Are you an elected official?</p>
+  <%= mail_to "claimprofile@smartcitizen.org", "Claim your profile and join the conversation", html_options = { subject: "Claim my public profile", body: "Hi Smart Citizen, \n I would like to claim the public profile for the elected office in the above email address. \n Thank you in advance,\n"} %>
+
+<% end %>
+
+<h3>Related Posts</h3>
+<% if @related_posts.empty? %>
+  <p>none yet</p>
+<% else %>
+  <% @related_posts.each do |related_post| %>
+    <div class="post-card">
+      <p><strong>Title: <%= related_post.title %></strong></p>
+      <p>Category: <%= related_post.category %></p>
+      <p>Content: <%= related_post.content %></p>
+      <p>Neighbourhood: <%= related_post.neighbourhood %></p>
+      <p>Author: <%= related_post.user.email %></p>
+    </div>
+<% end %>
 <% end %>

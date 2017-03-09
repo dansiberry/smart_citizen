@@ -4,27 +4,30 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   include Cloudinary::CarrierWave
 
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  # process eager: true  # Force version generation at upload time.
+  # process convert: 'jpg'
 
-  # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+  # # Include RMagick or MiniMagick support:
+  # # include CarrierWave::RMagick
+  # # include CarrierWave::MiniMagick
 
-  # Override the directory where uploaded files will be stored.
-  # This is a sensible default for uploaders that are meant to be mounted:
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  end
+  # # Choose what kind of storage to use for this uploader:
+  # storage :file
+  # # storage :fog
 
-  # Provide a default URL as a default if there hasn't been a file uploaded:
-  def default_url
-    # "http://res.cloudinary.com/dx71nytge/image/upload/v1488559906/adleha8dtxeyyt4z8bay.jpg"
-  #   # For Rails 3.1+ asset pipeline compatibility:
-    # ActionController::Base.helpers.asset_path([version_name, "adleha8dtxeyyt4z8bay"].compact.join('_'))
-    "/images/" + [version_name, "sample.jpg"].compact.join('_')
-  end
+  # # Override the directory where uploaded files will be stored.
+  # # This is a sensible default for uploaders that are meant to be mounted:
+  # def store_dir
+  #   "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  # end
+
+  # # Provide a default URL as a default if there hasn't been a file uploaded:
+  # def default_url
+  #   # "http://res.cloudinary.com/dx71nytge/image/upload/v1488559906/adleha8dtxeyyt4z8bay.jpg"
+  # #   # For Rails 3.1+ asset pipeline compatibility:
+  #   # ActionController::Base.helpers.asset_path([version_name, "adleha8dtxeyyt4z8bay"].compact.join('_'))
+  #   "/images/" + [version_name, "sample.jpg"].compact.join('_')
+  # end
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
