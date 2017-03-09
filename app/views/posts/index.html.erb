@@ -1,16 +1,20 @@
+<% if policy(Post).create? %>
 <%= link_to "Raise an issue", new_post_path, class: "btn btn-primary" %>
+<% end %>
 
 
 <%= render 'filter' %>
 
 <% @posts.each do |post| %>
 
+<% if policy(post).show? %>
 <%= link_to post_path(post) do %>
 <div class="card">
   <h3><%= post.title %></h3>
   <span><%= post.city %> | <%= post.neighbourhood %></span>
   <h5><%= post.category %></h5>
 </div>
+<% end %>
 <% end %>
 
 <% end %>
