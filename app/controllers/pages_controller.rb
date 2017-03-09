@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def home
     @postrand = []
     3.times do
-      post = Post.find(1)
+      post = Post.first
       @postrand << post
     end
     @postrand
