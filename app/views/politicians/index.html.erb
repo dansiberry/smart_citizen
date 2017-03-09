@@ -1,0 +1,13 @@
+<h1 style = "text-align:center;">Your politicians</h1>
+<div class="container">
+  <% @politicians.each do |a| %>
+    <%= link_to politician_path(a) do %>
+      <div class="col-xs-3">
+        <p><%= a.user.first_name || "first-name" %></p>
+        <p><%= a.user.last_name || "last-name" %></p>
+        <p><%= a.office || "office" %></p>
+        <p><%= a.responsabilities || "responsabilities" %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>

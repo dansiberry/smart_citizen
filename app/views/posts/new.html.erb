@@ -9,7 +9,7 @@
   <%= f.input :photo_cache, as: :hidden %>
 
   <p> Select a relevent party to answer your question</p>
-  <%= f.input :users, required: true, autofocus: true, collection: UserAsPolitician.all, :label_method => lambda { |item| "#{item.id},<br> #{item.created_at}".html_safe }%>
+  <%= f.input :users, required: true, autofocus: true, collection: User.list_of_users_as_politicians, :label_method => lambda { |item| "#{item.email}".html_safe }%>
 
   <%= f.button :submit %>
 <% end %>

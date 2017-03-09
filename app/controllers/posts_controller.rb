@@ -9,6 +9,8 @@ class PostsController < ApplicationController
     post = Post.new(post_params)
     post.user = current_user
     post.save
+    post.user_posts.create(user_id: params[:post][:users])
+
     redirect_to post_path(post)
   end
 

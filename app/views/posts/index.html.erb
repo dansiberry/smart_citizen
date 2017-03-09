@@ -1,16 +1,22 @@
-<%= link_to "Raise an issue", new_post_path, class: "btn btn-primary" %>
+<div class="container">
+    <div class="row">
+      <div class="col-xs-2 col-xs-offset-5">
+        <%= link_to "Raise an issue", new_post_path, class: "btn btn-primary" %>
+        <%= render 'filter' %>
+      </div>
+      <div class="col-xs-2">
+        <h2><%= link_to "Your Politicians", politicians_path %></h2>
+      </div>
+    </div>
 
+    <% @posts.each do |post| %>
+    <div class="col-xs-4">
+        <%= link_to post_path(post) do %>
+          <h3><%= post.title %></h3>
+          <span><%= post.city %> | <%= post.neighbourhood %></span>
+          <h5><%= post.category %></h5>
+        <% end %>
+    </div>
 
-<%= render 'filter' %>
-
-<% @posts.each do |post| %>
-
-<%= link_to post_path(post) do %>
-<div class="card">
-  <h3><%= post.title %></h3>
-  <span><%= post.city %> | <%= post.neighbourhood %></span>
-  <h5><%= post.category %></h5>
+    <% end %>
 </div>
-<% end %>
-
-<% end %>

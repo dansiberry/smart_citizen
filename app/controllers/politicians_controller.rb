@@ -8,6 +8,10 @@ class PoliticiansController < ApplicationController
     redirect_to root_path
   end
 
+  def index
+    @politicians = UserAsPolitician.all.map{|a| a}.uniq
+  end
+
   def edit
     @user = current_user
     @political_info = @user.as_politician || UserAsPolitician.new

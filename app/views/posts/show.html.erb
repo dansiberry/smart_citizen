@@ -20,6 +20,13 @@
    <p> none </p>
 <% end %>
 
+???????
+<% @post.users.each do |user| %>
++ <%= user.email  %>
+<% end %>
+
+
+
 <% if current_user %>
   <% if current_user.as_politician %>
     <%= link_to "reply", new_post_comment_path(@post) %>
