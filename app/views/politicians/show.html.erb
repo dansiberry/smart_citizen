@@ -6,6 +6,8 @@
     <p><%=@user.as_politician.office %></p>
     <p><%=@user.as_politician.bio %></p>
     <p><%= @user.as_politician.responsabilities %></p>
+      <%= cl_image_tag(@user.as_politician.photo.url) %>
+      <%= image_tag @user.as_politician.photo.url %>
 
 <% if current_user == @user %>
 <%= link_to "Edit", edit_politician_path(@user) %>
