@@ -10,7 +10,7 @@ class PoliticiansController < ApplicationController
   end
 
   def index
-    @politicians = UserAsPolitician.all.map{|a| a}.uniq
+    @politicians = policy_scope(UserAsPolitician).all.map{|a| a}.uniq
   end
 
   def edit
