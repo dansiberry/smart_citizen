@@ -17,6 +17,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @related_posts = Post
+    @related_posts = @related_posts.by_category(@post.category)
   end
 
   def index
