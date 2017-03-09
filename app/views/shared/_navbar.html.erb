@@ -14,10 +14,10 @@
     <!-- Setting the twitter avatar -->
     <% avatar_url = current_user.twitter_picture_url || "http://placehold.it/30x30" %>
     <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-    <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+
+    <ul>
     <li><%= link_to "My Account", edit_user_registration_path %></li>
-      <li><a href="#">Dashboard</a></li>
-      <li><a href="#">Log Out</a></li>
+      <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
     </ul>
     <div class="navbar-wagon-item">
       <%= link_to "Create an issue", new_post_path %>
@@ -26,7 +26,7 @@
       <i class="fa fa-home"></i>
       <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
       <i class="fa fa-sign-out"></i>
-    </div>
+      </div>
 
     <% else %>
 
