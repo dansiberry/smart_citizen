@@ -15,6 +15,8 @@
           <h3><%= post.title %></h3>
           <span><%= post.city %> | <%= post.neighbourhood %></span>
           <h5><%= post.category %></h5>
+          <p> Upvotes: <%= post.get_upvotes.size %> </p>
+          <p> Downvotes: <%= post.get_downvotes.size %> </p>
         <% end %>
     </div>
     <% end %>

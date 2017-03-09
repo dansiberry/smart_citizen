@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'redis'
 gem 'faker'
+gem 'acts_as_votable', '~> 0.10.0'
 
 gem 'sass-rails'
 gem 'jquery-rails'
