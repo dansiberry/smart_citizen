@@ -2,11 +2,8 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
    def home
-  #   @postrand = []
-  #   3.times do
-  #     post = Post.first
-  #     @postrand << post
-  #   end
-  #   @postrand
+    @posts = Post.all
+    @upvoted_posts = @posts.sort_by {|a| a.votes_for.size}
+    @upvoted_posts = @upvoted_posts.first(3)
    end
 end
