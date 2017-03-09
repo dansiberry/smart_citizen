@@ -34,13 +34,24 @@
 #     post.comments << comment
 # end
 
+UserAsPolitician.destroy_all
+User.destroy_all
+UserPost.destroy_all
+Post.destroy_all
+
 user = User.new(password: "password", email: "taggedin@email.com", first_name: "TAGGED")
 user.save
-post = Post.new(title: "Test title")
+politician = UserAsPolitician.new(political_party: 'Democrats', office: 'Mayor', elected: true, user: user)
+politician.save
+
+post = Post.new(title: "Test title", category: 'water', city: 'Paris', neighbourhood: ApplicationRecord::NEIGHBOURHOODS.sample)
 post.users << user
 post.save
 user2 = User.new(password: "password", email: "author@email.com", first_name: "AUTHOR")
 user2.save
 post.user = user2
 post.save
+
+user_post = UserPost.new(user: user, post: post)
+user_post.save
 

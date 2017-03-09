@@ -1,4 +1,5 @@
 class PoliticiansController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
   def show
     @user_as_politician = UserAsPolitician.find(params[:id])
     @user = @user_as_politician.user

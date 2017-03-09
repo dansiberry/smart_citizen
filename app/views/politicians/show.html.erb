@@ -6,14 +6,25 @@
     <p><%=@user_as_politician.office %></p>
     <p><%=@user_as_politician.bio %></p>
     <p><%= @user_as_politician.responsabilities %></p>
-
-
-
     <% if @user_as_politician.photo.try(:file).try(:public_id) %>
       <%= cl_image_tag @user_as_politician.photo %>
     <% else %>
       <%= image_tag @user_as_politician.default_picture_url  %>
     <% end %>
+
+
+    <p>Issues assigned to her/him:</p>
+      <ul>
+        <% @user.tagged_in.each do |post|  %>
+          <li><%= post.title %>
+            <%= post.content %>
+            <%= post.title %>
+            <%= post.category %>
+          </li>
+        <% end %>
+      </ul>
+    <p></p>
+
 
 <%= link_to "Edit", edit_politician_path(params[:id]) %>
 
