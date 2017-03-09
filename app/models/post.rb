@@ -6,6 +6,11 @@ class Post < ApplicationRecord
   has_many :users, through: :user_posts
   has_many :user_posts
 
+  validates :title, presence: true
+  validates :category, presence: true
+  validates :city, presence: true
+  validates :neighbourhood, presence: true
+
 
   scope :by_category, -> (category) { where(category: category) }
   scope :by_neighbourhood, -> (neighbourhood) { where(neighbourhood: neighbourhood)}
