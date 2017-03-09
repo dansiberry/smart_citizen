@@ -5,15 +5,23 @@
 <p>post neighbourhood: <%= @post.neighbourhood %></p>
   <%= cl_image_tag @post.photo %>
 
+<% if policy(@post).edit? %>
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %>
+
+<% if policy(@post).destroy? %>
+<%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>
+
 <p>post author: <%= @post.user.email %></p>
 <p> Post replies:</p>
 <% if !@post.comments.nil? %>
- <% @post.comments.each do |a| %>
-   <p>author - <%= a.user.email %> </p>
-   <p>reply - <%= a.content %> </p>
- <%end %>
+<% @post.comments.each do |a| %>
+<p>author - <%= a.user.email %> </p>
+<p>reply - <%= a.content %> </p>
+<%end %>
 <% else %>
-   <p> none </p>
+<p> none </p>
 <% end %>
 
 <% if current_user %>
@@ -21,7 +29,8 @@
     <%= link_to "reply", new_post_comment_path(@post) %>
   <% else %>
     <%= link_to "reply", edit_politician_path %>
+    <p>You must have a politician account to reply to issues.</p>
   <% end %>
 <% else %>
-  <%= link_to "join the conversation", new_user_registration_path %>
+  <%= link_to "Are you a concerned politician? Join the conversation", new_user_registration_path %>
 <% end %>

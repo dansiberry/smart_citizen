@@ -1,7 +1,11 @@
 
 <h1>Smart Citizen is here to connect citizens and their local political figures on issues that matter</h1>
+
 <%= render 'shared/search' %>
+
+<% if policy(Post).create? %>
 <%= link_to "Raise an issue", new_post_path, class: "btn btn-primary" %>
+<% end %>
 
 <h2>Here are the most upvoted posts of the week</h2>
 <% @postrand.each do |post| %>
