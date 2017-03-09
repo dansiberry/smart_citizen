@@ -24,7 +24,6 @@
 <p> none </p>
 <% end %>
 
-???????
 <% @post.users.each do |user| %>
 + <%= user.email  %>
 <% end %>
@@ -37,7 +36,7 @@
   <% else %>
 
     <p>Are you running for office?</p>
-    <%= link_to "Create a politician profile and join the conversation", edit_politician_path %>
+    <%= link_to "Create a politician profile and join the conversation", new_politician_path %>
   <% end %>
 <% else %>
   <p>Are you an elected official?</p>
