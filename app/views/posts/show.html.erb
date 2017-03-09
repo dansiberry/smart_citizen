@@ -37,3 +37,18 @@
   <%= mail_to "claimprofile@smartcitizen.org", "Claim your profile and join the conversation", html_options = { subject: "Claim my public profile", body: "Hi Smart Citizen, \n I would like to claim the public profile for the elected office in the above email address. \n Thank you in advance,\n"} %>
 
 <% end %>
+
+<h3>Related Posts</h3>
+<% if @related_posts.empty? %>
+  <p>none yet</p>
+<% else %>
+  <% @related_posts.each do |related_post| %>
+    <div class="post-card">
+      <p><strong>Title: <%= related_post.title %></strong></p>
+      <p>Category: <%= related_post.category %></p>
+      <p>Content: <%= related_post.content %></p>
+      <p>Neighbourhood: <%= related_post.neighbourhood %></p>
+      <p>Author: <%= related_post.user.email %></p>
+    </div>
+<% end %>
+<% end %>

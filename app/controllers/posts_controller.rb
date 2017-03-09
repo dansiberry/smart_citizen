@@ -21,7 +21,11 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    authorize @post
+     authorize @post
+    # this is for the related posts
+    @related_posts = Post
+    @related_posts = @related_posts.by_category(@post.category).to_a
+    @related_posts = @related_posts.delete_if { |related_post| related_post.id == @post.id }
   end
 
   def index
