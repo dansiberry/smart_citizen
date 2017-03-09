@@ -1,5 +1,7 @@
 class PoliticiansController < ApplicationController
+
   skip_before_action :authenticate_user!, only: [ :home, :show, :index ]
+
   def show
     @user_as_politician = UserAsPolitician.find(params[:id])
     @user = @user_as_politician.user
