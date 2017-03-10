@@ -1,5 +1,7 @@
 class PoliticiansController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
+
+  skip_before_action :authenticate_user!, only: [ :home, :show, :index ]
+
   def show
     @user_as_politician = UserAsPolitician.find(params[:id])
     @user = @user_as_politician.user
@@ -42,9 +44,7 @@ class PoliticiansController < ApplicationController
   def update
     user_as_politician = UserAsPolitician.find(params[:id])
     user_as_politician.update(user_as_politician_params)
-
     redirect_to politician_path(params[:id])
-
   end
 
   def destroy
