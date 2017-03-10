@@ -35,9 +35,12 @@
 # end
 
 UserAsPolitician.delete_all
-User.delete_all
 UserPost.delete_all
+PostComment.delete_all
 Post.delete_all
+Comment.delete_all
+User.delete_all
+
 
 citizen_user = User.new(
   first_name: "Erin",
@@ -48,6 +51,26 @@ citizen_user = User.new(
   email: "erin.douglas@gmail.com",
   password: "iamawesome")
 citizen_user.save
+
+citizen_user2 = User.new(
+  first_name: "Dan",
+  last_name: "Siberry",
+  address: "Carrer de Ferlandina, 37",
+  city: "Barcelona",
+  neighbourhood: "Gracia",
+  email: "dan.siberry@gmail.com",
+  password: "iamawesome")
+citizen_user2.save
+
+citizen_user3 = User.new(
+  first_name: "Gustavo",
+  last_name: "De Vita",
+  address: "Carrer de Sardenya, 229",
+  city: "Barcelona",
+  neighbourhood: "Eixample",
+  email: "gustavo.devita@riseup.net",
+  password: "iamawesome")
+citizen_user3.save
 
 user = User.new(first_name: "Ada",
   last_name: "Colau Ballano",
@@ -62,6 +85,7 @@ politician = UserAsPolitician.new(political_party: 'Barcelona en Comú',
   elected: true,
   twitter_handle: "@AdaColau",
   user: user)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/ada_colau_1.jpg"
 politician.save
 
 user2 = User.new(first_name: "Gerardo",
@@ -77,6 +101,7 @@ politician2 = UserAsPolitician.new(political_party: 'Barcelona en Comú',
   elected: true,
   twitter_handle: "@G_Pisarello",
   user: user2)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/gerardopisarello263x395_1.jpg"
 politician2.save
 
 user3 = User.new(first_name: "Laia",
@@ -92,23 +117,92 @@ politician3 = UserAsPolitician.new(political_party: 'Barcelona en Comú',
   elected: true,
   twitter_handle: "@Laiaortiz",
   user: user3)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/laia_ortiz_0.jpg"
 politician3.save
 
+post = Post.new(
+  title: "Pickpockets",
+  category: 'pickpockets',
+  content: "I haven't been targeted by pickpockets but everytime my friends visit me here, they get something stolen. It's giving our city a bad reputation.",
+  city: 'Barcelona',
+  neighbourhood: ApplicationRecord::NEIGHBOURHOODS.sample)
+post.users << user
+post.save
+post.user = citizen_user
+post.save
 
-10.times do |i|
-  post = Post.new(
-    title: "Issue #{rand(0..999)}",
-    category: 'pickpockets',
-    content: "#{rand(0..999)} I haven't been targeted by pickpockets but everytime my friends visit me here, they get something stolen. It's giving our city a bad reputation.",
-    city: 'Barcelona',
-    neighbourhood: ApplicationRecord::NEIGHBOURHOODS.sample)
-  post.users << [user, user2, user3].sample
-  post.save
-  post.user = citizen_user
-  post.save
 
-  user_post = UserPost.new(user: user, post: post)
-  user_post.save
-end
+post2 = Post.new(
+  title: "Dog poo in the streets",
+  category: 'dog poo',
+  content: "Can we do something about the dog poo on the street? People are not picking up after their dogs.",
+  city: 'Barcelona',
+  neighbourhood: ApplicationRecord::NEIGHBOURHOODS.sample)
+post2.remote_photo_url = "http://19mvmv3yn2qc2bdb912o1t2n.wpengine.netdna-cdn.com/science/files/2014/12/PooPower.jpg"
+post2.users << user2
+post2.save
+post2.user = citizen_user2
+post2.save
 
+
+post3 = Post.new(
+  title: "Homeless sleeping in banks",
+  category: 'homeless',
+  content: "A fair number of banks have homeless sleeping in the indoor ATM areas. It makes it unappealing to withdraw money.",
+  city: 'Barcelona',
+  neighbourhood: ApplicationRecord::NEIGHBOURHOODS.sample)
+post3.remote_photo_url = "http://www.causemark.com/wp-content/uploads/2014/04/homeless.jpg"
+post3.users << user3
+post3.save
+post3.user = citizen_user
+post3.save
+
+
+post4 = Post.new(
+  title: "Housing prices rising",
+  category: "housing",
+  content: "The rent on flats is going up and it's hard to find an affordable place in the city. What are you doing to combat this?",
+  city: 'Barcelona',
+  neighbourhood: ApplicationRecord::NEIGHBOURHOODS.sample)
+post4.users << user
+post4.save
+post4.user = citizen_user2
+post4.save
+
+
+post5 = Post.new(
+  title: "Bike lanes",
+  category: "bicycles",
+  content: "There's not enough bike lanes in the city.",
+  city: 'Barcelona',
+  neighbourhood: ApplicationRecord::NEIGHBOURHOODS.sample)
+post5.remote_photo_url = "http://s4.reutersmedia.net/resources/r/?m=02&d=20120808&t=2&i=640081434&w=&fh=545px&fw=&ll=&pl=&sq=&r=2012-08-08T152143Z_1_CBRE87716OC00_RTROPTP_0_GREECE-BICYCLES"
+post5.users << user3
+post5.save
+post5.user = citizen_user3
+post5.save
+
+
+post6 = Post.new(
+  title: "Noise in the streets",
+  category: "noise",
+  content: "It's hard to sleep when people are making noise on the street. Do we have city ordinances against this after a certain hour?",
+  city: 'Barcelona',
+  neighbourhood: ApplicationRecord::NEIGHBOURHOODS.sample)
+post6.users << user
+post6.save
+post6.user = citizen_user3
+post6.save
+
+
+post7 = Post.new(
+  title: "Don't ban AirBnB",
+  category: "AirBnB",
+  content: "I heard you are considering banning the service and this would be a mistake. My rent goes up all the time and renting one of my spare rooms is how I'm able to keep my apartment.",
+  city: 'Barcelona',
+  neighbourhood: ApplicationRecord::NEIGHBOURHOODS.sample)
+post7.users << user
+post7.save
+post7.user = citizen_user2
+post7.save
 
