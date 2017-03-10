@@ -35,9 +35,11 @@
 # end
 
 UserAsPolitician.delete_all
-User.delete_all
 UserPost.delete_all
+PostComment.delete_all
+User.delete_all
 Post.delete_all
+Comment.delete_all
 
 citizen_user = User.new(
   first_name: "Erin",

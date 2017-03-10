@@ -37,8 +37,8 @@ class PostsController < ApplicationController
 
     if params[:neighbourhood].present?
       @posts = @posts.by_neighbourhood(params[:neighbourhood])
-    elsif user_signed_in? && params[:neighbourhood].blank?
-      @posts = @posts.by_neighbourhood(current_user.neighbourhood)
+    # elsif user_signed_in? && params[:neighbourhood].blank?
+    #   @posts = @posts.by_neighbourhood(current_user.neighbourhood)
     else
       @posts = Post.all
     end
@@ -46,6 +46,8 @@ class PostsController < ApplicationController
     if params[:category].present?
       @posts = @posts.by_category(params[:category])
     end
+
+    @posts = @posts.sort_by {|a| a.votes_for.size}.reverse
   end
 
   def destroy
