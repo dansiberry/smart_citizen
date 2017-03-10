@@ -19,7 +19,7 @@
 <% @post.comments.each do |a| %>
 <p>author - <%= a.user.email %> </p>
 <p>reply - <%= a.content %> </p>
-<%end %>
+<% end %>
 <% else %>
 <p> none </p>
 <% end %>
@@ -75,4 +75,4 @@
     <% end %>
     </div>
 <% end %>
-<% end %>
+
