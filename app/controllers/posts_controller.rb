@@ -11,7 +11,12 @@ class PostsController < ApplicationController
     authorize post
     post.user = current_user
     post.save
-    post.user_posts.create(user_id: params[:post][:users])
+
+    list_user_ids = params[:post][:users].select {|i| i.present? }
+
+    list_user_ids.each do |user_id|
+      post.user_posts.create(user_id: user_id)
+    end
 
     redirect_to post_path(post)
   end
