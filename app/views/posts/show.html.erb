@@ -1,8 +1,8 @@
-<h1>Post title:<%= @post.title %></h1>
-<p>post category: <%= @post.category %></p>
-<p>post content: <%= @post.content %></p>
-<p>post city: <%= @post.city %></p>
-<p>post neighbourhood: <%= @post.neighbourhood %></p>
+<h1>Issue title:<%= @post.title %></h1>
+<p>Category: <%= @post.category %></p>
+<p>Content: <%= @post.content %></p>
+<p>City: <%= @post.city %></p>
+<p>Neighbourhood: <%= @post.neighbourhood %></p>
   <%= cl_image_tag @post.photo %>
 
 <% if policy(@post).edit? %>
@@ -13,8 +13,8 @@
 <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %>
 
-<p>post author: <%= @post.user.email %></p>
-<p> Post replies:</p>
+<p>Issue raised by: <%= @post.user.email %></p>
+<p>Issue replies:</p>
 <% if !@post.comments.blank? %>
 <% @post.comments.each do |a| %>
 <p>author - <%= a.user.email %> </p>
@@ -24,7 +24,7 @@
 <p> none </p>
 <% end %>
 
-<h2>Politicians tagged in this post:</h2>
+<h2>Politicians tagged in this issue:</h2>
 <% @post.users.each do |politician| %>
   <p>
   <%= politician.email  %>
@@ -50,7 +50,7 @@
 
 <% end %>
 
-<h3>Related Posts</h3>
+<h3>Related Issues</h3>
 <% if @related_posts.empty? %>
   <p>none yet</p>
 <% else %>
