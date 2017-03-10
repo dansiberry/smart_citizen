@@ -39,17 +39,68 @@ User.destroy_all
 UserPost.destroy_all
 Post.destroy_all
 
-user = User.new(password: "password", email: "taggedin@email.com", first_name: "TAGGED")
+citizen_user = User.new(first_name: "Erin",
+  last_name: "Douglas",
+  address: "Carrer de Sardenya, 229",
+  city: "Barcelona",
+  neighbourhood: "Eixample",
+  email: "erin.douglas@gmail.com",
+  password: "iamawesome")
+citizen_user.save
+
+user = User.new(first_name: "Ada",
+  last_name: "Colau Ballano",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Ciutat Vella",
+  email: "alcaldessa@bcn.cat",
+  password: "ACB2017")
 user.save
-politician = UserAsPolitician.new(political_party: 'Democrats', office: 'Mayor', elected: true, user: user)
+politician = UserAsPolitician.new(political_party: 'Barcelona en Comú',
+  office: 'Mayor',
+  elected: true,
+  twitter_handle: "@AdaColau",
+  user: user)
 politician.save
 
-post = Post.new(title: "Test title", category: 'water', city: 'Paris', neighbourhood: ApplicationRecord::NEIGHBOURHOODS.sample)
+user2 = User.new(first_name: "Gerardo",
+  last_name: "Pisarello Prados",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Ciutat Vella",
+  email: "gpisarellop@bcn.cat",
+  password: "GPP2017")
+user2.save
+politician2 = UserAsPolitician.new(political_party: 'Barcelona en Comú',
+  office: 'First Deputy Mayor',
+  elected: true,
+  twitter_handle: "@G_Pisarello",
+  user: user2)
+politician2.save
+
+user3 = User.new(first_name: "Laia",
+  last_name: "Ortiz Castellví",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Ciutat Vella",
+  email: "lortizc@bcn.cat",
+  password: "LOC2017")
+user3.save
+politician3 = UserAsPolitician.new(political_party: 'Barcelona en Comú',
+  office: 'Third Deputy Mayor',
+  elected: true,
+  twitter_handle: "@Laiaortiz",
+  user: user3)
+politician3.save
+
+post = Post.new(title: "Pickpockets",
+  category: 'pickpockets',
+  content: "I haven't been targeted by pickpockets but everytime my friends visit me here, they get something stolen. It's giving our city a bad reputation.",
+  city: 'Barcelona',
+  neighbourhood: ApplicationRecord::NEIGHBOURHOODS.sample)
 post.users << user
 post.save
-user2 = User.new(password: "password", email: "author@email.com", first_name: "AUTHOR")
-user2.save
-post.user = user2
+post.user = citizen_user
 post.save
 
 user_post = UserPost.new(user: user, post: post)
