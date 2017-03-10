@@ -9,7 +9,7 @@
   <%= f.input :photo_cache, as: :hidden %>
 
   <p> Select a politician who you would like to respond</p>
-  <%= f.input :users, required: true, autofocus: true, collection: User.list_of_users_as_politicians, :label_method => lambda { |item| "#{item.email}".html_safe }%>
+  <%= f.input :users, required: true, autofocus: true, collection: User.list_of_users_as_politicians, :label_method => lambda { |item| "#{item.first_name} #{item.last_name} <img src='#{item.as_politician.photo.url.nil? ? 'http://insight.venturebeat.com/sites/all/modules/features/vb_intel_analysts/assets/images/analyst-placeholder-avatar.png' : item.as_politician.photo.url }'>".html_safe }%>
 
   <%= f.button :submit %>
 <% end %>
