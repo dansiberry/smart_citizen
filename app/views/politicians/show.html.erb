@@ -13,7 +13,7 @@
     <% end %>
 
 
-    <p>Here are their answers to some posts: </p>
+    <p>Here are their answers to some issues: </p>
       <ul>
         <% @user.comments.each do |comment|  %>
           <%= link_to post_path(comment.posts[0]) do %>
