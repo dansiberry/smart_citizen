@@ -34,12 +34,13 @@
 #     post.comments << comment
 # end
 
-UserAsPolitician.destroy_all
-User.destroy_all
-UserPost.destroy_all
-Post.destroy_all
+UserAsPolitician.delete_all
+User.delete_all
+UserPost.delete_all
+Post.delete_all
 
-citizen_user = User.new(first_name: "Erin",
+citizen_user = User.new(
+  first_name: "Erin",
   last_name: "Douglas",
   address: "Carrer de Sardenya, 229",
   city: "Barcelona",
@@ -93,16 +94,21 @@ politician3 = UserAsPolitician.new(political_party: 'Barcelona en Comú',
   user: user3)
 politician3.save
 
-post = Post.new(title: "Pickpockets",
-  category: 'pickpockets',
-  content: "I haven't been targeted by pickpockets but everytime my friends visit me here, they get something stolen. It's giving our city a bad reputation.",
-  city: 'Barcelona',
-  neighbourhood: ApplicationRecord::NEIGHBOURHOODS.sample)
-post.users << user
-post.save
-post.user = citizen_user
-post.save
 
-user_post = UserPost.new(user: user, post: post)
-user_post.save
+10.times do |i|
+  post = Post.new(
+    title: "Issue #{rand(0..999)}",
+    category: 'pickpockets',
+    content: "#{rand(0..999)} I haven't been targeted by pickpockets but everytime my friends visit me here, they get something stolen. It's giving our city a bad reputation.",
+    city: 'Barcelona',
+    neighbourhood: ApplicationRecord::NEIGHBOURHOODS.sample)
+  post.users << [user, user2, user3].sample
+  post.save
+  post.user = citizen_user
+  post.save
+
+  user_post = UserPost.new(user: user, post: post)
+  user_post.save
+end
+
 
