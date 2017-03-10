@@ -13,17 +13,30 @@
     <% end %>
 
 
-    <p>Issues assigned to her/him:</p>
+    <p>Here are their answers to some posts: </p>
+      <ul>
+        <% @user.comments.each do |comment|  %>
+          <%= link_to post_path(comment.posts[0]) do %>
+            <li>
+              <%= comment.content %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+
+    <p>All the issues assigned to her/him with :</p>
       <ul>
         <% @user.tagged_in.each do |post|  %>
-          <li><%= post.title %>
-            <%= post.content %>
-            <%= post.title %>
-            <%= post.category %>
+          <li>
+            <%= link_to post_path(post) do %>
+              <%= post.title %>
+            <% end %>
+              <%= post.content %>
+              <%= post.title %>
+              <%= post.category %>
           </li>
         <% end %>
       </ul>
-    <p></p>
 
 
 <%= link_to "Edit", edit_politician_path(params[:id]) %>
