@@ -37,13 +37,10 @@ class PostsController < ApplicationController
 
     if params[:neighbourhood].present?
       @posts = @posts.by_neighbourhood(params[:neighbourhood])
-      @neighbourhood = params[:neighbourhood]
     elsif user_signed_in? && params[:neighbourhood].blank?
       @posts = @posts.by_neighbourhood(current_user.neighbourhood)
-      @neighbourhood = current_user.neighbourhood
     else
       @posts = Post.all
-      @neighbourhood = "all neighbourhoods"
     end
 
     if params[:category].present?
@@ -55,6 +52,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
+    authorize @post
     @post.destroy
     redirect_to posts_path
   end
