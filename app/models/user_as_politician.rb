@@ -7,6 +7,6 @@ class UserAsPolitician < ApplicationRecord
   validates :elected, presence: true
 
   def default_picture_url
-    "http://cache-graphicslib.viator.com/graphicslib/thumbs360x240/2512/SITours/barcelona-modernism-and-gaudi-walking-tour-in-barcelona-168394.jpg"
+    "http://www.iconsfind.com/wp-content/uploads/2015/08/20150831_55e46b1c0c44b.png"
   end
 end
