@@ -24,6 +24,15 @@
         <% end %>
       </ul>
     <p>Issues she/he addressed: </p>
+      <ul>
+        <% @user.comments.each do |post|  %>
+          <li><%= post.title %>
+            <%= post.content %>
+            <%= post.title %>
+            <%= post.category %>
+          </li>
+        <% end %>
+      </ul>
 
 
 <%= link_to "Edit", edit_politician_path(params[:id]) %>
