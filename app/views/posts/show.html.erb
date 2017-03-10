@@ -56,11 +56,13 @@
 <% else %>
   <% @related_posts.each do |related_post| %>
     <div class="post-card">
+    <%= link_to post_path(related_post) do %>
       <p><strong>Title: <%= related_post.title %></strong></p>
       <p>Category: <%= related_post.category %></p>
       <p>Content: <%= related_post.content %></p>
       <p>Neighbourhood: <%= related_post.neighbourhood %></p>
       <p>Author: <%= related_post.user.email %></p>
+    <% end %>
     </div>
 <% end %>
 <% end %>
