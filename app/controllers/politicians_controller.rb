@@ -42,7 +42,9 @@ class PoliticiansController < ApplicationController
   end
 
   def update
+
     user_as_politician = UserAsPolitician.find(params[:id])
+    authorize user_as_politician
     user_as_politician.update(user_as_politician_params)
     redirect_to politician_path(params[:id])
   end
