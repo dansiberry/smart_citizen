@@ -6,14 +6,14 @@
     <p><%=@user_as_politician.office %></p>
     <p><%=@user_as_politician.bio %></p>
     <p><%= @user_as_politician.responsabilities %></p>
-    <% if @user_as_politician.photo.try(:file).try(:public_id) %>
+ <% if @user_as_politician.photo.try(:file).try(:public_id) %>
       <%= cl_image_tag @user_as_politician.photo %>
     <% else %>
       <%= image_tag @user_as_politician.default_picture_url  %>
     <% end %>
 
-
-    <p>Here are their answers to some posts: </p>
+    <% if @user.comments.present? %>
+    <p>Here are their answers to some issues: </p>
       <ul>
         <% @user.comments.each do |comment|  %>
           <%= link_to post_path(comment.posts[0]) do %>
@@ -23,8 +23,10 @@
           <% end %>
         <% end %>
       </ul>
+      <% end %>
 
-    <p>All the issues assigned to her/him with :</p>
+    <p>All the issues assigned to her/him:</p>
+    <% if @user.tagged_in.present? %>
       <ul>
         <% @user.tagged_in.each do |post|  %>
           <li>
@@ -37,8 +39,11 @@
           </li>
         <% end %>
       </ul>
+      <% else %>
+      <p>none</p>
+      <% end %>
 
 
-<%= link_to "Edit", edit_politician_path(params[:id]) %>
+<%= link_to "Edit", edit_politician_path(params[:id]) %> |
 
 <%= link_to "Delete", politician_path(params[:id]), method: :delete %>

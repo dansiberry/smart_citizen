@@ -1,8 +1,8 @@
-<h1>Post title:<%= @post.title %></h1>
-<p>post category: <%= @post.category %></p>
-<p>post content: <%= @post.content %></p>
-<p>post city: <%= @post.city %></p>
-<p>post neighbourhood: <%= @post.neighbourhood %></p>
+<h1>Issue title:<%= @post.title %></h1>
+<p>Category: <%= @post.category %></p>
+<p>Content: <%= @post.content %></p>
+<p>City: <%= @post.city %></p>
+<p>Neighbourhood: <%= @post.neighbourhood %></p>
   <%= cl_image_tag @post.photo %>
 
 <% if policy(@post).edit? %>
@@ -13,22 +13,35 @@
 <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %>
 
-<p>post author: <%= @post.user.email %></p>
-<p> Post replies:</p>
-<% if !@post.comments.nil? %>
+<p>Issue raised by: <%= @post.user.email %></p>
+<p>Issue replies:</p>
+<% if !@post.comments.blank? %>
 <% @post.comments.each do |a| %>
 <p>author - <%= a.user.email %> </p>
 <p>reply - <%= a.content %> </p>
-<%end %>
+<% end %>
 <% else %>
 <p> none </p>
 <% end %>
 
-<% @post.users.each do |user| %>
-  <%= user.email  %>
+<h2>Politicians tagged in this issue:</h2>
+<% @post.users.each do |politician| %>
+  <p>
+  <%= politician.email  %>
+  </p>
+    <p>This politician is not currently on the platform. You should send him/her an email or retweet the issue:</p>
+      <% if politician.as_politician.verified == false  %>
+        <%= mail_to "#{politician.email}", "Email", html_options = { subject: "I would like your opinion on...", body: "Dear representative, \n I would like to have your opinion on the subject of #{@post.title}: could you please join SmartCitizen to address my concerns and that of others? You can reply directly at http://www.smartcitizen.yeah/post/#{@post.id}\n Thank you in advance,\n"} %>
+
+          <% text = "I would like to have your opinion on #{@post.title}: please join us http://www.smartcitizen.yeah/post/#{@post.id} to answer us" %>
+
+          <a href="https://twitter.com/intent/tweet?screen_name=<%= politician.as_politician.twitter_handle %>&text=<%= CGI.escape(text) %>" class="twitter-mention-button" data-show-count="false">
+            Tweet to <%= politician.as_politician.twitter_handle %>
+          </a>
+
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <% end %>
 <% end %>
-
-
 
 
 <% if current_user %>
@@ -45,17 +58,21 @@
 
 <% end %>
 
-<h3>Related Posts</h3>
+<h3>Related Issues</h3>
 <% if @related_posts.empty? %>
   <p>none yet</p>
 <% else %>
   <% @related_posts.each do |related_post| %>
     <div class="post-card">
+      <%= link_to post_path(related_post) do %>
+
       <p><strong>Title: <%= related_post.title %></strong></p>
+      <% end %>
       <p>Category: <%= related_post.category %></p>
       <p>Content: <%= related_post.content %></p>
       <p>Neighbourhood: <%= related_post.neighbourhood %></p>
       <p>Author: <%= related_post.user.email %></p>
+    <% end %>
     </div>
 <% end %>
-<% end %>
+
