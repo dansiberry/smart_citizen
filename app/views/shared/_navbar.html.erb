@@ -21,6 +21,9 @@
     </ul>
     <div class="navbar-wagon-item">
       <%= link_to "Create an issue", new_post_path %>
+      <% if current_user.as_politician %>
+      <%= link_to "My Profile", politician_path(current_user.as_politician.id) %>
+      <% end %>
       <i class="fa fa-user"></i>
       <%= link_to "Search issues around me", posts_path %>
       <i class="fa fa-home"></i>
