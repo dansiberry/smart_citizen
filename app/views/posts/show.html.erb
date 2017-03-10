@@ -15,7 +15,7 @@
 
 <p>post author: <%= @post.user.email %></p>
 <p> Post replies:</p>
-<% if !@post.comments.nil? %>
+<% if !@post.comments.blank? %>
 <% @post.comments.each do |a| %>
 <p>author - <%= a.user.email %> </p>
 <p>reply - <%= a.content %> </p>
@@ -24,11 +24,16 @@
 <p> none </p>
 <% end %>
 
-<% @post.users.each do |user| %>
-  <%= user.email  %>
+<h2>Politicians tagged in this post:</h2>
+<% @post.users.each do |politician| %>
+  <p>
+  <%= politician.email  %>
+  </p>
+    <p>This politician is not currently on the platform. You should send him/her an email or retweet the issue:</p>
+      <% if politician.as_politician.verified == false  %>
+        <%= mail_to "#{politician.email}", "Email", html_options = { subject: "I would like your opinion on...", body: "Dear representative, \n I would like to have your opinion on the subject of #{@post.title}: could you please join SmartCitizen to address my concerns and that of others? You can reply directly at http://www.smartcitizen.yeah/post/#{@post.id}\n Thank you in advance,\n"} %>
+      <% end %>
 <% end %>
-
-
 
 
 <% if current_user %>
