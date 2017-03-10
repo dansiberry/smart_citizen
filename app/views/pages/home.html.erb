@@ -8,3 +8,10 @@
 <% end %>
 
 <h2>Here are the most upvoted posts of the week</h2>
+<% @upvoted_posts.each do |popular_post| %>
+<div class="issue-card">
+<%= popular_post.title %>
+<%= popular_post.category %>
+<%= popular_post.neighbourhood %>
+</div>
+<% end %>
