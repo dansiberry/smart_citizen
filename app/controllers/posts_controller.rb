@@ -49,6 +49,8 @@ class PostsController < ApplicationController
     if params[:category].present?
       @posts = @posts.by_category(params[:category])
     end
+
+    @posts = @posts.sort_by {|a| a.votes_for.size}.reverse
   end
 
   def destroy

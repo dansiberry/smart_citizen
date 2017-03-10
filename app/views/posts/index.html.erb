@@ -20,9 +20,8 @@
           <% end %>
           <p> Upvote: <%= post.get_upvotes.size %> </p>
           <%= link_to like_post_path(post), method: :put do %>
-            Upvote
+            Upvote ^
           <% end %>
-          <p> Downvote: <%= post.get_downvotes.size %> </p>
     </div>
     <% end %>
 </div>
