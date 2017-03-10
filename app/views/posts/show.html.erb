@@ -28,13 +28,6 @@
   <%= user.email  %>
 <% end %>
 
-<% if user_as_politician.tagged_in.verified == false %>
-  <%= mail_to "#" do %>
-  <%= "Email her or him !"%>
-    <% if user_as_politician.tagged_in.twitter_handle %>
-      <%= "Tweet directly this issue at her or him !" %>
-    <% end %>
-<% end %>
 
 
 
