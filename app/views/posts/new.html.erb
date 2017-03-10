@@ -1,4 +1,4 @@
-<h1>Create your post</h1>
+<h1>Create your issue</h1>
 <%= simple_form_for @post do |f| %>
   <%= f.input :title %>
   <%= f.input :content %>
@@ -8,7 +8,7 @@
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
 
-  <p> Select a relevent party to answer your question</p>
+  <p> Select a politician who you would like to respond</p>
   <%= f.input :users, required: true, autofocus: true, collection: User.list_of_users_as_politicians, :label_method => lambda { |item| "#{item.email}".html_safe }%>
 
   <%= f.button :submit %>
