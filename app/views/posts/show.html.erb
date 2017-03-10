@@ -32,6 +32,14 @@
     <p>This politician is not currently on the platform. You should send him/her an email or retweet the issue:</p>
       <% if politician.as_politician.verified == false  %>
         <%= mail_to "#{politician.email}", "Email", html_options = { subject: "I would like your opinion on...", body: "Dear representative, \n I would like to have your opinion on the subject of #{@post.title}: could you please join SmartCitizen to address my concerns and that of others? You can reply directly at http://www.smartcitizen.yeah/post/#{@post.id}\n Thank you in advance,\n"} %>
+
+          <% text = "I would like to have your opinion on #{@post.title}: please join us http://www.smartcitizen.yeah/post/#{@post.id} to answer us" %>
+
+          <a href="https://twitter.com/intent/tweet?screen_name=<%= politician.as_politician.twitter_handle %>&text=<%= CGI.escape(text) %>" class="twitter-mention-button" data-show-count="false">
+            Tweet to <%= politician.as_politician.twitter_handle %>
+          </a>
+
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
       <% end %>
 <% end %>
 
@@ -56,8 +64,10 @@
 <% else %>
   <% @related_posts.each do |related_post| %>
     <div class="post-card">
-    <%= link_to post_path(related_post) do %>
+      <%= link_to post_path(related_post) do %>
+
       <p><strong>Title: <%= related_post.title %></strong></p>
+      <% end %>
       <p>Category: <%= related_post.category %></p>
       <p>Content: <%= related_post.content %></p>
       <p>Neighbourhood: <%= related_post.neighbourhood %></p>
