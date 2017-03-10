@@ -12,7 +12,6 @@ class CommentsController < ApplicationController
     comment.user = current_user
     post = Post.find(params[:post_id])
     authorize post
-    comment.posts << post
     post.comments << comment
     comment.save
     redirect_to post_path(Post.find(params[:post_id]))
