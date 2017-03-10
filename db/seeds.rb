@@ -55,9 +55,9 @@ citizen_user.save
 citizen_user2 = User.new(
   first_name: "Dan",
   last_name: "Siberry",
-  address: "Carrer de Sardenya, 229",
+  address: "Carrer de Ferlandina, 37",
   city: "Barcelona",
-  neighbourhood: "Eixample",
+  neighbourhood: "Gracia",
   email: "dan.siberry@gmail.com",
   password: "iamawesome")
 citizen_user2.save
