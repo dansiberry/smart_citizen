@@ -16,12 +16,12 @@
 <p>Issue raised by: <%= @post.user.email %></p>
 <p>Issue replies:</p>
 <% if !@post.comments.blank? %>
-<% @post.comments.each do |a| %>
-<p>author - <%= a.user.email %> </p>
-<p>reply - <%= a.content %> </p>
-<% end %>
+  <% @post.comments.each do |a| %>
+    <p>author - <%= a.user.email %> </p>
+    <p>reply - <%= a.content %> </p>
+  <% end %>
 <% else %>
-<p> none </p>
+  <p> none </p>
 <% end %>
 
 <h2>Politicians tagged in this issue:</h2>
