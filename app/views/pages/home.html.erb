@@ -1,5 +1,4 @@
-
-<h1>Smart Citizen is here to connect citizens and their local political figures on issues that matter</h1>
+<h1>Connect with local politicians on issues that matter to you</h1>
 
 <%= render 'shared/search' %>
 
@@ -9,9 +8,13 @@
 
 <h2>Here are the most upvoted posts of the week</h2>
 <% @upvoted_posts.each do |popular_post| %>
-<div class="issue-card">
-<%= popular_post.title %>
-<%= popular_post.category %>
-<%= popular_post.neighbourhood %>
-</div>
+  <div class="issue-card">
+    <%= link_to post_path(popular_post) do %>
+      <%= popular_post.title %>
+      <%= popular_post.category %>
+      <%= popular_post.neighbourhood %>
+      <% end %>
+      <span> <%= popular_post.get_upvotes.size %> </span>
+      <%= link_to "^", like_post_path(popular_post), method: :put %>
+  </div>
 <% end %>

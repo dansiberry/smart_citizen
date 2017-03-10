@@ -3,6 +3,8 @@
       <div class="col-xs-8 col-xs-offset-2">
         <%= link_to "Raise an issue", new_post_path, class: "btn btn-primary" %>
         <div class="col-xs-6">
+        You are searching for issues in
+        <%= @neighbourhood %>
           <%= render 'filter' %>
         </div>
         <h5 style = "display: inline-block"><%= link_to "Your Politicians", politicians_path %></h5>
@@ -18,9 +20,8 @@
           <% end %>
           <p> Upvote: <%= post.get_upvotes.size %> </p>
           <%= link_to like_post_path(post), method: :put do %>
-            Upvote
+            Upvote ^
           <% end %>
-          <p> Downvote: <%= post.get_downvotes.size %> </p>
     </div>
     <% end %>
 </div>
