@@ -1,5 +1,5 @@
 <%= form_tag(posts_path, :method => "get", class: 'filter', id: "filter") do %>
 <%= select_tag :category, options_for_select(@list_categories, selected: params[:category]), include_blank: true %>
-<%= hidden_field_tag :neighbourhood, params[:neighbourhood] %>
+<%= select_tag :neighbourhood, options_for_select(ApplicationRecord::NEIGHBOURHOODS, selected: params[:neighbourhood]), include_blank: true %>
 <%= submit_tag "Filter by category" %>
 <% end %>

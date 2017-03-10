@@ -19,10 +19,7 @@
           <span><%= post.city %> | <%= post.neighbourhood %></span>
           <h5><%= post.category %></h5>
           <% end %>
-          <p> Upvote: <%= post.get_upvotes.size %> </p>
-          <%= link_to like_post_path(post), method: :put do %>
-            Upvote ^
-          <% end %>
+          <span> <%= post.get_upvotes.size %> <%= link_to "^", like_post_path(post), method: :put %></span>
     </div>
     <% end %>
 </div>
