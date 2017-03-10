@@ -5,6 +5,7 @@
         <div class="col-xs-6">
         You are searching for issues in
         <%= @neighbourhood %>
+        <%= link_to "Change neighbourhood", root_path %>
           <%= render 'filter' %>
         </div>
         <h5 style = "display: inline-block"><%= link_to "Your Politicians", politicians_path %></h5>
