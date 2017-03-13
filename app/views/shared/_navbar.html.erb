@@ -16,11 +16,11 @@
       <!-- Profile picture and dropdown for logout, create home and bookings -->
         <ul class="nav navbar-nav">
         <li>
-        <%= link_to "Raise an issue", new_post_path %>
-        </li>
-        <li>
-        <%= link_to "Search issues around me", posts_path %>
-        </li>
+          <%= link_to "Raise an issue", new_post_path, class: "btn btn-primary raise" %>
+          </li>
+          <li>
+          <%= link_to "Search issues around me", posts_path %>
+          </li>
         </ul>
       <div class="navbar-wagon-item">
         <div class="dropdown">
@@ -44,9 +44,17 @@
     <% else %>
 
     <!-- Login text link -->
-    <%= link_to "Sign in", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Sign up", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
+      <ul class="nav navbar-nav">
+        <li>
+          <%= link_to "Raise an issue", new_post_path, class: "btn btn-primary" %>
+         </li>
+        <li>
+          <%= link_to "Sign in", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        </li>
+        <li>
+          <%= link_to "Sign up", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        </li>
+      </ul>
     <% end %>
   </div>
 </div>
