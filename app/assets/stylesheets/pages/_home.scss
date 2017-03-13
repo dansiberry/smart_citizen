@@ -2,6 +2,7 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
 .banner {
   width: 45%;
   margin-left: 200px;
@@ -57,5 +58,32 @@
   bottom: 0px;
   left: 0px;
   font-weight: bolder;
-  color: $green;
+  color: $green; }
+
+html {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+
+// #container {
+//    min-height:100%;
+//    position:relative;
+// }
+
+#content {
+   padding:10px;
+   padding-bottom:60px;   /* Height of the footer */
+   min-height:80%;
+   position:relative;
+}
+
+#container {
+   height:100%;
 }
