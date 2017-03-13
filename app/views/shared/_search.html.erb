@@ -1,5 +1,5 @@
 <%= form_tag(posts_path, :method => "get", class: 'inline-form', id: "search") do %>
 <%= select_tag :neighbourhood, options_for_select(ApplicationRecord::NEIGHBOURHOODS, selected: params[:neighbourhood], class: ''), include_blank: true %>
-<%= select_tag :city, options_for_select(ApplicationRecord::CITIES, selected: params[:city], class: ''), include_blank: true
+<%= select_tag :city, options_for_select(ApplicationRecord::CITIES, selected: params[:city], class: ''), include_blank: true %>
 <%= submit_tag "Search for issues" %>
 <% end %>
