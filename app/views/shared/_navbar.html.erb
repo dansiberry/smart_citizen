@@ -12,23 +12,33 @@
 
     <!-- Profile picture and dropdown -->
     <!-- Setting the twitter avatar -->
-    <% avatar_url = current_user.twitter_picture_url || "http://placehold.it/30x30" %>
-    <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
 
-    <ul>
-    <li><%= link_to "My Account", edit_user_registration_path %></li>
-      <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-    </ul>
-    <div class="navbar-wagon-item">
-      <%= link_to "Create an issue", new_post_path %>
-      <% if current_user.as_politician %>
-      <%= link_to "My Profile", politician_path(current_user.as_politician.id) %>
-      <% end %>
-      <i class="fa fa-user"></i>
-      <%= link_to "Search issues around me", posts_path %>
-      <i class="fa fa-home"></i>
-      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-      <i class="fa fa-sign-out"></i>
+      <!-- Profile picture and dropdown for logout, create home and bookings -->
+        <ul class="nav navbar-nav">
+        <li>
+        <%= link_to "Raise an issue", new_post_path %>
+        </li>
+        <li>
+        <%= link_to "Search issues around me", posts_path %>
+        </li>
+        </ul>
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <% avatar_url = current_user.twitter_picture_url || "http://placehold.it/30x30" %>
+          <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+            <% if current_user.as_politician %>
+              <%= link_to "My Profile", politician_path(current_user.as_politician.id) %>
+            <% else %>
+              <%= link_to "My Account", edit_user_registration_path %>
+            <% end %>
+            </li>
+            <li class="block-inline">
+              <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+            </li>
+          </ul>
+        </div>
       </div>
 
     <% else %>
