@@ -1,20 +1,43 @@
-<h1>Connect with local politicians on issues that matter to you</h1>
-
-<%= render 'shared/search' %>
-
-<% if policy(Post).create? %>
-<%= link_to "Raise an issue", new_post_path, class: "btn btn-primary" %>
-<% end %>
-
-<h2>Here are the most upvoted issues of the week</h2>
-<% @upvoted_posts.each do |popular_post| %>
-  <div class="issue-card">
-    <%= link_to post_path(popular_post) do %>
-      <%= popular_post.title %>
-      <%= popular_post.category %>
-      <%= popular_post.neighbourhood %>
-      <% end %>
-      <span> <%= popular_post.get_upvotes.size %> </span>
-      <%= link_to "^", like_post_path(popular_post), method: :put %>
+<div class="banner padded">
+  <div class="banner-content padded-sm">
+    <h1>Connect with local politicians on issues that matter<span class="green-period">.</span></h1>
   </div>
-<% end %>
+
+    <%= render 'shared/search' %>
+
+</div>
+
+<div class="container">
+  <h3>Most popular issues<span class="green-period">.</span></h3>
+  <div class="row padded-sm">
+    <% @upvoted_posts.each do |popular_post| %>
+    <div class="col-xs-12 col-md-4">
+      <div class="issue-card">
+        <div class="issue-card-neighbourhood">
+          <%= popular_post.neighbourhood %>
+        </div>
+        <div class="issue-card-upvote">
+          <%= popular_post.get_upvotes.size %>
+          <%= link_to "^", like_post_path(popular_post), method: :put %>
+        </div>
+        <%= link_to post_path(popular_post) do %>
+        <div class="issue-card-photo">
+          <% if popular_post.photo.present? %>
+          <%= cl_image_tag popular_post.photo, width: 350, height: 200, crop: "fill" %>
+          <% end %>
+        </div>
+
+        <div class="issue-card-text">
+          <div class="issue-card-title">
+            <%= popular_post.title %>
+          </div>
+          <div class="issue-card-category">
+            #<%= popular_post.category %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
