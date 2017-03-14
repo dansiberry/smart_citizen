@@ -1,24 +1,35 @@
-<div class="container">
-    <div class="row">
-      <div class="col-xs-8 col-xs-offset-2">
-        <%= link_to "Raise an issue", new_post_path, class: "btn btn-primary" %>
-        <div class="col-xs-6">
-          <%= render 'filter' %>
+<div class="container-search">
+  <h1 style="margin-left: 80px">Search<span class="green-period">.</span></h1>
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <%= render 'filter' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @posts.each do |post| %>
+    <div class="col-xs-12 col-md-4">
+      <div class="issue-card-search">
+        <div class="issue-card-neighbourhood">
+          <%= post.neighbourhood %>
         </div>
-        <h5 style = "display: inline-block"><%= link_to "Your Politicians", politicians_path %></h5>
+        <div class="issue-card-upvote">
+          <%= post.get_upvotes.size %>
+          <%= link_to "^", like_post_path(post), method: :put %>
+        </div>
+        <%= link_to post_path(post) do %>
+        <span class="issue-card-text">
+          <span class="issue-card-title-search">
+            <%= post.title %>
+          </span>
+          <span class="issue-card-category">
+            #<%= post.category %>
+          </span>
+        </span>
+        <% end %>
       </div>
     </div>
-
-    <% @posts.each do |post| %>
-    <div class="col-xs-4 card">
-        <%= link_to post_path(post) do %>
-          <h3><%= post.title %></h3>
-          <span><%= post.city %> | <%= post.neighbourhood %></span>
-          <h5><%= post.category %></h5>
-          <% end %>
-
-          <span> <%= post.get_upvotes.size %> <%= link_to "^", like_post_path(post), method: :put %></span>
-    </div>
     <% end %>
+  </div>
 </div>
 

@@ -16,9 +16,9 @@
   }
 }
 
-.datalist {
-  display: block;
-  border: 2px;
+#filter {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 
@@ -34,4 +34,7 @@ body .select2-selection.select2-selection--single {
   margin-left: 15px;
 }
 
+.blank-space {
+  margin-left: 15px;
+}
 
