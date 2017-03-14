@@ -1,5 +1,22 @@
+
 #search {
-  border: $light-gray;
-  background-color: transparent;
+  text-align : center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  .select {
+    padding: 5px 70px;
+    margin-right: 7px;
+    background: white;
+    border: 0;
+    border-bottom: 1px solid $green;
+    &:focus {
+      outline: 0;
+    }
+  }
 }
 
+.datalist {
+  display: block;
+  border: 2px;
+}

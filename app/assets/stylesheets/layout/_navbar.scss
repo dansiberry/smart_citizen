@@ -130,8 +130,13 @@
   border-top: 1px solid #E6E6E6;
 }
 
-.raise {
-  border: $light-gray;
+.nav > li > a:hover{
+  text-decoration: none;
   background-color: transparent;
+}
+
+.nav > li > .raise:hover {
+  background-color: #54b237;
+  border-color: #47972e;
 }
 
