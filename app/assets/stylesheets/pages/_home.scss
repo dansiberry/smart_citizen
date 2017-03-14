@@ -3,41 +3,67 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 
-.banner {
-  width: 45%;
-  margin-left: 200px;
-  margin-bottom: 100px;
+ .most-voted {
+  background-color: #f3f3f3;
+  margin:0px;
+  width:100%;
+  margin-top: 0px !important;
+  padding-right: 200px;
+  padding-left: 200px;
+  padding-top: 50px;
+  height:100vh;
+  background-image: url('homepage-background-bottom.png');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+ }
+
+ select:not([multiple]) {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-position: right 50%;
+    background-repeat: no-repeat;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDZFNDEwNjlGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDZFNDEwNkFGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0NkU0MTA2N0Y3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0NkU0MTA2OEY3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuGsgwQAAAA5SURBVHjaYvz//z8DOYCJgUxAf42MQIzTk0D/M+KzkRGPoQSdykiKJrBGpOhgJFYTWNEIiEeAAAMAzNENEOH+do8AAAAASUVORK5CYII=);
+    padding: .5em;
+    padding-right: 1.5em;
+    background-color: #fcfcfc;
 }
 
- .container {
+select {
+  border: none;
+  border-radius: 0px;
+  border-bottom: 1px solid grey;
+  margin-right: 20px;
+}
+
+
+
+.banner {
+  height:100vh;
+  width: 600px;
+  margin-left: 200px;
+  margin-bottom: 0px;
+  margin-top: -70px;
+  padding-top: 12em;
+}
+
+.banner-background {
+  z-index: -2;
+  height:100vh;
+  width:100%;
+  position:absolute;
+  background-image: url('homepage-background-top3.png');
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+
+.container {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-html {
-   margin:0;
-   padding:0;
-   height:100%;
-}
 
-body {
-   margin:0;
-   padding:0;
-   height:100%;
-}
 
-// #container {
-//    min-height:100%;
-//    position:relative;
-// }
 
-#content {
-   padding:10px;
-   padding-bottom:60px;   /* Height of the footer */
-   min-height:80%;
-   position:relative;
-}
 
-#container {
-   height:100%;
-}

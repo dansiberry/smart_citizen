@@ -6,7 +6,7 @@
     <%= action_cable_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
     <div id="container">
@@ -20,5 +20,18 @@
         <%= render 'shared/footer' %>
     </div>
     <%= javascript_include_tag 'application' %>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script type="text/javascript">
+      $('.select_neightbourhood').select2({
+        placeholder: 'Your neighbourhood'
+      });
+      $('.select_city').select2({
+        placeholder: 'Your city'
+      });
+      $('.select_category').select2({
+        placeholder: 'Category'
+      });
+    </script>
   </body>
 </html>
