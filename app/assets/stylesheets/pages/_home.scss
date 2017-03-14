@@ -56,8 +56,9 @@ select {
   background-repeat: no-repeat;
   background-position: bottom;
 }
+ 
 
- .container {
+.container {
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -116,30 +117,5 @@ select {
   font-weight: bolder;
   color: $green; }
 
-html {
-   margin:0;
-   padding:0;
-   height:100%;
-}
 
-body {
-   margin:0;
-   padding:0;
-   height:100%;
-}
 
-// #container {
-//    min-height:100%;
-//    position:relative;
-// }
-
-#content {
-   padding:0px;
-   padding-bottom:60px;   /* Height of the footer */
-   min-height:80%;
-   position:relative;
-}
-
-#container {
-   height:100%;
-}
