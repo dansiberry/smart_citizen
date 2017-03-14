@@ -14,52 +14,6 @@
   margin-bottom: 20px;
 }
 
-.issue-card {
-  height: 300px;
-  position: relative;
-}
-
-.issue-card a:hover {
-  text-decoration: none;
-}
-
-.issue-card-neighbourhood {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  font-weight: bolder;
-  color: $green;
-}
-.issue-card-upvote {
-  position: absolute;
-  top: 0px;
-  right: 10px;
-  font-weight: bolder;
-  font-size: 20px;
-  color: $light-gray;
-}
-.issue-card-upvote a {
-  color: $green;
-}
-.issue-card-photo {
-  position: absolute;
-  top: 30px;
-}
-.issue-card-title {
-  position: absolute;
-  bottom: 30px;
-  left: 0px;
-  font-size: 20px;
-  color: $dark-gray;
-  font-weight: bolder;
-}
-.issue-card-category {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  font-weight: bolder;
-  color: $green; }
-
 html {
    margin:0;
    padding:0;
