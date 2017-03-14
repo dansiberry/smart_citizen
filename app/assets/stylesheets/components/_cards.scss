@@ -9,14 +9,14 @@
 
 .issue-card-neighbourhood {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 5px;
+  left: 10px;
   font-weight: bolder;
   color: $green;
 }
 .issue-card-upvote {
   position: absolute;
-  top: 0px;
+  top: 5px;
   right: 10px;
   font-weight: bolder;
   font-size: 20px;
@@ -32,28 +32,28 @@
 .issue-card-title {
   position: absolute;
   bottom: 30px;
-  left: 0px;
+  left: 10px;
   font-size: 20px;
   color: $dark-gray;
   font-weight: bolder;
 }
 .issue-card-category {
   position: absolute;
-  bottom: 0px;
-  left: 0px;
+  bottom: 5px;
+  left: 10px;
   font-weight: bolder;
   color: $green; }
 
 .issue-card-search {
   height: 115px;
   position: relative;
-  margin: 40px;
+  margin: 20px;
 }
 
 .issue-card-title-search {
   position: absolute;
   bottom: 30px;
-  left: 0px;
+  left: 10px;
   font-size: 18px;
   color: $dark-gray;
   font-weight: bolder;
