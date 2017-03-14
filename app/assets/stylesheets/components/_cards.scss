@@ -1,4 +1,60 @@
-.post-card {
-  border: 1px solid black;
-  width: 50%;
+.issue-card {
+  height: 300px;
+  position: relative;
+}
+
+.issue-card a:hover {
+  text-decoration: none;
+}
+
+.issue-card-neighbourhood {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-weight: bolder;
+  color: $green;
+}
+.issue-card-upvote {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  font-weight: bolder;
+  font-size: 20px;
+  color: $light-gray;
+}
+.issue-card-upvote a {
+  color: $green;
+}
+.issue-card-photo {
+  position: absolute;
+  top: 30px;
+}
+.issue-card-title {
+  position: absolute;
+  bottom: 30px;
+  left: 0px;
+  font-size: 20px;
+  color: $dark-gray;
+  font-weight: bolder;
+}
+.issue-card-category {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  font-weight: bolder;
+  color: $green; }
+
+.issue-card-search {
+  height: 115px;
+  position: relative;
+  margin: 40px;
+}
+
+.issue-card-title-search {
+  position: absolute;
+  bottom: 30px;
+  left: 0px;
+  font-size: 18px;
+  color: $dark-gray;
+  font-weight: bolder;
 }

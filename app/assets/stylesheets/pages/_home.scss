@@ -56,66 +56,14 @@ select {
   background-repeat: no-repeat;
   background-position: bottom;
 }
- 
+
 
 .container {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.issue-card {
-  height: 170px;
-  position: relative;
-  background-color: white;
-  padding: 15px;
-}
 
-.issue-card a:hover {
-  text-decoration: none;
-}
-
-.issue-card-neighbourhood {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  font-weight: bolder;
-  color: $green;
-}
-.issue-card-upvote {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-weight: bolder;
-  font-size: 20px;
-  color: $light-gray;
-}
-.issue-card-upvote a {
-  color: $green;
-}
-.issue-card-photo img {
-  width: 100%;
-}
-
-.issue-card-photo {
-  position: absolute;
-  top: 30px;
-}
-
-.issue-card-title {
-  position: absolute;
-  bottom: 60px;
-  left: 15px;
-  width:65%;
-  font-size: 21px;
-  color: $dark-gray;
-  font-weight: bolder;
-}
-.issue-card-category {
-  position: absolute;
-  bottom: 10px;
-  left: 15px;
-  font-weight: bolder;
-  color: $green; }
 
 
 
