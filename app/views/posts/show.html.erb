@@ -59,19 +59,19 @@
         <%= link_to "^", like_post_path(@post), method: :put %>
       </div>
       <div class="issues-prepositions">
-        <h4>By</h4>
+        <h5>By</h5>
       </div>
       <div class="issues-details">
-        <h4><%= @post.user.email %></h4>
+        <h5><%= @post.user.email %></h5>
       </div>
       <div class="issues-prepositions">
-        <h4>To</h4>
+        <h5>To</h5>
       </div>
       <div class="issues-details">
         <% @post.users.each do |politician| %>
-        <h4><%= politician.first_name %> <%= politician.last_name %></h4>
+        <h5><%= politician.first_name %> <%= politician.last_name %></h5>
         <% if politician.as_politician.verified == false  %>
-        <p>This politician is not currently on the platform.</p>
+        <p style="font-size: 11px">This politician is not currently on the platform.</p>
         <p><%= mail_to "#{politician.email}", html_options = { subject: "I would like your opinion on...", body: "Dear representative, \n I would like to have your opinion on the subject of #{@post.title}: could you please join SmartCitizen to address my concerns and that of others? You can reply directly at http://www.smartcitizen.yeah/post/#{@post.id}\n Thank you in advance,\n"} do %>
           <span class="fa fa-envelope-o"></span>
           <% end %>
@@ -87,27 +87,27 @@
           <% end %>
         </div>
         <div class="issues-prepositions">
-          <h4>Replies (<%= @post.comments.count %>)</h4>
+          <h5>Replies (<%= @post.comments.count %>)</h5>
         </div>
         <div class="issues-details">
           <% @post.comments.each do |a| %>
-          <h4><%= a.user.first_name %> <%= a.user.last_name %></h4>
+          <h5><%= a.user.first_name %> <%= a.user.last_name %></h5>
           <% end %>
         </div>
         <div class="issues-prepositions">
-          <h4>Posted</h4>
+          <h5>Posted</h5>
         </div>
         <div class="issues-details">
-          <h4><%= @post.created_at.strftime("%e/%m/%y") %></h4>
+          <h5><%= @post.created_at.strftime("%e/%m/%y") %></h5>
         </div>
         <div class="issues-prepositions">
-          <h4>Tags</h4>
+          <h5>Tags</h5>
         </div>
         <div class="issues-details">
-          <h4>#<%= @post.category %></h4>
+          <h5>#<%= @post.category %></h5>
         </div>
         <div class="issues-prepositions">
-          <h4>Photos</h4>
+          <h5>Photos</h5>
         </div>
         <%= cl_image_tag @post.photo, class: "img-responsive" %>
       </div>

@@ -22,6 +22,10 @@
     font-weight: bolder;
   }
 }
+.issues-replies-text {
+  margin-bottom: 30px;
+  width: 85%;
+}
 
 .issues-upvote {
   font-weight: bolder;
@@ -34,7 +38,7 @@
   color: $green;
 }
 
-.issues-prepositions h4 {
+.issues-prepositions h5 {
   color: $light-gray;
   text-align: right;
   font-weight: bolder;
@@ -42,7 +46,7 @@
 
 .issues-details {
   text-align: right;
-  h4 {
+  h5 {
     color: $green;
     font-weight: bolder;
   }
