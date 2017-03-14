@@ -43,3 +43,18 @@
   left: 0px;
   font-weight: bolder;
   color: $green; }
+
+.issue-card-search {
+  height: 115px;
+  position: relative;
+  margin: 40px;
+}
+
+.issue-card-title-search {
+  position: absolute;
+  bottom: 30px;
+  left: 0px;
+  font-size: 18px;
+  color: $dark-gray;
+  font-weight: bolder;
+}
