@@ -1,7 +1,10 @@
 
 <%= form_tag(posts_path, :method => "get", class: 'inline-form', id: "search") do %>
 <%= select_tag :neighbourhood, options_for_select(ApplicationRecord::NEIGHBOURHOODS, selected: params[:neighbourhood]), {include_blank: true, class: 'select', prompt: "Your neighbourhood"} %>
-<%= submit_tag "Search your area", class: "btn btn-primary" %>
+<%= submit_tag "Search your area", class: "btn btn-primary homepage-button" %>
 <% end %>
+
+
+
 
 

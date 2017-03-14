@@ -20,3 +20,18 @@
   display: block;
   border: 2px;
 }
+
+
+body .select2-selection.select2-selection--single {
+  border-radius: 0px;
+  border: 0;
+  border-bottom: 2px solid $green;
+  height: 34px;
+  text-align: left;
+}
+
+.homepage-button {
+  margin-left: 15px;
+}
+
+
