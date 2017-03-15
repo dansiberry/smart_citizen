@@ -1,13 +1,33 @@
 
-
-.around-issue-new-cards {
-
-}
-
 .card-issue-new {
   margin-top: 30px;
-  height: 170px;
   position: relative;
-  margin: px;
+  input {
+    display: none;
+  }
+  input:checked + label {
+    border-color: darken($green, 15%);
+    border-bottom-width: 3px;
+    color: darken($green, 15%);
+    img{
+      opacity: 1;
+    }
+  }
 }
 
+
+.politician-item {
+  border: 1px solid $light-gray ;
+  color: $light-gray;
+  height: 300px;
+  cursor: pointer;
+  transition: color 0.5s, border-color 0.5s;
+  h3, h4, p {
+    margin: 0 15px;
+  }
+  img {
+    margin-bottom: 15px;
+    opacity: 0.6;
+    transition: opacity 0.5s;
+  }
+}
