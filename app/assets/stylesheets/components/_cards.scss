@@ -9,12 +9,12 @@
 }
 
 .link-box {
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 6;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 6;
 }
 
 .issue-card-neighbourhood {
@@ -54,18 +54,42 @@
   font-weight: bolder;
   color: $green; }
 
-.issue-card-search {
-  margin-top: 30px;
-  height: 170px;
-  position: relative;
-  margin: px;
-}
+  .issue-card-search {
+    margin-top: 30px;
+    height: 170px;
+    position: relative;
+    margin: px;
+  }
 
-.issue-card-title-search {
-  display: block;
-  margin-top: 60px;
-  margin-left: 20px;
-  font-size: 18px;
-  color: $dark-gray;
-  font-weight: bolder;
-}
+  .issue-card-title-search {
+    display: block;
+    margin-top: 60px;
+    margin-left: 20px;
+    font-size: 18px;
+    color: $dark-gray;
+    font-weight: bolder;
+  }
+
+  .politician-card {
+    width: 90%;
+    height: 250px;
+    margin: 20px;
+    position: relative;
+  }
+
+  .politician-photo-index {
+    width: 50%;
+  }
+
+  .politician-info-index {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    text-align: right;
+  }
+
+  .politician-verified-index {
+    color: $green;
+    font-weight: bolder;
+    display: inline;
+  }
