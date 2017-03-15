@@ -1,26 +1,37 @@
 .issue-card {
-  height: 300px;
+  height: 170px;
   position: relative;
+  box-shadow: rgba(204, 204, 204, 0.3) -3px 3px 5px;
 }
 
 .issue-card a:hover {
   text-decoration: none;
 }
 
+.link-box {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 6;
+}
+
 .issue-card-neighbourhood {
   position: absolute;
-  top: 5px;
-  left: 10px;
+  top: 20px;
+  left: 20px;
   font-weight: bolder;
   color: $green;
 }
 .issue-card-upvote {
   position: absolute;
-  top: 5px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
   font-weight: bolder;
   font-size: 20px;
   color: $light-gray;
+  z-index: 7;
 }
 .issue-card-upvote a {
   color: $green;
@@ -30,30 +41,30 @@
   top: 30px;
 }
 .issue-card-title {
-  position: absolute;
-  bottom: 30px;
-  left: 10px;
+  padding-left: 20px;
+  padding-top: 50px;
   font-size: 20px;
   color: $dark-gray;
   font-weight: bolder;
 }
 .issue-card-category {
   position: absolute;
-  bottom: 5px;
-  left: 10px;
+  bottom: 20px;
+  left: 20px;
   font-weight: bolder;
   color: $green; }
 
 .issue-card-search {
-  height: 115px;
+  margin-top: 30px;
+  height: 170px;
   position: relative;
-  margin: 20px;
+  margin: px;
 }
 
 .issue-card-title-search {
-  position: absolute;
-  bottom: 30px;
-  left: 10px;
+  display: block;
+  margin-top: 60px;
+  margin-left: 20px;
   font-size: 18px;
   color: $dark-gray;
   font-weight: bolder;
