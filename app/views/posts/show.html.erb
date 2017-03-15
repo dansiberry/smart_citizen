@@ -10,6 +10,21 @@
           <span class = "grey-subtitle">Tags</span> <span class = "green-subtitle">#<%= @post.category %></span>
       </div>
 
+
+      <% if current_user %>
+      <% if current_user.as_politician %>
+      <%= link_to "Reply", new_post_comment_path(@post), class: "btn btn-outline-primary" %>
+
+      <% else %>
+      <%= link_to "Add your input on this issue", new_post_path, class: "btn btn-outline-primary" %>
+      <%= link_to "Create a politician profile and join the conversation", new_politician_path, class: "btn btn-outline-primary" %>
+      <% end %>
+      <% else %>
+      <p>Are you an elected official?</p>
+      <%= mail_to "claimprofile@smartcitizen.org", "Claim your profile and join the conversation", html_options = { subject: "Claim my public profile", body: "Hi Smart Citizen, \n I would like to claim the public profile for the elected office in the above email address. \n Thank you in advance,\n"}, class: "btn btn-outline-primary" %>
+      <% end %>
+
+
       <div class="issues-content">
         <p><%= @post.content %></p>
         <% if policy(@post).edit? %>
