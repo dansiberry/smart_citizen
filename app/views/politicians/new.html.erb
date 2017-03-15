@@ -1,13 +1,20 @@
-<h1>Add your profile information</h1>
-<%= simple_form_for @user_as_politician, url: politicians_path do |f| %>
-<%= f.input :elected %>
-<%= f.input :political_party %>
-<%= f.input :office %>
-<%= f.input :bio %>
-<%= f.input :responsabilities %>
-<%= f.input :twitter_handle %>
-<%= f.input :photo %>
-<%= f.input :photo_cache, as: :hidden %>
-<%= f.button :submit %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
 
+      <h1>Add your profile information</h1>
+      <%= simple_form_for @user_as_politician, url: politicians_path do |f| %>
+      <%= f.input :elected, label: "Are you elected? (This entry will be double-checked)" %>
+      <%= f.input :political_party, label: "Your political_party", placeholder: "What's your party?", input_html: {class: "box-input"} %>
+      <%= f.input :office, label: "Office", placeholder: "What office are you currently elected at?", input_html: {class: "box-input"} %>
+      <%= f.input :bio, label: "Your bio", placeholder: "Tell us your story", input_html: {class: "box-input"} %>
+      <%= f.input :responsabilities, label: "Your responsibilities", placeholder: "What are your responsibilities?", input_html: {class: "box-input"} %>
+      <%= f.input :twitter_handle, label: "@you :-)", placeholder: "What's your Twitter?", input_html: {class: "box-input"} %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.button :submit %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
