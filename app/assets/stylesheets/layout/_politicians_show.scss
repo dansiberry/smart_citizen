@@ -1,0 +1,51 @@
+.politician-info {
+  margin: 40px 0px;
+}
+
+.cloudinary-image-div {
+  padding: 0;
+}
+
+.cloudinary-image {
+  width: 80%;
+}
+
+.politician-header {
+  h3 {
+    display: inline;
+    margin-right: 10px;
+  }
+}
+
+.politician-verified {
+  color: $green;
+  font-weight: bolder;
+  display: inline;
+  span {
+    margin-right: 20px;
+  }
+}
+
+.politician-bio {
+  margin: 40px 0px;
+}
+
+.politician-other {
+
+}
+
+.politician-rating {
+  h5 {
+    color: $green;
+    text-align: right;
+    font-weight: bolder;
+  }
+}
+
+.politician-replies {
+  padding: 40px 0px;
+}
+
+.politician-tags {
+  padding: 40px 0px;
+}

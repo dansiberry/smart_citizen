@@ -6,7 +6,10 @@
     <div class="col-lg-9">
       <div class="issues-title padded-sm">
         <h1><%= @post.title %><span class="green-period">.</span></h1>
+
+          <span class = "grey-subtitle">Tags</span> <span class = "green-subtitle">#<%= @post.category %></span>
       </div>
+
 
       <% if current_user %>
       <% if current_user.as_politician %>
@@ -18,8 +21,9 @@
       <% end %>
       <% else %>
       <p>Are you an elected official?</p>
-      <%= mail_to "claimprofile@smartcitizen.org", "Claim your profile and join the conversation", html_options = { subject: "Claim my public profile", body: "Hi Smart Citizen, \n I would like to claim the public profile for the elected office in the above email address. \n Thank you in advance,\n"} %>
+      <%= mail_to "claimprofile@smartcitizen.org", "Claim your profile and join the conversation", html_options = { subject: "Claim my public profile", body: "Hi Smart Citizen, \n I would like to claim the public profile for the elected office in the above email address. \n Thank you in advance,\n"}, class: "btn btn-outline-primary" %>
       <% end %>
+
 
       <div class="issues-content">
         <p><%= @post.content %></p>
@@ -34,10 +38,29 @@
         <span class="fa fa-trash-o"></span>
         <% end %>
         <% end %>
+
+          <span class = "grey-subtitle">Posted</span>
+
+
+          <span class = "green-subtitle"><%= @post.created_at.strftime("%e/%m/%y") %></span>
+      <div class="show-button">
+        <% if current_user %>
+          <% if current_user.as_politician %>
+            <%= link_to "Reply", new_post_comment_path(@post), class: "btn btn-outline-primary" %>
+
+          <% else %>
+            <%= link_to "Add your input on this issue", new_post_path, class: "btn btn-outline-primary" %>
+            <%= link_to "Create a politician profile and join the conversation", new_politician_path, class: "btn btn-outline-primary" %>
+          <% end %>
+        <% else %>
+          <p>Are you an elected official?</p>
+          <%= mail_to "claimprofile@smartcitizen.org", "Claim your profile and join the conversation", html_options = { subject: "Claim my public profile", body: "Hi Smart Citizen, \n I would like to claim the public profile for the elected office in the above email address. \n Thank you in advance,\n"} %>
+        <% end %>
+      </div>
       </div>
 
       <div class="issues-replies">
-        <h2>Replies</h2>
+        <h2>Replies ( <%= @post.comments.count %> )</h2>
         <% if !@post.comments.blank? %>
         <% @post.comments.each_with_index do |a, index| %>
         <div id="block<%= index %>" class="issues-replier toggle">
@@ -48,13 +71,13 @@
         </div>
         <% end %>
         <% else %>
-        <p> none </p>
+        <p></p>
         <% end %>
       </div>
     </div>
 
     <div class="col-lg-3">
-      <div class="issues-upvote">
+      <div class="issues-upvote" data-balloon="Upvote this issue!" data-balloon-pos="up">
         <%= @post.get_upvotes.size %>
         <%= link_to "^", like_post_path(@post), method: :put %>
       </div>
@@ -71,9 +94,10 @@
         <% @post.users.each do |politician| %>
         <h5><%= politician.first_name %> <%= politician.last_name %></h5>
         <% if politician.as_politician.verified == false  %>
-        <p style="font-size: 11px">This politician is not currently on the platform.</p>
         <p><%= mail_to "#{politician.email}", html_options = { subject: "I would like your opinion on...", body: "Dear representative, \n I would like to have your opinion on the subject of #{@post.title}: could you please join SmartCitizen to address my concerns and that of others? You can reply directly at http://www.smartcitizen.yeah/post/#{@post.id}\n Thank you in advance,\n"} do %>
-          <span class="fa fa-envelope-o"></span>
+          <div class = "mail-contact">
+            <span class="fa fa-envelope-o"> </span> <span class = "prompt"> Email this to Ada</span>
+          </div>
           <% end %>
 
           <% text = "I would like to have your opinion on #{@post.title}: please join us http://www.smartcitizen.yeah/post/#{@post.id} to answer us" %>
@@ -86,26 +110,14 @@
           <% end %>
           <% end %>
         </div>
-        <div class="issues-prepositions">
-          <h5>Replies (<%= @post.comments.count %>)</h5>
-        </div>
+
         <div class="issues-details">
           <% @post.comments.each do |a| %>
           <h5><%= a.user.first_name %> <%= a.user.last_name %></h5>
           <% end %>
         </div>
-        <div class="issues-prepositions">
-          <h5>Posted</h5>
-        </div>
-        <div class="issues-details">
-          <h5><%= @post.created_at.strftime("%e/%m/%y") %></h5>
-        </div>
-        <div class="issues-prepositions">
-          <h5>Tags</h5>
-        </div>
-        <div class="issues-details">
-          <h5>#<%= @post.category %></h5>
-        </div>
+
+
         <div class="issues-prepositions">
           <h5>Photos</h5>
         </div>
@@ -115,9 +127,9 @@
 
     <div class="row">
       <div class="issues-related">
-        <h2>Other issues on #<%= @post.category %> </h2>
+        <h2>More on #<%= @post.category %> ( <%= @related_posts.count %> )</h2>
         <% if @related_posts.empty? %>
-        <p>none yet</p>
+        <p></p>
         <% else %>
         <% @related_posts.each do |related_post| %>
         <div class="col-xs-12 col-lg-4">
@@ -146,4 +158,6 @@
       </div>
     </div>
   </div>
+
+
 
