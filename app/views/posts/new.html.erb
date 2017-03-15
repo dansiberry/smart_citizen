@@ -1,15 +1,28 @@
-<h1>Create your issue</h1>
-<%= simple_form_for @post do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.input :category %>
-  <%= f.input :city %>
-  <%= f.input :neighbourhood, collection: ApplicationRecord::NEIGHBOURHOODS %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
 
-  <p> Select a politician who you would like to respond</p>
-  <%= f.input :users, as: :check_boxes, required: true, autofocus: true, collection: User.list_of_users_as_politicians, :label_method => lambda { |item| "#{item.first_name} #{item.last_name} <img src='#{item.as_politician.photo.url.nil? ? 'http://insight.venturebeat.com/sites/all/modules/features/vb_intel_analysts/assets/images/analyst-placeholder-avatar.png' : item.as_politician.photo.url }'>".html_safe }%>
+      <h2>What would <u>you</u> like your representative to act or react on?</h2>
+      <%= simple_form_for @post do |f| %>
+        <%= f.input :title, label: "Title", placeholder: "Give it a title", input_html: {class: "box-input"} %>
+        <%= f.input :content, label: "Description", placeholder: "Describe precisely the issue you would like to raise", input_html: {class: "box-input"} %>
+        <%= f.input :category, label: "Category", placeholder: "Select a category that matches your post", input_html: {class: "box-input"} %>
+        <%= f.input :city, label: "City", placeholder: "Where did you specifically face this issue?", input_html: {class: "box-input"} %>
+        <%= f.input :neighbourhood, label: "Neighbourhood", placeholder: "In which neighbourhood?", collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input"} %>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
 
-  <%= f.button :submit %>
-<% end %>
+        <div class="below-form">
+          <div class="text-around-forms">
+            <h2> Select a politician who <u>you</u> would like to respond</h2>
+          </div>
+          <%= f.input :users, label: "Politicians in that area (if not present, leave blank as they will be contacted further to your inquiry)", as: :check_boxes, required: true, autofocus: true, collection: User.list_of_users_as_politicians, :label_method => lambda { |item| "#{item.first_name} #{item.last_name} <img src='#{item.as_politician.photo.url.nil? ? 'http://insight.venturebeat.com/sites/all/modules/features/vb_intel_analysts/assets/images/analyst-placeholder-avatar.png' : item.as_politician.photo.url }'>".html_safe }%>
+
+        <%= f.button :submit  %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

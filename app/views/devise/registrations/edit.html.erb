@@ -1,32 +1,42 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-<%= f.error_notification %>
+      <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<div class="form-inputs">
-  <%= f.input :first_name, required: false, autofocus: true %>
-  <%= f.input :last_name, required: false, autofocus: true %>
-  <%= f.input :address, required: true, autofocus: true %>
-  <%= f.input :city, required: true, autofocus: true %>
-  <%= f.input :neighbourhood, required: true, collection: ApplicationRecord::NEIGHBOURHOODS %>
-  <%= f.input :email, required: true, autofocus: true %>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-  <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-  <% end %>
+      <div class="form-inputs">
+        <%= f.input :first_name, required: false, autofocus: true, label: "Your first name", placeholder:"Edit your first name", input_html: {class: "box-input"} %>
+        <%= f.input :last_name, required: false, autofocus: true, label: "Your last name", placeholder:"Edit your last name", input_html: {class: "box-input"} %>
+        <%= f.input :address, required: true, autofocus: true, label: "Your address", placeholder:"Edit your address", input_html: {class: "box-input"} %>
+        <%= f.input :city, required: true, autofocus: true, label: "City", placeholder:"Edit your city", collection: ApplicationRecord::CITIES, input_html: {class: "box-input select_city"} %>
+        <%= f.input :neighbourhood, required: true, label: "Neighbourhood", placeholder:"Edit your neighbourhood", collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input select_neightbourhood"} %>
+        <%= f.input :email, required: true, autofocus: true, label: "Your email address", placeholder:"Edit your email address", input_html: {class: "box-input"} %>
 
-  <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-  <%= f.input :password_confirmation, required: false %>
-  <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
+
+        <%= f.input :password, autocomplete: "off", hint: "Leave it blank if you don't want to change it", required: false, input_html: {class: "box-input"} %>
+        <%= f.input :password_confirmation, required: false, input_html: {class: "box-input"} %>
+        <%= f.input :current_password, hint: "We need your current password to confirm your changes", required: true, input_html: {class: "box-input"} %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Update" %>
+      </div>
+      <% end %>
+
+      <h3>Cancel my account</h3>
+
+      <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+      <%= link_to "Back", :back %>
+
+    </div>
+  </div>
 </div>
 
-<div class="form-actions">
-  <%= f.button :submit, "Update" %>
-</div>
-<% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
