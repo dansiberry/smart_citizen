@@ -1,0 +1,39 @@
+.politicians-navigation {
+  font-weight: bolder;
+  margin-top: 50px;
+  h2 {
+    display: inline;
+  }
+  h3 {
+    display: inline;
+  }
+}
+
+.politician-profile-message {
+  margin: 20px 0px;
+  color: $light-gray;
+  font-weight: bolder;
+}
+
+.politician-tabs {
+  margin: 20px 0px;
+  text-align: right;
+  font-weight: bolder;
+}
+
+.politician-showing {
+  color: $light-gray;
+  display: inline;
+  padding-right: 10px;
+}
+
+.politician-elected {
+  display: inline;
+  color: $light-gray;
+}
+
+.politician-active {
+  color: $green;
+  display: inline;
+}
+

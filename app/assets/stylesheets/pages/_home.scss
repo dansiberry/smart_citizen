@@ -16,6 +16,7 @@
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: contain;
+  border-top: 2px solid #5ec43e;
  }
 
  select:not([multiple]) {
@@ -45,6 +46,7 @@ select {
   margin-bottom: 0px;
   margin-top: -70px;
   padding-top: 12em;
+  position: relative;
 }
 
 .banner-background {
@@ -64,7 +66,16 @@ select {
   margin-bottom: 20px;
 }
 
-
+.scroll-prompt {
+ width:60px;
+ height:60px;
+ position:absolute;
+ left:30vw;
+ bottom: -30px;
+ transform: rotate(45deg);
+ background-color: #baeaac;
+ z-index: -2;
+}
 
 
 

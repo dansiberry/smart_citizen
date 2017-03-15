@@ -1,7 +1,7 @@
 <div class="container-issues">
   <div class="row">
     <div class="politician-info">
-      <div class="col-lg-4">
+      <div class="col-lg-3">
         <div class="politician-photo padded-sm">
           <% if @user_as_politician.photo.try(:file).try(:public_id) %>
           <%= image_tag @user_as_politician.photo, class: "cloudinary-image",responsive_width: true, crop: "scale" %>
@@ -11,25 +11,26 @@
         </div>
       </div>
 
-      <div class="col-lg-5">
+      <div class="col-lg-6">
         <div class="politician-header padded-sm">
-          <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+          <h2 class = "politican-title" style = "display:inline-block;"><%= @user.first_name %> <%= @user.last_name %></h2>
+          <i class="fa fa-twitter blue-twitter"></i>
           <% if @user_as_politician.verified %>
           <div class="politician-verified">
             <span>Verified
               <i class="fa fa-check"></i></span>
             </div>
             <% end %>
-            <i class="fa fa-twitter blue-twitter"></i>
           </div>
           <div class="politician-bio">
+
             <% if @user.as_politician.responsabilities.present? %>
             <p><strong>Responsibilities: </strong><%= @user_as_politician.responsabilities %></p>
             <% end %>
             <% if @user.as_politician.bio.present? %>
             <p><%= @user_as_politician.bio %></p>
             <% else %>
-            <p> This politician has not provided a bio yet </p>
+            <p> This politician has not provided a bio yet. </p>
             <% end %>
           </div>
         </div>
@@ -38,18 +39,18 @@
           <div class="politician-other padded-sm">
             <div class="politician-rating">
               <% if @user.comments.count <= 2 %>
-              <h5>Unresponsive</h5>
+              <h5>Unresponsive"</h5>
               <% elsif @user.comments.count >= 2 && @user.comments.count <= 10 %>
-              <h5>Responsive</h5>
+              <h5>Responsive"</h5>
               <% else %>
-              <h5>Highly Responsive</h5>
+              <h5>Highly Responsive"</h5>
               <% end %>
             </div>
             <div class="issues-prepositions">
               <h5>Replies</h5>
             </div>
             <div class="issues-details">
-              <h5><%= @user.comments.count %></h5>
+              <h5 class = "reply-count"><%= @user.comments.count %></h5>
             </div>
             <div class="issues-prepositions">
               <h5>Office</h5>
@@ -70,7 +71,7 @@
 
     <div class="row">
       <div class="politician-replies">
-        <h3><%= @user.first_name %>'s replies</h3>
+        <h4 class = "grey-subtitle"><%= @user.first_name %>'s replies</h4>
         <% if @user.comments.present? %>
         <% @user.comments.each do |comment|  %>
         <% comment.posts.each do |commented_post| %>
@@ -107,7 +108,7 @@
 
     <div class="row">
       <div class="politician-tags">
-        <h3>Issues <%= @user.first_name %> is tagged in</h3>
+        <h4 class = "grey-subtitle">Issues <%= @user.first_name %> is tagged in</h4>
         <% if @user.tagged_in.present? %>
         <% @user.tagged_in.each do |post|  %>
         <div class="col-xs-12 col-md-4">
