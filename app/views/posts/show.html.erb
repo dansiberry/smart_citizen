@@ -83,7 +83,7 @@
         <% if politician.as_politician.verified == false  %>
         <p><%= mail_to "#{politician.email}", html_options = { subject: "I would like your opinion on...", body: "Dear representative, \n I would like to have your opinion on the subject of #{@post.title}: could you please join SmartCitizen to address my concerns and that of others? You can reply directly at http://www.smartcitizen.yeah/post/#{@post.id}\n Thank you in advance,\n"} do %>
           <div class = "mail-contact">
-            <span class="fa fa-envelope-o"> </span> <span class = "prompt"> Email this to Ada</span>
+            <span class="fa fa-envelope-o"> </span> <span class = "prompt"> Email this to <%= politician.first_name %></span>
           </div>
           <% end %>
 
