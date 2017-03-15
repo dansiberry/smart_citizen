@@ -28,7 +28,18 @@
 .bg-dark-blue {
   background: #3b5998;
 }
+.bg-white {
+  background: white;
+}
+
+.border-gray {
+border: 1px solid #e2e2e2;
+}
 
 .green-period {
+  color: $green;
+}
+
+.green-arrow {
   color: $green;
 }

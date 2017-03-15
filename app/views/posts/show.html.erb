@@ -1,37 +1,80 @@
-<h1>Issue title:<%= @post.title %></h1>
-<p>Category: <%= @post.category %></p>
-<p>Content: <%= @post.content %></p>
-<p>City: <%= @post.city %></p>
-<p>Neighbourhood: <%= @post.neighbourhood %></p>
-  <%= cl_image_tag @post.photo %>
+<div class="container-issues">
+  <div class="issues-navigation">
+    <p>Issues <span class="green-arrow">></span> <%= @post.city %> <span class="green-arrow">></span> <%= @post.neighbourhood %></p>
+  </div>
+  <div class="row">
+    <div class="col-lg-9">
+      <div class="issues-title padded-sm">
+        <h1><%= @post.title %><span class="green-period">.</span></h1>
+      </div>
 
-<% if policy(@post).edit? %>
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<% end %>
+      <% if current_user %>
+      <% if current_user.as_politician %>
+      <%= link_to "Reply", new_post_comment_path(@post), class: "btn btn-outline-primary" %>
 
-<% if policy(@post).destroy? %>
-<%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %>
-<% end %>
+      <% else %>
+      <%= link_to "Add your input on this issue", new_post_path, class: "btn btn-outline-primary" %>
+      <%= link_to "Create a politician profile and join the conversation", new_politician_path, class: "btn btn-outline-primary" %>
+      <% end %>
+      <% else %>
+      <p>Are you an elected official?</p>
+      <%= mail_to "claimprofile@smartcitizen.org", "Claim your profile and join the conversation", html_options = { subject: "Claim my public profile", body: "Hi Smart Citizen, \n I would like to claim the public profile for the elected office in the above email address. \n Thank you in advance,\n"} %>
+      <% end %>
 
-<p>Issue raised by: <%= @post.user.email %></p>
-<p>Issue replies:</p>
-<% if !@post.comments.blank? %>
-  <% @post.comments.each do |a| %>
-    <p>author - <%= a.user.email %> </p>
-    <p>reply - <%= a.content %> </p>
-  <% end %>
-<% else %>
-  <p> none </p>
-<% end %>
+      <div class="issues-content">
+        <p><%= @post.content %></p>
+        <% if policy(@post).edit? %>
+        <%= link_to edit_post_path(@post) do %>
+        <span class="fa fa-pencil"></span>
+        <% end %>
+        <% end %>
 
-<h2>Politicians tagged in this issue:</h2>
-<% @post.users.each do |politician| %>
-  <p>
-  <%= politician.email  %>
-  </p>
-      <% if politician.as_politician.verified == false  %>
-          <p>This politician is not currently on the platform. You should send him/her an email or tweet him/her the issue:</p>
-        <%= mail_to "#{politician.email}", "Email", html_options = { subject: "I would like your opinion on...", body: "Dear representative, \n I would like to have your opinion on the subject of #{@post.title}: could you please join SmartCitizen to address my concerns and that of others? You can reply directly at http://www.smartcitizen.yeah/post/#{@post.id}\n Thank you in advance,\n"} %>
+        <% if policy(@post).destroy? %>
+        <%= link_to post_path(@post), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <span class="fa fa-trash-o"></span>
+        <% end %>
+        <% end %>
+      </div>
+
+      <div class="issues-replies">
+        <h2>Replies</h2>
+        <% if !@post.comments.blank? %>
+        <% @post.comments.each_with_index do |a, index| %>
+        <div id="block<%= index %>" class="issues-replier toggle">
+          <h4><%= a.user.first_name %> <%= a.user.last_name %> <%= a.created_at.strftime("%e/%m/%y") %></h4>
+        </div>
+        <div id="block<%= index %>-content" class="issues-replies-text">
+          <p><%= a.content %> </p>
+        </div>
+        <% end %>
+        <% else %>
+        <p> none </p>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="issues-upvote">
+        <%= @post.get_upvotes.size %>
+        <%= link_to "^", like_post_path(@post), method: :put %>
+      </div>
+      <div class="issues-prepositions">
+        <h5>By</h5>
+      </div>
+      <div class="issues-details">
+        <h5><%= @post.user.email %></h5>
+      </div>
+      <div class="issues-prepositions">
+        <h5>To</h5>
+      </div>
+      <div class="issues-details">
+        <% @post.users.each do |politician| %>
+        <h5><%= politician.first_name %> <%= politician.last_name %></h5>
+        <% if politician.as_politician.verified == false  %>
+        <p style="font-size: 11px">This politician is not currently on the platform.</p>
+        <p><%= mail_to "#{politician.email}", html_options = { subject: "I would like your opinion on...", body: "Dear representative, \n I would like to have your opinion on the subject of #{@post.title}: could you please join SmartCitizen to address my concerns and that of others? You can reply directly at http://www.smartcitizen.yeah/post/#{@post.id}\n Thank you in advance,\n"} do %>
+          <span class="fa fa-envelope-o"></span>
+          <% end %>
 
           <% text = "I would like to have your opinion on #{@post.title}: please join us http://www.smartcitizen.yeah/post/#{@post.id} to answer us" %>
 
@@ -39,40 +82,68 @@
             Tweet to <%= politician.as_politician.twitter_handle %>
           </a>
 
-        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-      <% end %>
-<% end %>
-
-
-<% if current_user %>
-  <% if current_user.as_politician %>
-    <%= link_to "reply", new_post_comment_path(@post) %>
-  <% else %>
-
-    <p>Are you running for office?</p>
-    <%= link_to "Create a politician profile and join the conversation", new_politician_path %>
-  <% end %>
-<% else %>
-  <p>Are you an elected official?</p>
-  <%= mail_to "claimprofile@smartcitizen.org", "Claim your profile and join the conversation", html_options = { subject: "Claim my public profile", body: "Hi Smart Citizen, \n I would like to claim the public profile for the elected office in the above email address. \n Thank you in advance,\n"} %>
-
-<% end %>
-
-<h3>Related Issues</h3>
-<% if @related_posts.empty? %>
-  <p>none yet</p>
-<% else %>
-  <% @related_posts.each do |related_post| %>
-    <div class="post-card">
-      <%= link_to post_path(related_post) do %>
-
-      <p><strong>Title: <%= related_post.title %></strong></p>
-      <% end %>
-      <p>Category: <%= related_post.category %></p>
-      <p>Content: <%= related_post.content %></p>
-      <p>Neighbourhood: <%= related_post.neighbourhood %></p>
-      <p>Author: <%= related_post.user.email %></p>
+          <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+          <% end %>
+          <% end %>
+        </div>
+        <div class="issues-prepositions">
+          <h5>Replies (<%= @post.comments.count %>)</h5>
+        </div>
+        <div class="issues-details">
+          <% @post.comments.each do |a| %>
+          <h5><%= a.user.first_name %> <%= a.user.last_name %></h5>
+          <% end %>
+        </div>
+        <div class="issues-prepositions">
+          <h5>Posted</h5>
+        </div>
+        <div class="issues-details">
+          <h5><%= @post.created_at.strftime("%e/%m/%y") %></h5>
+        </div>
+        <div class="issues-prepositions">
+          <h5>Tags</h5>
+        </div>
+        <div class="issues-details">
+          <h5>#<%= @post.category %></h5>
+        </div>
+        <div class="issues-prepositions">
+          <h5>Photos</h5>
+        </div>
+        <%= cl_image_tag @post.photo, class: "img-responsive" %>
+      </div>
     </div>
-  <% end %>
-<% end %>
+
+    <div class="row">
+      <div class="issues-related">
+        <h2>Other issues on #<%= @post.category %> </h2>
+        <% if @related_posts.empty? %>
+        <p>none yet</p>
+        <% else %>
+        <% @related_posts.each do |related_post| %>
+        <div class="col-xs-12 col-lg-4">
+          <div class="issue-card-search">
+            <div class="issue-card-neighbourhood">
+              <%= related_post.neighbourhood %>
+            </div>
+            <div class="issue-card-upvote">
+              <%= related_post.get_upvotes.size %>
+              <%= link_to "^", like_post_path(@post), method: :put %>
+            </div>
+            <%= link_to post_path(related_post) do %>
+            <span class="issue-card-text">
+              <span class="issue-card-title-search">
+                <%= related_post.title %>
+              </span>
+              <span class="issue-card-category">
+                <%= related_post.category %>
+              </span>
+            </span>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
