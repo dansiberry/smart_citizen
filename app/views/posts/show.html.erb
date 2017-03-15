@@ -6,6 +6,9 @@
     <div class="col-lg-9">
       <div class="issues-title padded-sm">
         <h1><%= @post.title %><span class="green-period">.</span></h1>
+
+          <span class = "grey-subtitle">Tags</span> <span class = "green-subtitle">#<%= @post.category %></span>
+
       </div>
 
       <% if current_user %>
@@ -34,6 +37,12 @@
         <span class="fa fa-trash-o"></span>
         <% end %>
         <% end %>
+
+          <span class = "grey-subtitle">Posted</span>
+
+
+          <span class = "green-subtitle"><%= @post.created_at.strftime("%e/%m/%y") %></span>
+
       </div>
 
       <div class="issues-replies">
@@ -54,7 +63,7 @@
     </div>
 
     <div class="col-lg-3">
-      <div class="issues-upvote">
+      <div class="issues-upvote" data-balloon="Upvote this issue!" data-balloon-pos="up">
         <%= @post.get_upvotes.size %>
         <%= link_to "^", like_post_path(@post), method: :put %>
       </div>
@@ -86,26 +95,14 @@
           <% end %>
           <% end %>
         </div>
-        <div class="issues-prepositions">
-          <h5>Replies (<%= @post.comments.count %>)</h5>
-        </div>
+
         <div class="issues-details">
           <% @post.comments.each do |a| %>
           <h5><%= a.user.first_name %> <%= a.user.last_name %></h5>
           <% end %>
         </div>
-        <div class="issues-prepositions">
-          <h5>Posted</h5>
-        </div>
-        <div class="issues-details">
-          <h5><%= @post.created_at.strftime("%e/%m/%y") %></h5>
-        </div>
-        <div class="issues-prepositions">
-          <h5>Tags</h5>
-        </div>
-        <div class="issues-details">
-          <h5>#<%= @post.category %></h5>
-        </div>
+
+
         <div class="issues-prepositions">
           <h5>Photos</h5>
         </div>
@@ -146,4 +143,6 @@
       </div>
     </div>
   </div>
+
+
 
