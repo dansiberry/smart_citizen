@@ -7,8 +7,8 @@
         <%= f.input :title, label: "Title", placeholder: "Give it a title", input_html: {class: "box-input"} %>
         <%= f.input :content, label: "Description", placeholder: "Edit the description of the issue you previously raised", input_html: {class: "box-input"} %>
         <%= f.input :category, label: "Category", placeholder: "Choose a category for your issue", input_html: {class: "box-input"} %>
-        <%= f.input :city, label: "City", placeholder: "Where did you face this issue?", input_html: {class: "box-input"} %>
-        <%= f.input :neighbourhood, label: "Neighbourhood", collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input"}  %>
+        <%= f.input :city, label: "City", placeholder: "Where did you face this issue?", collection: ApplicationRecord::CITIES, input_html: {class: "box-input select_city"} %>
+        <%= f.input :neighbourhood, label: "Neighbourhood", collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input select_neightbourhood"}  %>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
 
