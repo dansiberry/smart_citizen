@@ -1,48 +1,139 @@
-<h1><%= @user.first_name %> <%= @user.last_name %> </h1>
-    <% if @user_as_politician.elected %>
-    <p><b>Elected </b></p>
-    <% end %>
-    <p><%= @user_as_politician.political_party %></p>
-    <p><%=@user_as_politician.office %></p>
-    <p><%=@user_as_politician.bio %></p>
-    <p><%= @user_as_politician.responsabilities %></p>
- <% if @user_as_politician.photo.try(:file).try(:public_id) %>
-      <%= cl_image_tag @user_as_politician.photo %>
-    <% else %>
-      <%= image_tag @user_as_politician.default_picture_url  %>
-    <% end %>
-
-    <% if @user.comments.present? %>
-    <p>Here are their answers to some issues: </p>
-      <ul>
-        <% @user.comments.each do |comment|  %>
-          <%= link_to post_path(comment.posts[0]) do %>
-            <li>
-              <%= comment.content %>
-            </li>
+<div class="container-issues">
+  <div class="row">
+    <div class="politician-info">
+      <div class="col-lg-4">
+        <div class="politician-photo padded-sm">
+          <% if @user_as_politician.photo.try(:file).try(:public_id) %>
+          <%= cl_image_tag @user_as_politician.photo, class: "img-responsive" %>
+          <% else %>
+          <%= image_tag @user_as_politician.default_picture_url  %>
           <% end %>
-        <% end %>
-      </ul>
-      <% end %>
+        </div>
+      </div>
 
-    <p>All the issues assigned to her/him:</p>
-    <% if @user.tagged_in.present? %>
-      <ul>
-        <% @user.tagged_in.each do |post|  %>
-          <li>
-            <%= link_to post_path(post) do %>
-              <%= post.title %>
+      <div class="col-lg-5">
+        <div class="politician-header padded-sm">
+          <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+          <% if @user_as_politician.verified %>
+          <div class="politician-verified">
+            <span>Verified
+              <i class="fa fa-check"></i></span>
+            </div>
             <% end %>
-              <%= post.content %>
-              <%= post.category %>
-          </li>
+            <i class="fa fa-twitter blue-twitter"></i>
+          </div>
+          <div class="politician-bio">
+            <% if @user.as_politician.responsabilities.present? %>
+            <p><strong>Responsibilities: </strong><%= @user_as_politician.responsabilities %></p>
+            <% end %>
+            <% if @user.as_politician.bio.present? %>
+            <p><%= @user_as_politician.bio %></p>
+            <% else %>
+            <p> This politician has not provided a bio yet </p>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="politician-other padded-sm">
+            <div class="politician-rating">
+              <% if @user.comments.count <= 2 %>
+              <h5>Unresponsive</h5>
+              <% elsif @user.comments.count >= 2 && @user.comments.count <= 10 %>
+              <h5>Responsive</h5>
+              <% else %>
+              <h5>Highly Responsive</h5>
+              <% end %>
+            </div>
+            <div class="issues-prepositions">
+              <h5>Replies</h5>
+            </div>
+            <div class="issues-details">
+              <h5><%= @user.comments.count %></h5>
+            </div>
+            <div class="issues-prepositions">
+              <h5>Office</h5>
+            </div>
+            <div class="issues-details">
+              <h5><%= @user_as_politician.office %></h5>
+            </div>
+            <div class="issues-prepositions">
+              <h5>Political party</h5>
+            </div>
+            <div class="issues-details">
+              <h5><%= @user_as_politician.political_party %></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="politician-replies">
+        <h3><%= @user.first_name %>'s replies</h3>
+        <% if @user.comments.present? %>
+        <% @user.comments.each do |comment|  %>
+        <% comment.posts.each do |commented_post| %>
+        <div class="col-xs-12 col-md-4">
+          <div class="issue-card-search border-gray">
+            <%= link_to post_path(commented_post) do %>
+            <div class="issue-card-neighbourhood">
+              <%= commented_post.neighbourhood %>
+            </div>
+            <div class="issue-card-upvote">
+              <%= commented_post.get_upvotes.size %>
+              <%= link_to "^", like_post_path(commented_post), method: :put %>
+            </div>
+            <span class="issue-card-text">
+              <span class="issue-card-title-search">
+                <%= commented_post.title %>
+              </span>
+            </span>
+            <span class="issue-card-category">
+              #<%= commented_post.category %>
+            </span>
+            <% end %>
+          </div>
+        </div>
         <% end %>
-      </ul>
-      <% else %>
-      <p>none</p>
-      <% end %>
+        <% end %>
+        <% else %>
+        <%= @user.first_name %> has not replied to any issues yet.
+        <% end %>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="politician-tags">
+        <h3>Issues <%= @user.first_name %> is tagged in</h3>
+        <% if @user.tagged_in.present? %>
+        <% @user.tagged_in.each do |post|  %>
+        <div class="col-xs-12 col-md-4">
+          <div class="issue-card-search border-gray">
+            <%= link_to post_path(post) do %>
+            <div class="issue-card-neighbourhood">
+              <%= post.neighbourhood %>
+            </div>
+            <div class="issue-card-upvote">
+              <%= post.get_upvotes.size %>
+              <%= link_to "^", like_post_path(post), method: :put %>
+            </div>
+            <span class="issue-card-text">
+              <span class="issue-card-title-search">
+                <%= post.title %>
+              </span>
+            </span>
+            <span class="issue-card-category">
+              <%= post.category %>
+            </span>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+        <% else %>
+        <p>none</p>
+        <% end %>
+      </div>
+    </div>
 
-<%= link_to "Edit", edit_politician_path(params[:id]) %> |
-
-<%= link_to "Delete", politician_path(params[:id]), method: :delete %>
+  </div>
