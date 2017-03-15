@@ -8,8 +8,13 @@
 
   <div class="row">
     <% @posts.each do |post| %>
+
     <div class="col-xs-12 col-md-4">
       <div class="issue-card-search border-gray">
+        <%= link_to post_path(post) do %>
+         <div class="link-box">
+         </div>
+        <% end %>
         <div class="issue-card-neighbourhood">
           <%= post.neighbourhood %>
         </div>
@@ -17,7 +22,7 @@
           <%= post.get_upvotes.size %>
           <%= link_to "^", like_post_path(post), method: :put %>
         </div>
-        <%= link_to post_path(post) do %>
+
         <span class="issue-card-text">
           <span class="issue-card-title-search">
             <%= post.title %>
@@ -26,9 +31,8 @@
             #<%= post.category %>
           </span>
         </span>
-        <% end %>
       </div>
-    </div>
+     </div>
     <% end %>
   </div>
 </div>
