@@ -16,8 +16,9 @@
           <div class="text-around-forms">
             <h2> Select a politician who <u>you</u> would like to respond</h2>
           </div>
-          <%= f.input :users, label: "Politicians in that area (if not present, leave blank as they will be contacted further to your inquiry)", as: :check_boxes, required: true, autofocus: true, collection: User.list_of_users_as_politicians, :label_method => lambda { |item| "#{item.first_name} #{item.last_name} <img src='#{item.as_politician.photo.url.nil? ? 'http://insight.venturebeat.com/sites/all/modules/features/vb_intel_analysts/assets/images/analyst-placeholder-avatar.png' : item.as_politician.photo.url }'>".html_safe }%>
-
+          <div class="around-issue-new-cards">
+          <%= f.input :users, label: "Politicians in that area - if not present, leave blank as they will be contacted further to your inquiry", as: :check_boxes, required: true, autofocus: true, input_html: {class: "card-issue-new"}, collection: User.list_of_users_as_politicians, :label_method => lambda { |item| "#{item.first_name} #{item.last_name} <img src='#{item.as_politician.photo.url.nil? ? 'http://insight.venturebeat.com/sites/all/modules/features/vb_intel_analysts/assets/images/analyst-placeholder-avatar.png' : item.as_politician.photo.url }'>".html_safe }%>
+          </div>
         <%= f.button :submit  %>
         </div>
       <% end %>
