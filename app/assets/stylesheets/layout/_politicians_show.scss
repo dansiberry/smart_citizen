@@ -43,6 +43,7 @@
     color: $green;
     text-align: right;
     font-weight: bolder;
+    margin-top: 0px;
   }
 }
 
@@ -68,4 +69,8 @@
   padding-left: 10px;
 }
 
-
+.reply-count {
+  font-size: 52px;
+  font-weight: 400 !important;
+  margin-top: -12px;
+}
