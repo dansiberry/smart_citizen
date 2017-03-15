@@ -1,12 +1,19 @@
-<h1>Edit your issue</h1>
-<%= simple_form_for @post do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.input :category %>
-  <%= f.input :city %>
-  <%= f.input :neighbourhood, collection: ApplicationRecord::NEIGHBOURHOODS %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
 
-  <%= f.button :submit %>
-<% end %>
+      <h2>Edit your issue</h2>
+      <%= simple_form_for @post do |f| %>
+        <%= f.input :title, label: "Title", placeholder: "Give it a title", input_html: {class: "box-input"} %>
+        <%= f.input :content, label: "Description", placeholder: "Edit the description of the issue you previously raised", input_html: {class: "box-input"} %>
+        <%= f.input :category, label: "Category", placeholder: "Choose a category for your issue", input_html: {class: "box-input"} %>
+        <%= f.input :city, label: "City", placeholder: "Where did you face this issue?", input_html: {class: "box-input"} %>
+        <%= f.input :neighbourhood, label: "Neighbourhood", collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input"}  %>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
+
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
