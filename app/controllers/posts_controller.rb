@@ -11,15 +11,20 @@ class PostsController < ApplicationController
     authorize @post
     @post.user = current_user
 
-    if @post.save
-      list_user_ids = params[:post][:users].select {|i| i.present? }
+    saved = @post.save
+
+    if saved
+      list_user_ids = (params[:post][:users]  || []).select {|i| i.present? }
 
       list_user_ids.each do |user_id|
         @post.user_posts.create(user_id: user_id)
       end
+    end
 
+    if saved and @post.has_politician?
       redirect_to post_path(@post)
     else
+      @post.destroy
       render :new
     end
   end
