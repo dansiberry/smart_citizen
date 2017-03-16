@@ -9,6 +9,14 @@
           <%= image_tag @user_as_politician.default_picture_url, class: "cloudinary-image",responsive_width: true, crop: "scale"  %>
           <% end %>
         </div>
+        <div class="politician-edit-profile">
+          <% if policy(@user_as_politician).edit? %>
+          <%= link_to edit_politician_path(@user.as_politician) do %>
+          <span class="fa fa-pencil"></span>
+          <span>Edit my profile</span>
+          <% end %>
+          <% end %>
+        </div>
       </div>
 
       <div class="col-lg-6">
@@ -30,7 +38,7 @@
             <% if @user.as_politician.bio.present? %>
             <p><%= @user_as_politician.bio %></p>
             <% else %>
-            <p> This politician has not provided a bio yet. </p>
+            <p>This politician has not provided a bio yet.</p>
             <% end %>
           </div>
         </div>
@@ -39,11 +47,11 @@
           <div class="politician-other padded-sm">
             <div class="politician-rating">
               <% if @user.comments.count <= 2 %>
-              <h5>Unresponsive"</h5>
+              <h5>Unresponsive</h5>
               <% elsif @user.comments.count >= 2 && @user.comments.count <= 10 %>
-              <h5>Responsive"</h5>
+              <h5>Responsive</h5>
               <% else %>
-              <h5>Highly Responsive"</h5>
+              <h5>Highly Responsive</h5>
               <% end %>
             </div>
             <div class="issues-prepositions">
