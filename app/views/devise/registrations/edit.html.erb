@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
 
-      <h2>Edit <%= resource_name.to_s.humanize %></h2>
+      <h2 class="form-title">Edit <%= resource_name.to_s.humanize %><span class="green-period">.</span></h2>
 
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
@@ -11,8 +11,8 @@
         <%= f.input :first_name, required: false, autofocus: true, label: "Your first name", placeholder:"Edit your first name", input_html: {class: "box-input"} %>
         <%= f.input :last_name, required: false, autofocus: true, label: "Your last name", placeholder:"Edit your last name", input_html: {class: "box-input"} %>
         <%= f.input :address, required: true, autofocus: true, label: "Your address", placeholder:"Edit your address", input_html: {class: "box-input"} %>
-        <%= f.input :city, required: true, autofocus: true, label: "City", placeholder:"Edit your city", collection: ApplicationRecord::CITIES, input_html: {class: "box-input select_city"} %>
-        <%= f.input :neighbourhood, required: true, label: "Neighbourhood", placeholder:"Edit your neighbourhood", collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input select_neightbourhood"} %>
+        <%= f.input :city, required: true, autofocus: true, label: "City", placeholder:"Edit your city", collection: ApplicationRecord::CITIES, input_html: {class: "box-input"} %>
+        <%= f.input :neighbourhood, required: true, label: "Neighbourhood", placeholder:"Edit your neighbourhood", collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input"} %>
         <%= f.input :email, required: true, autofocus: true, label: "Your email address", placeholder:"Edit your email address", input_html: {class: "box-input"} %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
