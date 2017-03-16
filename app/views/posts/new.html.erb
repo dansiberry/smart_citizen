@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container form-background">
   <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
+    <div class="col-xs-8 col-xs-offset-2 form-content">
 
-      <h2>What would <u>you</u> like your representative to act or react on?</h2>
+      <h2 class = "form-title">Raise a public issue for your local politicians to respond to<span class= "green-period">.</span></h2>
       <%= simple_form_for @post do |f| %>
         <%= f.input :title, label: "Title", placeholder: "Give it a title", input_html: {class: "box-input"} %>
         <%= f.input :content, label: "Description", placeholder: "Describe precisely the issue you would like to raise", input_html: {class: "box-input"} %>
@@ -14,7 +14,7 @@
 
         <div class="below-form">
           <div class="text-around-forms">
-            <h2> Select a politician who <u>you</u> would like to respond</h2>
+            <h4> Select the politicians who you would like to respond</h4>
           </div>
           <div class="row">
             <%  User.list_of_users_as_politicians.each do |politician| %>
@@ -23,14 +23,11 @@
 
               <input type="checkbox" id="politician-<%= politician.id %>" name="post[users][]" value=" <%= politician.id  %>">
               <label for="politician-<%= politician.id %>" class="politician-item">
-                <figure class="image-container">
-                  <img src="<%= politician.as_politician.photo.url.nil? ? 'http://insight.venturebeat.com/sites/all/modules/features/vb_intel_analysts/assets/images/analyst-placeholder-avatar.png' : politician.as_politician.photo.url %>" alt=""/>
-                </figure>
-                <h3>
-                  <%= politician.first_name   %>
-                </h3>
+
+                <img src="<%= politician.as_politician.photo.url.nil? ? 'http://insight.venturebeat.com/sites/all/modules/features/vb_intel_analysts/assets/images/analyst-placeholder-avatar.png' : politician.as_politician.photo.url %>" alt=""/>
+
                 <h4>
-                  <%= politician.last_name   %>
+                  <%= politician.first_name   %>
                 </h4>
                 <p>
                   <%= politician.as_politician.office  %>
