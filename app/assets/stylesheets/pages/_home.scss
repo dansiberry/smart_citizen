@@ -82,7 +82,7 @@ select {
 }
 
 .banner-content {
-  width:45%;
+  width:55%;
   margin-left: 10%;
 }
 
@@ -90,4 +90,13 @@ select {
   width:50%;
 }
 
+.anchor {
+  position: relative;
+}
+
+.home-search {
+  position:absolute;
+  right:0px;
+  bottom: -70px;
+}
 
