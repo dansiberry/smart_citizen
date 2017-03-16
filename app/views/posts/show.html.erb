@@ -66,7 +66,9 @@
     <div class="col-lg-3">
       <div class="issues-upvote" data-balloon="Upvote this issue!" data-balloon-pos="up">
         <%= @post.get_upvotes.size %>
-        <%= link_to "^", like_post_path(@post), method: :put %>
+        <%= link_to like_post_path(@post), method: :put do %>
+        <i class="fa fa-caret-up" aria-hidden="true"></i>
+        <% end %>
       </div>
       <div class="issues-prepositions">
         <h5>By</h5>
