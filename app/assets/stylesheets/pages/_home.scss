@@ -40,13 +40,16 @@ select {
 
 
 .banner {
+
   height:97vh;
   width: 600px;
   margin-left: 200px;
+
   margin-bottom: 0px;
   margin-top: -70px;
   padding-top: 12em;
   position: relative;
+  padding-left:10%
 }
 
 .banner-background {
@@ -70,7 +73,7 @@ select {
  width:60px;
  height:60px;
  position:absolute;
- left:30vw;
+ left:50%;
  bottom: -30px;
  transform: rotate(45deg);
  background-color: #baeaac;
@@ -79,5 +82,15 @@ select {
 
 .banner-content h1, .most-voted h3 {
   font-weight: bold;
+}
+
+
+.banner-content {
+  width:45%;
+  margin-left: 10%;
+}
+
+.banner form {
+  width:50%;
 }
 
