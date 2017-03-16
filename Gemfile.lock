@@ -200,6 +200,8 @@ GEM
     tilt (2.0.6)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uglifier (3.1.4)
+      execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
     websocket-driver (0.6.5)
@@ -236,6 +238,7 @@ DEPENDENCIES
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
+  uglifier
 
 RUBY VERSION
    ruby 2.3.3p222
