@@ -41,20 +41,17 @@
   display: inline;
 }
 
-.politician-info-index h4 {
-  width:200px;
-  font-family: 'Gotham-Rounded';
+.politician-info-index {
+  max-width: 50%;
+  right:30px;
+  h4 {
+    font-family: 'Gotham-Rounded';
+  }
 }
 
 .index-nav {
   margin-bottom: 30px;
 }
-
-.politican-info-index {
-  right:30px;
-}
-
-
 
 .politicians-list {
   margin-right: -45px;
