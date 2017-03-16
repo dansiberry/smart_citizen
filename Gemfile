@@ -10,7 +10,7 @@ gem 'devise'
 gem 'redis'
 gem 'faker'
 gem 'acts_as_votable', '~> 0.10.0'
-
+gem 'uglifier'
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
