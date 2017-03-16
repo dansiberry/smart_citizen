@@ -23,7 +23,9 @@
 
               <input type="checkbox" id="politician-<%= politician.id %>" name="post[users][]" value=" <%= politician.id  %>">
               <label for="politician-<%= politician.id %>" class="politician-item">
-                <img src="<%= politician.as_politician.photo.url.nil? ? 'http://insight.venturebeat.com/sites/all/modules/features/vb_intel_analysts/assets/images/analyst-placeholder-avatar.png' : politician.as_politician.photo.url %>" alt=""/>
+                <figure class="image-container">
+                  <img src="<%= politician.as_politician.photo.url.nil? ? 'http://insight.venturebeat.com/sites/all/modules/features/vb_intel_analysts/assets/images/analyst-placeholder-avatar.png' : politician.as_politician.photo.url %>" alt=""/>
+                </figure>
                 <h3>
                   <%= politician.first_name   %>
                 </h3>

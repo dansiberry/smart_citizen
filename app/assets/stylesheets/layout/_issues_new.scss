@@ -6,10 +6,10 @@
     display: none;
   }
   input:checked + label {
-    border-color: darken($green, 15%);
+    border-color: darken($green, 30%);
     border-bottom-width: 3px;
-    color: darken($green, 15%);
-    img{
+    color: darken($green, 30%);
+    .image-container {
       opacity: 1;
     }
   }
@@ -19,15 +19,30 @@
 .politician-item {
   border: 1px solid $light-gray ;
   color: $light-gray;
-  height: 300px;
+  height: 350px;
   cursor: pointer;
-  transition: color 0.5s, border-color 0.5s;
+  transition: color 0.2s, border-color 0.2s;
+  display: block;
   h3, h4, p {
     margin: 0 15px;
   }
   img {
-    margin-bottom: 15px;
-    opacity: 0.6;
-    transition: opacity 0.5s;
+    max-width: 100%;
+    flex: 1 1 auto;
   }
 }
+
+.image-container {
+  overflow: hidden;
+  width: 100%;
+  height: 250px;
+  background: #F5F5F5;
+  margin-bottom: 20px;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
