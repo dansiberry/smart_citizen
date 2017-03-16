@@ -7,7 +7,7 @@
       <div class="issues-title padded-sm">
         <h1><%= @post.title %><span class="green-period">.</span></h1>
 
-          <span class = "grey-subtitle">Tags</span> <span class = "green-subtitle">#<%= @post.category %></span>
+        <span class = "grey-subtitle">Tags</span> <span class = "green-subtitle">#<%= @post.category %></span>
       </div>
 
 
@@ -26,24 +26,24 @@
         <% end %>
         <% end %>
 
-          <span class = "grey-subtitle">Posted</span>
+        <span class = "grey-subtitle">Posted</span>
 
 
-          <span class = "green-subtitle"><%= @post.created_at.strftime("%e/%m/%y") %></span>
-      <div class="show-button">
-        <% if current_user %>
+        <span class = "green-subtitle"><%= @post.created_at.strftime("%e/%m/%y") %></span>
+        <div class="show-button">
+          <% if current_user %>
           <% if current_user.as_politician %>
-            <%= link_to "Reply", new_post_comment_path(@post), class: "btn btn-outline-primary" %>
+          <%= link_to "Reply", new_post_comment_path(@post), class: "btn btn-outline-primary" %>
 
           <% else %>
-            <%= link_to "Add your input on this issue", new_post_path, class: "btn btn-outline-primary" %>
-            <%= link_to "Create a politician profile and join the conversation", new_politician_path, class: "btn btn-outline-primary" %>
+          <%= link_to "Add your input on this issue", new_post_path, class: "btn btn-outline-primary" %>
+          <%= link_to "Create a politician profile and join the conversation", new_politician_path, class: "btn btn-outline-primary" %>
           <% end %>
-        <% else %>
+          <% else %>
           <p>Are you an elected official?</p>
           <%= mail_to "claimprofile@smartcitizen.org", "Claim your profile and join the conversation", html_options = { subject: "Claim my public profile", body: "Hi Smart Citizen, \n I would like to claim the public profile for the elected office in the above email address. \n Thank you in advance,\n"} %>
-        <% end %>
-      </div>
+          <% end %>
+        </div>
       </div>
 
       <div class="issues-replies">
@@ -122,7 +122,11 @@
         <% else %>
         <% @related_posts.each do |related_post| %>
         <div class="col-xs-12 col-lg-4">
-          <div class="issue-card-search">
+          <div class="issue-card-search border-gray">
+            <%= link_to post_path(related_post) do %>
+            <div class="link-box">
+            </div>
+            <% end %>
             <div class="issue-card-neighbourhood">
               <%= related_post.neighbourhood %>
             </div>
@@ -130,7 +134,6 @@
               <%= related_post.get_upvotes.size %>
               <%= link_to "^", like_post_path(@post), method: :put %>
             </div>
-            <%= link_to post_path(related_post) do %>
             <span class="issue-card-text">
               <span class="issue-card-title-search">
                 <%= related_post.title %>
@@ -139,7 +142,6 @@
                 <%= related_post.category %>
               </span>
             </span>
-            <% end %>
           </div>
         </div>
         <% end %>
