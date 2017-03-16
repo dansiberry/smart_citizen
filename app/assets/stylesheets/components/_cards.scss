@@ -71,14 +71,21 @@
   }
 
   .politician-card {
-    width: 90%;
+    width: 100%;
     height: 250px;
-    margin: 20px;
+    margin: 0px;
     position: relative;
+    padding-left: 90px;
+    margin-bottom: 50px;
   }
+
 
   .politician-photo-index {
     width: 50%;
+  }
+
+  .politician-photo-index img {
+  width: 150px;
   }
 
   .politician-info-index {
