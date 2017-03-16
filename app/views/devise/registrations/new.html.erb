@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
 
-      <h2>Sign up</h2>
+      <h2 class="form-title">Sign up<span class="green-period">.</span></h2>
 
       <div class="claim-public-profile">
         <span>Are you an elected official?</span>
@@ -16,8 +16,8 @@
         <%= f.input :first_name, required: false, autofocus: true, label: "Your first name", placeholder:"What's your first name?", input_html: {class: "box-input"} %>
         <%= f.input :last_name, required: false, autofocus: true, label: "Your last name", placeholder:"What's your last name?", input_html: {class: "box-input"} %>
         <%= f.input :address, required: true, autofocus: true, label: "Your address", placeholder:"What's your address?", input_html: {class: "box-input"} %>
-        <%= f.input :city, required: true, autofocus: true, label: "City", placeholder:"In which city do you live?", collection: ApplicationRecord::CITIES, input_html: {value: 'Barcelona', class: "box-input select_city"} %>
-        <%= f.input :neighbourhood, required: true, label: "Neighbourhood", placeholder:"In which neighbourhood do you specifically live?", collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input select_neightbourhood"} %>
+        <%= f.input :city, required: true, autofocus: true, label: "City", placeholder:"In which city do you live?", collection: ApplicationRecord::CITIES, input_html: {value: 'Barcelona', class: "box-input"} %>
+        <%= f.input :neighbourhood, required: true, label: "Neighbourhood", placeholder:"In which neighbourhood do you specifically live?", collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input"} %>
         <%= f.input :email, required: true, autofocus: true, label: "Your email address", placeholder:"What's your email address?", input_html: {class: "box-input"} %>
         <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: {class: "box-input"} %>
         <%= f.input :password_confirmation, required: true, input_html: {class: "box-input"} %>
