@@ -86,7 +86,9 @@
             </div>
             <div class="issue-card-upvote">
               <%= commented_post.get_upvotes.size %>
-              <%= link_to "^", like_post_path(commented_post), method: :put %>
+              <%= link_to like_post_path(commented_post), method: :put do %>
+              <i class="fa fa-caret-up" aria-hidden="true"></i>
+              <% end %>
             </div>
             <span class="issue-card-text">
               <span class="issue-card-title-search">
@@ -122,7 +124,9 @@
             </div>
             <div class="issue-card-upvote">
               <%= post.get_upvotes.size %>
-              <%= link_to "^", like_post_path(post), method: :put %>
+              <%= link_to like_post_path(post), method: :put do %>
+              <i class="fa fa-caret-up" aria-hidden="true"></i>
+              <% end %>
             </div>
             <span class="issue-card-text">
               <span class="issue-card-title-search">

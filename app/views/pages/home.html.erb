@@ -1,35 +1,37 @@
   <div class="banner-background">
   </div>
 
-<div class="banner padded">
-  <div class="banner-content padded-sm">
-    <h1>Connect with local politicians on issues that matter<span class="green-period">.</span></h1>
-  </div>
+  <div class="banner padded">
+    <div class="banner-content padded-sm">
+      <h1>Connect with local politicians on issues that matter<span class="green-period">.</span></h1>
+    </div>
 
     <%= render 'shared/search' %>
-  <div class="scroll-prompt">
+    <div class="scroll-prompt">
 
+    </div>
   </div>
-</div>
 
-<div class="container most-voted">
-  <h3 style = "font-size:34px; margin-top:100px; padding-bottom:20px;">Most popular issues<span class="green-period">.</span></h3>
-  <div class="row padded-sm">
-    <% @upvoted_posts.each do |popular_post| %>
-    <div class="col-xs-12 col-md-4">
-      <div class="issue-card bg-white">
-        <%= link_to post_path(popular_post) do %>
+  <div class="container most-voted">
+    <h3 style = "font-size:34px; margin-top:100px; padding-bottom:20px;">Most popular issues<span class="green-period">.</span></h3>
+    <div class="row padded-sm">
+      <% @upvoted_posts.each do |popular_post| %>
+      <div class="col-xs-12 col-md-4">
+        <div class="issue-card bg-white">
+          <%= link_to post_path(popular_post) do %>
           <div class="link-box">
           </div>
-        <% end %>
-        <div class="issue-card-neighbourhood">
-          <%= popular_post.neighbourhood %>
-        </div>
-        <div class="issue-card-upvote">
-          <%= popular_post.get_upvotes.size %>
-          <%= link_to "^", like_post_path(popular_post), method: :put %>
-        </div>
-        <%= link_to post_path(popular_post) do %>
+          <% end %>
+          <div class="issue-card-neighbourhood">
+            <%= popular_post.neighbourhood %>
+          </div>
+          <div class="issue-card-upvote">
+            <%= popular_post.get_upvotes.size %>
+            <%= link_to like_post_path(popular_post), method: :put do %>
+            <i class="fa fa-caret-up" aria-hidden="true"></i>
+            <% end %>
+          </div>
+          <%= link_to post_path(popular_post) do %>
 
 
           <div class="issue-card-title">
@@ -39,9 +41,9 @@
             #<%= popular_post.category %>
           </div>
 
-        <% end %>
+          <% end %>
+        </div>
       </div>
-     </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
