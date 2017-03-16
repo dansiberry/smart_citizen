@@ -44,8 +44,12 @@
 
         <div class="politician-info-index">
           <div class="politician-verified-index">
+            <% if a.verified == true %>
             <span>Verified
               <i class="fa fa-check"></i></span>
+              <% else %>
+              <span>Not Verified</span>
+              <% end %>
             </div>
             <h4><%= a.user.first_name %> <%= a.user.last_name %></h4>
             <div class="issues-prepositions">
