@@ -35,7 +35,7 @@
   font-size: 40px;
   color: $light-gray;
   text-align: right;
-  margin-top: 45px;
+  margin-top: 60px;
   margin-bottom: 50px;
 }
 .issues-upvote a {
@@ -62,6 +62,7 @@
 
 .issues-details {
   text-align: right;
+  direction: rtl;
   h5 {
     color: $green;
     font-weight: bolder;
@@ -92,3 +93,7 @@
 }
 
 
+
+.issues-title h1 {
+ margin-top: 40px;
+}
