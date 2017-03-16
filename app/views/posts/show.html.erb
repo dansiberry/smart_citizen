@@ -7,7 +7,32 @@
       <div class="issues-title padded-sm">
         <h1><%= @post.title %><span class="green-period">.</span></h1>
 
-        <span class = "grey-subtitle">Tags</span> <span class = "green-subtitle">#<%= @post.category %></span>
+        <div class="issues-tag">
+          <span class = "grey-subtitle">Tags</span> <span class = "green-subtitle">#<%= @post.category %></span>
+        </div>
+
+        <div class="issues-edit">
+          <% if policy(@post).edit? %>
+          <%= link_to edit_post_path(@post) do %>
+          <span class="fa fa-pencil"></span>
+          <% end %>
+          <% end %>
+
+          <% if policy(@post).destroy? %>
+          <%= link_to post_path(@post), method: :delete, data: { confirm: "Are you sure?" } do %>
+          <span class="fa fa-trash-o"></span>
+          <% end %>
+          <% end %>
+        </div>
+
+        <div class="issues-posted-at">
+          <span class = "grey-subtitle">Posted</span>
+          <span class = "green-subtitle"><%= @post.created_at.strftime("%e/%m/%y") %></span>
+        </div>
+      </div>
+
+      <div class="issues-content">
+        <p><%= @post.content %></p>
       </div>
 
       <div class="show-button">
@@ -21,24 +46,6 @@
         <% else %>
         <%= link_to "Join the conversation", new_user_registration_path, class: "btn btn-primary" %>
         <% end %>
-      </div>
-
-      <div class="issues-content">
-        <p><%= @post.content %></p>
-        <% if policy(@post).edit? %>
-        <%= link_to edit_post_path(@post) do %>
-        <span class="fa fa-pencil"></span>
-        <% end %>
-        <% end %>
-
-        <% if policy(@post).destroy? %>
-        <%= link_to post_path(@post), method: :delete, data: { confirm: "Are you sure?" } do %>
-        <span class="fa fa-trash-o"></span>
-        <% end %>
-        <% end %>
-
-        <span class = "grey-subtitle">Posted</span>
-        <span class = "green-subtitle"><%= @post.created_at.strftime("%e/%m/%y") %></span>
       </div>
 
       <div class="issues-replies">

@@ -2,6 +2,21 @@
   font-weight: bolder;
   margin-top: 50px;
 }
+
+.issues-tag {
+  display: inline;
+  margin-right: 150px;
+}
+
+.issues-posted-at {
+  display: inline;
+}
+
+.issues-edit {
+  display: inline;
+  margin-right: 120px;
+}
+
 .issues-content {
   padding-top: 20px;
   padding-bottom: 40px;
@@ -56,8 +71,8 @@
 }
 
 .green-subtitle {
-    color: $green;
-    font-weight: bolder;
+  color: $green;
+  font-weight: bolder;
 }
 
 .issues-details {
