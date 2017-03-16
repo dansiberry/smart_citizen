@@ -128,7 +128,7 @@ user4 = User.new(first_name: "Jaume",
   email: "jasensl@bcn.cat",
   password: "JAL2017")
 user4.save
-politician3 = UserAsPolitician.new(political_party: 'Barcelona en Comú',
+politician4 = UserAsPolitician.new(political_party: 'Barcelona en Comú',
   office: 'Fourth Deputy Mayor',
   elected: true,
   twitter_handle: "@Jaumeasens",
