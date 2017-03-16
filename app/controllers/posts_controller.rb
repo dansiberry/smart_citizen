@@ -7,18 +7,21 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
-    authorize post
-    post.user = current_user
-    post.save
+    @post = Post.new(post_params)
+    authorize @post
+    @post.user = current_user
 
-    list_user_ids = params[:post][:users].select {|i| i.present? }
+    if @post.save
+      list_user_ids = params[:post][:users].select {|i| i.present? }
 
-    list_user_ids.each do |user_id|
-      post.user_posts.create(user_id: user_id)
+      list_user_ids.each do |user_id|
+        @post.user_posts.create(user_id: user_id)
+      end
+
+      redirect_to post_path(@post)
+    else
+      render :new
     end
-
-    redirect_to post_path(post)
   end
 
   def edit
