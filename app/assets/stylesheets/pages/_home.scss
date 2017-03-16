@@ -16,7 +16,7 @@
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: contain;
-  border-top: 3px solid #baeaac;
+  // border-top: 3px solid #baeaac;
  }
 
  select:not([multiple]) {
@@ -41,10 +41,8 @@ select {
 
 .banner {
 
-  height:97vh;
-  width: 600px;
-  margin-left: 200px;
-
+  height:95vh;
+  width: 100%;
   margin-bottom: 0px;
   margin-top: -70px;
   padding-top: 12em;
@@ -84,10 +82,13 @@ select {
   font-weight: bold;
 }
 
+.banner-content h1 {
+  width:75%;
+  margin-bottom: 40px;
+}
 
 .banner-content {
-  width:55%;
-  margin-left: 10%;
+  width:100%;
 }
 
 .banner form {
