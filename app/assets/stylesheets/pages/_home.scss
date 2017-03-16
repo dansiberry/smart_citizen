@@ -16,7 +16,7 @@
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: contain;
-  border-top: 1px solid #baeaac;
+  border-top: 3px solid #baeaac;
  }
 
  select:not([multiple]) {
@@ -40,7 +40,7 @@ select {
 
 
 .banner {
-  height:100vh;
+  height:97vh;
   width: 600px;
   margin-left: 200px;
   margin-bottom: 0px;
@@ -80,5 +80,4 @@ select {
 .banner-content h1, .most-voted h3 {
   font-weight: bold;
 }
-
 
