@@ -16,7 +16,7 @@
 }
 
 .form-title {
-  font-size: 25px;
+  font-size: 29px;
   margin-bottom: 40px;
   font-weight: bold;
 }
@@ -26,6 +26,7 @@
   padding: 50px;
   border:1px solid #f3f3f3;
   box-shadow: 5px 5px 5px #f5f5f5;
+  margin-top: 45px;
 
   #search .select, .select2-selection, .select2-selection--single {
     border:0px !important;
@@ -55,6 +56,15 @@
   width: 100%;
   padding:15px;
   border:0px;
+}
+
+.form-content input[type="submit"] {
+  margin:auto;
+  display:block;
+  border:0px;
+  background-color: $green;
+  color:white;
+
 }
 // .green-period {
 //   color: #6ECA52;
