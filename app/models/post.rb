@@ -8,15 +8,17 @@ class Post < ApplicationRecord
   acts_as_votable
 
   validates :title, presence: true
+  validates :content, length: { minimum: 300, too_short: "Please describe the issue in at least 300 characters" }
   validates :category, presence: true
   validates :city, presence: true
   validates :neighbourhood, presence: true
 
-
   scope :by_category, -> (category) { where(category: category) }
   scope :by_neighbourhood, -> (neighbourhood) { where(neighbourhood: neighbourhood)}
 
-
+  def has_politician?
+    self.users.size > 0
+  end
 
   def self.all_categories
     self.all.map { |post| post.category }.select { |a| a.present? }.uniq.sort

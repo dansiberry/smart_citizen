@@ -7,43 +7,45 @@
       <div class="issues-title padded-sm">
         <h1><%= @post.title %><span class="green-period">.</span></h1>
 
-        <span class = "grey-subtitle">Tags</span> <span class = "green-subtitle">#<%= @post.category %></span>
+        <div class="issues-tag">
+          <span class = "grey-subtitle">Tags</span> <span class = "green-subtitle">#<%= @post.category %></span>
+        </div>
+
+        <div class="issues-edit">
+          <% if policy(@post).edit? %>
+          <%= link_to edit_post_path(@post) do %>
+          <span class="fa fa-pencil"></span>
+          <% end %>
+          <% end %>
+
+          <% if policy(@post).destroy? %>
+          <%= link_to post_path(@post), method: :delete, data: { confirm: "Are you sure?" } do %>
+          <span class="fa fa-trash-o"></span>
+          <% end %>
+          <% end %>
+        </div>
+
+        <div class="issues-posted-at">
+          <span class = "grey-subtitle">Posted</span>
+          <span class = "green-subtitle"><%= @post.created_at.strftime("%e/%m/%y") %></span>
+        </div>
       </div>
-
-
 
       <div class="issues-content">
         <p><%= @post.content %></p>
-        <% if policy(@post).edit? %>
-        <%= link_to edit_post_path(@post) do %>
-        <span class="fa fa-pencil"></span>
+      </div>
+
+      <div class="show-button">
+        <% if current_user %>
+        <% if current_user.as_politician %>
+        <%= link_to "Reply", new_post_comment_path(@post), class: "btn btn-primary" %>
+
+        <% else %>
+        <%= link_to "Raise a similar issue", new_post_path, class: "btn btn-primary" %>
         <% end %>
+        <% else %>
+        <%= link_to "Join the conversation", new_user_registration_path, class: "btn btn-primary" %>
         <% end %>
-
-        <% if policy(@post).destroy? %>
-        <%= link_to post_path(@post), method: :delete, data: { confirm: "Are you sure?" } do %>
-        <span class="fa fa-trash-o"></span>
-        <% end %>
-        <% end %>
-
-        <span class = "grey-subtitle">Posted</span>
-
-
-        <span class = "green-subtitle"><%= @post.created_at.strftime("%e/%m/%y") %></span>
-        <div class="show-button">
-          <% if current_user %>
-          <% if current_user.as_politician %>
-          <%= link_to "Reply", new_post_comment_path(@post), class: "btn btn-outline-primary" %>
-
-          <% else %>
-          <%= link_to "Add your input on this issue", new_post_path, class: "btn btn-outline-primary" %>
-          <%= link_to "Create a politician profile and join the conversation", new_politician_path, class: "btn btn-outline-primary" %>
-          <% end %>
-          <% else %>
-          <p>Are you an elected official?</p>
-          <%= mail_to "claimprofile@smartcitizen.org", "Claim your profile and join the conversation", html_options = { subject: "Claim my public profile", body: "Hi Smart Citizen, \n I would like to claim the public profile for the elected office in the above email address. \n Thank you in advance,\n"} %>
-          <% end %>
-        </div>
       </div>
 
       <div class="issues-replies">
@@ -57,8 +59,6 @@
           <p><%= a.content %> </p>
         </div>
         <% end %>
-        <% else %>
-        <p></p>
         <% end %>
       </div>
     </div>
@@ -89,7 +89,7 @@
           </div>
           <% end %>
 
-          <% text = "I would like to have your opinion on #{@post.title}: please join us http://www.smartcitizen.yeah/post/#{@post.id} to answer us" %>
+          <% text = "I would like to have your opinion on #{@post.title} http://www.smartcitizen.org/post/#{@post.id} to answer" %>
 
           <a href="https://twitter.com/intent/tweet?screen_name=<%= politician.as_politician.twitter_handle %>&text=<%= CGI.escape(text) %>" class="twitter-mention-button" data-show-count="false">
             Tweet to <%= politician.as_politician.twitter_handle %>
@@ -132,7 +132,9 @@
             </div>
             <div class="issue-card-upvote">
               <%= related_post.get_upvotes.size %>
-              <%= link_to "^", like_post_path(@post), method: :put %>
+              <%= link_to like_post_path(@post), method: :put do %>
+              <i class="fa fa-caret-up" aria-hidden="true"></i>
+              <% end %>
             </div>
             <span class="issue-card-text">
               <span class="issue-card-title-search">
