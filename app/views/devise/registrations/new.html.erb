@@ -4,6 +4,11 @@
 
       <h2>Sign up</h2>
 
+      <div class="claim-public-profile">
+        <span>Are you an elected official?</span>
+        <%= mail_to "claimprofile@smartcitizen.org", "Claim your public profile", html_options = { subject: "Claim my public profile", body: "Hi Smart Citizen, \n I would like to claim my public profile and I am emailing you from my government email address as proof. \n Thank you in advance,\n"} %>
+      </div>
+
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
 
