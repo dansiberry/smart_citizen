@@ -2,8 +2,8 @@
 
 .box-input {
   background: white;
-  border-radius: 6px;
-  border-bottom: 2px solid $green;
+  border-radius: 0px;
+  border: none;
 }
 
 .text-around-forms{
@@ -15,3 +15,52 @@
   margin: 50px 0;
 }
 
+.form-title {
+  font-size: 25px;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.form-content {
+  background-color: white;
+  padding: 50px;
+  border:1px solid #f3f3f3;
+  box-shadow: 5px 5px 5px #f5f5f5;
+
+  #search .select, .select2-selection, .select2-selection--single {
+    border:0px !important;
+    border: 1px solid #f3f3f3 !important;
+  }
+}
+
+.form-content form label {
+  color:#4c4c4c;
+  display: block;
+
+}
+
+.form-content .form-group {
+  margin-bottom: 25px;
+}
+
+.politician-item img {
+  height: 215px;
+  display: block;
+  margin: auto;
+  width: 100%;
+  object-fit:cover;
+}
+
+.politician-item {
+  width: 100%;
+  padding:15px;
+  border:0px;
+}
+// .green-period {
+//   color: #6ECA52;
+//   font-size: 25px;
+// }
+
+// .form-background {
+//   background-color: #f3f3f3;
+// }

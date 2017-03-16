@@ -6,9 +6,10 @@
     display: none;
   }
   input:checked + label {
-    border-color: darken($green, 15%);
+    border-color: $green;
     border-bottom-width: 3px;
-    color: darken($green, 15%);
+    color: $green;
+
     img{
       opacity: 1;
     }
@@ -17,7 +18,6 @@
 
 
 .politician-item {
-  border: 1px solid $light-gray ;
   color: $light-gray;
   height: 300px;
   cursor: pointer;
