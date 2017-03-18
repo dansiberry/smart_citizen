@@ -1,7 +1,14 @@
-<h1>New Comment</h1>
-<p> Your reply to: <%= @post.title %> </p>
+<div class="container form-background">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2 form-content">
 
-<%= simple_form_for [@post,@comment] do |f| %>
-  <%= f.input :content %>
-  <%= f.button :submit %>
-<% end %>
+    <h2 class = "form-title">Your reply<span class= "green-period">.</span></h2>
+    <p>to: <%= @post.title %></p>
+
+      <%= simple_form_for [@post,@comment] do |f| %>
+      <%= f.input :content, label: false %>
+      <%= f.button :submit, "Create reply" %>
+      <% end %>
+    </div>
+  </div>
+</div>
