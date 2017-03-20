@@ -4,20 +4,25 @@
 
       <h2 class="form-title">Log in<span class="green-period">.</span></h2>
 
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="form-inputs">
-          <%= f.input :email, required: false, autofocus: true, input_html: {class: "box-input"} %>
-          <%= f.input :password, required: false, input_html: {class: "box-input"} %>
-          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-        </div>
+      <div class="devise-links">
+        <%= render "devise/shared/top-links" %>
+      </div>
 
-        <div class="form-actions">
-          <%= f.button :submit, "Log in" %>
-        </div>
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :email, required: false, autofocus: true, input_html: {class: "box-input"} %>
+        <%= f.input :password, required: false, input_html: {class: "box-input"} %>
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Log in" %>
+      </div>
       <% end %>
 
-      <%= render "devise/shared/links" %>
-
+      <div class="padded-sm">
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
   </div>
 </div>
