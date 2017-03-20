@@ -82,14 +82,14 @@
       <div class="issues-details">
         <% @post.users.each do |politician| %>
         <h5><%= politician.first_name %> <%= politician.last_name %></h5>
-        <% if politician.as_politician.verified == false  %>
-        <p><%= mail_to "#{politician.email}", html_options = { subject: "I would like your opinion on...", body: "Dear representative, \n I would like to have your opinion on the subject of #{@post.title}: could you please join SmartCitizen to address my concerns and that of others? You can reply directly at http://www.smartcitizen.yeah/post/#{@post.id}\n Thank you in advance,\n"} do %>
+        <% if politician.as_politician.verified == false && politician != current_user %>
+        <p><%= mail_to "#{politician.email}", html_options = { subject: "I would like your opinion on...", body: "Dear #{politician.first_name}, \n I would like to have your opinion on the subject of #{@post.title}. You can reply directly at http://www.call-out.eu/post/#{@post.id}\n Thank you in advance,\n"} do %>
           <div class = "mail-contact">
             <span class="fa fa-envelope-o"> </span> <span class = "prompt"> Email this to <%= politician.first_name %></span>
           </div>
           <% end %>
 
-          <% text = "I would like to have your opinion on #{@post.title} http://www.smartcitizen.org/post/#{@post.id} to answer" %>
+          <% text = "I would like to have your opinion on #{@post.title} http://www.call-out.eu/post/#{@post.id}" %>
 
           <a href="https://twitter.com/intent/tweet?screen_name=<%= politician.as_politician.twitter_handle %>&text=<%= CGI.escape(text) %>" class="twitter-mention-button" data-show-count="false">
             Tweet to <%= politician.as_politician.twitter_handle %>
