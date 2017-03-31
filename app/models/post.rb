@@ -8,7 +8,7 @@ class Post < ApplicationRecord
   acts_as_votable
 
   validates :title, presence: true
-  validates :content, length: { minimum: 300, too_short: "Please describe the issue in at least 300 characters" }
+  validates :content, presence: true, length: { minimum: 300, too_short: "Please describe the issue in at least 300 characters" }
   validates :category, presence: true
   validates :city, presence: true
   validates :neighbourhood, presence: true

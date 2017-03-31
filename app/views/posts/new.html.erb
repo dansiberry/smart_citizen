@@ -2,13 +2,13 @@
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2 form-content">
 
-      <h2 class = "form-title">Raise a public issue for your local politicians to respond to<span class= "green-period">.</span></h2>
+      <h2 class="form-title">Raise a public issue for your local politicians to respond to<span class="green-period">.</span></h2>
       <%= simple_form_for @post do |f| %>
-        <%= f.input :title, label: "Title", placeholder: "Give it a title", input_html: {class: "box-input"} %>
+        <%= f.input :title, label: "Title", input_html: {class: "box-input"} %>
         <%= f.input :content, label: "Description", placeholder: "Describe in 4-5 lines the issue you would like to raise", input_html: {class: "box-input"} %>
-        #<%= f.input :category, label: "Hashtag", placeholder: "Select a hashtag that matches your issue", input_html: {class: "box-input"} %>
-        <%= f.input :city, label: "City", placeholder: "Where did you specifically encounter this issue?", collection: ApplicationRecord::CITIES, input_html: {class: "box-input select_city"} %>
-        <%= f.input :neighbourhood, label: "Neighbourhood", placeholder: "In which neighbourhood?", collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input select_neightbourhood"} %>
+        <%= f.input :category, label: "Hashtag", value: (params.present? ? params[:category] : ""), input_html: {class: "box-input"} %>
+        <%= f.input :city, label: "City", collection: ApplicationRecord::CITIES, input_html: {class: "box-input select_city"} %>
+        <%= f.input :neighbourhood, label: "Neighbourhood", collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input select_neightbourhood"} %>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
 
