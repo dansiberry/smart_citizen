@@ -3,7 +3,7 @@
 <div class="blank-space"></div>
 <%= select_tag :neighbourhood, options_for_select(ApplicationRecord::NEIGHBOURHOODS, selected: params[:neighbourhood]), {include_blank: true, class: 'select select_neightbourhood', prompt: "Your neighbourhood"} %>
 <div class="blank-space"></div>
-<%= select_tag :category, options_for_select(@list_categories, selected: params[:category]), {include_blank: true, class: 'select select_category', prompt: "Category"} %>
+<%= select_tag :category, options_for_select(@list_categories, selected: params[:category]), {include_blank: true, class: 'select select_category', prompt: "Hashtag"} %>
 <%= submit_tag "Go", class: "btn btn-primary homepage-button" %>
 <% end %>
 

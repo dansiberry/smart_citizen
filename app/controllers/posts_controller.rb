@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :show, :index ]
 
   def new
-    @post = Post.new
+    @post = Post.new(category: params[:category])
     authorize @post
   end
 
