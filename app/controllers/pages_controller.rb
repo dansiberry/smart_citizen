@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [ :home, :about_us ]
 
    def home
     @posts = Post.all
@@ -7,4 +7,8 @@ class PagesController < ApplicationController
     @upvoted_posts = @upvoted_posts.reverse
     @upvoted_posts = @upvoted_posts.first(3)
    end
+
+   def about_us
+   end
 end
+

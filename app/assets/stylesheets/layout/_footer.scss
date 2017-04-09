@@ -15,7 +15,15 @@
 }
 
 #footer h3 {
-  font-size: 10px
+  font-size: 10px;
+}
+
+#footer a {
+  color: #333333;
+}
+
+#footer a:hover {
+  color: $green;
 }
 
 // Body code for the footer
@@ -43,5 +51,6 @@ body {
 #container {
    height:100%;
 }
+
 
 

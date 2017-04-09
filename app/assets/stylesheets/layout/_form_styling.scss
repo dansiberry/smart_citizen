@@ -8,6 +8,20 @@
   border: none;
 }
 
+.hashtag-input {
+  position: relative;
+}
+
+.hashtag-input input {
+  text-indent: 18px;
+}
+
+.hashtag-input .fa-hashtag {
+  position: absolute;
+  top: 37px;
+  left: 10px;
+}
+
 .text-around-forms{
   font-size: 16px;
   font-family: $base-font;
@@ -76,3 +90,4 @@
 // .form-background {
 //   background-color: #f3f3f3;
 // }
+
