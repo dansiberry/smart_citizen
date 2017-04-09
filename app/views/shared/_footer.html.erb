@@ -1,4 +1,5 @@
 <div id="footer">
+<h5><%= link_to "About Call Out", about_path %></h5>
   <ul class="list-inline">
     <li>
     <i class="fa fa-facebook fa-2x"></i>
@@ -10,7 +11,9 @@
       <i class="fa fa-instagram fa-2x"></i>
     </li>
     <li>
+    <%= mail_to "contact@call-out.eu" do %>
       <i class="fa fa-envelope fa-2x"></i>
+      <% end %>
     </li>
   </ul>
 </div>

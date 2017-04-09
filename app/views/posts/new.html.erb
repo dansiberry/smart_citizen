@@ -2,47 +2,52 @@
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2 form-content">
 
-      <h2 class="form-title">Raise a public issue for your local politicians to respond to<span class="green-period">.</span></h2>
+      <h2 class = "form-title">Raise a public issue for your local politicians to respond to<span class= "green-period">.</span></h2>
       <%= simple_form_for @post do |f| %>
-        <%= f.input :title, label: "Title", input_html: {class: "box-input"} %>
-        <%= f.input :content, label: "Description", placeholder: "Describe in 4-5 lines the issue you would like to raise", input_html: {class: "box-input"} %>
-        <%= f.input :category, label: "Hashtag", value: (params.present? ? params[:category] : ""), input_html: {class: "box-input"} %>
-        <%= f.input :city, label: "City", collection: ApplicationRecord::CITIES, input_html: {class: "box-input select_city"} %>
-        <%= f.input :neighbourhood, label: "Neighbourhood", collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input select_neightbourhood"} %>
-        <%= f.input :photo %>
-        <%= f.input :photo_cache, as: :hidden %>
+      <%= f.input :title, label: "Title", placeholder: "Give it a title", input_html: {class: "box-input"} %>
+      <%= f.input :content, label: "Description", placeholder: "Describe in 4-5 lines the issue you would like to raise", input_html: {class: "box-input"} %>
+      <div class="hashtag-input">
+        <%= f.label :category, "* Hashtag" %>
+        <span class="fa fa-hashtag"></span>
+        <%= f.input :category, label: false, input_html: {class: "box-input"} %>
+      </div>
 
-        <div class="below-form">
-          <div class="text-around-forms">
-            <h4> Select the politicians who you would like to respond</h4>
+      <%= f.input :city, label: "City", placeholder: "Where did you specifically encounter this issue?", collection: ApplicationRecord::CITIES, input_html: {class: "box-input select_city"} %>
+      <%= f.input :neighbourhood, label: "Neighbourhood", placeholder: "In which neighbourhood?", collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input select_neightbourhood"} %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+
+      <div class="below-form">
+        <div class="text-around-forms">
+          <h4> Select the politicians who you would like to respond</h4>
+        </div>
+        <div class="row">
+          <%  User.list_of_users_as_politicians.each do |politician| %>
+
+          <div class="card-issue-new col-xs-4">
+
+            <input type="checkbox" id="politician-<%= politician.id %>" name="post[users][]" value=" <%= politician.id  %>">
+            <label for="politician-<%= politician.id %>" class="politician-item">
+
+              <img src="<%= politician.as_politician.photo.url.nil? ? 'http://insight.venturebeat.com/sites/all/modules/features/vb_intel_analysts/assets/images/analyst-placeholder-avatar.png' : politician.as_politician.photo.url %>" alt=""/>
+
+              <h4>
+                <%= politician.first_name   %>
+              </h4>
+              <p>
+                <%= politician.as_politician.office  %>
+              </p>
+            </label>
+
           </div>
-          <div class="row">
-            <%  User.list_of_users_as_politicians.each do |politician| %>
-
-            <div class="card-issue-new col-xs-4">
-
-              <input type="checkbox" id="politician-<%= politician.id %>" name="post[users][]" value=" <%= politician.id  %>">
-              <label for="politician-<%= politician.id %>" class="politician-item">
-
-                <img src="<%= politician.as_politician.photo.url.nil? ? 'http://insight.venturebeat.com/sites/all/modules/features/vb_intel_analysts/assets/images/analyst-placeholder-avatar.png' : politician.as_politician.photo.url %>" alt=""/>
-
-                <h4>
-                  <%= politician.first_name   %>
-                </h4>
-                <p>
-                  <%= politician.as_politician.office  %>
-                </p>
-              </label>
-
-            </div>
 
           <% end %>
-          </div>
-          <%#= f.input :users, label: "Politicians in that area - if not present, leave blank as they will be contacted further to your inquiry", as: :check_boxes, required: true, autofocus: true, input_html: {class: "card-issue-new"}, collection: User.list_of_users_as_politicians, :label_method => lambda { |item| "#{item.first_name} #{item.last_name} <img src='#{item.as_politician.photo.url.nil? ? 'http://insight.venturebeat.com/sites/all/modules/features/vb_intel_analysts/assets/images/analyst-placeholder-avatar.png' : item.as_politician.photo.url }'>".html_safe }%>
-
         </div>
+        <%#= f.input :users, label: "Politicians in that area - if not present, leave blank as they will be contacted further to your inquiry", as: :check_boxes, required: true, autofocus: true, input_html: {class: "card-issue-new"}, collection: User.list_of_users_as_politicians, :label_method => lambda { |item| "#{item.first_name} #{item.last_name} <img src='#{item.as_politician.photo.url.nil? ? 'http://insight.venturebeat.com/sites/all/modules/features/vb_intel_analysts/assets/images/analyst-placeholder-avatar.png' : item.as_politician.photo.url }'>".html_safe }%>
 
-        <%= f.button :submit, "Create issue"  %>
+      </div>
+
+      <%= f.button :submit, "Create issue"  %>
       <% end %>
     </div>
   </div>
