@@ -63,5 +63,19 @@
   </ul>
   <% end %>
 </div>
+
+
+
+  <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li> <%= link_to "Sign in", new_user_session_path %> </li>
+        <li> <%= link_to "Raise an issue", new_post_path %> </li>
+      </ul>
+    </div>
+  </div>
+
+
 </div>
 
