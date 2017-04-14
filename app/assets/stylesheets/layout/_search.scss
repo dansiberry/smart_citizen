@@ -5,7 +5,7 @@
   flex-direction: row;
   justify-content: center;
 
-  @media (max-width: 571px) {
+  @media (max-width: 591px) {
     flex-direction:column
   }
 
@@ -22,7 +22,7 @@
   }
 
   .btn {
-  @media (max-width: 571px) {
+  @media (max-width: 591px) {
     margin-top:30px !important;
     width: 120px;
     text-align:center;
@@ -32,7 +32,7 @@
 }
 
   span {
-    @media (max-width: 571px) {
+    @media (max-width: 591px) {
     margin-top:10px;
     width:350px;
     }
@@ -84,7 +84,7 @@ body .select2-selection.select2-selection--single {
 
 /* Fixing the position of the form select chevron for mobile */
 
- @media (max-width: 590px) {
+ @media (max-width: 591px) {
   span[role="presentation"] {
     width: 20px !important;
     left: 330px !important;
@@ -94,5 +94,15 @@ body .select2-selection.select2-selection--single {
     bottom: -90px;
     right: 0;
     left: 0;
+  }
+}
+
+ @media (max-width: 410px) {
+  span[role="presentation"] {
+    width: 20px !important;
+    left: 250px !important;
+  }
+  #search span[role="combobox"] {
+    width:270px;
   }
 }
