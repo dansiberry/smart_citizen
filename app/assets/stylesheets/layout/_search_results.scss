@@ -11,3 +11,19 @@
   margin-top: 50px;
   margin-bottom: 20px;
 }
+
+
+  @media (max-width: 920px) {
+     .container-issues {
+      margin-left: 100px;
+      margin-right: 100px;
+    }
+  }
+
+
+  @media (max-width: 750px) {
+     .container-issues {
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+  }
