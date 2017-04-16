@@ -1,5 +1,5 @@
-<h1>Edit Your Comment</h1>
-<p> Your reply to <%= @post.title %> </p>
+<h1><%= t('.title') %></h1>
+<p><%= t('.subtitle') %> <%= @post.title %> </p>
 
 <%= simple_form_for [@post,@comment] do |f| %>
   <%= f.input :content %>

@@ -1,17 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
-      <h1>Edit your profile information</h1>
+      <h1><%= t('.title') %></h1>
       <%= simple_form_for @user_as_politician, url: politician_path(params[:id]) do |f| %>
-        <%= f.input :elected, label: "Are you elected? (This entry will be double-checked)", input_html: {class: "box-input"} %>
-        <%= f.input :political_party, placeholder: "Edit your political party", input_html: {class: "box-input"} %>
-        <%= f.input :office, label: "Office", placeholder: "Edit your office", input_html: {class: "box-input"} %>
-        <%= f.input :bio, label: "Your bio", placeholder: "Update your story", input_html: {class: "box-input"} %>
-        <%= f.input :responsabilities, label: "Your responsibilities", placeholder: "Edit your responsibilities", input_html: {class: "box-input"} %>
-        <%= f.input :twitter_handle, label: "@you :-)", placeholder: "Update your Twitter", input_html: {class: "box-input"} %>
+        <%= f.input :elected, label: t('.elected_label'), input_html: {class: "box-input"} %>
+        <%= f.input :political_party, label: t('.party_label'), input_html: {class: "box-input"} %>
+        <%= f.input :office, label: t('.office_label'), input_html: {class: "box-input"} %>
+        <%= f.input :bio, label: t('.bio_label'), input_html: {class: "box-input"} %>
+        <%= f.input :responsabilities, label: t('.responsibilities_label'), input_html: {class: "box-input"} %>
+        <%= f.input :twitter_handle, label: t('.twitter_label'), input_html: {class: "box-input"} %>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
-        <%= f.button :submit %>
+        <%= f.button :submit, t('.button') %>
       <% end %>
     </div>
   </div>

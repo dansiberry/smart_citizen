@@ -21,6 +21,8 @@ gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
 gem 'omniauth-twitter'
 gem "pundit"
+gem 'rails-i18n'
+gem 'devise-i18n'
 
 group :development, :test do
   gem 'binding_of_caller'

@@ -1,10 +1,10 @@
 <%= form_tag(posts_path, :method => "get", class: 'inline-form', id: "search") do %>
-<%= select_tag :city, options_for_select(ApplicationRecord::CITIES, selected: params[:city]), {include_blank: true, class: 'select select_city', prompt: "Your city"}  %>
+<%= select_tag :city, options_for_select(ApplicationRecord::CITIES, selected: params[:city]), {include_blank: true, class: 'select select_city', prompt: t('.city_prompt')}  %>
 <div class="blank-space"></div>
-<%= select_tag :neighbourhood, options_for_select(ApplicationRecord::NEIGHBOURHOODS, selected: params[:neighbourhood]), {include_blank: true, class: 'select select_neightbourhood', prompt: "Your neighbourhood"} %>
+<%= select_tag :neighbourhood, options_for_select(ApplicationRecord::NEIGHBOURHOODS, selected: params[:neighbourhood]), {include_blank: true, class: 'select select_neightbourhood', prompt: t('.neighbourhood_prompt')} %>
 <div class="blank-space"></div>
-<%= select_tag :category, options_for_select(@list_categories, selected: params[:category]), {include_blank: true, class: 'select select_category', prompt: "Hashtag"} %>
-<%= submit_tag "Go", class: "btn btn-primary homepage-button" %>
+<%= select_tag :category, options_for_select(@list_categories, selected: params[:category]), {include_blank: true, class: 'select select_category', prompt: t('.hashtag_prompt')} %>
+<%= submit_tag t('.button'), class: "btn btn-primary homepage-button" %>
 <% end %>
 
 

@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
 
-      <h2>Resend unlock instructions</h2>
+      <h2><%= t('.resend_unlock_instructions') %></h2>
 
       <%= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
         <%= f.error_notification %>
@@ -13,7 +13,7 @@
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Resend unlock instructions" %>
+          <%= f.button :submit, t('.resend_unlock_instructions') %>
         </div>
         <% end %>
 

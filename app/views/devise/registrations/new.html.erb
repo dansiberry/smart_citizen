@@ -2,11 +2,11 @@
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
 
-      <h2 class="form-title">Sign up<span class="green-period">.</span></h2>
+      <h2 class="form-title"><%= t('.sign_up') %><span class="green-period">.</span></h2>
 
       <div class="claim-public-profile">
-        <span>Are you an elected official?</span>
-        <%= mail_to "claimprofile@call-out.eu", "Claim your public profile", html_options = { subject: "Claim my public profile", body: "Hi Call Out, \n I would like to claim my public profile and I am emailing you from my government email address as proof. \n Thank you in advance,\n"} %>
+        <span><%= t('.elected_official') %></span>
+        <%= mail_to "claimprofile@call-out.eu", t('.claim_profile'), html_options = { subject: t('.email_subject'), body: t('.email_body')} %>
       </div>
 
       <div class="devise-links">
@@ -17,18 +17,18 @@
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :first_name, required: false, autofocus: true, label: "Your first name", placeholder:"What's your first name?", input_html: {class: "box-input"} %>
-        <%= f.input :last_name, required: false, autofocus: true, label: "Your last name", placeholder:"What's your last name?", input_html: {class: "box-input"} %>
-        <%= f.input :address, required: true, autofocus: true, label: "Your address", placeholder:"What's your address?", input_html: {class: "box-input"} %>
-        <%= f.input :city, required: true, autofocus: true, label: "City", placeholder:"In which city do you live?", collection: ApplicationRecord::CITIES, input_html: {value: 'Barcelona', class: "box-input"} %>
-        <%= f.input :neighbourhood, required: true, label: "Neighbourhood", placeholder:"In which neighbourhood do you specifically live?", collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input"} %>
-        <%= f.input :email, required: true, autofocus: true, label: "Your email address", placeholder:"What's your email address?", input_html: {class: "box-input"} %>
+        <%= f.input :first_name, required: false, autofocus: true, input_html: {class: "box-input"} %>
+        <%= f.input :last_name, required: false, autofocus: true, input_html: {class: "box-input"} %>
+        <%= f.input :address, required: true, autofocus: true, input_html: {class: "box-input"} %>
+        <%= f.input :city, required: true, autofocus: true, collection: ApplicationRecord::CITIES, input_html: {value: 'Barcelona', class: "box-input"} %>
+        <%= f.input :neighbourhood, required: true, collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input"} %>
+        <%= f.input :email, required: true, autofocus: true, input_html: {class: "box-input"} %>
         <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: {class: "box-input"} %>
         <%= f.input :password_confirmation, required: true, input_html: {class: "box-input"} %>
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Sign up" %>
+        <%= f.button :submit, t('.sign_up') %>
       </div>
       <% end %>
       <%= render "devise/shared/links" %>

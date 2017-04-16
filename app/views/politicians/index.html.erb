@@ -1,25 +1,25 @@
 <div class="container-issues">
   <div class="politicians-navigation">
-    <h2>Politicians</h2><h3><span class="green-arrow"> > </span><%= current_user.city %></h3>
+    <h2><%= t('.page_nav') %></h2><h3><span class="green-arrow"> > </span><%= current_user.city %></h3>
   </div>
   <div class="row index-nav">
     <div class="col-lg-6">
       <div class="politician-profile-message">
-        <span>Running for office?</span>
-        <span><%= link_to "Create your politician profile", new_politician_path %></span>
+        <span><%= t('.run_office') %></span>
+        <span><%= link_to t('.new_profile'), new_politician_path %></span>
       </div>
     </div>
     <div class="col-lg-6">
       <div class="politician-tabs">
         <div class="politician-showing">
-          <span>Showing:</span>
+          <span><%= t('.politician_showing') %></span>
         </div>
         <div class="politician-elected">
           <div class="politician-active">
-            <span>Elected</span>
+            <span><%= t('.politician_elected') %></span>
           </div>
           <span> / </span>
-          <span>All politicians</span>
+          <span><%= t('.politician_all') %></span>
         </div>
       </div>
     </div>
@@ -45,32 +45,32 @@
         <div class="politician-info-index">
           <div class="politician-verified-index">
             <% if a.verified == true %>
-            <span>Verified
+            <span><%= t('.verified') %>
               <i class="fa fa-check"></i></span>
               <% else %>
-              <span>Not Verified</span>
+              <span><%= t('.not_verified') %></span>
               <% end %>
             </div>
             <h4><%= a.user.first_name %> <%= a.user.last_name %></h4>
             <div class="issues-prepositions">
-              <h5>Office</h5>
+              <h5><%= t('.office') %></h5>
             </div>
             <div class="issues-details">
               <h5><%= a.office %></h5>
             </div>
             <div class="issues-prepositions">
-              <h5>Political party</h5>
+              <h5><%= t('.political_party') %></h5>
             </div>
             <div class="issues-details">
               <h5><%= a.political_party %></h5>
             </div>
             <div class="politician-rating">
               <% if a.user.comments.count <= 2 %>
-              <h5>Unresponsive</h5>
+              <h5><%= t('.unresponsive_rating') %></h5>
               <% elsif a.user.comments.count >= 2 && a.user.comments.count <= 10 %>
-              <h5>Responsive</h5>
+              <h5><%= t('.responsive_rating') %></h5>
               <% else %>
-              <h5>Highly Responsive"</h5>
+              <h5><%= t('.highly_responsive_rating') %></h5>
               <% end %>
             </div>
           </div>
