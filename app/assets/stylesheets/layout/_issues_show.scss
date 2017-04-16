@@ -1,15 +1,20 @@
 .issues-navigation {
   font-weight: bolder;
   margin-top: 50px;
+    @media (max-width: 474px) {
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
 }
 
 .issues-tag {
   display: inline;
-  margin-right: 150px;
+  padding:0px;
 }
 
 .issues-posted-at {
   display: inline;
+  padding:0px;
 }
 
 .issues-edit {
@@ -18,7 +23,7 @@
 }
 
 .issues-content {
-  padding-top: 20px;
+  padding-top: 45px;
   padding-bottom: 40px;
   width:90%;
 }
@@ -36,8 +41,17 @@
   width: 85%;
   padding: 5px 30px;
   margin: 10px 0px;
+  @media (max-width: 920px) {
+      padding: 5px 15px;
+    }
   h4 {
     font-weight: bolder;
+    @media (max-width: 920px) {
+      font-size: 17px;
+      margin-bottom: 5px;
+      margin-top: 5px;
+    }
+
   }
 }
 .issues-replies-text {
@@ -78,6 +92,7 @@
 .issues-details {
   text-align: right;
   direction: rtl;
+  word-wrap:break-word;
   h5 {
     color: $green;
     font-weight: bolder;
@@ -110,4 +125,30 @@
 
 .issues-title h1 {
  margin-top: 40px;
+}
+
+.mobile-info-col {
+  margin-top: -25px;
+  margin-bottom: -25px;
+
+  .mobile-photo {
+    width:60%;
+    margin-bottom: 15px;
+  }
+}
+
+.mobile-inline {
+ display: inline-block;
+ text-align: left;
+
+   h5 {
+    margin-top: 0px;
+    margin-bottom: 5px;
+   }
+}
+
+.mobile-upvote {
+ position: absolute;
+ right: 50px;
+ top: -70px;
 }
