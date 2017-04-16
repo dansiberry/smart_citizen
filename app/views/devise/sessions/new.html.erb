@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
 
-      <h2 class="form-title">Log in<span class="green-period">.</span></h2>
+      <h2 class="form-title"><%= t('.sign_in') %><span class="green-period">.</span></h2>
 
       <div class="devise-links">
         <%= render "devise/shared/top-links" %>
@@ -16,7 +16,7 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Log in" %>
+        <%= f.button :submit, t('.sign_in') %>
       </div>
       <% end %>
 

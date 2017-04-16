@@ -1,6 +1,6 @@
 <div class="container-issues">
   <div class="issues-navigation">
-    <p>Issues <span class="green-arrow">></span> <%= @post.city %> <span class="green-arrow">></span> <%= @post.neighbourhood %></p>
+    <p><%= t('.page_nav') %> <span class="green-arrow">></span> <%= @post.city %> <span class="green-arrow">></span> <%= @post.neighbourhood %></p>
   </div>
   <div class="row">
     <div class="col-lg-9">
@@ -8,7 +8,7 @@
         <h1><%= @post.title %><span class="green-period">.</span></h1>
 
         <div class="issues-tag">
-          <span class = "grey-subtitle">Tags</span> <span class = "green-subtitle">#<%= @post.category %></span>
+          <span class = "grey-subtitle"><%= t('.hashtag') %></span> <span class = "green-subtitle">#<%= @post.category %></span>
         </div>
 
         <div class="issues-edit">
@@ -26,7 +26,7 @@
         </div>
 
         <div class="issues-posted-at">
-          <span class = "grey-subtitle">Posted</span>
+          <span class = "grey-subtitle"><%= t('.posted_at') %></span>
           <span class = "green-subtitle"><%= @post.created_at.strftime("%e/%m/%y") %></span>
         </div>
       </div>
@@ -38,18 +38,18 @@
       <div class="show-button">
         <% if current_user %>
         <% if current_user.as_politician %>
-        <%= link_to "Reply", new_post_comment_path, class: "btn btn-primary" %>
+        <%= link_to t('.reply_button'), new_post_comment_path(@post), class: "btn btn-primary" %>
 
         <% else %>
-        <%= link_to "Raise a similar issue", new_post_path({category: @post.category}), class: "btn btn-primary" %>
+        <%= link_to t('.raise_similar_button'), new_post_path({category: @post.category}), class: "btn btn-primary" %>
         <% end %>
         <% else %>
-        <%= link_to "Join the conversation", new_user_registration_path, class: "btn btn-primary" %>
+        <%= link_to t('.join_convo_button'), new_user_registration_path, class: "btn btn-primary" %>
         <% end %>
       </div>
 
       <div class="issues-replies">
-        <h2>Replies ( <%= @post.comments.count %> )</h2>
+        <h2><%= t('.replies') %> ( <%= @post.comments.count %> )</h2>
         <% if !@post.comments.blank? %>
         <% @post.comments.each_with_index do |a, index| %>
         <div id="block<%= index %>" class="issues-replier toggle">
@@ -64,35 +64,35 @@
     </div>
 
     <div class="col-lg-3 right-col">
-      <div class="issues-upvote" data-balloon="Upvote this issue!" data-balloon-pos="up">
+      <div class="issues-upvote" data-balloon=<%= t('.upvote_data_balloon') %> data-balloon-pos="up">
         <%= @post.get_upvotes.size %>
         <%= link_to like_post_path(@post), method: :put do %>
         <i class="fa fa-caret-up" aria-hidden="true"></i>
         <% end %>
       </div>
       <div class="issues-prepositions">
-        <h5>By</h5>
+        <h5><%= t('.poster') %></h5>
       </div>
       <div class="issues-details">
         <h5><%= @post.user.email %></h5>
       </div>
       <div class="issues-prepositions">
-        <h5>To</h5>
+        <h5><%= t('.tagged_politician') %></h5>
       </div>
       <div class="issues-details">
         <% @post.users.each do |politician| %>
         <h5><%= politician.first_name %> <%= politician.last_name %></h5>
         <% if politician.as_politician.verified == false && politician != current_user %>
-        <p><%= mail_to "#{politician.email}", html_options = { subject: "I would like your opinion on...", body: "Dear #{politician.first_name}, \n I would like to have your opinion on the subject of #{@post.title}. You can reply directly at http://www.call-out.eu/post/#{@post.id}\n Thank you in advance,\n"} do %>
+        <p><%= mail_to "#{politician.email}", html_options = { subject: t('.email_subject'), body: t('.email_body', politician: politician.first_name, issue: @post.title, issue_id: @post.id) } do %>
           <div class = "mail-contact">
-            <span class="fa fa-envelope-o"> </span> <span class = "prompt"> Email this to <%= politician.first_name %></span>
+            <span class="fa fa-envelope-o"> </span> <span class = "prompt"> <%= t('.email_politician', politician: politician.first_name) %></span>
           </div>
           <% end %>
 
-          <% text = "I would like to have your opinion on #{@post.title} http://www.call-out.eu/post/#{@post.id}" %>
+          <% text = t('.tweet_text', issue: @post.title, issue_id: @post.id) %>
 
           <a href="https://twitter.com/intent/tweet?screen_name=<%= politician.as_politician.twitter_handle %>&text=<%= CGI.escape(text) %>" class="twitter-mention-button" data-show-count="false">
-            Tweet to <%= politician.as_politician.twitter_handle %>
+            <%= t('.tweet_to') %> <%= politician.as_politician.twitter_handle %>
           </a>
 
           <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
@@ -108,7 +108,7 @@
 
 
         <div class="issues-prepositions">
-          <h5>Photos</h5>
+          <h5><%= t('.photos') %></h5>
         </div>
         <%= cl_image_tag @post.photo, class: "img-responsive" %>
       </div>
@@ -116,7 +116,7 @@
 
     <div class="row">
       <div class="issues-related">
-        <h2>More on #<%= @post.category %> ( <%= @related_posts.count %> )</h2>
+        <h2><%= t('.related_issues') %> #<%= @post.category %> ( <%= @related_posts.count %> )</h2>
         <% if @related_posts.empty? %>
         <p></p>
         <% else %>
