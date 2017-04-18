@@ -15,7 +15,7 @@
           <% if policy(@user_as_politician).edit? %>
           <%= link_to edit_politician_path(@user.as_politician) do %>
           <span class="fa fa-pencil"></span>
-          <span><%= t('.edit_profile') %></span>
+          <span>Edit my profile</span>
           <% end %>
           <% end %>
         </div>
@@ -28,19 +28,19 @@
           <i class="fa fa-twitter blue-twitter"></i>
           <% if @user_as_politician.verified %>
           <div class="politician-verified">
-            <span><%= t('.verified') %>
+            <span>Verified
               <i class="fa fa-check"></i></span>
             </div>
             <% end %>
           </div>
           <div class="politician-bio">
             <% if @user.as_politician.responsabilities.present? %>
-            <p><strong><%= t('.responsabilities') %> </strong><%= @user_as_politician.responsabilities %></p>
+            <p><strong>Responsibilities: </strong><%= @user_as_politician.responsabilities %></p>
             <% end %>
             <% if @user.as_politician.bio.present? %>
             <p><%= @user_as_politician.bio %></p>
             <% else %>
-            <p><%= t('.no_bio') %></p>
+            <p>This politician has not provided a bio yet.</p>
             <% end %>
           </div>
         </div>
@@ -48,7 +48,6 @@
         <!-- RATINGS / PARTY -->
         <div class="col-sm-3 col-xs-12">
           <div class="politician-other padded-sm">
-
           <div class="row">
            <div class="col-xs-6 col-xs-push-6 col-sm-push-0 col-sm-12 no-padding">
              <div class="col-xs-12 no-padding">
@@ -80,7 +79,7 @@
               </div>
             </div>
 
-            <div class="col-xs-6 col-xs-pull-6 col-sm-pull-0 col-sm-12 no-padding">
+            <div class="col-xs-6 col-xs-pull-6 col-sm-pull-0 col-sm-12 no-padding padding-fix">
                 <div class="issues-prepositions" id="office">
                   <h5>Office</h5>
                 </div>
@@ -93,7 +92,6 @@
                 <div class="issues-details" id="party">
                   <h5><%= @user_as_politician.political_party %></h5>
                 </div>
-
             </div>
             <div class="ratings hidden-xs">
               <div class="politician-verified-index">
@@ -122,7 +120,7 @@
 
     <div class="row">
       <div class="politician-replies">
-        <h4 class = "grey-subtitle"><%= t('.politician_replies', politician: @user.first_name) %> ( <%= @user.comments.count %> )</h4>
+        <h4 class = "grey-subtitle"><%= @user.first_name %>'s replies ( <%= @user.comments.count %> )</h4>
         <% if @user.comments.present? %>
         <% @user.comments.each do |comment|  %>
         <% comment.posts.each do |commented_post| %>
@@ -160,7 +158,7 @@
 
     <div class="row">
       <div class="politician-tags">
-        <h4 class = "grey-subtitle"><%= t('.tagged_issues', politician: @user.first_name) %> ( <%= @user.tagged_in.count %> )</h4>
+        <h4 class = "grey-subtitle">Issues <%= @user.first_name %> is tagged in ( <%= @user.tagged_in.count %> )</h4>
         <% if @user.tagged_in.present? %>
         <% @user.tagged_in.each do |post|  %>
         <div class="col-xs-12 col-md-4">
@@ -190,7 +188,7 @@
         </div>
         <% end %>
         <% else %>
-        <p><%= t('.no_tagged_issues') %></p>
+        <p>none</p>
         <% end %>
       </div>
     </div>
