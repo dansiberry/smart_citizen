@@ -17,13 +17,15 @@
     <ul class="nav navbar-nav">
 
       <li>
-        <%= link_to "Search issues", posts_path %>
+        <%= link_to t('.search'), posts_path %>
       </li>
       <li>
+
         <%= link_to "My local politicians", politicians_path %>
+
       </li>
       <li>
-       <%= link_to "Raise an issue", new_post_path, class: "btn btn-primary raise" %>
+       <%= link_to t('.raise_issue_button'), new_post_path, class: "btn btn-primary raise" %>
      </li>
    </ul>
    <div class="navbar-wagon-item">
@@ -33,14 +35,14 @@
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li>
           <% if current_user.as_politician %>
-          <%= link_to "My Profile", politician_path(current_user.as_politician.id) %>
+          <%= link_to t('.my_profile'), politician_path(current_user.as_politician.id) %>
           <% else %>
-          <%= link_to "My Account", edit_user_registration_path %>
+          <%= link_to t('.my_account'), edit_user_registration_path %>
           <% end %>
         </li>
         <% if current_user.as_politician %>
         <li class="block-inline">
-          <%= link_to "My Account", edit_user_registration_path %>
+          <%= link_to t('.my_account'), edit_user_registration_path %>
         </li>
         <% end %>
       </ul>
@@ -52,13 +54,13 @@
   <!-- Login text link -->
   <ul class="nav navbar-nav">
     <li>
-      <%= link_to "Raise an issue", new_post_path, class: "btn btn-primary raise" %>
+      <%= link_to t('.raise_issue_button'), new_post_path, class: "btn btn-primary raise" %>
     </li>
     <li>
-      <%= link_to "Sign in", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t('.sign_in'), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     </li>
     <li>
-      <%= link_to "Sign up", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t('.sign_up'), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
     </li>
   </ul>
   <% end %>

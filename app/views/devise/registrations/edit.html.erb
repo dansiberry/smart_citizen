@@ -2,38 +2,38 @@
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
 
-      <h2 class="form-title">Edit <%= resource_name.to_s.humanize %><span class="green-period">.</span></h2>
+      <h2 class="form-title"><%= t('.title', resource: resource_class.model_name.human) %><span class="green-period">.</span></h2>
 
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :first_name, required: false, autofocus: true, label: "Your first name", placeholder:"Edit your first name", input_html: {class: "box-input"} %>
-        <%= f.input :last_name, required: false, autofocus: true, label: "Your last name", placeholder:"Edit your last name", input_html: {class: "box-input"} %>
-        <%= f.input :address, required: true, autofocus: true, label: "Your address", placeholder:"Edit your address", input_html: {class: "box-input"} %>
-        <%= f.input :city, required: true, autofocus: true, label: "City", placeholder:"Edit your city", collection: ApplicationRecord::CITIES, input_html: {class: "box-input"} %>
-        <%= f.input :neighbourhood, required: true, label: "Neighbourhood", placeholder:"Edit your neighbourhood", collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input"} %>
-        <%= f.input :email, required: true, autofocus: true, label: "Your email address", placeholder:"Edit your email address", input_html: {class: "box-input"} %>
+        <%= f.input :first_name, required: false, autofocus: true, placeholder: t('.first_name_placeholder'), input_html: {class: "box-input"} %>
+        <%= f.input :last_name, required: false, autofocus: true, placeholder: t('.last_name_placeholder'), input_html: {class: "box-input"} %>
+        <%= f.input :address, required: true, autofocus: true, placeholder: t('.address_placeholder'), input_html: {class: "box-input"} %>
+        <%= f.input :city, required: true, autofocus: true, collection: ApplicationRecord::CITIES, input_html: {class: "box-input"} %>
+        <%= f.input :neighbourhood, required: true, collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input"} %>
+        <%= f.input :email, required: true, autofocus: true, placeholder: t('email_placeholder'), input_html: {class: "box-input"} %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <p><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></p>
         <% end %>
 
-        <%= f.input :password, autocomplete: "off", hint: "Leave it blank if you don't want to change it", required: false, input_html: {class: "box-input"} %>
+        <%= f.input :password, autocomplete: "off", hint: t('.leave_blank_if_you_don_t_want_to_change_it'), required: false, input_html: {class: "box-input"} %>
         <%= f.input :password_confirmation, required: false, input_html: {class: "box-input"} %>
-        <%= f.input :current_password, hint: "We need your current password to confirm your changes", required: true, input_html: {class: "box-input"} %>
+        <%= f.input :current_password, hint: t('.we_need_your_current_password_to_confirm_your_changes'), required: true, input_html: {class: "box-input"} %>
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Update" %>
+        <%= f.button :submit, t('.update') %>
       </div>
       <% end %>
 
       <div class="signout padded-sm">
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+        <%= link_to t('.sign_out'), destroy_user_session_path, method: :delete %>
       </div>
 
-      <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+      <p><%= t('.unhappy') %> <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
     </div>
   </div>

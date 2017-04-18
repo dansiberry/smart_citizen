@@ -6,7 +6,7 @@
 
     <div class="banner-content padded-sm">
       <div class="anchor">
-        <h1>Connect with local politicians on issues that matter<span class="green-period">.</span></h1>
+        <h1><%= t('.title') %><span class="green-period">.</span></h1>
         <div class="home-search">
         <%= render 'shared/search' %>
         </div>
@@ -26,11 +26,15 @@
 
 
   <div class="container most-voted">
+
       <a class="container-arrow scroll-to" href="#focus">
       <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
     </a>
 
     <h3 style = "font-size:34px; margin-top:100px; padding-bottom:20px;">Most popular issues<span class="green-period">.</span></h3>
+
+<!--     <h3 style = "font-size:34px; margin-top:100px; padding-bottom:20px;"><%= t('.popular_issues') %><span class="green-period">.</span></h3> -->
+
     <div class="row padded-sm">
       <% @upvoted_posts.each do |popular_post| %>
       <div class="col-xs-12 col-md-4">

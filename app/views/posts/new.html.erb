@@ -2,24 +2,24 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 form-content">
 
-      <h2 class = "form-title">Raise a public issue for your local politicians to respond to<span class= "green-period">.</span></h2>
+      <h2 class = "form-title"><%= t('.title') %><span class= "green-period">.</span></h2>
       <%= simple_form_for @post do |f| %>
-      <%= f.input :title, label: "Title", placeholder: "Give it a title", input_html: {class: "box-input"} %>
-      <%= f.input :content, label: "Description", placeholder: "Describe in 4-5 lines the issue you would like to raise", input_html: {class: "box-input"} %>
+      <%= f.input :title, placeholder: t('.title_placeholder'), input_html: {class: "box-input"} %>
+      <%= f.input :content, label: t('.description_label'), placeholder: t('.description_placeholder'), input_html: {class: "box-input"} %>
       <div class="hashtag-input">
-        <%= f.label :category, "* Hashtag" %>
+        <%= f.label :category, t('.category_label') %>
         <span class="fa fa-hashtag"></span>
         <%= f.input :category, label: false, input_html: {class: "box-input"} %>
       </div>
 
-      <%= f.input :city, label: "City", placeholder: "Where did you specifically encounter this issue?", collection: ApplicationRecord::CITIES, input_html: {class: "box-input select_city"} %>
-      <%= f.input :neighbourhood, label: "Neighbourhood", placeholder: "In which neighbourhood?", collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input select_neightbourhood"} %>
+      <%= f.input :city, placeholder: t('.city_placeholder'), collection: ApplicationRecord::CITIES, input_html: {class: "box-input select_city"} %>
+      <%= f.input :neighbourhood, placeholder: t('.neighbourhood_placeholder'), collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input select_neightbourhood"} %>
       <%= f.input :photo %>
       <%= f.input :photo_cache, as: :hidden %>
 
       <div class="below-form">
         <div class="text-around-forms">
-          <h4> Select the politicians who you would like to respond</h4>
+          <h4><%= t('.tag_politician') %></h4>
         </div>
         <div class="row">
           <%  User.list_of_users_as_politicians.each do |politician| %>
@@ -47,7 +47,7 @@
 
       </div>
 
-      <%= f.button :submit, "Create issue"  %>
+      <%= f.button :submit, t('.button')  %>
       <% end %>
     </div>
   </div>
