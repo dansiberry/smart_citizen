@@ -2,6 +2,7 @@
   height: 170px;
   position: relative;
   box-shadow: rgba(204, 204, 204, 0.3) -3px 3px 5px;
+  margin-top:15px;
 }
 
 .issue-card a:hover {
@@ -42,6 +43,7 @@
 }
 .issue-card-title {
   padding-left: 20px;
+  padding-right:20px;
   padding-top: 50px;
   font-size: 20px;
   color: $dark-gray;
@@ -72,7 +74,8 @@
 
   .politician-card {
     width: 100%;
-    height: 250px;
+    max-width: 590px;
+    height: 230px;
     margin: 0px;
     position: relative;
     padding-left: 90px;
@@ -86,6 +89,15 @@
 
   .politician-photo-index img {
   width: 150px;
+  @media (max-width: 470px) {
+      width: 120px
+    }
+  @media (max-width: 390px) {
+      width: 105px
+    }
+  @media (max-width: 360px) {
+      width: 90px
+    }
   }
 
   .politician-info-index {
@@ -100,3 +112,17 @@
     font-weight: bolder;
     display: inline;
   }
+
+
+  @media (max-width: 470px) {
+        .mobile-fit {
+          width: 95%;
+        }
+
+  .politician-card {
+    padding-left: 80px;
+  }
+
+  }
+
+

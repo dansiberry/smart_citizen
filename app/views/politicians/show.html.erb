@@ -1,7 +1,9 @@
-<div class="container-issues">
-  <div class="row">
+<div class="container-issues politician-show">
+  <div class="row no-margin-right">
     <div class="politician-info">
-      <div class="col-lg-3">
+
+      <!-- PHOTO -->
+      <div class="col-sm-3 col-xs-12">
         <div class="politician-photo padded-sm">
           <% if @user_as_politician.photo.try(:file).try(:public_id) %>
           <%= image_tag @user_as_politician.photo, class: "cloudinary-image",responsive_width: true, crop: "scale" %>
@@ -19,7 +21,8 @@
         </div>
       </div>
 
-      <div class="col-lg-6">
+      <!-- GENERAL INFO -->
+      <div class="col-sm-6 col-xs-12 general-info">
         <div class="politician-header padded-sm">
           <h2 class = "politican-title" style = "display:inline-block;"><%= @user.first_name %> <%= @user.last_name %></h2>
           <i class="fa fa-twitter blue-twitter"></i>
@@ -31,7 +34,6 @@
             <% end %>
           </div>
           <div class="politician-bio">
-
             <% if @user.as_politician.responsabilities.present? %>
             <p><strong><%= t('.responsabilities') %> </strong><%= @user_as_politician.responsabilities %></p>
             <% end %>
@@ -43,37 +45,78 @@
           </div>
         </div>
 
-        <div class="col-lg-3">
+        <!-- RATINGS / PARTY -->
+        <div class="col-sm-3 col-xs-12">
           <div class="politician-other padded-sm">
-            <div class="politician-rating">
-              <% if @user.comments.count <= 2 %>
-              <h5><%= t('.unresponsive_rating') %></h5>
-              <% elsif @user.comments.count >= 2 && @user.comments.count <= 10 %>
-              <h5><%= t('.responsive_rating') %></h5>
-              <% else %>
-              <h5><%= t('.highly_responsive_rating') %></h5>
-              <% end %>
+
+          <div class="row">
+           <div class="col-xs-6 col-xs-push-6 col-sm-push-0 col-sm-12 no-padding">
+             <div class="col-xs-12 no-padding">
+                <div class="issues-prepositions">
+                  <h5>Replies</h5>
+                </div>
+                <div class="issues-details">
+                  <h5 class = "reply-count"><%= @user.comments.count %></h5>
+                </div>
+              </div>
+              <div class="ratings visible-xs col-xs-12 no-padding">
+                  <div class="politician-verified-index">
+                    <% if @user.as_politician.verified == true %>
+                    <span>Verified</span>   <%= image_tag("tick.png", class: "custom-icon") %>
+                      <% else %>
+                      <span>Not Verified</span>   <%= image_tag("cross.png", class: "custom-icon") %>
+                      <% end %>
+                  </div>
+
+                  <div class="politician-rating">
+                    <% if @user.comments.count <= 2 %>
+                    <h5>Unresponsive</h5>  <%= image_tag("cross.png", class: "custom-icon") %>
+                    <% elsif @user.comments.count >= 2 && @user.comments.count <= 10 %>
+                    <h5>Responsive</h5>   <%= image_tag("tick.png", class: "custom-icon") %>
+                    <% else %>
+                    <h5>Highly Responsive"</h5>   <%= image_tag("tick.png", class: "custom-icon") %>
+                    <% end %>
+                  </div>
+              </div>
             </div>
-            <div class="issues-prepositions">
-              <h5><%= t('.replies') %></h5>
+
+            <div class="col-xs-6 col-xs-pull-6 col-sm-pull-0 col-sm-12 no-padding">
+                <div class="issues-prepositions" id="office">
+                  <h5>Office</h5>
+                </div>
+                <div class="issues-details" id="office">
+                  <h5><%= @user_as_politician.office %></h5>
+                </div>
+                <div class="issues-prepositions" id="party">
+                  <h5>Political party</h5>
+                </div>
+                <div class="issues-details" id="party">
+                  <h5><%= @user_as_politician.political_party %></h5>
+                </div>
+
             </div>
-            <div class="issues-details">
-              <h5 class = "reply-count"><%= @user.comments.count %></h5>
+            <div class="ratings hidden-xs">
+              <div class="politician-verified-index">
+                <% if @user.as_politician.verified == true %>
+                <span>Verified</span>   <%= image_tag("tick.png", class: "custom-icon") %>
+                  <% else %>
+                  <span>Not Verified</span>   <%= image_tag("cross.png", class: "custom-icon") %>
+                  <% end %>
+              </div>
+              <div class="politician-rating">
+                <% if @user.comments.count <= 2 %>
+                <h5>Unresponsive</h5>  <%= image_tag("cross.png", class: "custom-icon") %>
+                <% elsif @user.comments.count >= 2 && @user.comments.count <= 10 %>
+                <h5>Responsive</h5>   <%= image_tag("tick.png", class: "custom-icon") %>
+                <% else %>
+                <h5>Highly Responsive"</h5>   <%= image_tag("tick.png", class: "custom-icon") %>
+                <% end %>
+              </div>
             </div>
-            <div class="issues-prepositions">
-              <h5><%= t('.office') %></h5>
-            </div>
-            <div class="issues-details">
-              <h5><%= @user_as_politician.office %></h5>
-            </div>
-            <div class="issues-prepositions">
-              <h5><%= t('.political_party') %></h5>
-            </div>
-            <div class="issues-details">
-              <h5><%= @user_as_politician.political_party %></h5>
-            </div>
+           </div>
           </div>
         </div>
+
       </div>
     </div>
 

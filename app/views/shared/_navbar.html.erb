@@ -20,7 +20,9 @@
         <%= link_to t('.search'), posts_path %>
       </li>
       <li>
-        <%= link_to t('.my_politicians'), politicians_path %>
+
+        <%= link_to "My local politicians", politicians_path %>
+
       </li>
       <li>
        <%= link_to t('.raise_issue_button'), new_post_path, class: "btn btn-primary raise" %>
@@ -63,5 +65,35 @@
   </ul>
   <% end %>
 </div>
+
+
+
+  <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+       <% if user_signed_in? %>
+        <li> <%= link_to "Raise an issue", new_post_path %> </li>
+        <% if current_user.as_politician %>
+          <li>
+            <%= link_to "My local politicians", politicians_path %>
+          </li>
+          <li><%= link_to "My Profile", politician_path(current_user.as_politician.id) %> </li>
+          <li><%= link_to "My Account", edit_user_registration_path %> </li>
+        <% else %>
+            <li>
+             <%= link_to "My local politicians", politicians_path %>
+            </li>
+            <li><%= link_to "My Account", edit_user_registration_path %> </li>
+        <% end %>
+       <% else %>
+          <li> <%= link_to "Sign in", new_user_session_path %> </li>
+          <li> <%= link_to "Raise an issue", new_post_path %> </li>
+       <% end %>
+      </ul>
+    </div>
+  </div>
+
+
 </div>
 

@@ -1,4 +1,5 @@
   <div class="banner-background">
+
   </div>
 
   <div class="banner padded">
@@ -20,8 +21,20 @@
 
   </div>
 
+
+
+
+
   <div class="container most-voted">
-    <h3 style = "font-size:34px; margin-top:100px; padding-bottom:20px;"><%= t('.popular_issues') %><span class="green-period">.</span></h3>
+
+      <a class="container-arrow scroll-to" href="#focus">
+      <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+    </a>
+
+    <h3 style = "font-size:34px; margin-top:100px; padding-bottom:20px;">Most popular issues<span class="green-period">.</span></h3>
+
+<!--     <h3 style = "font-size:34px; margin-top:100px; padding-bottom:20px;"><%= t('.popular_issues') %><span class="green-period">.</span></h3> -->
+
     <div class="row padded-sm">
       <% @upvoted_posts.each do |popular_post| %>
       <div class="col-xs-12 col-md-4">

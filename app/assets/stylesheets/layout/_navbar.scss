@@ -21,7 +21,8 @@
 
 /* Navbar logo */
 .navbar-wagon-brand img {
-  width: 160px;
+  width: 150px;
+  padding-top: 20px;
 }
 
 /* Navbar right section (with form, links, button) */
@@ -104,7 +105,13 @@
   margin-top: 15px;
   box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
+  font-size: 25px;
 }
+
+.dropdown {
+  font-size: 25px;
+}
+
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
   font-weight: lighter !important;
