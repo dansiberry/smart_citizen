@@ -60,19 +60,19 @@
             <div class="ratings">
               <div class="politician-verified-index">
                 <% if a.verified == true %>
-                <span>Verified</span>   <%= image_tag("tick.png", class: "custom-icon") %>
+                <span><%= t('.verified')%></span>   <%= image_tag("tick.png", class: "custom-icon") %>
                   <% else %>
-                  <span>Not Verified</span>   <%= image_tag("cross.png", class: "custom-icon") %>
+                  <span><%= t('.not_verified') %></span>   <%= image_tag("cross.png", class: "custom-icon") %>
                   <% end %>
               </div>
 
                 <div class="politician-rating">
                   <% if a.user.comments.count <= 2 %>
-                  <h5>Unresponsive</h5>  <%= image_tag("cross.png", class: "custom-icon") %>
+                  <h5><%= t('.unresponsive_rating') %></h5>  <%= image_tag("cross.png", class: "custom-icon") %>
                   <% elsif a.user.comments.count >= 2 && a.user.comments.count <= 10 %>
-                  <h5>Responsive</h5>   <%= image_tag("tick.png", class: "custom-icon") %>
+                  <h5><%= t('.responsive_rating') %></h5>   <%= image_tag("tick.png", class: "custom-icon") %>
                   <% else %>
-                  <h5>Highly Responsive"</h5>   <%= image_tag("tick.png", class: "custom-icon") %>
+                  <h5><%= t('.highly_responsive_rating') %></h5>   <%= image_tag("tick.png", class: "custom-icon") %>
                   <% end %>
                 </div>
 
