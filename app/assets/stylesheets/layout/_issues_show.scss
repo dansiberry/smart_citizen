@@ -69,6 +69,7 @@
 }
 .issues-upvote a {
   color: $green;
+    font-size: 40px;
 }
 
 .issues-prepositions h5 {
@@ -95,7 +96,7 @@
   word-wrap:break-word;
   h5 {
     color: $green;
-    font-weight: bolder;
+    margin-top: -10px;
   }
 }
 
@@ -115,10 +116,20 @@
   color: #1b95e0;
   font-size: 16px;
   padding-bottom: 10px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  line-height: 3px;
 }
 
 .mail-contact .prompt {
   font-family: sans-serif;
+  margin-bottom: 25px;
+  margin-left: 10px;
+}
+
+.mail-contact {
+  margin-bottom: 5px;
+  margin-top: 20px;
 }
 
 
@@ -151,4 +162,17 @@
  position: absolute;
  right: 50px;
  top: -70px;
+}
+
+.envelope {
+  color: #1b95e0;
+  font-size:20px;
+  float:left;
+      @media (min-width: 768px) {
+     padding-left: 15px;
+    }
+}
+
+.upvote-icon {
+  font-size: 35px;
 }

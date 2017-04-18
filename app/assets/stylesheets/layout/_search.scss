@@ -82,19 +82,22 @@ body .select2-selection.select2-selection--single {
   margin-right: 20px;
 }
 
-/* Fixing the position of the form select chevron for mobile */
+/* Fixing the position of the homepage form select chevron for mobile */
 
- @media (max-width: 635px) {
-  span[role="presentation"] {
-    width: 20px !important;
-    left: 330px !important;
-  }
-  #search input {
-    position: absolute;
-    bottom: -90px;
-    right: 0;
-    left: 0;
-  }
+
+   @media (max-width: 635px) {
+    #search span[role="presentation"] {
+      width: 20px !important;
+      left: 330px !important;
+     }
+    #search input {
+      position: absolute;
+      bottom: -90px;
+      right: 0;
+      left: 0;
+     }
+   }
+
 
   /* Index page only - move search button above form */
   .container-issues input {
@@ -103,10 +106,11 @@ body .select2-selection.select2-selection--single {
     left: 200px !important;
     width:80px !important;
   }
-}
+
+
 
  @media (max-width: 410px) {
-  span[role="presentation"] {
+  #search span[role="presentation"] {
     width: 20px !important;
     left: 250px !important;
   }
@@ -114,7 +118,7 @@ body .select2-selection.select2-selection--single {
     width:270px;
   }
 
-  span[dir="ltr"] {
+   #search span[dir="ltr"] {
   width: 280px !important;
   }
 }
@@ -123,5 +127,7 @@ body .select2-selection.select2-selection--single {
     min-width:150px;
   }
 
-
+   #search span[dir="ltr"] {
+  min-width: 160px !important;
+  }
 

@@ -1,6 +1,6 @@
 <div class="container form-background">
   <div class="row">
-    <div class="col-xs-8 col-xs-offset-2 form-content">
+    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 form-content">
 
       <h2 class = "form-title">Raise a public issue for your local politicians to respond to<span class= "green-period">.</span></h2>
       <%= simple_form_for @post do |f| %>
@@ -24,7 +24,7 @@
         <div class="row">
           <%  User.list_of_users_as_politicians.each do |politician| %>
 
-          <div class="card-issue-new col-xs-4">
+          <div class="card-issue-new col-xs-6 col-sm-4">
 
             <input type="checkbox" id="politician-<%= politician.id %>" name="post[users][]" value=" <%= politician.id  %>">
             <label for="politician-<%= politician.id %>" class="politician-item">

@@ -23,6 +23,13 @@
 
   @media (max-width: 750px) {
      .container-issues {
+      margin-left: 60px;
+      margin-right: 60px;
+    }
+  }
+
+    @media (max-width: 450px) {
+     .container-issues {
       margin-left: 30px;
       margin-right: 30px;
     }

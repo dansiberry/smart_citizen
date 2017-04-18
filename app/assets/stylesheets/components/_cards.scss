@@ -73,7 +73,8 @@
 
   .politician-card {
     width: 100%;
-    height: 250px;
+    max-width: 590px;
+    height: 230px;
     margin: 0px;
     position: relative;
     padding-left: 90px;
@@ -87,6 +88,15 @@
 
   .politician-photo-index img {
   width: 150px;
+  @media (max-width: 470px) {
+      width: 120px
+    }
+  @media (max-width: 390px) {
+      width: 105px
+    }
+  @media (max-width: 360px) {
+      width: 90px
+    }
   }
 
   .politician-info-index {
@@ -101,3 +111,17 @@
     font-weight: bolder;
     display: inline;
   }
+
+
+  @media (max-width: 470px) {
+        .mobile-fit {
+          width: 95%;
+        }
+
+  .politician-card {
+    padding-left: 80px;
+  }
+
+  }
+
+

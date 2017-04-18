@@ -49,3 +49,12 @@
   justify-content: center;
 }
 
+.form-content {
+      @media (max-width: 767px) {
+      margin-top: -20px;
+
+      h2 {
+        font-size: 25px;
+      }
+    }
+}

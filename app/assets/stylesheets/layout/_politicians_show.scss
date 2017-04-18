@@ -12,7 +12,8 @@
 }
 
 .cloudinary-image {
-  width: 170px;
+  width: 100%;
+  max-width: 200px;
 }
 
 .politician-header {
@@ -78,4 +79,40 @@
   font-size: 52px;
   font-weight: 400 !important;
   margin-top: -12px;
+}
+
+@media (max-width : 480px) {
+/* heree */
+    #office h5, #party h5 {
+    text-align:left;
+  }
+
+  .reply-count {
+    font-size: 22px;
+  }
+  //   .mobile-right {
+  //   position:absolute;
+  //   top:20px
+  // }
+}
+
+@media (max-width : 767px) {
+  #office h5, #party h5 {
+    text-align:left;
+  }
+  .general-info {
+    text-align: center;
+  }
+  .cloudinary-image {
+  display: block;
+  margin: auto;
+  }
+  }
+
+.no-padding {
+  padding: 0px;
+}
+
+.no-margin-right {
+  margin-right: 0px;
 }

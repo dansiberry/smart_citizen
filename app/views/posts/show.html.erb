@@ -77,7 +77,7 @@
             <p>
               <%= mail_to "#{politician.email}", html_options = { subject: "I would like your opinion on...", body: "Dear #{politician.first_name}, \n I would like to have your opinion on the subject of #{@post.title}. You can reply directly at http://www.call-out.eu/post/#{@post.id}\n Thank you in advance,\n"} do %>
                 <div class = "mail-contact">
-                  <span class="fa fa-envelope-o"> </span> <span class = "prompt"> Email this to <%= politician.first_name %></span>
+                  <div class="fa fa-envelope-o envelope"> </div><span class = "prompt"> Email this to <%= politician.first_name %></span>
                 </div>
               <% end %>
 
@@ -125,7 +125,7 @@
       <div class="issues-upvote" data-balloon="Upvote this issue!" data-balloon-pos="up">
         <%= @post.get_upvotes.size %>
         <%= link_to like_post_path(@post), method: :put do %>
-        <i class="fa fa-caret-up" aria-hidden="true"></i>
+        <i class="fa fa-caret-up upvote-icon" aria-hidden="true"></i>
         <% end %>
       </div>
       <div class="issues-prepositions">
@@ -143,7 +143,7 @@
         <% if politician.as_politician.verified == false && politician != current_user %>
         <p><%= mail_to "#{politician.email}", html_options = { subject: "I would like your opinion on...", body: "Dear #{politician.first_name}, \n I would like to have your opinion on the subject of #{@post.title}. You can reply directly at http://www.call-out.eu/post/#{@post.id}\n Thank you in advance,\n"} do %>
           <div class = "mail-contact">
-            <span class="fa fa-envelope-o"> </span> <span class = "prompt"> Email this to <%= politician.first_name %></span>
+            <div class="fa fa-envelope-o envelope"> </div> <span class = "prompt"> Email this to <%= politician.first_name %></span>
           </div>
           <% end %>
 

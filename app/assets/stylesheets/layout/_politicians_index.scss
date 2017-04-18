@@ -23,6 +23,9 @@
   text-align: right;
   font-weight: bolder;
   margin-right: -30px;
+  @media (max-width: 750px) {
+      text-align: left;
+    }
 }
 
 .politician-showing {
@@ -47,6 +50,9 @@
   h4 {
     font-family: 'Gotham-Rounded';
   }
+  @media (max-width: 370px) {
+      max-width: 45%;
+    }
 }
 
 .index-nav {
@@ -58,3 +64,27 @@
   margin-left: -100px;
   margin-top: 50px;
 }
+
+.custom-icon {
+  width: 15px !important;
+  display: inline-block;
+}
+
+.politician-verified-index span, .politician-rating h5 {
+  text-align: left;
+  display: inline-block;
+  color: #afacac;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.ratings {
+  right:0px;
+  bottom: 0px;
+  text-align: right;
+}
+
+// #politicians-index {
+//   margin-right: 40px;
+//   margin-left: 40px;
+// }
