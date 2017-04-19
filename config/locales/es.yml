@@ -30,6 +30,11 @@ es:
     new:
       title: 'Tu respuesta'
       subtitle: 'a:'
+  layouts:
+    application:
+      city_placeholder: 'Tu ciudad'
+      neighbourhood_placeholder: 'Tu barrio'
+      category_placeholder: 'Etiqueta'
   pages:
     home:
       title: 'Conecta con tus políticos locales en temas que importan'
@@ -88,21 +93,29 @@ es:
   posts:
     edit:
       title: 'Edita tu tema'
+      title_label: 'Título'
       title_placeholder: 'Ponle un título'
       description_label: 'Descripción'
       description_placeholder: 'Edita la descripción de un tema que propusiste'
       category_label: 'Etiqueta'
       category_placeholder: 'Elige la etiqueta para tu tema'
+      city_label: 'Ciudad'
       city_placeholder: '¿Dónde encontraste este problema?'
+      neighbourhood_label: 'Barrio'
+      photo_label: 'Foto'
       button: 'Actualiza tu tema'
     new:
       title: 'Propón un tema para que tus políticos locales puedan contestarte'
+      title_label: 'Título'
       title_placeholder: 'Ponle un título'
       description_label: 'Descripción'
       description_placeholder: 'Describe en 4-5 líneas el tema que te gustaría proponer'
       category_label: "* Etiqueta"
+      city_label: 'Ciudad'
       city_placeholder: '¿Dónde encontraste este problema en concreto?'
+      neighbourhood_label: 'Barrio'
       neighbourhood_placeholder: '¿En qué barrio?'
+      photo_label: 'Foto'
       tag_politician: 'Escoge los políticos que te gustaría que contestaran'
       button: 'Propón un tema'
     index:
