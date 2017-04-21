@@ -155,8 +155,8 @@ es:
       raise_issue_button: 'Propón tu tema'
       my_profile: 'Mi Perfil'
       my_account: 'Mi cuenta'
-      sign_in: 'Sign in'
-      sign_up: 'Sign up'
+      sign_in: 'Entrar'
+      sign_up: 'Regístrate'
     search:
       city_prompt: 'Tu ciudad'
       neighbourhood_prompt: 'Tu barrio'
