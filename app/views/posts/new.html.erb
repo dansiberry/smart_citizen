@@ -4,7 +4,7 @@
 
       <h2 class = "form-title"><%= t('.title') %><span class= "green-period">.</span></h2>
       <%= simple_form_for @post do |f| %>
-      <%= f.input :title, placeholder: t('.title_placeholder'), input_html: {class: "box-input"} %>
+      <%= f.input :title, label: t('.title_label'), placeholder: t('.title_placeholder'), input_html: {class: "box-input"} %>
       <%= f.input :content, label: t('.description_label'), placeholder: t('.description_placeholder'), input_html: {class: "box-input"} %>
       <div class="hashtag-input">
         <%= f.label :category, t('.category_label') %>
@@ -12,9 +12,9 @@
         <%= f.input :category, label: false, input_html: {class: "box-input"} %>
       </div>
 
-      <%= f.input :city, placeholder: t('.city_placeholder'), collection: ApplicationRecord::CITIES, input_html: {class: "box-input select_city"} %>
-      <%= f.input :neighbourhood, placeholder: t('.neighbourhood_placeholder'), collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input select_neightbourhood"} %>
-      <%= f.input :photo %>
+      <%= f.input :city, label: t('.city_label'), placeholder: t('.city_placeholder'), collection: ApplicationRecord::CITIES, input_html: {class: "box-input select_city"} %>
+      <%= f.input :neighbourhood, label: t('.neighbourhood_label'), placeholder: t('.neighbourhood_placeholder'), collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input select_neightbourhood"} %>
+      <%= f.input :photo, label: t('.photo_label') %>
       <%= f.input :photo_cache, as: :hidden %>
 
       <div class="below-form">
