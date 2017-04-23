@@ -23,7 +23,6 @@ gem 'omniauth-twitter'
 gem "pundit"
 gem 'rails-i18n'
 gem 'devise-i18n'
-gem 'rails_serve_static_assets'
 
 group :development, :test do
   gem 'binding_of_caller'
