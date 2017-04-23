@@ -46,7 +46,7 @@
   padding-right: 50px;
 
   @media (max-width: 591px) {
-      padding-top: 6em;
+      padding-top: 5em;
   }
 }
 
@@ -88,6 +88,9 @@
 .banner-content h1 {
   width:75%;
   margin-bottom: 40px;
+  @media (max-width: 591px) {
+   margin-bottom: 20px;
+  }
 }
 
 .banner-content h1, .most-voted h3 {
@@ -95,6 +98,11 @@
     @media (max-width: 891px) {
    width:100%;
    font-size: 39px;
+  }
+
+      @media (max-width: 591px) {
+   width:100%;
+   font-size: 30px;
   }
 }
 
@@ -125,6 +133,10 @@
     top: -120px;
     left: 0px;
     right: 0px;
+
+      @media (max-width: 591px) {
+      top:-90px;
+   }
   }
 
   .container-arrow i {
