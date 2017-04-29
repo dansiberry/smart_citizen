@@ -4,15 +4,14 @@
  * ------------------------------------- */
 
  .most-voted {
-  background-color: #f3f3f3;
+  background-color: #fcfcfc;
   margin:0px;
   width:100%;
-  margin-top: 0px !important;
+  margin-top: -70px !important;
   padding-right: 200px;
   padding-left: 200px;
-  padding-top: 50px;
-  height:100vh;
-  background-image: url('http://res.cloudinary.com/dvmgzsqg3/image/upload/v1489600278/homepage-background-bottom_uxhlz0.png');
+  height:500px;
+  padding-top: -30px;
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: contain;
@@ -20,7 +19,7 @@
   // border-top: 3px solid #baeaac;
 
   @media (max-width: 991px) {
-    height: 140vh;
+    height: inherit;
     padding-right: 130px;
     padding-left: 130px;
   }
@@ -32,6 +31,35 @@
 
  }
 
+
+ .how-to-container {
+  background-color: #f3f3f3;
+  margin:0px;
+  width:100%;
+  margin-top: 0px !important;
+  padding-right: 120px;
+  padding-left: 120px;
+  padding-top: 90px;
+  background-image: url('http://res.cloudinary.com/dvmgzsqg3/image/upload/v1489600278/homepage-background-bottom_uxhlz0.png');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position:relative;
+  height: inherit;
+  padding-bottom: 210px;
+  // border-top: 3px solid #baeaac;
+
+  @media (max-width: 991px) {
+
+  }
+
+    @media (max-width: 991px) {
+   padding-left: 30px;
+   padding-right: 30px;
+   padding-bottom: 180px;
+  }
+
+ }
 
 
 .banner {
@@ -153,7 +181,60 @@
         100%{-webkit-transform:translateY(20px)}
     }
 
+.how-to img {
+  width:100%;
+  max-width: 280px;
+  display: block;
+  margin: auto;
+}
 
+.how-to {
+    @media (max-width: 991px) {
+    margin-top: 40px;
+  }
+}
+
+.how-to-section {
+  margin-bottom: 50px;
+}
+
+.how-to-title, .how-to-text, .how-to-section-title{
+  text-align: center;
+}
+
+.how-to-title {
+  height: 50px;
+  font-size: 23px;
+  color: #6ECA52;
+  margin-top: 8px;
+}
+
+.how-to-text-section {
+  margin-bottom: 180px;
+  max-width: 500px;
+    display: block;
+    margin: auto;
+    margin-top: -15px;
+}
+
+.how-to-section-title {
+  font-size: 34px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.most-voted .issue-card {
+  @media (max-width: 991px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.most-voted h3 {
+    @media (max-width: 991px) {
+    text-align: center;
+  }
+}
 // .anchor {
 //   position: relative;
 // }
