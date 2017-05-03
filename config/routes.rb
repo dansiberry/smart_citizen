@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  scope '(:locale)', locale: /ca|en|es/ do
+
+  scope '(:locale)', locale: /en|ca|es/ do
+
     resources :politicians
 
     resources :posts do
