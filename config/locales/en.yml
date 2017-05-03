@@ -51,6 +51,11 @@ en:
     new:
       title: 'Your reply'
       subtitle: 'to:'
+  layouts:
+    application:
+      city_placeholder: 'Your city'
+      neighbourhood_placeholder: 'Your neighbourhood'
+      category_placeholder: 'Category'
   pages:
     home:
       title: 'Connect with local politicians on issues that matter'
@@ -109,21 +114,29 @@ en:
   posts:
     edit:
       title: 'Edit your issue'
+      title_label: 'Title'
       title_placeholder: 'Give it a title'
       description_label: 'Description'
       description_placeholder: 'Edit the description of the issue you previously raised'
       category_label: 'Hashtag'
       category_placeholder: 'Choose a hashtag for your issue'
+      city_label: 'City'
       city_placeholder: 'Where did you specifically encounter this issue?'
+      neighbourhood_label: 'Neighbourhood'
+      photo_label: 'Photo'
       button: 'Update issue'
     new:
       title: 'Raise a public issue for your local politicians to respond to'
+      title_label: 'Title'
       title_placeholder: 'Give it a title'
       description_label: 'Description'
       description_placeholder: 'Describe in 4-5 lines the issue you would like to raise'
       category_label: "* Hashtag"
+      city_label: 'City'
       city_placeholder: 'Where did you specifically encounter this issue?'
+      neighbourhood_label: 'Neighbourhood'
       neighbourhood_placeholder: 'In which neighbourhood?'
+      photo_label: 'Photo'
       tag_politician: 'Select the politicians who you would like to respond'
       button: 'Create issue'
     index:

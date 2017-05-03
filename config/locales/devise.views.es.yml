@@ -79,9 +79,12 @@ es:
       #   unhappy: Infeliz
       #   update: Actualizar
       #   we_need_your_current_password_to_confirm_your_changes: necesitamos su contraseña actual para confirmar los cambios
-      #   first_name_placeholder: "Edita tu nombre"
-      #   last_name_placeholder: "Edita tu apellido"
-      #   address_placeholder: "Edita tu dirección"
+      edit:
+        first_name_label: "Nombre"
+        last_name_label: "Apellido"
+        address_label: "Código Postal"
+        city_label: "Ciudad"
+        neighbourhood_label: "Barrio"
       #   email_placeholder: "Edita tu dirección de email"
       #   sign_out: "Sign out"
       new:
@@ -90,6 +93,11 @@ es:
         claim_profile: "Reclama tu perfil de cargo público electo"
         email_subject: "Reclamar mi perfil de cargo público"
         email_body: "Hola Call Out, \n Me gustaría pedir mi perfil de cargo público electo y os envío este mail desde mi cuenta de mail oficial del gobierno como prueba. \n Gracias por adelantado, \n "
+        first_name_label: "Nombre"
+        last_name_label: "Apellido"
+        address_label: "Código Postal"
+        city_label: "Ciudad"
+        neighbourhood_label: "Barrio"
       signed_up: Bienvenido. Has creado tu cuenta.
       signed_up_but_inactive: Tu cuenta ha sido creada correctamente. Sin embargo, no hemos podido iniciar la sesión porque aún no está activada.
       signed_up_but_locked: Tu cuenta ha sido creada correctamente. Sin embargo, no hemos podido iniciar la sesión porque que tu cuenta está bloqueada.

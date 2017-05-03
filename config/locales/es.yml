@@ -30,13 +30,18 @@ es:
     new:
       title: 'Tu respuesta'
       subtitle: 'a:'
+  layouts:
+    application:
+      city_placeholder: 'Tu ciudad'
+      neighbourhood_placeholder: 'Tu barrio'
+      category_placeholder: 'Etiqueta'
   pages:
     home:
       title: 'Conecta con tus políticos locales en temas que importan'
       popular_issues: 'Los temas más populares'
   politicians:
     new:
-      title: 'Añade la información de tu perfil'
+      title: 'Añade información a tu perfil'
       elected_label: '¿Has sido elegido? (Esta información será revisada)'
       party_label: 'Tu partido político'
       party_placeholder: '¿A qué partido perteneces?'
@@ -68,16 +73,16 @@ es:
       not_verified: 'No Verificada'
       office: 'En el cargo'
       political_party: 'Partido Político'
-      unresponsive_rating: 'No activo'
-      responsive_rating: 'Activo'
+      unresponsive_rating: 'No responde'
+      responsive_rating: 'Sí responde'
       highly_responsive_rating: 'Muy activo'
     show:
       edit_profile: 'Edita mi perfil'
       verified: 'Verificada'
       responsibilities: 'Responsabilidades:'
       no_bio: 'Este político aún no ha proporcionado una bio.'
-      unresponsive_rating: 'No activo'
-      responsive_rating: 'Activo'
+      unresponsive_rating: 'No responde'
+      responsive_rating: 'Sí responde'
       highly_responsive_rating: 'Muy activo'
       replies: 'Respuestas'
       office: 'Cargo'
@@ -88,21 +93,29 @@ es:
   posts:
     edit:
       title: 'Edita tu tema'
+      title_label: 'Título'
       title_placeholder: 'Ponle un título'
       description_label: 'Descripción'
       description_placeholder: 'Edita la descripción de un tema que propusiste'
       category_label: 'Etiqueta'
       category_placeholder: 'Elige la etiqueta para tu tema'
+      city_label: 'Ciudad'
       city_placeholder: '¿Dónde encontraste este problema?'
+      neighbourhood_label: 'Barrio'
+      photo_label: 'Foto'
       button: 'Actualiza tu tema'
     new:
       title: 'Propón un tema para que tus políticos locales puedan contestarte'
+      title_label: 'Título'
       title_placeholder: 'Ponle un título'
       description_label: 'Descripción'
       description_placeholder: 'Describe en 4-5 líneas el tema que te gustaría proponer'
       category_label: "* Etiqueta"
+      city_label: 'Ciudad'
       city_placeholder: '¿Dónde encontraste este problema en concreto?'
+      neighbourhood_label: 'Barrio'
       neighbourhood_placeholder: '¿En qué barrio?'
+      photo_label: 'Foto'
       tag_politician: 'Escoge los políticos que te gustaría que contestaran'
       button: 'Propón un tema'
     index:
@@ -142,8 +155,8 @@ es:
       raise_issue_button: 'Propón tu tema'
       my_profile: 'Mi Perfil'
       my_account: 'Mi cuenta'
-      sign_in: 'Sign in'
-      sign_up: 'Sign up'
+      sign_in: 'Entrar'
+      sign_up: 'Regístrate'
     search:
       city_prompt: 'Tu ciudad'
       neighbourhood_prompt: 'Tu barrio'
