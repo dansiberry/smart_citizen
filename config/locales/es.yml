@@ -41,7 +41,7 @@ es:
       popular_issues: 'Los temas más populares'
   politicians:
     new:
-      title: 'Añade la información de tu perfil'
+      title: 'Añade información a tu perfil'
       elected_label: '¿Has sido elegido? (Esta información será revisada)'
       party_label: 'Tu partido político'
       party_placeholder: '¿A qué partido perteneces?'

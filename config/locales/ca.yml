@@ -1,0 +1,163 @@
+ca:
+  activerecord:
+    models:
+      post: 'tema'
+      comment: 'resposta'
+      user_as_politician: 'polític'
+    attributes:
+      post:
+        title: 'títol'
+        content: 'descripció'
+        category: 'etiqueta'
+        city: 'ciutat'
+        neighbourhood: 'barri'
+        photo: 'foto'
+      comment:
+        content: 'contingut'
+      user_as_politician:
+        elected: 'escollit'
+        political_party: 'partit polític'
+        office: 'al càrrec'
+        responsabilities: 'responsabilitats'
+        bio: 'bio'
+        photo: 'foto'
+        twitter_handle: "nom d'usuari de Twitter"
+        verified: 'verificada'
+  comments:
+    edit:
+      title: 'Edita el teu comentari'
+      subtitle: 'La teva resposta a'
+    new:
+      title: 'La teva resposta'
+      subtitle: 'a:'
+  layouts:
+    application:
+      city_placeholder: 'La teva ciutat'
+      neighbourhood_placeholder: 'El teu barri'
+      category_placeholder: 'Etiqueta'
+  pages:
+    home:
+      title: 'Connecta amb els teus polítics locals en temes que importen'
+      popular_issues: 'Els temes més populars'
+  politicians:
+    new:
+      title: "Afegeix informació al teu perfil"
+      elected_label: "Has estat escollit? (Aquesta informació serà revisada)"
+      party_label: 'El teu partit polític'
+      party_placeholder: 'A quin partit pertanys?'
+      office_label: 'Al càrrec'
+      office_placeholder: 'En quin càrrec serveixes actualment?'
+      bio_label: 'La teva bio'
+      bio_placeholder: "Explica'ns la teva història"
+      responsibilities_label: 'Les teves responsabilitats'
+      responsibilities_placeholder: 'Quines són les teves responsabilitats?'
+      twitter_label: "Nom d'usuari de Twitter"
+      button: 'Crea el teu perfil polític'
+    edit:
+      title: "Edita la informació del teu perfil"
+      elected_label: "Has estat escollit? (Aquesta informació serà revisada)"
+      party_label: 'Partit polític'
+      office_label: 'Al càrrec'
+      bio_label: 'Bio'
+      responsibilities_label: 'Responsabilitats'
+      twitter_label: "Nom d'usuari de Twitter"
+      button: 'Actualitza el teu perfil polític'
+    index:
+      page_nav: 'Polítics'
+      run_office: 'Ets candidat a ser escollit?'
+      new_profile: 'Crea el teu perfil polític'
+      politician_showing: 'Mostrant:'
+      politician_elected: 'Escollit'
+      politician_all: 'Tots els polítics'
+      verified: 'Verificada'
+      not_verified: 'No Verificada'
+      office: 'Al càrrec'
+      political_party: 'Partit Polític'
+      unresponsive_rating: 'No respon'
+      responsive_rating: 'Actiu'
+      highly_responsive_rating: 'Molt actiu'
+    show:
+      edit_profile: 'Edita el meu perfil'
+      verified: 'Verificada'
+      responsibilities: 'Responsabilitats:'
+      no_bio: 'Aquest polític encara no ha proporcionat una bio.'
+      unresponsive_rating: 'No respon'
+      responsive_rating: 'Actiu'
+      highly_responsive_rating: 'Molt actiu'
+      replies: 'Respostes'
+      office: 'Càrrec'
+      political_party: 'Partit polític'
+      politician_replies: "Respostes de %{politician}"
+      tagged_issues: 'Temes on %{politician} está etiquetat'
+      no_tagged_issues: 'cap'
+  posts:
+    edit:
+      title: 'Edita el teu tema'
+      title_label: 'Títol'
+      title_placeholder: 'Posa-li un títol'
+      description_label: 'Descripció'
+      description_placeholder: "Edita la descripció d'un tema que vas proposar"
+      category_label: 'Etiqueta'
+      category_placeholder: "Tria l'etiqueta pel teu tema"
+      city_label: 'Ciutat'
+      city_placeholder: 'On vas trobar aquest problema?'
+      neighbourhood_label: 'Barri'
+      photo_label: 'Foto'
+      button: 'Actualitza el teu tema'
+    new:
+      title: 'Proposa un tema que els teus polítics locals puguin respondre'
+      title_label: 'Títol'
+      title_placeholder: 'Posa-li un títol'
+      description_label: 'Descripció'
+      description_placeholder: 'Descriu en 4-5 línies el tema que vols proposar'
+      category_label: "* Etiqueta"
+      city_label: 'Ciutat'
+      city_placeholder: 'On vas trobar aquest problema en concret?'
+      neighbourhood_label: 'Barri'
+      neighbourhood_placeholder: 'A quin barri?'
+      photo_label: 'Foto'
+      tag_politician: "Tria els polítics que t'agradaria que contestessin"
+      button: 'Proposa un tema'
+    index:
+      search: 'Cerca'
+    filter:
+      city_prompt: 'La teva ciutat'
+      neighbourhood_prompt: 'El teu barri'
+      hashtag_prompt: 'Etiqueta'
+      button: 'Anar'
+    show:
+      page_nav: 'Temes'
+      hashtag: 'Etiquetes'
+      posted_at: 'Publicat'
+      reply_button: 'Respondre'
+      raise_similar_button: 'Proposa un tema similar'
+      join_convo_button: 'Uneix-te a la conversa'
+      replies: 'Respostes'
+      upvote_data_balloon: 'Recolza aquest problema'
+      poster: 'Per'
+      tagged_politician: 'A'
+      email_subject: "M'agradaria conèixer la teva opinió respecte ..."
+      email_body: "Apreciat %{politician}, \n
+      M'agradaria conèixer la teva opinió sobre %{issue}.
+      Pots contestar directament a  http://www.call-out.eu/post/%{issue_id}\n
+      Gràcies,\n"
+      email_politician: 'Envia-li un mail a %{politician}'
+      tweet_text: "M'agradaria conèixer la teva opinió sobre%{issue} http://www.call-out.eu/post/%{issue_id}"
+      tweet_to: 'Tweet a'
+      photos: 'Fotos'
+      related_issues: 'Més sobre'
+  shared:
+    footer:
+      about: 'Sobre Call Out'
+    navbar:
+      search: 'Cerca temes'
+      my_politicians: 'Els meus polítics'
+      raise_issue_button: 'Proposa el teu tema'
+      my_profile: 'El meu perfil'
+      my_account: 'El meu compte'
+      sign_in: 'Entra'
+      sign_up: "Registra't"
+    search:
+      city_prompt: 'La teva ciutat'
+      neighbourhood_prompt: 'El teu barri'
+      button: 'Anar'
