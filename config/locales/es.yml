@@ -38,16 +38,16 @@ es:
   pages:
     home:
       title: 'Conecta con tus políticos locales en temas que importan'
-      how_to_section_title: 'Local politics made easy'
-      how_to_title1: 'Search issues in your area'
-      how_to_text1: 'Search by neighbourhood to find out what issues are being raised
-      in your area. Upvote issues you suppert to make sure politicians respond.'
-      how_to_title2: 'Raise an issue'
-      how_to_text2: 'Raise your issue and tag the politicians you want a response from.
-      Tweet at them and share your issue on social media to gain support.'
-      how_to_title3: 'Connect with politicans'
-      how_to_text3: 'Read and compare responses from politicians. View their profiles
-      for more about their policies and political party. Browse other politicians who are active locally.'
+      how_to_section_title: 'Acercándote a la política local'
+      how_to_title1: 'Busca temas en tu zona'
+      how_to_text1: 'Busca por barrio para descubrir qué temas se han propuesto en tu barrio.
+      Apoya los temas con los que estás de acuerdo para asegurarte que los políticos responden.'
+      how_to_title2: 'Propón tu tema'
+      how_to_text2: 'Propón tu tema y etiqueta a los políticos que quieres que respondan.
+      Twitéales y comparte tu tema en redes sociales para conseguir apoyos.'
+      how_to_title3: 'Conecta con tus políticos'
+      how_to_text3: 'Lee y compara las respuestas de tus políticos. Entra en sus perfiles para saber más
+      sobre sus políticas y partido político.'
       popular_issues: 'Los temas más populares'
   politicians:
     new:

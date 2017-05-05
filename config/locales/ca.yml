@@ -38,6 +38,16 @@ ca:
   pages:
     home:
       title: 'Connecta amb els teus polítics locals en temes que importen'
+      how_to_section_title: "Apropant-te a la política local"
+      how_to_title1: 'Busca temes a la teva zona'
+      how_to_text1: "Busca per barri per descobrir quins temes s'han proposat.
+      Dóna suport als temes amb els que estiguis d'acord i assegura't que els polítics responguin."
+      how_to_title2: "Proposa el teu tema"
+      how_to_text2: "Proposa el teu tema i etiqueta als polítics que vulguis que responguin.
+      Twitea'ls i comparteix el teu tema a les xarxes socials per aconseguir suport."
+      how_to_title3: 'Connecta amb els teus polítics'
+      how_to_text3: 'Llegeix i compara les respostes dels teus polítics. Entra als seus perfils per saber més
+      sobre les seves polítiques i partit polític.'
       popular_issues: 'Els temes més populars'
   politicians:
     new:
@@ -133,7 +143,7 @@ ca:
       raise_similar_button: 'Proposa un tema similar'
       join_convo_button: 'Uneix-te a la conversa'
       replies: 'Respostes'
-      upvote_data_balloon: 'Recolza aquest problema'
+      upvote_data_balloon: 'Dóna suport al problema'
       poster: 'Per'
       tagged_politician: 'A'
       email_subject: "M'agradaria conèixer la teva opinió respecte ..."
