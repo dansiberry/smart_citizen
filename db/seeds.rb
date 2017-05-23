@@ -43,22 +43,22 @@ Comment.delete_all
 User.delete_all
 
 citizen_user = User.new(
-  first_name: "Erin",
-  last_name: "Douglas",
+  first_name: "Bob",
+  last_name: "Jones",
   address: "Carrer de Sardenya, 229",
   city: "Barcelona",
   neighbourhood: "Eixample",
-  email: "erin.douglas@gmail.com",
+  email: "bob.jones@gmail.com",
   password: "iamawesome")
 citizen_user.save
 
 citizen_user2 = User.new(
-  first_name: "Dan",
-  last_name: "Siberry",
-  address: "Carrer de Ferlandina, 37",
+  first_name: "Pau",
+  last_name: "Casals",
+  address: "Carrer de Ferlandina, 102",
   city: "Barcelona",
   neighbourhood: "Gracia",
-  email: "dan.siberry@gmail.com",
+  email: "pau.casals@gmail.com",
   password: "iamawesome")
 citizen_user2.save
 
@@ -73,14 +73,46 @@ citizen_user3 = User.new(
 citizen_user3.save
 
 citizen_user4 = User.new(
+  first_name: "Jose",
+  last_name: "Santa Maria",
+  address: "Carrer de Ganduxer, 20",
+  city: "Barcelona",
+  neighbourhood: "Sarrià-Sant Gervasi",
+  email: "jose.santamaria@gmail.com",
+  password: "iamawesome")
+citizen_user4.save
+
+admin_user = User.new(
+  first_name: "Erin",
+  last_name: "Douglas",
+  address: "Travessera de dalt 33",
+  city: "Barcelona",
+  neighbourhood: "Gracia",
+  email: "erin.douglas@gmail.com",
+  password: "iamawesome",
+  admin: true)
+admin_user.save
+
+admin_user2 = User.new(
   first_name: "Alvaro",
   last_name: "Santoma Vilaclara",
   address: "Carrer de Ganduxer, 44",
   city: "Barcelona",
   neighbourhood: "Sarrià-Sant Gervasi",
   email: "alvarosantoma@gmail.com",
-  password: "iamawesome")
-citizen_user4.save
+  password: "iamawesome",
+  admin: true)
+admin_user2.save
+
+admin_user3 = User.new(
+  first_name: "Dan",
+  last_name: "Siberry",
+  address: "Carrer de Ferlandina, 37",
+  city: "Barcelona",
+  neighbourhood: "Gracia",
+  email: "dan.siberry@gmail.com",
+  password: "iamawesome",
+  admin: true)
 
 
 # user = User.new(first_name: "Ada",
