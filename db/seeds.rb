@@ -43,22 +43,22 @@ Comment.delete_all
 User.delete_all
 
 citizen_user = User.new(
-  first_name: "Erin",
-  last_name: "Douglas",
+  first_name: "Bob",
+  last_name: "Jones",
   address: "Carrer de Sardenya, 229",
   city: "Barcelona",
   neighbourhood: "Eixample",
-  email: "erin.douglas@gmail.com",
+  email: "bob.jones@gmail.com",
   password: "iamawesome")
 citizen_user.save
 
 citizen_user2 = User.new(
-  first_name: "Dan",
-  last_name: "Siberry",
-  address: "Carrer de Ferlandina, 37",
+  first_name: "Pau",
+  last_name: "Casals",
+  address: "Carrer de Ferlandina, 102",
   city: "Barcelona",
   neighbourhood: "Gracia",
-  email: "dan.siberry@gmail.com",
+  email: "pau.casals@gmail.com",
   password: "iamawesome")
 citizen_user2.save
 
@@ -73,14 +73,46 @@ citizen_user3 = User.new(
 citizen_user3.save
 
 citizen_user4 = User.new(
+  first_name: "Jose",
+  last_name: "Santa Maria",
+  address: "Carrer de Ganduxer, 20",
+  city: "Barcelona",
+  neighbourhood: "Sarrià-Sant Gervasi",
+  email: "jose.santamaria@gmail.com",
+  password: "iamawesome")
+citizen_user4.save
+
+admin_user = User.new(
+  first_name: "Erin",
+  last_name: "Douglas",
+  address: "Travessera de dalt 33",
+  city: "Barcelona",
+  neighbourhood: "Gracia",
+  email: "erin.douglas@gmail.com",
+  password: "iamawesome",
+  admin: true)
+admin_user.save
+
+admin_user2 = User.new(
   first_name: "Alvaro",
   last_name: "Santoma Vilaclara",
   address: "Carrer de Ganduxer, 44",
   city: "Barcelona",
   neighbourhood: "Sarrià-Sant Gervasi",
   email: "alvarosantoma@gmail.com",
-  password: "iamawesome")
-citizen_user4.save
+  password: "iamawesome",
+  admin: true)
+admin_user2.save
+
+admin_user3 = User.new(
+  first_name: "Dan",
+  last_name: "Siberry",
+  address: "Carrer de Ferlandina, 37",
+  city: "Barcelona",
+  neighbourhood: "Gracia",
+  email: "dan.siberry@gmail.com",
+  password: "iamawesome",
+  admin: true)
 
 
 # user = User.new(first_name: "Ada",
@@ -309,6 +341,568 @@ politician7 = UserAsPolitician.new(political_party: 'Barcelona en Comú',
   user: user7)
 politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
 politician7.save
+
+user8 = User.new(first_name: "Laura",
+  last_name: "Pérez Castaño",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Sants-Montjuic",
+  email: "lperezc@bcn.cat",
+  password: "LPC2017")
+user8.save
+politician8 = UserAsPolitician.new(political_party: 'Barcelona en Comú',
+  office: 'Concejala de Feminismos y LGTBI',
+  elected: true,
+  twitter_handle: "@L_Makeba",
+  user: user8)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician8.save
+
+user9 = User.new(first_name: "Mercedes",
+  last_name: "Vidal Lago",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Horta-Guinardó",
+  email: "mvidall@bcn.cat",
+  password: "MVL2017")
+user9.save
+politician9 = UserAsPolitician.new(political_party: 'Barcelona en Comú',
+  office: 'Concejala de Movilidad',
+  elected: true,
+  twitter_handle: "@mvidal80",
+  user: user9)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician9.save
+
+user10 = User.new(first_name: "Josep Maria",
+  last_name: "Montaner Martorell",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Sant Martí",
+  email: "jmontanerm@bcn.cat",
+  password: "JMM2017")
+user10.save
+politician10 = UserAsPolitician.new(political_party: 'Barcelona en Comú',
+  office: 'Concejal de Vivienda',
+  elected: true,
+  twitter_handle: "@jm_montaner",
+  user: user10)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician10.save
+
+user11 = User.new(first_name: "Eloi",
+  last_name: "Badia Casas",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Gracia",
+  email: "ebadia@bcn.cat",
+  password: "EBC2017")
+user11.save
+politician11 = UserAsPolitician.new(political_party: 'Barcelona en Comú',
+  office: 'Concejal de Presidencia, Energía y Agua',
+  elected: true,
+  twitter_handle: "@eloibadia",
+  user: user11)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician11.save
+
+user12 = User.new(first_name: "Xavier",
+  last_name: "Trias i Vidal de Llobatera",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Ciutat Vella",
+  email: "xtrias@bcn.cat",
+  password: "XTV2017")
+user12.save
+politician12 = UserAsPolitician.new(political_party: 'PDeCAT – Unió – Demòcrates',
+  office: 'Concejal Jefe del Grupo Municipal de PDeCAT – Unió – Demòcrates',
+  elected: true,
+  twitter_handle: "@xaviertrias",
+  user: user12)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician12.save
+
+user13 = User.new(first_name: "Sònia",
+  last_name: "Recasens i Alsina",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Les Corts",
+  email: "srecasens@bcn.cat",
+  password: "SRA2017")
+user13.save
+politician13 = UserAsPolitician.new(political_party: 'PDeCAT – Unió – Demòcrates',
+  office: 'Concejala Portavoz adjunta del Grupo Municipal de PDeCAT – Unió – Demòcrates',
+  elected: true,
+  twitter_handle: "@sonia_recasens",
+  user: user13)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician13.save
+
+user14 = User.new(first_name: "Joaquim",
+  last_name: "Forn i Chiariello",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Sants-Montjuic",
+  email: "jfornc@bcn.cat",
+  password: "JFC2017")
+user14.save
+politician14 = UserAsPolitician.new(political_party: 'PDeCAT – Unió – Demòcrates',
+  office: 'Concejal titular de la Junta de Portavoces',
+  elected: true,
+  twitter_handle: "@quimforn",
+  user: user14)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician14.save
+
+user15 = User.new(first_name: "Jaume",
+  last_name: "Ciurana i Llevadot",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Ciutat Vella",
+  email: "jciurana@bcn.cat",
+  password: "JCL2017")
+user15.save
+politician15 = UserAsPolitician.new(political_party: 'PDeCAT – Unió – Demòcrates',
+  office: 'Concejal del Consejo Municipal',
+  elected: true,
+  twitter_handle: "@jciurana",
+  user: user15)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician15.save
+
+
+user16 = User.new(first_name: "Gerard",
+  last_name: "Ardanuy i Mata",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Gracia",
+  email: "gardanuy@bcn.cat",
+  password: "GAM2017")
+user16.save
+politician16 = UserAsPolitician.new(political_party: 'PDeCAT – Unió – Demòcrates',
+  office: 'Concejal del Consejo Municipal',
+  elected: true,
+  twitter_handle: "@gardanuy_bcn",
+  user: user16)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician16.save
+
+user17 = User.new(first_name: "Jordi",
+  last_name: "Martí i Galbis",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Sarrià-Sant Gervasi",
+  email: "jmargig@bcn.cat",
+  password: "JMG2017")
+user17.save
+politician17 = UserAsPolitician.new(political_party: 'PDeCAT – Unió – Demòcrates',
+  office: 'Concejal del Consejo Municipal',
+  elected: true,
+  twitter_handle: "",
+  user: user17)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician17.save
+
+
+user18 = User.new(first_name: "Mercè",
+  last_name: "Homs i Molist",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Ciutat Vella",
+  email: "mhomsm@bcn.cat",
+  password: "MHM2017")
+user18.save
+politician18 = UserAsPolitician.new(political_party: 'PDeCAT – Unió – Demòcrates',
+  office: 'Concejala del Consejo Municipal',
+  elected: true,
+  twitter_handle: "",
+  user: user18)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician18.save
+
+user19 = User.new(first_name: "Francina",
+  last_name: "Vila i Valls",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Eixample",
+  email: "fvilav@bcn.cat",
+  password: "ACC2017")
+user19.save
+politician19 = UserAsPolitician.new(political_party: 'PDeCAT – Unió – Demòcrates',
+  office: 'Concejala del Consejo Municipal',
+  elected: true,
+  twitter_handle: "@fvilav",
+  user: user19)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician19.save
+
+
+user20 = User.new(first_name: "Teresa Maria",
+  last_name: "Fandos i Payà",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Ciutat Vella",
+  email: "tfandos@bcn.cat",
+  password: "FP2017")
+user20.save
+politician20 = UserAsPolitician.new(political_party: 'PDeCAT – Unió – Demòcrates',
+  office: 'Concejala del Consejo Municipal',
+  elected: true,
+  twitter_handle: "",
+  user: user20)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician20.save
+
+user21 = User.new(first_name: "Raimond",
+  last_name: "Blasi i Navarro",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Nou Barris",
+  email: "rblasi@bcn.cat",
+  password: "ACC2017")
+user21.save
+politician21 = UserAsPolitician.new(political_party: 'PDeCAT – Unió – Demòcrates',
+  office: 'Concejal del Consejo Municipal',
+  elected: true,
+  twitter_handle: "@rblasi",
+  user: user21)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician21.save
+
+
+
+user22 = User.new(first_name: "Carina",
+  last_name: "Mejías Sánchez",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Ciutat Vella",
+  email: "cmejiass@bcn.cat",
+  password: "CMJ2017")
+user22.save
+politician22 = UserAsPolitician.new(political_party: "Ciutadans-C´s",
+  office: "Concejala Jefa del Grupo Municipal de C's",
+  elected: true,
+  twitter_handle: "@CarinaMejias",
+  user: user22)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician22.save
+
+
+user23 = User.new(first_name: "Maria Magdalena",
+  last_name: "Barceló Verea",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Sants-Montjuic",
+  email: "mbarcelov@bcn.cat",
+  password: "MBV2017")
+user23.save
+politician23 = UserAsPolitician.new(political_party: "Ciutadans-C´s",
+  office: "Concejala Portavoz adjunta del Grupo Municipal de C's",
+  elected: true,
+  twitter_handle: "",
+  user: user23)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician23.save
+
+
+user24 = User.new(first_name: "Francisco",
+  last_name: "Sierra López",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Les Corts",
+  email: "fsierral@bcn.cat",
+  password: "FSL2017")
+user24.save
+politician24 = UserAsPolitician.new(political_party: "Ciutadans-C´s",
+  office: 'Concejal titular de la Junta de Portavoces',
+  elected: true,
+  twitter_handle: "@pacosierral",
+  user: user24)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician24.save
+
+
+user25 = User.new(first_name: "Santiago",
+  last_name: "Alonso Beltran",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Nou Barris",
+  email: "salonsob@bcn.cat",
+  password: "SAB2017")
+user25.save
+politician25 = UserAsPolitician.new(political_party: "Ciutadans-C´s",
+  office: 'Presidente del Distrito de Nou Barris',
+  elected: true,
+  twitter_handle: "@YagoAlonsoBCN",
+  user: user25)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician25.save
+
+
+user26 = User.new(first_name: "Koldo",
+  last_name: "Blanco Uzquiano",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Ciutat Vella",
+  email: "kblanco@bcn.cat",
+  password: "ACC2017")
+user26.save
+politician26 = UserAsPolitician.new(political_party: "Ciutadans-C´s",
+  office: 'Concejal del Consejo Municipal',
+  elected: true,
+  twitter_handle: "@koldoblanco",
+  user: user26)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician26.save
+
+
+user27 = User.new(first_name: "Alfred",
+  last_name: "Bosch i Pascual",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Nou Barris",
+  email: "aboschp@bcn.cat",
+  password: "ACC2017")
+user27.save
+politician27 = UserAsPolitician.new(political_party: 'Esquerra Republicana de Catalunya',
+  office: 'Concejal presidente del grupo municipal de ERC',
+  elected: true,
+  twitter_handle: "",
+  user: user27)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician27.save
+
+
+user28 = User.new(first_name: "Juanjo",
+  last_name: "Puigcorbé i Benaiges",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Les Corts",
+  email: "jpuigcorbeb@bcn.cat",
+  password: "JPB2017")
+user28.save
+politician28 = UserAsPolitician.new(political_party: 'Esquerra Republicana de Catalunya',
+  office: 'Concejal del Consejo Municipal',
+  elected: true,
+  twitter_handle: "@jpuigcorbe",
+  user: user28)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician28.save
+
+
+user29 = User.new(first_name: "Montserrat",
+  last_name: "Benedí i Altés",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Ciutat Vella",
+  email: "mbenedia@bcn.cat",
+  password: "MBA2017")
+user29.save
+politician29 = UserAsPolitician.new(political_party: 'Esquerra Republicana de Catalunya',
+  office: 'Presidenta de la Comisión de Derechos Sociales, Cultura y Deportes',
+  elected: true,
+  twitter_handle: "@montsebenedi",
+  user: user29)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician29.save
+
+
+user30 = User.new(first_name: "Trini",
+  last_name: "Capdevila i Burniol",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Eixample",
+  email: "tcapdevilab@bcn.cat",
+  password: "TCB2017")
+user30.save
+politician30 = UserAsPolitician.new(political_party: 'Esquerra Republicana de Catalunya',
+  office: "Presidenta del Distrito de L'Eixample",
+  elected: true,
+  twitter_handle: "@t_capdevila",
+  user: user30)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician30.save
+
+
+user31 = User.new(first_name: "Jordi",
+  last_name: "Coronas i Martorell",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Ciutat Vella",
+  email: "jcoronas@bcn.cat",
+  password: "JCM2017")
+user31.save
+politician31 = UserAsPolitician.new(political_party: 'Esquerra Republicana de Catalunya',
+  office: 'Concejal titular de la Junta de Portavoces',
+  elected: true,
+  twitter_handle: "@jordicoronas",
+  user: user31)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician31.save
+
+
+user32 = User.new(first_name: "Jaume",
+  last_name: "Collboni i Cuadrado",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Horta-Guinardó",
+  email: "jcollbonic@bcn.cat",
+  password: "ACC2017")
+user32.save
+politician32 = UserAsPolitician.new(political_party: 'PSC',
+  office: 'Segundo Teniente de alcaldia',
+  elected: true,
+  twitter_handle: "@jaumecollboni",
+  user: user32)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician32.save
+
+user33 = User.new(first_name: "Carmen",
+  last_name: "Andrés Añón",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Sants-Montjuic",
+  email: "candres@bcn.cat",
+  password: "CAA2017")
+user33.save
+politician33 = UserAsPolitician.new(political_party: 'PSC',
+  office: 'Concejala de Infancia, Juventud y Personas Mayores',
+  elected: true,
+  twitter_handle: "@carmenandres_",
+  user: user33)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician33.save
+
+user34 = User.new(first_name: "Montserrat",
+  last_name: "Ballarín Espuña",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Eixample",
+  email: "mballarin@bcn.cat",
+  password: "MBE2017")
+user34.save
+politician34 = UserAsPolitician.new(political_party: 'PSC',
+  office: 'Concejala de Comercio y Mercados',
+  elected: true,
+  twitter_handle: "@BallarinMontseK)",
+  user: user34)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician34.save
+
+user35 = User.new(first_name: "Daniel",
+  last_name: "Mòdol i Deltell",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Sarrià-Sant Gervasi",
+  email: "dmodold@bcn.cat",
+  password: "DMD2017")
+user35.save
+politician35 = UserAsPolitician.new(political_party: 'PSC',
+  office: 'Concejal de Arquitectura, Paisaje Urbano y Patrimonio',
+  elected: true,
+  twitter_handle: "@DModolD",
+  user: user35)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician35.save
+
+
+user36 = User.new(first_name: "Alberto",
+  last_name: "Fernández Díaz",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Les Corts",
+  email: "afernandezdiaz@bcn.cat",
+  password: "AFD2017")
+user36.save
+politician36 = UserAsPolitician.new(political_party: 'Partit Popular',
+  office: 'Concejal Presidente del Grupo Municipal del PP',
+  elected: true,
+  twitter_handle: "@albertofdezxbcn",
+  user: user36)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician36.save
+
+user37 = User.new(first_name: "Ángeles",
+  last_name: "Esteller Ruedas",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Ciutat Vella",
+  email: "aesteller@bcn.cat",
+  password: "AER2017")
+user37.save
+politician37 = UserAsPolitician.new(political_party: 'Partit Popular',
+  office: 'Concejala Portavoz del Grupo Municipal del PP',
+  elected: true,
+  twitter_handle: "@AngelesEsteller",
+  user: user37)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician37.save
+
+
+user38 = User.new(first_name: "Xavier",
+  last_name: "Mulleras Vinzia",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Sants-Montjuic",
+  email: "xmulleras@bcn.cat",
+  password: "XMV2017")
+user38.save
+politician38 = UserAsPolitician.new(political_party: 'Partit Popular',
+  office: 'Concejal Portavoz adjunto del Grupo Municipal del PP',
+  elected: true,
+  twitter_handle: "",
+  user: user38)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician38.save
+
+
+user39 = User.new(first_name: "María José",
+  last_name: "Lecha González",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Ciutat Vella",
+  email: "mlechag@bcn.cat",
+  password: "MLG2017")
+user39.save
+politician39 = UserAsPolitician.new(political_party: 'CUP',
+  office: 'Concejala Jefa del Grupo Municipal de CUP',
+  elected: true,
+  twitter_handle: "@MJLecha",
+  user: user39)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician39.save
+
+user40 = User.new(first_name: "Maria",
+  last_name: "Rovira i Torrens",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Sant Martí",
+  email: "mrovirat@bcn.cat",
+  password: "MRT2017")
+user40.save
+politician40 = UserAsPolitician.new(political_party: 'CUP',
+  office: 'Concejala portavoz del Grupo Municipal de CUP',
+  elected: true,
+  twitter_handle: "@mrovira",
+  user: user40)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician40.save
+
+user41 = User.new(first_name: "Josep",
+  last_name: "Garganté i Closa",
+  address: "Pl. Sant Jaume,1",
+  city: "Barcelona",
+  neighbourhood: "Sants-Montjuic",
+  email: "jgargantec@bcn.cat",
+  password: "JGC2017")
+user41.save
+politician41 = UserAsPolitician.new(political_party: 'CUP',
+  office: 'Concejal Portavoz adjunto del Grupo Municipal de CUP',
+  elected: true,
+  twitter_handle: "@jgarganteclosa",
+  user: user41)
+politician.remote_photo_url = "http://ajuntament.barcelona.cat/sites/default/files/agusti_colom_0.jpg"
+politician41.save
 
 
 

@@ -38,10 +38,20 @@ es:
   pages:
     home:
       title: 'Conecta con tus políticos locales en temas que importan'
+      how_to_section_title: 'Acercándote a la política local'
+      how_to_title1: 'Busca temas en tu zona'
+      how_to_text1: 'Busca por barrio para descubrir qué temas se han propuesto en tu barrio.
+      Apoya los temas con los que estás de acuerdo para asegurarte que los políticos responden.'
+      how_to_title2: 'Propón tu tema'
+      how_to_text2: 'Propón tu tema y etiqueta a los políticos que quieres que respondan.
+      Twitéales y comparte tu tema en redes sociales para conseguir apoyos.'
+      how_to_title3: 'Conecta con tus políticos'
+      how_to_text3: 'Lee y compara las respuestas de tus políticos. Entra en sus perfiles para saber más
+      sobre sus políticas y partido político.'
       popular_issues: 'Los temas más populares'
   politicians:
     new:
-      title: 'Añade la información de tu perfil'
+      title: 'Añade información a tu perfil'
       elected_label: '¿Has sido elegido? (Esta información será revisada)'
       party_label: 'Tu partido político'
       party_placeholder: '¿A qué partido perteneces?'

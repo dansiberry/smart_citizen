@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
+  ActiveAdmin.routes(self)
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  scope '(:locale)', locale: /en|es/ do
+
+  scope '(:locale)', locale: /en|ca|es/ do
+
     resources :politicians
 
     resources :posts do
