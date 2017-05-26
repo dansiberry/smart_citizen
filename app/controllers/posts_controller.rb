@@ -22,6 +22,7 @@ class PostsController < ApplicationController
     end
 
     if saved and @post.has_politician?
+      create_notifications(@post)
       redirect_to post_path(@post)
     else
       @post.destroy
@@ -98,5 +99,11 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :content, :category, :city, :neighbourhood, :photo, :photo_cache)
+  end
+
+  def create_notifications(post)
+    post.users.each do |tagged_politician|
+      Notification.create(user: tagged_politician, post: post)
+    end
   end
 end
