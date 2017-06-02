@@ -15,8 +15,14 @@
   z-index: 99999;
   width: 100%;
   z-index: 9999999999999;
-  display:none;
+  transition:1s;
+  height:56px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  opacity:1;
 }
+
+
 #header .alert-info:hover {
   background-color: $brand-color;
 }
