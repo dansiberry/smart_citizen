@@ -5,6 +5,24 @@
     <h2 class="form-title"><%= t('.title') %><span class="green-period">.</span></h2>
 
       <%= simple_form_for @user_as_politician, url: politicians_path do |f| %>
+
+        <% if current_user.email.include?("email.com") %>
+          <p class = "form-notice"> Please complete your private account information</p>
+          <% else %>
+           <p class = "form-notice"> Double-check that your private account information is correct</p>
+        <% end %>
+
+          <%= f.simple_fields_for :user do |p| %>
+            <%= p.input :first_name, input_html: {class: "box-input"} %>
+            <%= p.input :last_name, input_html: {class: "box-input"} %>
+            <%= p.input :email, input_html: {class: "box-input"} %>
+            <%= p.input :address, input_html: {class: "box-input"} %>
+            <%= p.input :city, required: true, label: t('City'), collection: ApplicationRecord::CITIES, input_html: {value: 'Barcelona', class: "box-input"} %>
+            <%= p.input :neighbourhood, required: true, label: t('Neighbourhood'), collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input"} %>
+          <% end %>
+
+       <h3 class = "form-heading">Your public politician profile info<span class="green-period">.</span></h3>
+
       <%= f.input :elected, label: t('.elected_label') %>
       <%= f.input :political_party, label: t('.party_label'), placeholder: t('.party_placeholder'), input_html: {class: "box-input"} %>
       <%= f.input :office, label: t('.office_label'), placeholder: t('.office_placeholder'), input_html: {class: "box-input"} %>

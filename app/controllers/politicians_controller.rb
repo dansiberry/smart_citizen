@@ -20,13 +20,18 @@ class PoliticiansController < ApplicationController
 
   def new
     @user_as_politician = UserAsPolitician.new
+    @user_as_politician.user = current_user
     authorize @user_as_politician
   end
 
   def create
+
     @user_as_politician = UserAsPolitician.new(user_as_politician_params)
     authorize @user_as_politician
     @user_as_politician.user = current_user
+
+    current_user.attributes = user_as_politician_params['user_attributes']
+
     if @user_as_politician.save
       redirect_to politician_path(@user_as_politician)
     else
@@ -59,7 +64,7 @@ class PoliticiansController < ApplicationController
   private
 
   def user_as_politician_params
-    params.require(:user_as_politician).permit(:elected, :political_party, :office, :bio, :responsabilities, :photo, :photo_cache, :twitter_handle)
+    params.require(:user_as_politician).permit(:elected, :political_party, :office, :bio, :responsabilities, :photo, :photo_cache, :twitter_handle, :user_attributes => [:first_name, :last_name, :neighbourhood, :address, :city, :email])
   end
 
 end
