@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :user_posts
   has_many :tagged_in, :class_name => :Post, through: :user_posts, :foreign_key => "post_id", source: :post
   has_one :as_politician, :class_name => :UserAsPolitician, :foreign_key => "user_id"
+  has_many :notifications, dependent: :destroy
 
   def self.list_of_users_as_politicians
     user_ids = UserAsPolitician.all.map(&:user_id)
