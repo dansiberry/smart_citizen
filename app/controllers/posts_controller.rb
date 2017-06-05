@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :show, :index ]
+  after_update { create_notifications(@post) } if: :verified_changed?
 
   def new
     @post = Post.new(category: params[:category])
@@ -22,7 +23,6 @@ class PostsController < ApplicationController
     end
 
     if saved and @post.has_politician?
-      create_notifications(@post)
       redirect_to post_path(@post)
     else
       @post.destroy
@@ -75,6 +75,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     authorize @post
     if @post.update(post_params)
+#      create_notifications(@post) if @post.verified_changed?
       redirect_to @post
     else
       render :edit

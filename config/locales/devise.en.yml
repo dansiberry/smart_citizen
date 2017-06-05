@@ -46,7 +46,7 @@ en:
         elected_official: "Are you an elected official?"
         claim_profile: "Claim your public profile"
         email_subject: "Claim my public profile"
-        email_body: "Hi Call Out, \n I would like to claim my public profile and I am emailing you from my government email address as proof. \n Thank you in advance,\n"
+        email_body: "Hi Call Out,\n\nI would like to claim my public profile and I am emailing you from my government email address as proof.\n\nThank you in advance,\n"
         first_name_label: "First name"
         last_name_label: "Last name"
         address_label: "Address"

@@ -15,7 +15,8 @@ class Post < ApplicationRecord
   validates :neighbourhood, presence: true
 
   scope :by_category, -> (category) { where(category: category) }
-  scope :by_neighbourhood, -> (neighbourhood) { where(neighbourhood: neighbourhood)}
+  scope :by_neighbourhood, -> (neighbourhood) { where(neighbourhood: neighbourhood) }
+  scope :verified_posts, -> { where(verified: true) }
 
   def has_politician?
     self.users.size > 0

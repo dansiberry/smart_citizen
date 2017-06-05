@@ -12,7 +12,7 @@ ActiveAdmin.register Post do
 #   permitted
 # end
 
-permit_params :title, :content, :category, :city, :neighbourhood
+permit_params :title, :content, :category, :city, :neighbourhood, :verified
 
 form do |f|
     f.inputs "Issue content" do
@@ -22,6 +22,7 @@ form do |f|
       f.input :city
       f.input :neighbourhood
       f.input :photo
+      f.input :verified
     end
     f.actions
   end

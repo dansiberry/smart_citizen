@@ -92,7 +92,7 @@ es:
         elected_official: "¿Eres un cargo público electo?"
         claim_profile: "Reclama tu perfil de cargo público electo"
         email_subject: "Reclamar mi perfil de cargo público"
-        email_body: "Hola Call Out, \n Me gustaría pedir mi perfil de cargo público electo y os envío este mail desde mi cuenta de mail oficial del gobierno como prueba. \n Gracias por adelantado, \n "
+        email_body: "Hola Call Out,\n\nMe gustaría pedir mi perfil de cargo público electo y os envío este mail desde mi cuenta de mail oficial del gobierno como prueba.\n\nGracias por adelantado,\n\n"
         first_name_label: "Nombre"
         last_name_label: "Apellido"
         address_label: "Código Postal"
