@@ -1,3 +1,3 @@
-$( document ).ready( function() {
-    $.cloudinary.responsive();
-})
+// $( document ).ready( function() {
+//     $.cloudinary.responsive();
+// })
