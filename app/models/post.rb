@@ -1,11 +1,14 @@
 class Post < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   belongs_to :user
-  has_many :post_comments
-  has_many :comments, through: :post_comments
-  has_many :users, through: :user_posts
+  has_many :post_comments, dependent: :destroy
   has_many :user_posts, dependent: :destroy
+
+  has_many :comments, through: :post_comments, dependent: :destroy
+  has_many :users, through: :user_posts
+
   has_many :notifications, dependent: :destroy
+
   acts_as_votable
 
   validates :title, presence: true

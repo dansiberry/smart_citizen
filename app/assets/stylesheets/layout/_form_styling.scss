@@ -8,6 +8,28 @@
   border: none;
 }
 
+#post_content, #user_as_politician_bio {
+  height:200px;
+}
+
+.form-notice {
+  background-color:#fe725d;
+  border-radius:5px;
+  padding:18px;
+  margin-top:20px;
+  margin-bottom:20px;
+  color:white;
+  font-size:18px;
+  display:inline-block;
+
+}
+
+.form-heading {
+  font-weight: bold;
+  margin-top:80px;
+  margin-bottom:30px;
+}
+
 .hashtag-input {
   position: relative;
 }

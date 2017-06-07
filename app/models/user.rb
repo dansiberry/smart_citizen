@@ -1,16 +1,18 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:twitter]
-
-  has_many :comments
-  has_many :posts
-  has_many :user_posts
+  has_many :user_posts, dependent: :destroy
   has_many :tagged_in, :class_name => :Post, through: :user_posts, :foreign_key => "post_id", source: :post
-  has_one :as_politician, :class_name => :UserAsPolitician, :foreign_key => "user_id"
+
+  has_many :comments, dependent: :destroy
+  has_many :posts, dependent: :destroy
+  has_one :as_politician, :class_name => :UserAsPolitician, :foreign_key => "user_id", dependent: :destroy
   has_many :notifications, dependent: :destroy
+
 
   def self.list_of_users_as_politicians
     user_ids = UserAsPolitician.all.map(&:user_id)
@@ -31,7 +33,7 @@ class User < ApplicationRecord
       user.update(user_params)
     else
       user = User.new(user_params)
-      user.email = "#{auth.provider}-#{auth.uid}@test.com"
+      user.email = "#{auth.info.nickname}@email.com"
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.save
     end

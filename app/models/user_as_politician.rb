@@ -1,6 +1,7 @@
 class UserAsPolitician < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   belongs_to :user
+  accepts_nested_attributes_for :user
 
   validates :political_party, presence: true
   validates :office, presence: true

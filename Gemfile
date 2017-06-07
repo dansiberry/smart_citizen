@@ -26,10 +26,16 @@ gem 'devise-i18n'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
-group :development, :test do
+group :development do
   gem 'binding_of_caller'
   gem 'better_errors'
+end
 
+group :development, :test do
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'launchy'
+  gem 'minitest-reporters'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'

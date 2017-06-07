@@ -10,6 +10,22 @@
   justify-content: space-between;
 }
 
+#header .alert-info {
+  position: fixed;
+  z-index: 99999;
+  width: 100%;
+  z-index: 9999999999999;
+  transition:1s;
+  height:56px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  opacity:1;
+}
+
+
+#header .alert-info:hover {
+  background-color: $brand-color;
+}
 /* Optional class to fix the navbar on top */
 .navbar-wagon-fixed {
   position: fixed;
