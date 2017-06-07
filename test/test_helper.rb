@@ -25,7 +25,7 @@ Capybara.default_driver = :poltergeist
 include Warden::Test::Helpers
 Warden.test_mode!
 
-# ** Uncomment to skip JS errors in rake **
+# ** after 'app' add exception for js errors if desired **
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app)
 end
