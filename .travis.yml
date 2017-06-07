@@ -1,0 +1,4 @@
+language: ruby
+before_script:
+  - psql -c 'create database smart_citizen_test;' -U postgres
+

@@ -1,0 +1,11 @@
+<% NEIGHBOURHOODS = ["Eixample", "Sant Marti", "Gracia", "Ciutat Vella", "Sants-Montjuïc", "Sarrià-Sant Gervasi", "Les Corts", "Horta-Guinardó", "Nou Barris", "Sant Andreu"] %>
+
+<% 1.upto(5) do |i| %>
+user_<%= i %>:
+  first_name: <%= Faker::Name.first_name  %>
+  last_name: <%= Faker::Name.last_name  %>
+  email: <%= Faker::Internet.email %>
+  address: <%= Faker::Address.street_address %>
+  city: <%= Faker::Address.city %>
+  neighbourhood: <%= NEIGHBOURHOODS.sample %>
+<% end %>

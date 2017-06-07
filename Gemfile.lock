@@ -340,6 +340,7 @@ DEPENDENCIES
   pundit
   rails (= 5.0.1)
   rails-i18n
+  rake
   redis
   sass-rails
   simple_form
