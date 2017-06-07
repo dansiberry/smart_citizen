@@ -7,3 +7,5 @@ class HomeTest < ActionDispatch::IntegrationTest
     assert_equal 5 , User.all.length
   end
 end
+
+
