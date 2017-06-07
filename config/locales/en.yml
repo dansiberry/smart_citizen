@@ -56,6 +56,10 @@ en:
       city_placeholder: 'Your city'
       neighbourhood_placeholder: 'Your neighbourhood'
       category_placeholder: 'Category'
+  notifications:
+    notification_dropdown:
+      notification_header: 'Notifications'
+      notification_message: 'Your response is requested on an issue: %{issue_title}'
   pages:
     home:
       title: 'Connect with local politicians on issues that matter'

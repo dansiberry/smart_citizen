@@ -35,6 +35,10 @@ es:
       city_placeholder: 'Tu ciudad'
       neighbourhood_placeholder: 'Tu barrio'
       category_placeholder: 'Etiqueta'
+  notifications:
+    notification_dropdown:
+      notification_header: 'Notifications'
+      notification_message: 'Your response is requested on an issue: %{issue_title}'
   pages:
     home:
       title: 'Conecta con tus políticos locales en temas que importan'
