@@ -118,6 +118,7 @@
       </div>
     </div>
 
+    <!-- POLITICIAN REPLIES -->
     <div class="row">
       <div class="politician-replies">
         <h4 class = "grey-subtitle"><%= t('.politician_replies', politician: @user.first_name) %> ( <%= @user.comments.count %> )</h4>
@@ -156,11 +157,12 @@
       </div>
     </div>
 
+    <!-- OTHER ISSUES POLITICIAN IS TAGGED IN -->
     <div class="row">
       <div class="politician-tags">
         <h4 class = "grey-subtitle"><%= t('.tagged_issues', politician: @user.first_name) %> ( <%= @user.tagged_in.count %> )</h4>
         <% if @user.tagged_in.present? %>
-        <% @user.tagged_in.each do |post|  %>
+        <% @user.tagged_in.where(verified: true).each do |post|  %>
         <div class="col-xs-12 col-md-4">
           <div class="issue-card-search border-gray">
             <%= link_to post_path(post) do %>

@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
   mount_uploader :photo, PhotoUploader
+  after_update :create_notifications, if: :verified_changed?
+
   belongs_to :user
   has_many :post_comments
   has_many :comments, through: :post_comments
@@ -24,5 +26,11 @@ class Post < ApplicationRecord
 
   def self.all_categories
     self.all.map { |post| post.category }.select { |a| a.present? }.uniq.sort
+  end
+
+  def create_notifications
+    self.users.each do |tagged_politician|
+      self.notifications.create(user: tagged_politician)
+    end
   end
 end
