@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :show, :index ]
+  skip_before_action :authenticate_user!, only: [ :show, :index, :new, :create ]
 
   def new
     @post = Post.new(category: params[:category])
@@ -7,11 +7,20 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    authorize @post
-    @post.user = current_user
-
-    saved = @post.save
+    if post_params['@user'].present?
+      @post = Post.new(post_params.except('@user'))
+      authorize @post
+      @user = User.new(post_params['@user'])
+      @user.save
+      @post.user = @user
+      saved = @post.save
+      sign_in(@user, scope: :user)
+    else
+      @post = Post.new(post_params)
+      authorize @post
+      @post.user = current_user
+      saved = @post.save
+    end
 
     if saved
       list_user_ids = (params[:post][:users]  || []).select {|i| i.present? }
@@ -98,7 +107,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :category, :city, :neighbourhood, :photo, :photo_cache)
+    params.require(:post).permit(:title, :content, :category, :city, :neighbourhood, :photo, :photo_cache, :users, :@user => [:first_name, :last_name, :neighbourhood, :address, :city, :email, :password, :password_confirmation])
   end
 
   def create_notifications(post)

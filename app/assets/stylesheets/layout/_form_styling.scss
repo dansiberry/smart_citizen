@@ -123,4 +123,17 @@
 // .form-background {
 //   background-color: #f3f3f3;
 // }
+.logged-in-form{
+ opacity: 1;
+ transition: 2s;
+}
 
+.sign-up-hidden{
+  opacity: 0;
+  height:0px;
+  transition: 2s;
+}
+
+.below-form {
+  transition: 1.5s;
+}
