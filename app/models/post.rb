@@ -9,6 +9,7 @@ class Post < ApplicationRecord
 
   has_many :notifications, dependent: :destroy
 
+  accepts_nested_attributes_for :user
   acts_as_votable
 
   validates :title, presence: true

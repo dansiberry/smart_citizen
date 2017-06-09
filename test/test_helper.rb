@@ -22,10 +22,11 @@ end
 require 'capybara/poltergeist'
 Capybara.default_driver = :poltergeist
 
+
 include Warden::Test::Helpers
 Warden.test_mode!
 
 # ** after 'app' add exception for js errors if desired **
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, {js_errors: false})
+  Capybara::Poltergeist::Driver.new(app, js_errors: false, timeout: 1.minute, phantomjs_options: ['--load-images=no'] )
 end

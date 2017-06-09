@@ -1,0 +1,17 @@
+user_as_politician_1:
+  political_party: Commie
+  office: Dictator
+  bio: ...
+  responsabilities: Work
+  twitter_handle: non
+  elected: false
+  user: user_2
+
+user_as_politician_2:
+  political_party: Capitalist
+  office: Business owner
+  bio: ...
+  responsabilities: ...
+  twitter_handle: none
+  elected: true
+  user: user_1
