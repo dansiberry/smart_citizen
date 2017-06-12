@@ -82,7 +82,7 @@ ca:
       edit:
         first_name_label: "Nom"
         last_name_label: "Cognom"
-        address_label: "Codi Postal"
+        address_label: "Adreça"
         city_label: "Ciutat"
         neighbourhood_label: "Barri"
     #   email_placeholder: "Edita la teva adreça de mail"
@@ -95,9 +95,12 @@ ca:
         email_body: "Hola Call Out, \n M'agradaria demanar el meu perfil de càrrec públic electe i us envio aquest mail desde la meva adreça electrònica oficial de l'ajuntament com a prova. \n Gràcies, \n "
         first_name_label: "Nom"
         last_name_label: "Cognom"
-        address_label: "Codi Postal"
+        address_label: "Adreça"
         city_label: "Ciitat"
         neighbourhood_label: "Barri"
+        email_label: "Email address"
+        password_label: "Password"
+        confirm_password_label: "Confirm your password"
       signed_up: Has estat registrat correctament.
       signed_up_but_inactive: El teu compte ha estat creat correctament. Tanmateix, no hem pogut inciar la sessió perquè el teu compte encara no està activat.
       signed_up_but_locked: El teu compte ha estat creat correctament. Tanmateix, no hem pogut inciar la sessió perquè el teu compte està bloquejat.
@@ -108,6 +111,8 @@ ca:
       already_signed_out: Desconnectat satisfactoriament.
       new:
         sign_in: Iniciar sessió
+        email_label: "Email address"
+        password_label: "Contraseña"
       signed_in: Sessió iniciada correctament.
       signed_out: Sessió tancada correctament.
     shared:

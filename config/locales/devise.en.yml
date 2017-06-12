@@ -52,6 +52,9 @@ en:
         address_label: "Address"
         city_label: "City"
         neighbourhood_label: "Neighbourhood"
+        email_label: "Email address"
+        password_label: "Password"
+        confirm_password_label: "Confirm your password"
       edit:
         first_name_label: "First name"
         last_name_label: "Last name"
@@ -66,6 +69,9 @@ en:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
+      new:
+        email_label: "Email address"
+        password_label: "Password"
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."

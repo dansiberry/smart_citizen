@@ -8,12 +8,12 @@
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :first_name, required: false, autofocus: true, label: t('.first_name_label'), input_html: {class: "box-input"} %>
-        <%= f.input :last_name, required: false, label: t('.last_name_label'), input_html: {class: "box-input"} %>
+        <%= f.input :first_name, required: true, label: t('.first_name_label'), input_html: {class: "box-input"} %>
+        <%= f.input :last_name, required: true, label: t('.last_name_label'), input_html: {class: "box-input"} %>
         <%= f.input :address, required: true, label: t('.address_label'), input_html: {class: "box-input"} %>
         <%= f.input :city, required: true, label: t('.city_label'), collection: ApplicationRecord::CITIES, input_html: {class: "box-input"} %>
         <%= f.input :neighbourhood, required: true, label: t('.neighbourhood_label'),collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input"} %>
-        <%= f.input :email, required: true, autofocus: true, placeholder: t('email_placeholder'), input_html: {class: "box-input"} %>
+        <%= f.input :email, required: true, placeholder: t('email_placeholder'), input_html: {class: "box-input"} %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></p>
