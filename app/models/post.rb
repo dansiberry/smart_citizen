@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
   mount_uploader :photo, PhotoUploader
+  after_update :create_notifications, if: :verified_changed?
+
   belongs_to :user
   has_many :post_comments, dependent: :destroy
   has_many :user_posts, dependent: :destroy
@@ -19,7 +21,8 @@ class Post < ApplicationRecord
   validates :neighbourhood, presence: true
 
   scope :by_category, -> (category) { where(category: category) }
-  scope :by_neighbourhood, -> (neighbourhood) { where(neighbourhood: neighbourhood)}
+  scope :by_neighbourhood, -> (neighbourhood) { where(neighbourhood: neighbourhood) }
+  scope :verified_posts, -> { where(verified: true) }
 
   def has_politician?
     self.users.size > 0
@@ -27,5 +30,11 @@ class Post < ApplicationRecord
 
   def self.all_categories
     self.all.map { |post| post.category }.select { |a| a.present? }.uniq.sort
+  end
+
+  def create_notifications
+    self.users.each do |tagged_politician|
+      self.notifications.create(user: tagged_politician)
+    end
   end
 end

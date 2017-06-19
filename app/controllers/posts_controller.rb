@@ -31,7 +31,6 @@ class PostsController < ApplicationController
     end
 
     if saved and @post.has_politician?
-      create_notifications(@post)
       redirect_to post_path(@post)
     else
       @post.destroy
@@ -48,7 +47,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
      authorize @post
     # this is for the related posts
-    @related_posts = Post
+    @related_posts = Post.verified_posts
     @related_posts = @related_posts.by_category(@post.category).to_a
     @related_posts = @related_posts.delete_if { |related_post| related_post.id == @post.id }
   end
@@ -57,13 +56,14 @@ class PostsController < ApplicationController
     @list_categories = Post.all_categories
 
     @posts = policy_scope(Post)
+    @posts = Post.verified_posts
 
     if params[:neighbourhood].present?
       @posts = @posts.by_neighbourhood(params[:neighbourhood])
     # elsif user_signed_in? && params[:neighbourhood].blank?
     #   @posts = @posts.by_neighbourhood(current_user.neighbourhood)
     else
-      @posts = Post.all
+      @posts = Post.verified_posts
     end
 
     if params[:category].present?
@@ -84,6 +84,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     authorize @post
     if @post.update(post_params)
+#      create_notifications(@post) if @post.verified_changed?
       redirect_to @post
     else
       render :edit
@@ -110,9 +111,4 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :content, :category, :city, :neighbourhood, :photo, :photo_cache, :users, :@user => [:first_name, :last_name, :neighbourhood, :address, :city, :email, :password, :password_confirmation])
   end
 
-  def create_notifications(post)
-    post.users.each do |tagged_politician|
-      Notification.create(user: tagged_politician, post: post)
-    end
-  end
 end
