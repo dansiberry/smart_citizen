@@ -22,7 +22,6 @@ class Post < ApplicationRecord
 
   scope :by_category, -> (category) { where(category: category) }
   scope :by_neighbourhood, -> (neighbourhood) { where(neighbourhood: neighbourhood) }
-  scope :verified_posts, -> { where(verified: true) }
 
   def has_politician?
     self.users.size > 0
@@ -30,6 +29,11 @@ class Post < ApplicationRecord
 
   def self.all_categories
     self.all.map { |post| post.category }.select { |a| a.present? }.uniq.sort
+  end
+
+  def self.verified_posts
+    verified_post_array = self.where(verified: true).select { |post| post.user.confirmed? }
+    self.where(id: verified_post_array.pluck(:id))
   end
 
   def create_notifications
