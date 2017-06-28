@@ -172,7 +172,11 @@
         <div class="issues-prepositions">
           <h5><%= t('.photos') %></h5>
         </div>
-        <%= cl_image_tag @post.photo, class: "img-responsive" %>
+        <a data-fancybox="gallery" href="big_1.jpg">
+        <%= link_to(@post.photo), data-fancybox: "gallery" do %>
+          <%= cl_image_tag @post.photo, class: "img-responsive" %>
+        <% end %>
+        </a>
       </div>
     </div>
 
