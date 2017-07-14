@@ -163,3 +163,15 @@
   border-color: #47972e;
 }
 
+
+#my-posts{
+  position:absolute;
+  bottom:-50px;
+  input {
+    width:20px !important;
+  }
+  label {
+    margin-right: 20px;
+  }
+}
+

@@ -16,10 +16,14 @@
         </div>
         <div class="politician-elected">
           <div class="politician-active">
-            <span><%= t('.politician_elected') %></span>
+            <%= link_to (politicians_path) do  %>
+              <span onclick="showElected"><%= t('.politician_elected') %></span>
+            <% end %>
           </div>
           <span> / </span>
-          <span><%= t('.politician_all') %></span>
+          <%= link_to politicians_path(filter: "all") do  %>
+            <span onclick="showAll"><%= t('.politician_all') %></span>
+          <% end %>
         </div>
       </div>
     </div>
@@ -28,7 +32,11 @@
   <div class="row politicians-list">
     <% @politicians.each do |a| %>
     <div class="col-lg-6 col-xl-6 col-sm-10 col-md-10 col-xs-11 mobile-fit">
-      <div class="politician-card politician-card-search">
+      <% if a.elected? %>
+        <div class="politician-card politician-card-search">
+      <% else %>
+        <div class="politician-card politician-card-search">
+      <% end %>
         <%= link_to politician_path(a) do %>
         <div class="link-box">
         </div>

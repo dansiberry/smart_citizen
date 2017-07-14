@@ -43,5 +43,19 @@ class FormTest < ActionDispatch::IntegrationTest
 
  end
 
+# class PhotoUpload < ActionDispatch::IntegrationTest
+#   test "User can upload photo for a post" do
+#     visit "./posts/1"
+#     assert !html.include?("issues-edit"), "Edit post is visible when not signed in"
+#     sign_in(User.find(1))
+#     assert User.find(1).posts.length == 1, "User has one post"
+#     visit "./posts/#{User.find(1).posts.first.id}"
+#     assert html.include?("issues-edit"), "Edit post link not served when signed in"
+#     visit "./posts/#{User.find(1).posts.first.id}/edit"
+#     page.attach_file('post[photo]', Rails.root + 'test/images/test_upload.png')
+#     click_button('Update issue')
+#     assert html.include?("http://res.cloudinary.com/dvmgzsqg3/image/upload"), "Show page does not contain uploaded image"
+#   end
+# end
 
 
