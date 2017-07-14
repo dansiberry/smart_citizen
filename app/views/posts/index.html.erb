@@ -1,8 +1,8 @@
 <div class="container-issues">
   <% if @favorites %>
-     <h1 style="">My Posts<span class="green-period">.</span></h1>
+     <h1 style="" id="posts-index-title">My Posts<span class="green-period">.</span></h1>
   <% else %>
-     <h1 style=""><%= t('.search') %><span class="green-period">.</span></h1>
+     <h1 style="" id="posts-index-title"><%= t('.search') %><span class="green-period">.</span></h1>
   <% end %>
   <div class="row">
     <div class="col-xs-12" style="margin-bottom: 30px">

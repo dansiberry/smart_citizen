@@ -8,8 +8,8 @@
   margin:0px;
   width:100%;
   margin-top: -70px !important;
-  padding-right: 200px;
-  padding-left: 200px;
+  padding-right: 160px;
+  padding-left: 160px;
   height:500px;
   padding-top: -30px;
   background-position: bottom;
@@ -18,10 +18,10 @@
   position:relative;
   // border-top: 3px solid #baeaac;
 
-  @media (max-width: 991px) {
+  @media (max-width: 1100px) {
     height: inherit;
-    padding-right: 130px;
-    padding-left: 130px;
+    padding-right: 90px;
+    padding-left: 90px;
   }
 
     @media (max-width: 991px) {
@@ -37,8 +37,8 @@
   margin:0px;
   width:100%;
   margin-top: 0px !important;
-  padding-right: 120px;
-  padding-left: 120px;
+  padding-right: 80px;
+  padding-left: 80px;
   padding-top: 90px;
   background-image: url('http://res.cloudinary.com/dvmgzsqg3/image/upload/v1489600278/homepage-background-bottom_uxhlz0.png');
   background-position: bottom;
@@ -50,10 +50,6 @@
   // border-top: 3px solid #baeaac;
 
   @media (max-width: 991px) {
-
-  }
-
-    @media (max-width: 991px) {
    padding-left: 30px;
    padding-right: 30px;
    padding-bottom: 180px;
