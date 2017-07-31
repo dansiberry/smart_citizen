@@ -152,9 +152,9 @@ es:
       tagged_politician: 'A'
       email_subject: 'Me gustaría conocer tu opinión acerca de...'
       email_body: "Apreciado %{politician},\n\nMe gustaría conocer tu opinión sobre %{issue}.
-      Puedes contestar directamente en  http://www.call-out.eu/post/%{issue_id}\n\nGracias por adelantado,\n"
+      Puedes contestar directamente en  http://www.citizenvoice.io/post/%{issue_id}\n\nGracias por adelantado,\n"
       email_politician: 'Envíale un mail a %{politician}'
-      tweet_text: "Me gustaría conocer tu opinión sobre %{issue} http://www.call-out.eu/post/%{issue_id}"
+      tweet_text: "Me gustaría conocer tu opinión sobre %{issue} http://www.citizenvoice.io/post/%{issue_id}"
       tweet_to: 'Tweet a'
       photos: 'Fotos'
       related_issues: 'Más sobre'

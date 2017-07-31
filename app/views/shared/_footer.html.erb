@@ -1,17 +1,18 @@
 <div id="footer">
 <h5><%= link_to t('.about'), about_path %></h5>
   <ul class="list-inline">
-    <li>
+<!--     <li>
     <i class="fa fa-facebook fa-2x"></i>
-    </li>
+    </li> -->
     <li>
+      <%= link_to "www.twitter.com/citizenvoice_io" %>
       <i class="fa fa-twitter fa-2x"></i>
     </li>
-    <li>
+<!--     <li>
       <i class="fa fa-instagram fa-2x"></i>
     </li>
-    <li>
-    <%= mail_to "contact@call-out.eu" do %>
+    <li> -->
+    <%= mail_to "info@citizenvoice.io" do %>
       <i class="fa fa-envelope fa-2x"></i>
       <% end %>
     </li>
