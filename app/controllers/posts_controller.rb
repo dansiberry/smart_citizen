@@ -31,6 +31,7 @@ class PostsController < ApplicationController
     end
 
     if saved and @post.has_politician?
+      flash[:notice] = "This issue is not live on the site until you confirm your address. Check your inbox." if @post.user.confirmed? == false
       redirect_to post_path(@post)
     else
       @post.destroy

@@ -66,9 +66,9 @@ en:
       top-links:
         sign_in_with_provider: "Sign in with %{provider}"
     sessions:
-      signed_in: "Signed in successfully."
-      signed_out: "Signed out successfully."
-      already_signed_out: "Signed out successfully."
+      signed_in: ""
+      signed_out: ""
+      already_signed_out: ""
       new:
         email_label: "Email address"
         password_label: "Password"
