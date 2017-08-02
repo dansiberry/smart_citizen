@@ -57,6 +57,11 @@
   <!-- Login text link -->
   <ul class="nav navbar-nav">
     <li>
+
+      <%= link_to t('.my_politicians'), politicians_path %>
+
+    </li>
+    <li>
       <%= link_to t('.raise_issue_button'), new_post_path, class: "btn btn-primary raise" %>
     </li>
     <li>
@@ -64,6 +69,21 @@
     </li>
     <li>
       <%= link_to t('.sign_up'), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    </li>
+    <li>
+      <%= link_to url_for(locale: 'en') do %>
+      <%= image_tag "English.png" %>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to url_for(locale: 'es') do %>
+      <%= image_tag "Spanish.png" %>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to url_for(locale: 'ca') do %>
+      <%= image_tag "Catalan.png" %>
+      <% end %>
     </li>
   </ul>
   <% end %>
