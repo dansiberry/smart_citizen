@@ -173,9 +173,9 @@ en:
       tagged_politician: 'To'
       email_subject: 'I would like your opinion on...'
       email_body: "Dear %{politician},\n\nI would like to have your opinion on the subject of %{issue}.
-      You can reply directly at http://www.call-out.eu/post/%{issue_id}\n\nThank you in advance,\n\n"
+      You can reply directly at http://www.citizenvoice.io/post/%{issue_id}\n\nThank you in advance,\n\n"
       email_politician: 'Email this to %{politician}'
-      tweet_text: "I would like to have your opinion on %{issue} http://www.call-out.eu/post/%{issue_id}"
+      tweet_text: "I would like to have your opinion on %{issue} http://www.citizenvoice.io/post/%{issue_id}"
       tweet_to: 'Tweet to'
       photos: 'Photos'
       related_issues: 'More on'
