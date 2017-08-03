@@ -1,22 +1,24 @@
 <% if current_user.as_politician %>
 <div class="navbar-wagon-item">
- <a class="dropdown notification-dropdown notification-container dropdown-toggle" data-toggle="dropdown">
-  <i class="fa fa-envelope-o"></i>
-  <% if current_user.notifications.where(read: false).count > 0 %>
-  <div class="badge badge-green"><%= current_user.notifications.count %></div>
-  <% end %>
-  <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-    <li>
-      <div class="dropdown-header text-center">
-        <%= t('.notification_header') %>
-      </div>
-    </li>
-    <% current_user.notifications.last(5).each do |notification| %>
-    <li>
-    <%= link_to t('.notification_message', issue_title: notification.post.title), link_through_path(notification) %>
-    </li>
+  <div class="dropdown">
+  <a class="notification-dropdown notification-container dropdown-toggle" data-toggle="dropdown">
+    <i class="fa fa-envelope-o"></i>
+    <% if current_user.notifications.where(read: false).count > 0 %>
+    <div class="badge badge-green"><%= current_user.notifications.count %></div>
     <% end %>
-  </ul>
-</a>
+    <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+      <li>
+        <div class="dropdown-header text-center">
+          <%= t('.notification_header') %>
+        </div>
+      </li>
+      <% current_user.notifications.last(5).each do |notification| %>
+      <li>
+        <%= link_to t('.notification_message', issue_title: notification.post.title), link_through_path(notification) %>
+      </li>
+      <% end %>
+    </ul>
+  </a>
+</div>
 </div>
 <% end %>

@@ -163,6 +163,8 @@
   border-color: #47972e;
 }
 
+.dropdown-menu {
+  min-width: 0;
 
 #my-posts{
   position:absolute;
@@ -173,5 +175,6 @@
   label {
     margin-right: 20px;
   }
+
 }
 
