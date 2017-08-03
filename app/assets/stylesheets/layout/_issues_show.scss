@@ -1,10 +1,10 @@
 .issues-navigation {
   font-weight: bolder;
   margin-top: 50px;
-    @media (max-width: 474px) {
-      margin-top: 20px;
-      margin-bottom: 40px;
-    }
+  @media (max-width: 474px) {
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
 }
 
 .issues-tag {
@@ -42,8 +42,8 @@
   padding: 5px 30px;
   margin: 10px 0px;
   @media (max-width: 920px) {
-      padding: 5px 15px;
-    }
+    padding: 5px 15px;
+  }
   h4 {
     font-weight: bolder;
     @media (max-width: 920px) {
@@ -69,7 +69,7 @@
 }
 .issues-upvote a {
   color: $green;
-    font-size: 40px;
+  font-size: 40px;
 }
 
 .issues-prepositions h5 {
@@ -152,10 +152,10 @@
  display: inline-block;
  text-align: left;
 
-   h5 {
-    margin-top: 0px;
-    margin-bottom: 5px;
-   }
+ h5 {
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
 }
 
 .mobile-upvote {
@@ -168,11 +168,37 @@
   color: #1b95e0;
   font-size:20px;
   float:left;
-      @media (min-width: 768px) {
-     padding-left: 15px;
-    }
+  @media (min-width: 768px) {
+   padding-left: 15px;
+ }
 }
 
 .upvote-icon {
   font-size: 35px;
+}
+
+.politician-not-verified {
+  border: 1px dotted red;
+  border-radius: 25px;
+  padding-top: 20px;
+  padding-right: 10px;
+}
+
+.modal {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
 }

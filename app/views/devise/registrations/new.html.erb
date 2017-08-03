@@ -22,7 +22,7 @@
         <%= f.input :address, required: true, label: t('.address_label'), input_html: {class: "box-input"} %>
         <%= f.input :city, required: true, label: t('.city_label'), collection: ApplicationRecord::CITIES, input_html: {value: 'Barcelona', class: "box-input"} %>
         <%= f.input :neighbourhood, required: true, label: t('.neighbourhood_label'), collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input"} %>
-        <%= f.input :email, required: true, label: false, placeholder: t('.email_label'),input_html: {class: "box-input"} %>
+        <%= f.input :email, required: true, label: t('.email_label'), input_html: {class: "box-input"} %>
         <%= f.input :password, required: true, label: t('.password_label'), hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: {class: "box-input"} %>
         <%= f.input :password_confirmation, required: true, label: t('.confirm_password_label'), input_html: {class: "box-input"} %>
       </div>

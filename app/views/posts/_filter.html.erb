@@ -4,7 +4,21 @@
 <%= select_tag :neighbourhood, options_for_select(ApplicationRecord::NEIGHBOURHOODS, selected: params[:neighbourhood]), {include_blank: true, class: 'select select_neightbourhood', prompt: t('.neighbourhood_prompt')} %>
 <div class="blank-space"></div>
 <%= select_tag :category, options_for_select(@list_categories, selected: params[:category]), {include_blank: true, class: 'select select_category', prompt: t('.hashtag_prompt')} %>
-<%= submit_tag t('.button'), class: "btn btn-primary homepage-button" %>
+<% if @favorites %>
+  <div class="check-boxes" id="my-posts">
+    <% if @myposts %>
+      <%= label_tag "myposts1", raw("#{check_box_tag 'myposts', 'myposts', true} My posts") %>
+    <% else %>
+      <%= label_tag "myposts1", raw("#{check_box_tag 'myposts', 'myposts'} My posts") %>
+    <% end %>
+    <% if @liked %>
+      <%= label_tag "liked1", raw("#{check_box_tag 'liked', 'liked', true} Liked") %>
+    <% else %>
+      <%= label_tag "liked1", raw("#{check_box_tag 'liked', 'liked'} Liked") %>
+    <% end %>
+  </div>
+<% end %>
+<%= submit_tag t('.button'), class: "btn btn-primary homepage-button", id: "filter-submit-btn" %>
 <% end %>
 
 

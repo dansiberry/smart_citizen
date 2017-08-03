@@ -31,6 +31,7 @@ class PostsController < ApplicationController
     end
 
     if saved and @post.has_politician?
+      flash[:notice] = "This issue is not live on the site until you confirm your address. Check your inbox." if @post.user.confirmed? == false
       redirect_to post_path(@post)
     else
       @post.destroy
@@ -69,7 +70,19 @@ class PostsController < ApplicationController
     if params[:category].present?
       @posts = @posts.by_category(params[:category])
     end
-
+    if params[:favorites]
+      @favorites = true
+    end
+    if params[:liked]
+      @posts = @posts.select {|a| current_user.voted_up_on?(a)}
+      @favorites = true
+      @liked = true
+    end
+    if params[:myposts]
+      @posts = @posts.select {|a| a.user == current_user}
+      @favorites = true
+      @myposts = true
+    end
     @posts = @posts.sort_by {|a| a.votes_for.size}.reverse
   end
 

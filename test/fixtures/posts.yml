@@ -1,0 +1,12 @@
+<% NEIGHBOURHOODS ||= ["Eixample", "Sant Marti", "Gracia", "Ciutat Vella", "Sants-Montjuïc", "Sarrià-Sant Gervasi", "Les Corts", "Horta-Guinardó", "Nou Barris", "Sant Andreu"] %>
+
+post_1:
+  title: Some problem
+  content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim aliquam quae fuga, quo delectus, laudantium consequatur voluptatum inventore nam debitis modi quisquam minus, libero iste est possimus, voluptatem. Quisquam perspiciatis accusamus natus, atque cum veniam! Optio consequuntur provident eligendi vero dolorum, qui blanditiis necessitatibus. Dignissimos aspernatur assumenda explicabo, voluptates, obcaecati at veritatis nostrum, perspiciatis reprehenderit veniam adipisci consequatur voluptas in impedit quod iste labore. Magni rerum, reprehenderit accusamus, iure quae veritatis laborum eveniet minima voluptas fugiat quasi cupiditate earum modi nihil repellendus. Iure recusandae dolore ipsum vel ut quis. Ratione eaque delectus, molestias fugit animi asperiores esse officiis iure aliquid?"
+  category: "some categoy"
+  city: "Barcelona"
+  neighbourhood: <%= NEIGHBOURHOODS.sample %>
+  user_id: 1
+  photo:
+  verified: true
+

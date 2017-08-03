@@ -11,6 +11,7 @@ end
 
 require 'capybara/rails'
 class ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   include Capybara::DSL
   def teardown
     Capybara.reset_sessions!
@@ -30,3 +31,5 @@ Warden.test_mode!
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, js_errors: false, timeout: 1.minute, phantomjs_options: ['--load-images=no'] )
 end
+
+

@@ -19,19 +19,19 @@
 
 
         <% if policy(@post).edit? %>
-          <div class="issues-edit col-xs-6">
-            <% if policy(@post).edit? %>
-            <%= link_to edit_post_path(@post) do %>
-            <span class="fa fa-pencil"></span>
-            <% end %>
-            <% end %>
+        <div class="issues-edit col-xs-6">
+          <% if policy(@post).edit? %>
+          <%= link_to edit_post_path(@post) do %>
+          <span class="fa fa-pencil"></span>
+          <% end %>
+          <% end %>
 
-            <% if policy(@post).destroy? %>
-            <%= link_to post_path(@post), method: :delete, data: { confirm: "Are you sure?" } do %>
-            <span class="fa fa-trash-o"></span>
-            <% end %>
-            <% end %>
-          </div>
+          <% if policy(@post).destroy? %>
+          <%= link_to post_path(@post), method: :delete, data: { confirm: "Are you sure?" } do %>
+          <span class="fa fa-trash-o"></span>
+          <% end %>
+          <% end %>
+        </div>
         <% end %>
       </div>
 
@@ -39,31 +39,32 @@
         <p><%= @post.content %></p>
       </div>
 
-    <div class="visible-xs mobile-info-col">
-      <div class="mobile-upvote">
-        <div class="issues-upvote" data-balloon="<%= t('.upvote_data_balloon') %>"  data-balloon-pos="left">
-          <%= @post.get_upvotes.size %>
-          <%= link_to like_post_path(@post), method: :put do %>
-          <i class="fa fa-caret-up" aria-hidden="true"></i>
-          <% end %>
+      <!-- Mobile formatting -->
+      <div class="visible-xs mobile-info-col">
+        <div class="mobile-upvote">
+          <div class="issues-upvote" data-balloon="<%= t('.upvote_data_balloon') %>"  data-balloon-pos="left">
+            <%= @post.get_upvotes.size %>
+            <%= link_to like_post_path(@post), method: :put do %>
+            <i class="fa fa-caret-up" aria-hidden="true"></i>
+            <% end %>
+          </div>
         </div>
-      </div>
-     <% if @post.photo? %>
+        <% if @post.photo? %>
         <div class="issues-prepositions">
           <h5 class="mobile-inline"><%= t('.photos') %></h5>
         </div>
         <div class="mobile-photo">
           <%= cl_image_tag @post.photo, class: "img-responsive" %>
         </div>
-      <% end %>
-       <div>
-        <div class="issues-prepositions mobile-inline">
-          <h5 class="mobile-inline"><%= t('.poster') %></h5>
+        <% end %>
+        <div>
+          <div class="issues-prepositions mobile-inline">
+            <h5 class="mobile-inline"><%= t('.poster') %></h5>
+          </div>
+          <div class="issues-details mobile-inline">
+            <h5 class="mobile-inline"><%= @post.user.first_name %> <%= @post.user.last_name %></h5>
+          </div>
         </div>
-        <div class="issues-details mobile-inline">
-          <h5 class="mobile-inline"><%= @post.user.email %></h5>
-        </div>
-       </div>
         <div class="issues-prepositions mobile-inline">
           <h5><%= t('.tagged_politician') %></h5>
         </div>
@@ -74,75 +75,99 @@
         </div>
 
         <% @post.users.each do |politician| %>
-          <% if politician.as_politician.verified == false && politician != current_user %>
-            <p>
-              <%= mail_to "#{politician.email}", html_options = { subject: t('.email_subject'), body: t('.email_body', politician: politician.first_name, issue: @post.title, issue_id: @post.id) } do %>
-                <div class = "mail-contact">
-                  <div class="fa fa-envelope-o envelope"> </div><span class = "prompt"> <%= t('.email_politician', politician: politician.first_name) %></span>
-                </div>
-              <% end %>
-
-              <% text = t('.tweet_text', issue: @post.title, issue_id: @post.id) %> %>
-
-              <a href="https://twitter.com/intent/tweet?screen_name=<%= politician.as_politician.twitter_handle %>&text=<%= CGI.escape(text) %>" class="twitter-mention-button" data-show-count="false">
-                  <%= t('.tweet_to') %> <%= politician.as_politician.twitter_handle %>
-              </a>
-              <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
-              </script>
-            </p>
-          <% end %>
-        <% end %>
-    </div>
-
-      <div class="show-button">
-        <% if current_user %>
-        <% if current_user.as_politician %>
-        <%= link_to t('.reply_button'), new_post_comment_path(@post), class: "btn btn-primary" %>
-
-        <% else %>
-        <%= link_to t('.raise_similar_button'), new_post_path({category: @post.category}), class: "btn btn-primary" %>
-        <% end %>
-        <% else %>
-        <%= link_to t('.join_convo_button'), new_user_registration_path, class: "btn btn-primary" %>
-        <% end %>
-      </div>
-
-      <div class="issues-replies">
-        <h2><%= t('.replies') %> ( <%= @post.comments.count %> )</h2>
-        <% if !@post.comments.blank? %>
-        <% @post.comments.each_with_index do |a, index| %>
-        <div id="block<%= index %>" class="issues-replier toggle">
-          <h4><%= a.user.first_name %> <%= a.user.last_name %> <%= a.created_at.strftime("%e/%m/%y") %></h4>
-        </div>
-        <div id="block<%= index %>-content" class="issues-replies-text">
-          <p><%= a.content %> </p>
+        <% if politician.as_politician.verified == false && @post.user == current_user %>
+        <%= mail_to "#{politician.email}", html_options = { subject: t('.email_subject'), body: t('.email_body', politician: politician.first_name, issue: @post.title, issue_id: @post.id) } do %>
+        <div class = "mail-contact">
+          <div class="fa fa-envelope-o envelope"> </div><span class = "prompt"> <%= t('.email_politician', politician: politician.first_name) %></span>
         </div>
         <% end %>
-        <% end %>
-      </div>
+
+        <% text = t('.tweet_text', issue: @post.title, issue_id: @post.id) %> %>
+
+        <a href="https://twitter.com/intent/tweet?screen_name=<%= politician.as_politician.twitter_handle %>&text=<%= CGI.escape(text) %>" class="twitter-mention-button" data-show-count="false">
+          <%= t('.tweet_to') %> <%= politician.as_politician.twitter_handle %>
+        </a>
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+      </p>
+      <% end %>
+      <% end %>
     </div>
 
-    <div class="hidden-xs col-sm-3 right-col">
-      <div class="issues-upvote" data-balloon="Upvote this issue!" data-balloon-pos="up">
+    <div class="show-button">
+      <% if current_user %>
+      <% if current_user.as_politician %>
+      <%= link_to t('.reply_button'), new_post_comment_path(@post), class: "btn btn-primary" %>
 
-        <%= @post.get_upvotes.size %>
-        <%= link_to like_post_path(@post), method: :put do %>
-        <i class="fa fa-caret-up upvote-icon" aria-hidden="true"></i>
-        <% end %>
+      <% else %>
+      <%= link_to t('.raise_similar_button'), new_post_path({category: @post.category}), class: "btn btn-primary" %>
+      <% end %>
+      <% else %>
+      <%= link_to t('.join_convo_button'), new_user_registration_path, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
+    <div class="issues-replies">
+      <h2><%= t('.replies') %> ( <%= @post.comments.count %> )</h2>
+      <% if !@post.comments.blank? %>
+      <% @post.comments.each_with_index do |a, index| %>
+      <div id="block<%= index %>" class="issues-replier toggle">
+        <h4><%= a.user.first_name %> <%= a.user.last_name %> <%= a.created_at.strftime("%e/%m/%y") %></h4>
       </div>
-      <div class="issues-prepositions">
-        <h5><%= t('.poster') %></h5>
+      <div id="block<%= index %>-content" class="issues-replies-text">
+        <p><%= a.content %> </p>
       </div>
-      <div class="issues-details">
-        <h5><%= @post.user.email %></h5>
-      </div>
-      <div class="issues-prepositions">
-        <h5><%= t('.tagged_politician') %></h5>
-      </div>
-      <div class="issues-details">
-        <% @post.users.each do |politician| %>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Desktop formatting -->
+  <div class="hidden-xs col-sm-3 right-col">
+    <div class="issues-upvote" data-balloon="Upvote this issue!" data-balloon-pos="up">
+
+      <%= @post.get_upvotes.size %>
+      <%= link_to like_post_path(@post), method: :put do %>
+      <i class="fa fa-caret-up upvote-icon" aria-hidden="true"></i>
+      <% end %>
+    </div>
+    <div class="issues-prepositions">
+      <h5><%= t('.poster') %></h5>
+    </div>
+    <div class="issues-details">
+      <h5><%= @post.user.first_name %> <%= @post.user.last_name %></h5>
+    </div>
+    <div class="issues-prepositions">
+      <h5><%= t('.tagged_politician') %></h5>
+    </div>
+        <%= render 'politician_warning_modal' %>
+
+    <div class="issues-details">
+      <% @post.users.each do |politician| %>
+
+      <% if politician.as_politician.verified == false && @post.user == current_user %>
+      <p style="color: red">Not active on the site yet</p>
+      <div class="politician-not-verified">
         <h5><%= politician.first_name %> <%= politician.last_name %></h5>
-        <% if politician.as_politician.verified == false && politician != current_user %>
+        <p><%= mail_to "#{politician.email}", html_options = { subject: t('.email_subject'), body: t('.email_body', politician: politician.first_name, issue: @post.title, issue_id: @post.id) } do %>
+          <div class = "mail-contact">
+
+            <div class="fa fa-envelope-o envelope"> </div> <span class = "prompt"> Email this to <%= politician.first_name %></span>
+
+          </div>
+          <% end %>
+
+          <% text = t('.tweet_text', issue: @post.title, issue_id: @post.id) %>
+
+          <a href="https://twitter.com/intent/tweet?screen_name=<%= politician.as_politician.twitter_handle %>&text=<%= CGI.escape(text) %>" class="twitter-mention-button" data-show-count="false">
+            <%= t('.tweet_to') %> <%= politician.as_politician.twitter_handle %>
+          </a>
+
+          <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+        </div>
+
+        <% else %>
+        <h5><%= politician.first_name %> <%= politician.last_name %></h5>
         <p><%= mail_to "#{politician.email}", html_options = { subject: t('.email_subject'), body: t('.email_body', politician: politician.first_name, issue: @post.title, issue_id: @post.id) } do %>
           <div class = "mail-contact">
 
@@ -159,6 +184,7 @@
 
           <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
           <% end %>
+
           <% end %>
         </div>
 
@@ -172,7 +198,9 @@
         <div class="issues-prepositions">
           <h5><%= t('.photos') %></h5>
         </div>
-        <%= cl_image_tag @post.photo, class: "img-responsive" %>
+        <%= link_to(@post.photo.url, 'data-fancybox': "gallery") do %>
+          <%= cl_image_tag @post.photo, class: "img-responsive" %>
+        <% end %>
       </div>
     </div>
 
@@ -213,6 +241,13 @@
       </div>
     </div>
   </div>
+
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('#myModal').modal('show');
+    });
+  </script>
 
 
 
