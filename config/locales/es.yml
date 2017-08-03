@@ -75,6 +75,7 @@ es:
       bio_label: 'Bio'
       responsibilities_label: 'Responsabilidades'
       twitter_label: 'Nombre de usuario de Twitter'
+      photo: 'Foto'
       button: 'Actualiza tu perfil político'
     index:
       page_nav: 'Políticos'

@@ -96,6 +96,7 @@ en:
       bio_label: 'Bio'
       responsibilities_label: 'Responsibilities'
       twitter_label: 'Twitter handle'
+      photo: 'Photo'
       button: 'Update politician profile'
     index:
       page_nav: 'Politicians'

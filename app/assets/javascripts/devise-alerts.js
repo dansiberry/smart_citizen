@@ -2,7 +2,8 @@ if (document.getElementsByClassName('alert').length > 0) {
 
   setTimeout(function(){
     hideAlert();
-}, 1200);
+}, 1000000000);
+
 
   function hideAlert() {
   var alert = document.getElementsByClassName('alert')

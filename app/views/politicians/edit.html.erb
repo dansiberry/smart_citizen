@@ -9,7 +9,7 @@
         <%= f.input :bio, label: t('.bio_label'), input_html: {class: "box-input"} %>
         <%= f.input :responsabilities, label: t('.responsibilities_label'), input_html: {class: "box-input"} %>
         <%= f.input :twitter_handle, label: t('.twitter_label'), input_html: {class: "box-input"} %>
-        <%= f.input :photo %>
+        <%= f.input :photo, label: t('.photo') %>
         <%= f.input :photo_cache, as: :hidden %>
         <%= f.button :submit, t('.button') %>
       <% end %>
