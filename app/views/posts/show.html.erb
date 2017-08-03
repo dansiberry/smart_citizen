@@ -198,7 +198,9 @@
         <div class="issues-prepositions">
           <h5><%= t('.photos') %></h5>
         </div>
-        <%= cl_image_tag @post.photo, class: "img-responsive" %>
+        <%= link_to(@post.photo.url, 'data-fancybox': "gallery") do %>
+          <%= cl_image_tag @post.photo, class: "img-responsive" %>
+        <% end %>
       </div>
     </div>
 

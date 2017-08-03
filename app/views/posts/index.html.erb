@@ -1,12 +1,16 @@
 <div class="container-issues">
-  <h1 style=""><%= t('.search') %><span class="green-period">.</span></h1>
+  <% if @favorites %>
+     <h1 style="" id="posts-index-title">My Posts<span class="green-period">.</span></h1>
+  <% else %>
+     <h1 style="" id="posts-index-title"><%= t('.search') %><span class="green-period">.</span></h1>
+  <% end %>
   <div class="row">
-    <div class="col-xs-10" style="margin-bottom: 30px">
+    <div class="col-xs-12" style="margin-bottom: 30px">
       <%= render 'filter' %>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" id="posts-grid">
     <% @posts.each do |post| %>
 
     <div class="col-xs-12 col-md-4">

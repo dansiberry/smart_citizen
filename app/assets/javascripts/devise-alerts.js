@@ -4,6 +4,7 @@ if (document.getElementsByClassName('alert').length > 0) {
     hideAlert();
 }, 1000000000);
 
+
   function hideAlert() {
   var alert = document.getElementsByClassName('alert')
   alert[0].style.height = '0px';
