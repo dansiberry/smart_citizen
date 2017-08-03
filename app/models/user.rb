@@ -3,8 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   acts_as_voter
 
+
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable,
          :omniauthable, omniauth_providers: [:twitter]
   has_many :user_posts, dependent: :destroy
   has_many :tagged_in, :class_name => :Post, through: :user_posts, :foreign_key => "post_id", source: :post
@@ -13,7 +14,6 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_one :as_politician, :class_name => :UserAsPolitician, :foreign_key => "user_id", dependent: :destroy
   has_many :notifications, dependent: :destroy
-
 
   def self.list_of_users_as_politicians
     user_ids = UserAsPolitician.all.map(&:user_id)
