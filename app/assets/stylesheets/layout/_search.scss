@@ -90,7 +90,7 @@ body .select2-selection.select2-selection--single {
       width: 20px !important;
       left: 330px !important;
      }
-    #search input {
+    #search #filter-submit-btn {
       position: absolute;
       bottom: -90px;
       right: 0;
@@ -100,7 +100,7 @@ body .select2-selection.select2-selection--single {
 
 
   /* Index page only - move search button above form */
-  .container-issues input {
+  .container-issues #filter-submit-btn {
     bottom: 180px !important;
     right: -20 !important;
     left: 200px !important;
@@ -115,11 +115,11 @@ body .select2-selection.select2-selection--single {
     left: 250px !important;
   }
   #search span[role="combobox"] {
-    width:270px;
+    width:100%;
   }
 
    #search span[dir="ltr"] {
-  width: 280px !important;
+  width: 100% !important;
   }
 }
 

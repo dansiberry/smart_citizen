@@ -42,6 +42,7 @@
           <% else %>
           <%= link_to t('.my_account'), edit_user_registration_path %>
           <% end %>
+          <%= link_to 'My posts', posts_path(favorites: true, myposts: true) %>
         </li>
         <% if current_user.as_politician %>
         <li class="block-inline">
@@ -75,26 +76,23 @@
   <div class="dropdown">
     <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
     <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-     <% if user_signed_in? %>
-     <li> <%= link_to t('.raise_issue_button'), new_post_path %> </li>
-     <% if current_user.as_politician %>
-     <li>
-      <%= link_to t('.my_politicians'), politicians_path %>
-    </li>
-    <li><%= link_to t('.my_profile'), politician_path(current_user.as_politician.id) %> </li>
-    <li><%= link_to t('.my_account'), edit_user_registration_path %> </li>
-    <% else %>
-    <li>
-     <%= link_to t('.my_politicians'), politicians_path %>
-   </li>
-   <li><%= link_to t('.my_account'), edit_user_registration_path %> </li>
-   <% end %>
-   <% else %>
-   <li> <%= link_to t('.sign_in'), new_user_session_path %> </li>
-   <li> <%= link_to t('.raise_issue_button'), new_post_path %> </li>
-   <% end %>
- </ul>
-</div>
+      <% if user_signed_in? %>
+        <li> <%= link_to t('.raise_issue_button'), new_post_path %> </li>
+        <li> <%= link_to 'My posts', posts_path(favorites: true, myposts: true) %> </li>
+        <% if current_user.as_politician %>
+          <li><%= link_to t('.my_politicians'), politicians_path %></li>
+          <li><%= link_to t('.my_profile'), politician_path(current_user.as_politician.id) %> </li>
+          <li><%= link_to t('.my_account'), edit_user_registration_path %> </li>
+        <% else %>
+          <li><%= link_to t('.my_politicians'), politicians_path %></li>
+          <li><%= link_to t('.my_account'), edit_user_registration_path %> </li>
+        <% end %>
+      <% else %>
+        <li> <%= link_to t('.sign_in'), new_user_session_path %> </li>
+        <li> <%= link_to t('.raise_issue_button'), new_post_path %> </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
 

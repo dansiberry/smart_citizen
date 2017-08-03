@@ -8,12 +8,16 @@
 .container-issues h1 {
   font-weight: bold;
   margin-left: 0px;
-  margin-top: 50px;
+  margin-top: 70px;
   margin-bottom: 20px;
 }
 
+#posts-index-title {
+  max-width: 60%;
+}
 
-  @media (max-width: 1000px) {
+
+  @media (max-width: 1100px) {
      .container-issues {
       margin-left: 100px;
       margin-right: 100px;
@@ -34,3 +38,7 @@
       margin-right: 30px;
     }
   }
+
+#posts-grid{
+  margin-top: 30px;
+}

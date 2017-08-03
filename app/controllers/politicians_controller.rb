@@ -15,7 +15,12 @@ class PoliticiansController < ApplicationController
   end
 
   def index
-    @politicians = policy_scope(UserAsPolitician).all.map{|a| a}.uniq
+    if params[:filter]
+      @politicians = policy_scope(UserAsPolitician).all
+    else
+      @politicians = policy_scope(UserAsPolitician).where(elected: true)
+    end
+    # @politicians = policy_scope(UserAsPolitician).all.map{|a| a}.uniq
   end
 
   def new
@@ -64,7 +69,7 @@ class PoliticiansController < ApplicationController
   private
 
   def user_as_politician_params
-    params.require(:user_as_politician).permit(:elected, :political_party, :office, :bio, :responsabilities, :photo, :photo_cache, :twitter_handle, :user_attributes => [:first_name, :last_name, :neighbourhood, :address, :city, :email])
+    params.require(:user_as_politician).permit(:elected, :filter, :political_party, :office, :bio, :responsabilities, :photo, :photo_cache, :twitter_handle, :user_attributes => [:first_name, :last_name, :neighbourhood, :address, :city, :email])
   end
 
 end

@@ -1,14 +1,17 @@
-<% NEIGHBOURHOODS = ["Eixample", "Sant Marti", "Gracia", "Ciutat Vella", "Sants-Montjuïc", "Sarrià-Sant Gervasi", "Les Corts", "Horta-Guinardó", "Nou Barris", "Sant Andreu"] %>
+<% NEIGHBOURHOODS ||= ["Eixample", "Sant Marti", "Gracia", "Ciutat Vella", "Sants-Montjuïc", "Sarrià-Sant Gervasi", "Les Corts", "Horta-Guinardó", "Nou Barris", "Sant Andreu"] %>
 
 user_1:
+  id: 1
   first_name: <%= Faker::Name.first_name  %>
   last_name: <%= Faker::Name.last_name  %>
-  email: <%= Faker::Internet.email %>
+  email: email@email.com
   address: <%= Faker::Address.street_address %>
   city: <%= Faker::Address.city %>
   neighbourhood: <%= NEIGHBOURHOODS.sample %>
+  encrypted_password: password
 
 user_2:
+  id: 2
   first_name: <%= Faker::Name.first_name  %>
   last_name: <%= Faker::Name.last_name  %>
   email: <%= Faker::Internet.email %>
@@ -17,6 +20,7 @@ user_2:
   neighbourhood: <%= NEIGHBOURHOODS.sample %>
 
 user_3:
+  id: 3
   first_name: <%= Faker::Name.first_name  %>
   last_name: <%= Faker::Name.last_name  %>
   email: <%= Faker::Internet.email %>
