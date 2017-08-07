@@ -156,6 +156,7 @@ en:
       button: 'Create issue'
     index:
       search: 'Search'
+      my_issues: 'My Issues'
     filter:
       city_prompt: 'Your city'
       neighbourhood_prompt: 'Your neighbourhood'
@@ -182,16 +183,22 @@ en:
       related_issues: 'More on'
   shared:
     footer:
-      about: 'About Call Out'
+      about: 'About CitizenVoice'
     navbar:
       search: 'Search issues'
       my_politicians: 'My politicians'
       raise_issue_button: 'Raise an issue'
       my_profile: 'My Profile'
       my_account: 'My Account'
+      my_issues: 'My Issues'
       sign_in: 'Sign in'
       sign_up: 'Sign up'
     search:
       city_prompt: 'Your city'
       neighbourhood_prompt: 'Your neighbourhood'
       button: 'Go'
+  user_mailer:
+    welcome:
+      subject: 'Welcome to CitizenVoice'
+      greeting: 'Welcome %{name}!'
+      content: 'We are excited to have you on board.'

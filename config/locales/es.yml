@@ -135,6 +135,7 @@ es:
       button: 'Propón un tema'
     index:
       search: 'Búsqueda'
+      my_issues: 'My Issues'
     filter:
       city_prompt: 'Tu ciudad'
       neighbourhood_prompt: 'Tu barrio'
@@ -161,16 +162,22 @@ es:
       related_issues: 'Más sobre'
   shared:
     footer:
-      about: 'Sobre Call Out'
+      about: 'Sobre CitizenVoice'
     navbar:
       search: 'Busca temas'
       my_politicians: 'Mis políticos'
       raise_issue_button: 'Propón tu tema'
       my_profile: 'Mi Perfil'
       my_account: 'Mi cuenta'
+      my_issues: 'My Issues'
       sign_in: 'Entrar'
       sign_up: 'Regístrate'
     search:
       city_prompt: 'Tu ciudad'
       neighbourhood_prompt: 'Tu barrio'
       button: 'Ir'
+  user_mailer:
+    welcome:
+      subject: 'Welcome to CitizenVoice'
+      greeting: 'Welcome %{name}!'
+      content: 'We are excited to have you on board.'

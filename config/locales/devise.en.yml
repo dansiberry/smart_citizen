@@ -18,12 +18,26 @@ en:
       unconfirmed: "You have to confirm your email address before continuing."
     mailer:
       confirmation_instructions:
+        action: 'Confirm your account'
+        greeting: 'Welcome %{recipient}!'
+        instruction: 'Confirm your account by clicking on the link below'
         subject: "Confirmation instructions"
       reset_password_instructions:
+        action: 'Reset my password'
+        greeting: "Hi %{recipient}!"
+        instruction: "I heard you need a password reset. Click on the link below and you'll be redirected to a site where you can change your password."
+        instruction_2: "If you didn't ask to reset your password, please ignore this email."
+        instruction_3: "Your password won't be changed until you click on the link and create a new one."
         subject: "Reset password instructions"
       unlock_instructions:
+        action: 'Unblock my account'
+        greeting: "Hi %{recipient}!"
+        instruction: 'Click on the link below to unblock your account:'
+        message: Tu cuenta ha sido bloqueada debido a una cantidad excesiva de intentos infructuosos para acceder.
         subject: "Unlock instructions"
       password_change:
+        greeting: Hi %{recipient}!
+        message: 'The password for your CitizenVoice account has been changed.'
         subject: "Password Changed"
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
@@ -46,7 +60,7 @@ en:
         elected_official: "Are you an elected official?"
         claim_profile: "Claim your public profile"
         email_subject: "Claim my public profile"
-        email_body: "Hi Call Out,\n\nI would like to claim my public profile and I am emailing you from my government email address as proof.\n\nThank you in advance,\n"
+        email_body: "Hi CitizenVoice,\n\nI would like to claim my public profile and I am emailing you from my government email address as proof.\n\nThank you in advance,\n"
         first_name_label: "First name"
         last_name_label: "Last name"
         address_label: "Address"
