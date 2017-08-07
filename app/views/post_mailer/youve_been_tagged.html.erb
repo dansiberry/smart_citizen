@@ -7,4 +7,4 @@
 <p><%= @post.title %></p>
 <p><%= @post.content %></p>
 
-<%= link_to t('.reply_button'), post_url(locale: "es", id: @post.id), class: "btn btn-primary" %>
+<%= link_to t('.reply_button'), new_post_comment_url(locale: "es", post_id: @post.id), class: "btn btn-primary" %>
