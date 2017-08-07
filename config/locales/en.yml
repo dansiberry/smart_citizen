@@ -202,3 +202,13 @@ en:
       subject: 'Welcome to CitizenVoice'
       greeting: 'Welcome %{name}!'
       content: 'We are excited to have you on board.'
+  post_mailer:
+    post_published:
+      subject: 'Your issue is now live!'
+      greeting: 'Congratulations, %{name},'
+      content: 'Your issue - %{post} - has been published on CitizenVoice and the politicians that you tagged have been notified.'
+    youve_been_tagged:
+      subject: 'Question from a constituent in %{neighbourhood}'
+      greeting: 'Hi!'
+      content: '%{name} from %{neighbourhood} would like your response on the issue below:'
+      reply_button: 'Reply'

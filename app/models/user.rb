@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  after_confirmation :send_welcome_email
+  after_save :send_welcome_email
   acts_as_voter
 
 
@@ -50,7 +50,7 @@ class User < ApplicationRecord
   private
 
   def send_welcome_email
-    UserMailer.welcome(self).deliver_now
+    UserMailer.welcome(self).deliver_now if self.confirmed_at_changed?
   end
 end
 
