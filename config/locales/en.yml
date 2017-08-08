@@ -212,3 +212,8 @@ en:
       greeting: 'Hi!'
       content: '%{name} from %{neighbourhood} would like your response on the issue below:'
       reply_button: 'Reply'
+    response_received:
+      subject: 'You got a reply!'
+      greeting: 'Hi %{name},'
+      content: '%{politician} has commented on your issue - %{title}'
+      view_button: 'Read the comment'

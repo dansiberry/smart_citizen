@@ -47,4 +47,8 @@ class Post < ApplicationRecord
     PostMailer.post_published(self).deliver_now
     PostMailer.youve_been_tagged(self).deliver_now
   end
+
+  def send_response_email
+    PostMailer.response_received(self).deliver_now
+  end
 end

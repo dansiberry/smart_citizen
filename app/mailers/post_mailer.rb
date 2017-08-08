@@ -26,4 +26,16 @@ class PostMailer < ApplicationMailer
         )
     end
   end
+
+  def response_received(post)
+    @post = post
+
+    I18n.with_locale(@post.user.locale) do
+      mail(
+        to: @post.user.email,
+        subject: I18n.t('post_mailer.response_received.subject')
+        )
+    end
+  end
+
 end
