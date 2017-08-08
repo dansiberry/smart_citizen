@@ -1,12 +1,13 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  after_save :send_welcome_email
   acts_as_voter
 
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable,
-         :omniauthable, omniauth_providers: [:twitter]
+  :recoverable, :rememberable, :trackable, :validatable, :confirmable,
+  :omniauthable, omniauth_providers: [:twitter]
   has_many :user_posts, dependent: :destroy
   has_many :tagged_in, :class_name => :Post, through: :user_posts, :foreign_key => "post_id", source: :post
 
@@ -40,6 +41,16 @@ class User < ApplicationRecord
     end
 
     user
+  end
+
+  def send_devise_notification(notification, *args)
+    I18n.with_locale(self.locale) { super(notification, *args) }
+  end
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now if self.confirmed_at_changed?
   end
 end
 

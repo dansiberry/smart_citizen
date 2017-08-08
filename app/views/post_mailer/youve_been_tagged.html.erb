@@ -1,0 +1,10 @@
+<h1><%= t('.greeting') %></h1>
+
+<p>
+<%= t('.content', name: @post.user.first_name + " " + @post.user.last_name, neighbourhood: @post.user.neighbourhood, title: @post.title) %>
+</p>
+
+<p><%= @post.title %></p>
+<p><%= @post.content %></p>
+
+<%= link_to t('.reply_button'), new_post_comment_url(locale: "es", post_id: @post.id), class: "btn btn-primary" %>

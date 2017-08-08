@@ -1,14 +1,9 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-    <% require 'devise/version' %>
 
-      <p><%= t('.greeting', recipient: @resource.email) %></p>
+<% require 'devise/version' %>
 
-      <p><%= t('.instruction') %></p>
+<p><%= t('.greeting', recipient: @resource.email) %></p>
 
-      <p><%= link_to t('.action'), confirmation_url(@resource, confirmation_token: (Devise::VERSION.start_with?('3.') ? @token : @resource.confirmation_token)) %></p>
+<p><%= t('.instruction') %></p>
 
-    </div>
-  </div>
-</div>
+<p><%= link_to t('.action'), confirmation_url(@resource, confirmation_token: (Devise::VERSION.start_with?('3.') ? @token : @resource.confirmation_token)), class: "btn btn-primary" %></p>
+

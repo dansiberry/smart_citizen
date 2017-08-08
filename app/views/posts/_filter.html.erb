@@ -7,9 +7,9 @@
 <% if @favorites %>
   <div class="check-boxes" id="my-posts">
     <% if @myposts %>
-      <%= label_tag "myposts1", raw("#{check_box_tag 'myposts', 'myposts', true} My posts") %>
+      <%= label_tag "myposts1", raw("#{check_box_tag 'myposts', 'myposts', true} My issues") %>
     <% else %>
-      <%= label_tag "myposts1", raw("#{check_box_tag 'myposts', 'myposts'} My posts") %>
+      <%= label_tag "myposts1", raw("#{check_box_tag 'myposts', 'myposts'} My issues") %>
     <% end %>
     <% if @liked %>
       <%= label_tag "liked1", raw("#{check_box_tag 'liked', 'liked', true} Liked") %>

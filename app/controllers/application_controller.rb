@@ -19,14 +19,23 @@ class ApplicationController < ActionController::Base
   after_filter :store_location
 
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
-  end
+    valid_locales = ['en','es', 'ca']
 
-  def default_url_options
-    { locale: I18n.locale == I18n.default_locale ? nil : I18n.locale }
+   if !params[:locale].nil? && valid_locales.include?(params[:locale])
+    I18n.locale = params[:locale]
+    current_user.update_attribute(:locale, I18n.locale) if user_signed_in?
+   elsif user_signed_in? && valid_locales.include?(current_user.locale)
+     I18n.locale = current_user.locale
+   else
+    I18n.locale = I18n.default_locale
   end
+end
 
-  def store_location
+def default_url_options
+  { locale: I18n.locale == I18n.default_locale ? nil : I18n.locale }
+end
+
+def store_location
     # store last url as long as it isn't a /users path
     session[:previous_url] = request.fullpath unless request.fullpath =~ /\/users/
   end

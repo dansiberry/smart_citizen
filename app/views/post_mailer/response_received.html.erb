@@ -1,0 +1,7 @@
+<h1><%= t('.greeting', name: @post.user.first_name) %></h1>
+
+<p>
+<%= t('.content', politician: @post.comments.last.user.first_name + " " + @post.comments.last.user.last_name, title: @post.title) %>
+</p>
+
+<%= link_to t('.view_button'), post_url(locale: @post.user.locale, id: @post.id), class: "btn btn-primary" %>

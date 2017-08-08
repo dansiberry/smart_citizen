@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   after_update :create_notifications, if: :verified_changed?
+  after_update :send_notification_emails, if: :verified_changed?
 
   belongs_to :user
   has_many :post_comments, dependent: :destroy
@@ -40,5 +41,14 @@ class Post < ApplicationRecord
     self.users.each do |tagged_politician|
       self.notifications.create(user: tagged_politician)
     end
+  end
+
+  def send_notification_emails
+    PostMailer.post_published(self).deliver_now
+    PostMailer.youve_been_tagged(self).deliver_now
+  end
+
+  def send_response_email
+    PostMailer.response_received(self).deliver_now
   end
 end
