@@ -1,16 +1,11 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
 
-      <% require 'devise/version' %>
-      <p><%= t('.greeting', recipient: @resource.email) %></p>
-      <p><%= t('.message') %></p>
 
-      <p><%= t('.instruction') %></p>
+<% require 'devise/version' %>
+<p><%= t('.greeting', recipient: @resource.email) %></p>
+<p><%= t('.message') %></p>
 
-      <p><%= link_to t('.action'), unlock_url(@resource, unlock_token: (Devise::VERSION.start_with?('3.') ? @token :@resource.unlock_token)) %></p>
+<p><%= t('.instruction') %></p>
 
-    </div>
-  </div>
-</div>
+<p><%= link_to t('.action'), unlock_url(@resource, unlock_token: (Devise::VERSION.start_with?('3.') ? @token :@resource.unlock_token)) %></p>
+
 

@@ -10,4 +10,8 @@ class PostMailerPreview < ActionMailer::Preview
     PostMailer.youve_been_tagged
   end
 
+  def response_received
+    PostMailer.response_received
+  end
+
 end

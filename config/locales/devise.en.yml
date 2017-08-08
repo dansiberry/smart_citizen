@@ -18,9 +18,9 @@ en:
       unconfirmed: "You have to confirm your email address before continuing."
     mailer:
       confirmation_instructions:
-        action: 'Confirm your account'
+        action: 'Verify your email'
         greeting: 'Welcome %{recipient}!'
-        instruction: 'Confirm your account by clicking on the link below'
+        instruction: 'Verify your email by clicking on the link below'
         subject: "Confirmation instructions"
       reset_password_instructions:
         action: 'Reset my password'
