@@ -1,5 +1,9 @@
-<h1><%= t('.greeting', name: @post.user.first_name) %></h1>
+<style>@import url(http://fonts.googleapis.com/css?family=Open-Sans);</style>
 
-<p>
-<%= t('.content', post: @post.title) %>
+<%= image_tag attachments["logo.png"].url, style: 'width: 150px' %>
+
+<h1 style="font-family: 'Open-Sans', Verdana; text-align: center"><%= t('.greeting', name: @post.user.first_name) %></h1>
+
+<p style="font-family: 'Open-Sans', Verdana; text-align: center">
+  <%= t('.content', post: @post.title) %>
 </p>

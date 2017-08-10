@@ -25,6 +25,8 @@ gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'postmark-rails'
+gem 'roadie', '~> 3.2'
 
 group :development do
   gem 'binding_of_caller'

@@ -1,7 +1,14 @@
-<h1><%= t('.greeting', name: @post.user.first_name) %></h1>
+<style>@import url(http://fonts.googleapis.com/css?family=Open-Sans);</style>
 
-<p>
-<%= t('.content', politician: @post.comments.last.user.first_name + " " + @post.comments.last.user.last_name, title: @post.title) %>
+
+<%= image_tag attachments["logo.png"].url, style: 'width: 150px' %>
+
+<h1 style="font-family: 'Open-Sans', Verdana; text-align: center"><%= t('.greeting', name: @post.user.first_name) %></h1>
+
+<p style="font-family: 'Open-Sans', Verdana; text-align: center">
+  <%= t('.content', politician: @post.comments.last.user.first_name + " " + @post.comments.last.user.last_name, title: @post.title) %>
 </p>
 
-<%= link_to t('.view_button'), post_url(locale: @post.user.locale, id: @post.id), class: "btn btn-primary" %>
+<p style="font-family: 'Open-Sans', Verdana; text-align: center">
+<%= link_to t('.view_button'), post_url(locale: @post.user.locale, id: @post.id), style: "color: white; background-color: #6ECA52; padding: 10px; border-radius: 4px; text-decoration: none; display: inline-block; font-size: 16px; font-family: 'Open-Sans', Verdana; margin-top: 10px" %>
+</p>

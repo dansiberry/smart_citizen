@@ -1,7 +1,20 @@
-<%= image_tag "logo.png" %>
+<style>@import url(http://fonts.googleapis.com/css?family=Open-Sans);</style>
 
-<h1><%= t('.greeting', name: @user.first_name) %></h1>
 
-<p>
+<%= image_tag attachments["logo.png"].url, style: 'width: 150px' %>
+
+<h1 style="font-family: 'Open-Sans', Verdana; text-align: center"><%= t('.greeting', name: @user.first_name) %></h1>
+
+<p style="font-family: 'Open-Sans', Verdana; text-align: center">
   <%= t('.content') %>
+</p>
+
+<p style="font-family: 'Open-Sans', Verdana; text-align: center"><%= t('.raise_issue_text') %>
+  <br>
+  <%= link_to t('.raise_issue_button'), new_post_url(locale: @user.locale), style: "color: white; background-color: #6ECA52; padding: 10px; border-radius: 4px; text-decoration: none; display: inline-block; font-size: 16px; font-family: 'Open-Sans', Verdana; margin-top: 10px" %>
+</p>
+
+<p style="font-family: 'Open-Sans', Verdana; text-align: center"><%= t('.search_issues_text') %>
+<br>
+  <%= link_to t('.search_issues_button'), posts_url(locale: @user.locale), style: "color: white; background-color: #6ECA52; padding: 10px; border-radius: 4px; text-decoration: none; display: inline-block; font-size: 16px; font-family: 'Open-Sans', Verdana; margin-top: 10px" %>
 </p>
