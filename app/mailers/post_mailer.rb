@@ -8,6 +8,7 @@ class PostMailer < ApplicationMailer
   def post_published(post)
     @post = post
 
+    email_image
     I18n.with_locale(@post.user.locale) do
       mail(
         to: @post.user.email,
@@ -19,6 +20,7 @@ class PostMailer < ApplicationMailer
   def youve_been_tagged(post)
     @post = post
 
+    email_image
     I18n.with_locale("es") do
       mail(
         to: @post.users.pluck(:email),
@@ -30,12 +32,19 @@ class PostMailer < ApplicationMailer
   def response_received(post)
     @post = post
 
+    email_image
     I18n.with_locale(@post.user.locale) do
       mail(
         to: @post.user.email,
         subject: I18n.t('post_mailer.response_received.subject')
         )
     end
+  end
+
+  private
+
+  def email_image
+    attachments.inline["logo.png"] = File.read("#{Rails.root}/app/assets/images/logo.png")
   end
 
 end

@@ -8,6 +8,7 @@ class UserMailer < ApplicationMailer
   def welcome(user)
     @user = user
 
+    email_image
     I18n.with_locale(@user.locale) do
       mail(
         to: @user.email,
@@ -15,4 +16,11 @@ class UserMailer < ApplicationMailer
         )
     end
   end
+
+  private
+
+  def email_image
+    attachments.inline["logo.png"] = File.read("#{Rails.root}/app/assets/images/logo.png")
+  end
+
 end

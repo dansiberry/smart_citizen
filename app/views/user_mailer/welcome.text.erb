@@ -2,3 +2,9 @@
 
 <%= t('.content') %>
 
+<%= t('.raise_issue_text') %>
+<%= link_to t('.raise_issue_button'), new_post_url(locale: @user.locale) %>
+
+<%= t('.search_issues_text') %>
+<%= link_to t('.search_issues_button'), posts_url(locale: @user.locale) %>
+
