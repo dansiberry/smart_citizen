@@ -2,7 +2,11 @@ class PostsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :show, :index, :new, :create ]
 
   def new
-    @post = Post.new(category: params[:category])
+    if user_signed_in?
+      @post = Post.new(category: params[:category], city: current_user.city, neighbourhood: current_user.neighbourhood)
+    else
+      @post = Post.new(category: params[:category])
+    end
     authorize @post
   end
 
@@ -46,7 +50,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-     authorize @post
+    authorize @post
     # this is for the related posts
     @related_posts = Post.verified_posts
     @related_posts = @related_posts.by_category(@post.category).to_a
@@ -63,65 +67,65 @@ class PostsController < ApplicationController
       @posts = @posts.by_neighbourhood(params[:neighbourhood])
     # elsif user_signed_in? && params[:neighbourhood].blank?
     #   @posts = @posts.by_neighbourhood(current_user.neighbourhood)
-    else
-      @posts = Post.verified_posts
-    end
-
-    if params[:category].present?
-      @posts = @posts.by_category(params[:category])
-    end
-    if params[:favorites]
-      @favorites = true
-    end
-    if params[:liked]
-      @posts = @posts.select {|a| current_user.voted_up_on?(a)}
-      @favorites = true
-      @liked = true
-    end
-    if params[:myposts]
-      @posts = @posts.select {|a| a.user == current_user}
-      @favorites = true
-      @myposts = true
-    end
-    @posts = @posts.sort_by {|a| a.votes_for.size}.reverse
+  else
+    @posts = Post.verified_posts
   end
 
-  def destroy
-    @post = Post.find(params[:id])
-    authorize @post
-    @post.destroy
-    redirect_to posts_path
+  if params[:category].present?
+    @posts = @posts.by_category(params[:category])
   end
+  if params[:favorites]
+    @favorites = true
+  end
+  if params[:liked]
+    @posts = @posts.select {|a| current_user.voted_up_on?(a)}
+    @favorites = true
+    @liked = true
+  end
+  if params[:myposts]
+    @posts = @posts.select {|a| a.user == current_user}
+    @favorites = true
+    @myposts = true
+  end
+  @posts = @posts.sort_by {|a| a.votes_for.size}.reverse
+end
 
-  def update
-    @post = Post.find(params[:id])
-    authorize @post
-    if @post.update(post_params)
+def destroy
+  @post = Post.find(params[:id])
+  authorize @post
+  @post.destroy
+  redirect_to posts_path
+end
+
+def update
+  @post = Post.find(params[:id])
+  authorize @post
+  if @post.update(post_params)
 #      create_notifications(@post) if @post.verified_changed?
-      redirect_to @post
-    else
-      render :edit
-    end
-  end
+redirect_to @post
+else
+  render :edit
+end
+end
 
-  def upvote
-    @post = Post.find(params[:id])
-    @post.upvote_by current_user
-    redirect_to :back
-    authorize @post
-  end
+def upvote
+  @post = Post.find(params[:id])
+  @post.upvote_by current_user
+  redirect_to :back
+  authorize @post
+end
 
-  def downvote
-    @post = Post.find(params[:id])
-    @post.downvote_by current_user
-    redirect_to :back
-    authorize @post
-  end
+def downvote
+  @post = Post.find(params[:id])
+  @post.downvote_by current_user
+  redirect_to :back
+  authorize @post
+end
 
-  private
+private
 
-  def post_params
-    params.require(:post).permit(:title, :content, :category, :city, :neighbourhood, :photo, :photo_cache, :users, :@user => [:first_name, :last_name, :neighbourhood, :address, :city, :email, :password, :password_confirmation])
-  end
+def post_params
+  params.require(:post).permit(:title, :content, :category, :city, :neighbourhood, :photo, :photo_cache, :users, :@user => [:first_name, :last_name, :neighbourhood, :address, :city, :email, :password, :password_confirmation])
+end
 
 end
