@@ -36,6 +36,7 @@ class PostsController < ApplicationController
 
     if saved and @post.has_politician?
       flash[:notice] = "This issue is not live on the site until you confirm your address. Check your inbox." if @post.user.confirmed? == false
+      flash[:analytics] = "/goals/raise_an_issue"
       redirect_to post_path(@post)
     else
       @post.destroy
@@ -111,6 +112,7 @@ end
 def upvote
   @post = Post.find(params[:id])
   @post.upvote_by current_user
+  flash[:analytics] = "/goals/upvote"
   redirect_to :back
   authorize @post
 end
