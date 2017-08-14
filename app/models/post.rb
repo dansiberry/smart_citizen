@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   after_update :create_notifications, if: :verified_changed?
-  after_update :send_notification_emails, if: :verified_changed?
+  # after_update :send_notification_emails, if: :verified_changed?
 
   belongs_to :user
   has_many :post_comments, dependent: :destroy
