@@ -29,6 +29,7 @@ index do
     column :last_sign_in_at
     column :created_at
     column :admin
+    column :confirmed_at
     actions
 end
 
