@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
-  # after_save :send_welcome_email
+  after_save :send_welcome_email
   acts_as_voter
 
 

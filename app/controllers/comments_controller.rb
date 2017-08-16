@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
     authorize post
     post.comments << comment
     comment.save
-    # post.send_response_email
+    post.send_response_email
     redirect_to post_path(Post.find(params[:post_id]))
   end
 

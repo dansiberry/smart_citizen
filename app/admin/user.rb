@@ -12,7 +12,7 @@ ActiveAdmin.register User do
 #   permitted
 # end
 
-permit_params :first_name, :last_name, :email, :address, :city, :neighbourhood, :admin
+permit_params :first_name, :last_name, :email, :address, :city, :neighbourhood, :admin, :confirmed_at
 
 remove_filter :tagged_in
 
