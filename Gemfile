@@ -27,6 +27,7 @@ gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'postmark-rails'
 gem 'roadie', '~> 3.2'
+gem 'sqreen'
 
 group :development do
   gem 'binding_of_caller'
