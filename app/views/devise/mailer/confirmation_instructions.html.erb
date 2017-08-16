@@ -1,10 +1,12 @@
 
 <% require 'devise/version' %>
 
+<%= image_tag "http://www.citizenvoice.io/assets/images/logo.png" %>
+
 <p style="font-family: 'Open-Sans', Verdana; text-align: center"><%= t('.greeting', recipient: @resource.email) %></p>
 
 <p style="font-family: 'Open-Sans', Verdana; text-align: center"><%= t('.instruction') %>
-
+<br>
   <%= link_to t('.action'), confirmation_url(@resource, confirmation_token: (Devise::VERSION.start_with?('3.') ? @token : @resource.confirmation_token)), style: "color: white; background-color: #6ECA52; padding: 10px; border-radius: 4px; text-decoration: none; display: inline-block; font-size: 16px; font-family: 'Open-Sans', Verdana; margin-top: 10px"%>
 </p>
 
