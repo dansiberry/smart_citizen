@@ -181,12 +181,6 @@ ca:
       subject: 'Welcome to CitizenVoice'
       greeting: 'Welcome %{name}!'
       content: 'We are excited to have you on board.'
-
-  post_mailer:
-    post_published:
-      subject: 'Your issue is now live!'
-      greeting: 'Congratulations %{name},'
-      content: 'Your issue - %{post} - has been published on CitizenVoice and the politicians that you tagged have been notified.'
       raise_issue_text: 'Got something on your mind?'
       raise_issue_button: 'Raise an issue'
       search_issues_text: 'Want to see the hot topics in your neighbourhood?'
@@ -194,13 +188,28 @@ ca:
       questions: "If you have any questions, feel free to email our support team at this address."
       thanks: "Thanks,"
       signature: "Alvaro and the CitizenVoice Team"
+  post_mailer:
+    post_published:
+      subject: 'Your issue is now live!'
+      greeting: 'Congratulations %{name},'
+      content: 'Your issue - %{post} - has been published on CitizenVoice and the politicians that you tagged have been notified.'
+      why_tweet: "Getting 10 people to upvote your issue makes your elected representative more likely to reply."
+      tweet_text: "Upvote the issue I just raised on @CitizenVoice_io about %{issue}!"
+      tweet_button: "Tweet it!"
+      thanks: "Cheers,"
+      signature: "The CitizenVoice Team"
     youve_been_tagged:
       subject: 'Question from a constituent in %{neighbourhood}'
       greeting: 'Hi!'
       content: '%{name} from %{neighbourhood} would like your response on the issue below:'
       reply_button: 'Respondre'
+      questions: "If you have any questions, feel free to email us back at this address."
+      thanks: "Thanks,"
+      signature: "Alvaro and the CitizenVoice Team"
     response_received:
       subject: 'You got a reply!'
       greeting: 'Hi %{name},'
       content: '%{politician} has commented on your issue - %{title}'
       view_button: 'Read the comment'
+      thanks: "Cheers,"
+      signature: "The CitizenVoice Team"
