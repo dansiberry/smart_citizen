@@ -181,6 +181,13 @@ es:
       subject: 'Welcome to CitizenVoice'
       greeting: 'Welcome %{name}!'
       content: 'We are excited to have you on board.'
+      raise_issue_text: 'Got something on your mind?'
+      raise_issue_button: 'Raise an issue'
+      search_issues_text: 'Want to see the hot topics in your neighbourhood?'
+      search_issues_button: 'Search issues'
+      questions: "If you have any questions, feel free to email our support team at this address."
+      thanks: "Thanks,"
+      signature: "Alvaro and the CitizenVoice Team"
   post_mailer:
     post_published:
       subject: 'Your issue is now live!'

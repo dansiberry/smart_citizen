@@ -181,11 +181,19 @@ ca:
       subject: 'Welcome to CitizenVoice'
       greeting: 'Welcome %{name}!'
       content: 'We are excited to have you on board.'
+
   post_mailer:
     post_published:
       subject: 'Your issue is now live!'
       greeting: 'Congratulations %{name},'
       content: 'Your issue - %{post} - has been published on CitizenVoice and the politicians that you tagged have been notified.'
+      raise_issue_text: 'Got something on your mind?'
+      raise_issue_button: 'Raise an issue'
+      search_issues_text: 'Want to see the hot topics in your neighbourhood?'
+      search_issues_button: 'Search issues'
+      questions: "If you have any questions, feel free to email our support team at this address."
+      thanks: "Thanks,"
+      signature: "Alvaro and the CitizenVoice Team"
     youve_been_tagged:
       subject: 'Question from a constituent in %{neighbourhood}'
       greeting: 'Hi!'
