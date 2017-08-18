@@ -140,7 +140,7 @@
     <div class="issues-prepositions">
       <h5><%= t('.tagged_politician') %></h5>
     </div>
-        <%= render 'politician_warning_modal' %>
+    <%= render 'politician_warning_modal' %>
 
     <div class="issues-details">
       <% @post.users.each do |politician| %>
@@ -156,37 +156,39 @@
 
           </div>
           <% end %>
+          <% if politician.twitter_handle.present? %>
+            <% text = t('.tweet_text', issue: @post.title, issue_id: @post.id) %>
 
-          <% text = t('.tweet_text', issue: @post.title, issue_id: @post.id) %>
-
-          <a href="https://twitter.com/intent/tweet?screen_name=<%= politician.as_politician.twitter_handle %>&text=<%= CGI.escape(text) %>" class="twitter-mention-button" data-show-count="false">
+            <a href="https://twitter.com/intent/tweet?screen_name=<%= politician.as_politician.twitter_handle %>&text=<%= CGI.escape(text) %>" class="twitter-mention-button" data-show-count="false">
             <%= t('.tweet_to') %> <%= politician.as_politician.twitter_handle %>
-          </a>
+            </a>
 
-          <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+            <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <% end %>
+        </p>
+      </div>
+
+      <% else %>
+      <h5><%= politician.first_name %> <%= politician.last_name %></h5>
+      <p><%= mail_to "#{politician.email}", html_options = { subject: t('.email_subject'), body: t('.email_body', politician: politician.first_name, issue: @post.title, issue_id: @post.id) } do %>
+        <div class = "mail-contact">
+
+          <div class="fa fa-envelope-o envelope"> </div> <span class = "prompt"> Email this to <%= politician.first_name %></span>
+
         </div>
+        <% end %>
 
-        <% else %>
-        <h5><%= politician.first_name %> <%= politician.last_name %></h5>
-        <p><%= mail_to "#{politician.email}", html_options = { subject: t('.email_subject'), body: t('.email_body', politician: politician.first_name, issue: @post.title, issue_id: @post.id) } do %>
-          <div class = "mail-contact">
+        <% text = t('.tweet_text', issue: @post.title, issue_id: @post.id) %>
 
-            <div class="fa fa-envelope-o envelope"> </div> <span class = "prompt"> Email this to <%= politician.first_name %></span>
+        <a href="https://twitter.com/intent/tweet?screen_name=<%= politician.as_politician.twitter_handle %>&text=<%= CGI.escape(text) %>" class="twitter-mention-button" data-show-count="false">
+          <%= t('.tweet_to') %> <%= politician.as_politician.twitter_handle %>
+        </a>
 
-          </div>
-          <% end %>
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+        <% end %>
 
-          <% text = t('.tweet_text', issue: @post.title, issue_id: @post.id) %>
-
-          <a href="https://twitter.com/intent/tweet?screen_name=<%= politician.as_politician.twitter_handle %>&text=<%= CGI.escape(text) %>" class="twitter-mention-button" data-show-count="false">
-            <%= t('.tweet_to') %> <%= politician.as_politician.twitter_handle %>
-          </a>
-
-          <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
-          <% end %>
-
-          <% end %>
-        </div>
+        <% end %>
+      </div>
 
 <!--         <div class="issues-details">
           <% @post.comments.each do |a| %>
@@ -199,7 +201,7 @@
           <h5><%= t('.photos') %></h5>
         </div>
         <%= link_to(@post.photo.url, 'data-fancybox': "gallery") do %>
-          <%= cl_image_tag @post.photo, class: "img-responsive" %>
+        <%= cl_image_tag @post.photo, class: "img-responsive" %>
         <% end %>
       </div>
     </div>
@@ -242,14 +244,14 @@
     </div>
   </div>
 
-<% if @post.user == current_user && @post.users.any? { |politician| politician.as_politician.verified == false } %>
+  <% if @post.user == current_user && @post.users.any? { |politician| politician.as_politician.verified == false } %>
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function(){
       $('#myModal').modal('show');
     });
   </script>
-<% end %>
+  <% end %>
 
 
 
