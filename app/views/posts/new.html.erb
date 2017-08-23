@@ -2,70 +2,70 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 form-content">
       <div class="logged-in-form">
-      <h2 class = "form-title"><%= t('.title') %><span class= "green-period">.</span></h2>
+        <h2 class = "form-title"><%= t('.title') %><span class= "green-period">.</span></h2>
 
-      <%= simple_form_for @post do |f| %>
-      <%= f.input :title, label: t('.title_label'), placeholder: t('.title_placeholder'), input_html: {class: "box-input"} %>
-      <%= f.input :content, label: t('.description_label'), placeholder: t('.description_placeholder'), input_html: {class: "box-input, post-content"} %>
-      <div class="hashtag-input">
-        <%= f.label :category, t('.category_label') %>
-        <span class="fa fa-hashtag"></span>
-        <%= f.input :category, label: false, input_html: {class: "box-input"} %>
-      </div>
-
-      <%= f.input :city, label: t('.city_label'), placeholder: t('.city_placeholder'), collection: ApplicationRecord::CITIES, input_html: {class: "box-input select_city"} %>
-      <%= f.input :neighbourhood, label: t('.neighbourhood_label'), placeholder: t('.neighbourhood_placeholder'), collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input select_neightbourhood"} %>
-      <%= f.input :photo, label: t('.photo_label') %>
-      <%= f.input :photo_cache, as: :hidden %>
-
-      <div class="below-form">
-        <div class="text-around-forms">
-          <h4><%= t('.tag_politician') %></h4>
+        <%= simple_form_for @post, validate: true do |f| %>
+        <%= f.input :title, label: t('.title_label'), placeholder: t('.title_placeholder'), input_html: {class: "box-input"} %>
+        <%= f.input :content, label: t('.description_label'), placeholder: t('.description_placeholder'), minlength: 300, input_html: {class: "box-input, post-content"} %>
+        <div class="hashtag-input">
+          <%= f.label :category, t('.category_label') %>
+          <span class="fa fa-hashtag"></span>
+          <%= f.input :category, label: false, input_html: {class: "box-input"} %>
         </div>
-        <div class="row">
-          <%  User.list_of_users_as_politicians.each do |politician| %>
 
-          <div class="card-issue-new col-xs-6 col-sm-4">
+        <%= f.input :city, label: t('.city_label'), placeholder: t('.city_placeholder'), collection: ApplicationRecord::CITIES, input_html: {class: "box-input select_city"} %>
+        <%= f.input :neighbourhood, label: t('.neighbourhood_label'), placeholder: t('.neighbourhood_placeholder'), collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input select_neightbourhood"} %>
+        <%= f.input :photo, label: t('.photo_label'), validate: false %>
+        <%= f.input :photo_cache, as: :hidden, validate: false %>
 
-            <input type="checkbox" id="politician-<%= politician.id %>" name="post[users][]" value=" <%= politician.id  %>">
-            <label for="politician-<%= politician.id %>" class="politician-item">
-
-              <img src="<%= politician.as_politician.photo.url.nil? ? 'http://insight.venturebeat.com/sites/all/modules/features/vb_intel_analysts/assets/images/analyst-placeholder-avatar.png' : politician.as_politician.photo.url %>" alt="" id="politician-photo"/>
-
-              <h4>
-                <%= politician.first_name   %>
-              </h4>
-              <p>
-                <%= politician.as_politician.office  %>
-              </p>
-            </label>
-
+        <div class="below-form">
+          <div class="text-around-forms">
+            <h4><%= t('.tag_politician') %></h4>
           </div>
+          <div class="row">
+            <%  User.list_of_users_as_politicians.each do |politician| %>
 
-          <% end %>
-        </div>
-        <%#= f.input :users, label: "Politicians in that area - if not present, leave blank as they will be contacted further to your inquiry", as: :check_boxes, required: true, autofocus: true, input_html: {class: "card-issue-new"}, collection: User.list_of_users_as_politicians, :label_method => lambda { |item| "#{item.first_name} #{item.last_name} <img src='#{item.as_politician.photo.url.nil? ? 'http://insight.venturebeat.com/sites/all/modules/features/vb_intel_analysts/assets/images/analyst-placeholder-avatar.png' : item.as_politician.photo.url }'>".html_safe }%>
+            <div class="card-issue-new col-xs-6 col-sm-4">
 
-      </div>
-      <% if current_user %>
-        <%= f.button :submit, t('.button')  %>
-      <% else %>
-          <button href="#top" type="button" onclick="formSwap()" id="fake-submit">Create issue</button>
-          </div>
-          <div class="sign-up-hidden">
-          <h3 class = "form-heading">Great, just one last thing<span class="green-period">.</span></h3>
-            <%= f.simple_fields_for :@user do |p| %>
-              <%= p.input :first_name, input_html: {class: "box-input"} %>
-              <%= p.input :last_name, input_html: {class: "box-input"} %>
-              <%= p.input :email, input_html: {class: "box-input"} %>
-              <%= p.input :address, input_html: {class: "box-input"} %>
-              <%= p.input :city, required: true, label: t('City'), collection: ApplicationRecord::CITIES, input_html: {value: 'Barcelona', class: "box-input"} %>
-              <%= p.input :neighbourhood, required: true, label: t('Neighbourhood'), collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input"} %>
-              <%= p.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: {class: "box-input"} %>
-              <%= p.input :password_confirmation, required: true, input_html: {class: "box-input"} %>
+              <input type="checkbox" id="politician-<%= politician.id %>" name="post[users][]" value=" <%= politician.id  %>">
+              <label for="politician-<%= politician.id %>" class="politician-item">
+
+                <img src="<%= politician.as_politician.photo.url.nil? ? 'http://insight.venturebeat.com/sites/all/modules/features/vb_intel_analysts/assets/images/analyst-placeholder-avatar.png' : politician.as_politician.photo.url %>" alt="" id="politician-photo"/>
+
+                <h4>
+                  <%= politician.first_name   %>
+                </h4>
+                <p>
+                  <%= politician.as_politician.office  %>
+                </p>
+              </label>
+
+            </div>
+
             <% end %>
-            <%= f.button :submit, t('.button')  %>
           </div>
+          <%#= f.input :users, label: "Politicians in that area - if not present, leave blank as they will be contacted further to your inquiry", as: :check_boxes, required: true, autofocus: true, input_html: {class: "card-issue-new"}, collection: User.list_of_users_as_politicians, :label_method => lambda { |item| "#{item.first_name} #{item.last_name} <img src='#{item.as_politician.photo.url.nil? ? 'http://insight.venturebeat.com/sites/all/modules/features/vb_intel_analysts/assets/images/analyst-placeholder-avatar.png' : item.as_politician.photo.url }'>".html_safe }%>
+
+        </div>
+        <% if current_user %>
+        <%= f.button :submit, t('.button'), id: "post-submit" %>
+        <% else %>
+        <button href="#top" type="button" onclick="formSwap()" id="fake-submit">Create issue</button>
+      </div>
+      <div class="sign-up-hidden">
+        <h3 class = "form-heading">Great, just one last thing<span class="green-period">.</span></h3>
+        <%= f.simple_fields_for :@user do |p| %>
+        <%= p.input :first_name, input_html: {class: "box-input"} %>
+        <%= p.input :last_name, input_html: {class: "box-input"} %>
+        <%= p.input :email, input_html: {class: "box-input"} %>
+        <%= p.input :address, input_html: {class: "box-input"} %>
+        <%= p.input :city, required: true, label: t('City'), collection: ApplicationRecord::CITIES, input_html: {value: 'Barcelona', class: "box-input"} %>
+        <%= p.input :neighbourhood, required: true, label: t('Neighbourhood'), collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input"} %>
+        <%= p.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: {class: "box-input"} %>
+        <%= p.input :password_confirmation, required: true, input_html: {class: "box-input"} %>
+        <% end %>
+        <%= f.button :submit, t('.button')  %>
+      </div>
       <% end %>
       <% end %>
     </div>

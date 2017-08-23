@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get "notifications/:id/link_through", to: "notifications#link_through", as: :link_through
 
     get "/about" => "pages#about_us"
+
     root to: 'pages#home'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

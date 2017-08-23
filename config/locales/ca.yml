@@ -124,7 +124,7 @@ ca:
       title_label: 'Títol'
       title_placeholder: 'Posa-li un títol'
       description_label: 'Descripció'
-      description_placeholder: 'Descriu en 4-5 línies el tema que vols proposar'
+      description_placeholder: 'Descriu en 6+ línies el tema que vols proposar'
       category_label: "* Etiqueta"
       city_label: 'Ciutat'
       city_placeholder: 'On vas trobar aquest problema en concret?'
