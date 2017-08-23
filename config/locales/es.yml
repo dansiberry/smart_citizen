@@ -110,7 +110,7 @@ es:
       title: 'Edita tu tema'
       title_label: 'Título'
       title_placeholder: 'Ponle un título'
-      description_label: 'Descripción'
+      description_label: '* Descripción'
       description_placeholder: 'Edita la descripción de un tema que propusiste'
       category_label: 'Etiqueta'
       category_placeholder: 'Elige la etiqueta para tu tema'
@@ -123,7 +123,7 @@ es:
       title: 'Propón un tema para que tus políticos locales puedan contestarte'
       title_label: 'Título'
       title_placeholder: 'Ponle un título'
-      description_label: 'Descripción'
+      description_label: '* Descripción'
       description_placeholder: 'Describe en 6+ líneas el tema que te gustaría proponer'
       category_label: "* Etiqueta"
       city_label: 'Ciudad'
@@ -152,7 +152,7 @@ es:
       upvote_data_balloon: 'Apoya este problema'
       poster: 'Por'
       tagged_politician: 'A'
-      email_subject: 'Me gustaría conocer tu opinión acerca de...'
+      email_subject: 'Me gustaría conocer tu opinión acerca de %{issue}'
       email_body: "Apreciado %{politician},\n\nMe gustaría conocer tu opinión sobre %{issue}.
       Puedes contestar directamente en  http://www.citizenvoice.io/post/%{issue_id}\n\nGracias por adelantado,\n"
       email_politician: 'Envíale un mail a %{politician}'

@@ -131,7 +131,7 @@ en:
       title: 'Edit your issue'
       title_label: 'Title'
       title_placeholder: 'Give it a title'
-      description_label: 'Description'
+      description_label: "* Description"
       description_placeholder: 'Edit the description of the issue you previously raised'
       category_label: 'Hashtag'
       category_placeholder: 'Choose a hashtag for your issue'
@@ -144,7 +144,7 @@ en:
       title: 'Raise a public issue for your local politicians to respond to'
       title_label: 'Title'
       title_placeholder: 'Give it a title'
-      description_label: 'Description'
+      description_label: "* Description"
       description_placeholder: 'Describe in 6+ lines the issue you would like to raise'
       category_label: "* Hashtag"
       city_label: 'City'
@@ -173,7 +173,7 @@ en:
       upvote_data_balloon: 'Upvote this issue!'
       poster: 'By'
       tagged_politician: 'To'
-      email_subject: 'I would like your opinion on...'
+      email_subject: 'Your opinion on %{issue}'
       email_body: "Dear %{politician},\n\nI would like to have your opinion on the subject of %{issue}.
       You can reply directly at http://www.citizenvoice.io/post/%{issue_id}\n\nThank you in advance,\n\n"
       email_politician: 'Email this to %{politician}'

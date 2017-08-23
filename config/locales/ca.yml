@@ -110,7 +110,7 @@ ca:
       title: 'Edita el teu tema'
       title_label: 'Títol'
       title_placeholder: 'Posa-li un títol'
-      description_label: 'Descripció'
+      description_label: '* Descripció'
       description_placeholder: "Edita la descripció d'un tema que vas proposar"
       category_label: 'Etiqueta'
       category_placeholder: "Tria l'etiqueta pel teu tema"
@@ -123,7 +123,7 @@ ca:
       title: 'Proposa un tema que els teus polítics locals puguin respondre'
       title_label: 'Títol'
       title_placeholder: 'Posa-li un títol'
-      description_label: 'Descripció'
+      description_label: '* Descripció'
       description_placeholder: 'Descriu en 6+ línies el tema que vols proposar'
       category_label: "* Etiqueta"
       city_label: 'Ciutat'
@@ -152,7 +152,7 @@ ca:
       upvote_data_balloon: 'Dóna suport al problema'
       poster: 'Per'
       tagged_politician: 'A'
-      email_subject: "M'agradaria conèixer la teva opinió respecte ..."
+      email_subject: "M'agradaria conèixer la teva opinió respecte %{issue}"
       email_body: "Apreciat %{politician},\n\nM'agradaria conèixer la teva opinió sobre %{issue}.
       Pots contestar directament a  http://www.citizenvoice.io/post/%{issue_id}\n\nGràcies,\n"
       email_politician: 'Envia-li un mail a %{politician}'

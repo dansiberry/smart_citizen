@@ -6,7 +6,11 @@
 
         <%= simple_form_for @post, validate: true do |f| %>
         <%= f.input :title, label: t('.title_label'), placeholder: t('.title_placeholder'), input_html: {class: "box-input"} %>
-        <%= f.input :content, label: t('.description_label'), placeholder: t('.description_placeholder'), minlength: 300, input_html: {class: "box-input, post-content"} %>
+        <%= f.label :content, t('.description_label') %>
+        <span class="counter-field">
+          <span id="counter">0</span> characters
+        </span>
+        <%= f.input :content, label: false, placeholder: t('.description_placeholder'), input_html: {class: "box-input, post-content"} %>
         <div class="hashtag-input">
           <%= f.label :category, t('.category_label') %>
           <span class="fa fa-hashtag"></span>
@@ -75,3 +79,10 @@
 <button href="#top" type="button" id="fake-submit">Fake Submit</button>
 </a> -->
 
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+  $("#post_content").on("keyup", function(){
+    length = $(this).val().length;
+    $("#counter").html(length);
+  });
+</script>
