@@ -136,7 +136,8 @@ en:
       title_placeholder: 'Give it a title'
       description_label: "* Description"
       description_placeholder: 'Edit the description of the issue you previously raised'
-      category_label: 'Hashtag'
+      characters: 'characters'
+      category_label: "* Hashtag"
       category_placeholder: 'Choose a hashtag for your issue'
       city_label: 'City'
       city_placeholder: 'Where did you specifically encounter this issue?'

@@ -115,7 +115,8 @@ es:
       title_placeholder: 'Ponle un título'
       description_label: '* Descripción'
       description_placeholder: 'Edita la descripción de un tema que propusiste'
-      category_label: 'Etiqueta'
+      characters: 'caracteres'
+      category_label: "* Etiqueta"
       category_placeholder: 'Elige la etiqueta para tu tema'
       city_label: 'Ciudad'
       city_placeholder: '¿Dónde encontraste este problema?'

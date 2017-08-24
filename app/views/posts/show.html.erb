@@ -156,7 +156,7 @@
 
           </div>
           <% end %>
-          <% if politician.twitter_handle.present? %>
+          <% if politician.as_politician.twitter_handle.present? %>
             <% text = t('.tweet_text', issue: @post.title, issue_id: @post.id) %>
 
             <a href="https://twitter.com/intent/tweet?screen_name=<%= politician.as_politician.twitter_handle %>&text=<%= CGI.escape(text) %>" class="twitter-mention-button" data-show-count="false">

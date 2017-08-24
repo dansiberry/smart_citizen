@@ -115,7 +115,8 @@ ca:
       title_placeholder: 'Posa-li un títol'
       description_label: '* Descripció'
       description_placeholder: "Edita la descripció d'un tema que vas proposar"
-      category_label: 'Etiqueta'
+      characters: 'caràcters'
+      category_label: "* Etiqueta"
       category_placeholder: "Tria l'etiqueta pel teu tema"
       city_label: 'Ciutat'
       city_placeholder: 'On vas trobar aquest problema?'
