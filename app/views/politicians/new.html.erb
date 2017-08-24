@@ -7,21 +7,21 @@
       <%= simple_form_for @user_as_politician, url: politicians_path do |f| %>
 
         <% if current_user.email.include?("email.com") %>
-          <p class = "form-notice"> Please complete your private account information</p>
+          <p class = "form-notice"> <%= t('.complete_account') %></p>
           <% else %>
-           <p class = "form-notice"> Double-check that your private account information is correct</p>
+           <p class = "form-notice"> <%= t('doublecheck_account') %></p>
         <% end %>
 
           <%= f.simple_fields_for :user do |p| %>
-            <%= p.input :first_name, input_html: {class: "box-input"} %>
-            <%= p.input :last_name, input_html: {class: "box-input"} %>
-            <%= p.input :email, input_html: {class: "box-input"} %>
-            <%= p.input :address, input_html: {class: "box-input"} %>
-            <%= p.input :city, required: true, label: t('City'), collection: ApplicationRecord::CITIES, input_html: {value: 'Barcelona', class: "box-input"} %>
-            <%= p.input :neighbourhood, required: true, label: t('Neighbourhood'), collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input"} %>
+            <%= p.input :first_name, label: t('.first_name_label'), input_html: {class: "box-input"} %>
+            <%= p.input :last_name, label: t('.last_name_label'), input_html: {class: "box-input"} %>
+            <%= p.input :email, label: t('.email_label'), input_html: {class: "box-input"} %>
+            <%= p.input :address, label: t('.address_label'), input_html: {class: "box-input"} %>
+            <%= p.input :city, required: true, label: t('.city_label'), collection: ApplicationRecord::CITIES, input_html: {value: 'Barcelona', class: "box-input"} %>
+            <%= p.input :neighbourhood, required: true, label: t('.neighbourhood_label'),collection: ApplicationRecord::NEIGHBOURHOODS, input_html: {class: "box-input"} %>
           <% end %>
 
-       <h3 class = "form-heading">Your public politician profile info<span class="green-period">.</span></h3>
+       <h3 class = "form-heading"><%= t('.politician_info') %><span class="green-period">.</span></h3>
 
       <%= f.input :elected, label: t('.elected_label') %>
       <%= f.input :political_party, label: t('.party_label'), placeholder: t('.party_placeholder'), input_html: {class: "box-input"} %>

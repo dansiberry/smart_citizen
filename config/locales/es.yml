@@ -55,6 +55,9 @@ es:
       popular_issues: 'Los temas más populares'
   politicians:
     new:
+      complete_account: 'Please complete your account information'
+      doublecheck_account: 'Double-check that your private account information is correct'
+      politician_info: 'Your public politician profile info'
       title: 'Añade información a tu perfil'
       elected_label: '¿Has sido elegido? (Esta información será revisada)'
       party_label: 'Tu partido político'

@@ -76,6 +76,9 @@ en:
       popular_issues: 'Most popular issues'
   politicians:
     new:
+      complete_account: 'Please complete your account information'
+      doublecheck_account: 'Double-check that your private account information is correct'
+      politician_info: 'Your public politician profile info'
       title: 'Add your profile information'
       elected_label: 'Are you elected? (This entry will be double-checked)'
       party_label: 'Your political party'
