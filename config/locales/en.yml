@@ -146,6 +146,7 @@ en:
       title_placeholder: 'Give it a title'
       description_label: "* Description"
       description_placeholder: 'Describe in 6+ lines the issue you would like to raise'
+      characters: 'characters'
       category_label: "* Hashtag"
       city_label: 'City'
       city_placeholder: 'Where did you specifically encounter this issue?'

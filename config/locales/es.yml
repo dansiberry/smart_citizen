@@ -125,6 +125,7 @@ es:
       title_placeholder: 'Ponle un título'
       description_label: '* Descripción'
       description_placeholder: 'Describe en 6+ líneas el tema que te gustaría proponer'
+      characters: 'caracteres'
       category_label: "* Etiqueta"
       city_label: 'Ciudad'
       city_placeholder: '¿Dónde encontraste este problema en concreto?'
