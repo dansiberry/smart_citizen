@@ -55,6 +55,9 @@ ca:
       popular_issues: 'Els temes més populars'
   politicians:
     new:
+      complete_account: 'Please complete your account information'
+      doublecheck_account: 'Double-check that your private account information is correct'
+      politician_info: 'Your public politician profile info'
       title: "Afegeix informació al teu perfil"
       elected_label: "Has estat escollit? (Aquesta informació serà revisada)"
       party_label: 'El teu partit polític'
@@ -110,9 +113,10 @@ ca:
       title: 'Edita el teu tema'
       title_label: 'Títol'
       title_placeholder: 'Posa-li un títol'
-      description_label: 'Descripció'
+      description_label: '* Descripció'
       description_placeholder: "Edita la descripció d'un tema que vas proposar"
-      category_label: 'Etiqueta'
+      characters: 'caràcters'
+      category_label: "* Etiqueta"
       category_placeholder: "Tria l'etiqueta pel teu tema"
       city_label: 'Ciutat'
       city_placeholder: 'On vas trobar aquest problema?'
@@ -123,8 +127,9 @@ ca:
       title: 'Proposa un tema que els teus polítics locals puguin respondre'
       title_label: 'Títol'
       title_placeholder: 'Posa-li un títol'
-      description_label: 'Descripció'
-      description_placeholder: 'Descriu en 4-5 línies el tema que vols proposar'
+      description_label: '* Descripció'
+      description_placeholder: 'Descriu en 6+ línies el tema que vols proposar'
+      characters: 'caràcters'
       category_label: "* Etiqueta"
       city_label: 'Ciutat'
       city_placeholder: 'On vas trobar aquest problema en concret?'
@@ -152,7 +157,7 @@ ca:
       upvote_data_balloon: 'Dóna suport al problema'
       poster: 'Per'
       tagged_politician: 'A'
-      email_subject: "M'agradaria conèixer la teva opinió respecte ..."
+      email_subject: "M'agradaria conèixer la teva opinió respecte %{issue}"
       email_body: "Apreciat %{politician},\n\nM'agradaria conèixer la teva opinió sobre %{issue}.
       Pots contestar directament a  http://www.citizenvoice.io/post/%{issue_id}\n\nGràcies,\n"
       email_politician: 'Envia-li un mail a %{politician}'

@@ -15,11 +15,11 @@ class Post < ApplicationRecord
   accepts_nested_attributes_for :user
   acts_as_votable
 
-  validates :title, presence: true
-  validates :content, presence: true, length: { minimum: 300, too_short: "Please describe the issue in at least 300 characters" }
-  validates :category, presence: true
-  validates :city, presence: true
-  validates :neighbourhood, presence: true
+  validates :title, presence: true, allow_blank: false
+  validates :content, length: { minimum: 300, too_short: "Please describe the issue in at least 300 characters" }
+  validates :category, presence: true, allow_blank: false
+  validates :city, presence: true, allow_blank: false
+  validates :neighbourhood, presence: true, allow_blank: false
 
   scope :by_category, -> (category) { where(category: category) }
   scope :by_neighbourhood, -> (neighbourhood) { where(neighbourhood: neighbourhood) }

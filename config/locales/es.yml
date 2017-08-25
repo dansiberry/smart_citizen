@@ -55,6 +55,9 @@ es:
       popular_issues: 'Los temas más populares'
   politicians:
     new:
+      complete_account: 'Please complete your account information'
+      doublecheck_account: 'Double-check that your private account information is correct'
+      politician_info: 'Your public politician profile info'
       title: 'Añade información a tu perfil'
       elected_label: '¿Has sido elegido? (Esta información será revisada)'
       party_label: 'Tu partido político'
@@ -110,9 +113,10 @@ es:
       title: 'Edita tu tema'
       title_label: 'Título'
       title_placeholder: 'Ponle un título'
-      description_label: 'Descripción'
+      description_label: '* Descripción'
       description_placeholder: 'Edita la descripción de un tema que propusiste'
-      category_label: 'Etiqueta'
+      characters: 'caracteres'
+      category_label: "* Etiqueta"
       category_placeholder: 'Elige la etiqueta para tu tema'
       city_label: 'Ciudad'
       city_placeholder: '¿Dónde encontraste este problema?'
@@ -123,8 +127,9 @@ es:
       title: 'Propón un tema para que tus políticos locales puedan contestarte'
       title_label: 'Título'
       title_placeholder: 'Ponle un título'
-      description_label: 'Descripción'
-      description_placeholder: 'Describe en 4-5 líneas el tema que te gustaría proponer'
+      description_label: '* Descripción'
+      description_placeholder: 'Describe en 6+ líneas el tema que te gustaría proponer'
+      characters: 'caracteres'
       category_label: "* Etiqueta"
       city_label: 'Ciudad'
       city_placeholder: '¿Dónde encontraste este problema en concreto?'
@@ -152,7 +157,7 @@ es:
       upvote_data_balloon: 'Apoya este problema'
       poster: 'Por'
       tagged_politician: 'A'
-      email_subject: 'Me gustaría conocer tu opinión acerca de...'
+      email_subject: 'Me gustaría conocer tu opinión acerca de %{issue}'
       email_body: "Apreciado %{politician},\n\nMe gustaría conocer tu opinión sobre %{issue}.
       Puedes contestar directamente en  http://www.citizenvoice.io/post/%{issue_id}\n\nGracias por adelantado,\n"
       email_politician: 'Envíale un mail a %{politician}'

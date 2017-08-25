@@ -40,6 +40,7 @@ class PostsController < ApplicationController
       redirect_to post_path(@post)
     else
       @post.destroy
+      flash.now[:alert] = "You must assign your issue to at least one politician"
       render :new
     end
   end

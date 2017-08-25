@@ -26,8 +26,9 @@ gem 'devise-i18n'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'postmark-rails'
-gem 'roadie', '~> 3.2'
 gem 'sqreen'
+gem 'client_side_validations'
+gem 'client_side_validations-simple_form'
 
 group :development do
   gem 'binding_of_caller'
