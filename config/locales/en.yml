@@ -159,6 +159,14 @@ en:
       photo_label: 'Photo'
       tag_politician: 'Select the politicians who you would like to respond'
       button: 'Create issue'
+      first_name_label: "First name"
+      last_name_label: "Last name"
+      address_label: "Address"
+      city_label: "City"
+      neighbourhood_label: "Neighbourhood"
+      email_label: "Email address"
+      password_label: "Password"
+      confirm_password_label: "Confirm your password"
     create:
       flash:
         notice:

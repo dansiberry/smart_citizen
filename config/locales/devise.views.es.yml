@@ -88,7 +88,7 @@ es:
       #   email_placeholder: "Edita tu dirección de email"
       #   sign_out: "Sign out"
       new:
-        sign_up: 'Registrarte'
+        # sign_up: 'Registrarte'
         elected_official: "¿Eres un cargo público electo?"
         claim_profile: "Reclama tu perfil de cargo público electo"
         email_subject: "Reclamar mi perfil de cargo público"

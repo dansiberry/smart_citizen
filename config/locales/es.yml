@@ -138,6 +138,14 @@ es:
       photo_label: 'Foto'
       tag_politician: 'Escoge los políticos que te gustaría que contestaran'
       button: 'Propón un tema'
+      first_name_label: "Nombre"
+      last_name_label: "Apellido"
+      address_label: "Dirección"
+      city_label: "Ciudad"
+      neighbourhood_label: "Barrio"
+      email_label: "Email address"
+      password_label: "Contraseña"
+      confirm_password_label: "Confirm your password"
     create:
       flash:
         notice:

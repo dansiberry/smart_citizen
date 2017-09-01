@@ -138,6 +138,14 @@ ca:
       photo_label: 'Foto'
       tag_politician: "Tria els polítics que t'agradaria que contestessin"
       button: 'Proposa un tema'
+      first_name_label: "Nom"
+      last_name_label: "Cognom"
+      address_label: "Adreça"
+      city_label: "Ciitat"
+      neighbourhood_label: "Barri"
+      email_label: "Email address"
+      password_label: "Password"
+      confirm_password_label: "Confirm your password"
     create:
       flash:
         notice:
