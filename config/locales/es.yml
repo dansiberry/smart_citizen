@@ -138,6 +138,12 @@ es:
       photo_label: 'Foto'
       tag_politician: 'Escoge los políticos que te gustaría que contestaran'
       button: 'Propón un tema'
+    create:
+      flash:
+        notice:
+          unconfirmed_user: "This issue is not live on the site until you confirm your address. Check your inbox."
+        alert:
+          choose_politician: "You must assign your issue to at least one politician"
     index:
       search: 'Búsqueda'
       my_issues: 'My Issues'

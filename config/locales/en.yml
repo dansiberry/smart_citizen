@@ -159,6 +159,12 @@ en:
       photo_label: 'Photo'
       tag_politician: 'Select the politicians who you would like to respond'
       button: 'Create issue'
+    create:
+      flash:
+        notice:
+          unconfirmed_user: "This issue is not live on the site until you confirm your address. Check your inbox."
+        alert:
+          choose_politician: "You must assign your issue to at least one politician"
     index:
       search: 'Search'
       my_issues: 'My Issues'
@@ -239,3 +245,8 @@ en:
       view_button: 'Read the comment'
       thanks: "Cheers,"
       signature: "The CitizenVoice Team"
+  flash:
+    notice:
+      unconfirmed_user: "This issue is not live on the site until you confirm your address. Check your inbox."
+    alert:
+      choose_politician: "You must assign your issue to at least one politician"
