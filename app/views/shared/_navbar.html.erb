@@ -33,8 +33,12 @@
 
    <div class="navbar-wagon-item">
     <div class="dropdown">
-      <% avatar_url = current_user.twitter_picture_url || "http://placehold.it/30x30" %>
-      <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+      <% if current_user.twitter_picture_url %>
+        <% avatar_url = current_user.twitter_picture_url %>
+        <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+      <% else %>
+        <i class="fa fa-user dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown"></i>
+      <% end %>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu" style="min-width: 160px">
         <li>
           <% if current_user.as_politician %>
@@ -45,8 +49,8 @@
           <% end %>
         </li>
         <% if current_user.as_politician %>
-        <li class="block-inline">
-          <%= link_to t('.my_account'), edit_user_registration_path %>
+          <li class="block-inline">
+            <%= link_to t('.my_account'), edit_user_registration_path %>
         </li>
         <% end %>
       </ul>
@@ -170,7 +174,7 @@
   </div>
 
 
-<% end %>
+  <% end %>
 </div>
 
 
