@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
     comment.save
     post.send_response_email
     flash[:analytics] = "/goals/reply"
+    comment.user.as_politician.verify if comment.user.as_politician.verified == false
     redirect_to post_path(Post.find(params[:post_id]))
   end
 
