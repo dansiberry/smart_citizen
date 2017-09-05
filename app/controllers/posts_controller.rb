@@ -35,12 +35,12 @@ class PostsController < ApplicationController
     end
 
     if saved and @post.has_politician?
-      flash[:notice] = "This issue is not live on the site until you confirm your address. Check your inbox." if @post.user.confirmed? == false
+      flash[:notice] = t('.flash.notice.unconfirmed_user') if @post.user.confirmed? == false
       flash[:analytics] = "/goals/raise_an_issue"
       redirect_to post_path(@post)
     else
       @post.destroy
-      flash.now[:alert] = "You must assign your issue to at least one politician"
+      flash.now[:alert] = t('.flash.alert.choose_politician')
       render :new
     end
   end

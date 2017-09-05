@@ -89,7 +89,7 @@ ca:
     #   sign_out: "Tanca sessió"
       new:
         # sign_up: Registrar-te
-        # elected_official: "Ets un càrrec públic electe?"
+        elected_official: "Ets un càrrec públic electe?"
         claim_profile: "Reclama el teu perfil de càrrec públic electe"
         email_subject: "Reclamar el meu perfil de càrrec públic"
         email_body: "Hola CitizenVoice,\n\nM'agradaria demanar el meu perfil de càrrec públic electe i us envio aquest mail desde la meva adreça electrònica oficial de l'ajuntament com a prova.\n\nGràcies,\n"
