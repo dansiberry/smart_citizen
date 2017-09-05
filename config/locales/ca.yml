@@ -41,7 +41,7 @@ ca:
       notification_message: 'Your response is requested on an issue: %{issue_title}'
   pages:
     home:
-      title: 'Connecta amb els teus polítics locals en temes que importen'
+      title: 'Interactua amb els teus polítics locals sobre temes que importen'
       how_to_section_title: "Apropant-te a la política local"
       how_to_title1: 'Busca temes a la teva zona'
       how_to_text1: "Busca per barri per descobrir quins temes s'han proposat.
@@ -137,7 +137,7 @@ ca:
       neighbourhood_placeholder: 'A quin barri?'
       photo_label: 'Foto'
       tag_politician: "Tria els polítics que t'agradaria que contestessin"
-      button: 'Proposa un tema'
+      button: 'Publica tema'
       first_name_label: "Nom"
       last_name_label: "Cognom"
       address_label: "Adreça"
@@ -175,7 +175,7 @@ ca:
       email_body: "Apreciat %{politician},\n\nM'agradaria conèixer la teva opinió sobre %{issue}.
       Pots contestar directament a  http://www.citizenvoice.io/post/%{issue_id}\n\nGràcies,\n"
       email_politician: 'Envia-li un mail a %{politician}'
-      tweet_text: "M'agradaria conèixer la teva opinió sobre%{issue} http://www.citizenvoice.io/post/%{issue_id}"
+      tweet_text: "M'agradaria conèixer la teva opinió sobre %{issue} http://www.citizenvoice.io/post/%{issue_id}"
       tweet_to: 'Tweet a'
       photos: 'Fotos'
       related_issues: 'Més sobre'

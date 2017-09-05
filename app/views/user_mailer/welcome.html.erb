@@ -430,7 +430,7 @@
                                       </td>
                                       <td>
                                         <p><%= t('.search_issues_text') %></p>
-                                        <%= link_to t('.search_issues_button'), posts_url(locale: @user.locale), class: "button button--green" %>
+                                        <%= link_to t('.search_issues_button'), posts_url(locale: @user.locale, city: @user.city, neighbourhood: @user.neighbourhood), class: "button button--green" %>
                                       </td>
                                     </tr>
                                   </table>

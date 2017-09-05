@@ -35,7 +35,7 @@ class PostsController < ApplicationController
     end
 
     if saved and @post.has_politician?
-      flash[:notice] = t('.flash.notice.unconfirmed_user') if @post.user.confirmed? == false
+      flash[:alert] = t('.flash.notice.unconfirmed_user') if @post.user.confirmed? == false
       flash[:analytics] = "/goals/raise_an_issue"
       redirect_to post_path(@post)
     else
