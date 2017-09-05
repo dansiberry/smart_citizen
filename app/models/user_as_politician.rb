@@ -10,4 +10,8 @@ class UserAsPolitician < ApplicationRecord
   def default_picture_url
     "http://www.iconsfind.com/wp-content/uploads/2015/08/20150831_55e46b1c0c44b.png"
   end
+
+  def verify
+    self.update verified: true
+  end
 end
